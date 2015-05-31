@@ -7,12 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0817F1995AFF722FA24CE00F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DE2128E7FE9BD666B33E078A /* libPods.a */; };
 		DD1C584E1B16981D00188B28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1C584D1B16981D00188B28 /* AppDelegate.swift */; };
 		DD1C58501B16981D00188B28 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1C584F1B16981D00188B28 /* ViewController.swift */; };
 		DD1C58531B16981D00188B28 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD1C58511B16981D00188B28 /* Main.storyboard */; };
 		DD1C58551B16981D00188B28 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD1C58541B16981D00188B28 /* Images.xcassets */; };
 		DD1C58581B16981D00188B28 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD1C58561B16981D00188B28 /* LaunchScreen.xib */; };
 		DD1C58641B16981E00188B28 /* TippyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1C58631B16981E00188B28 /* TippyTests.swift */; };
+		DD1C586E1B16995000188B28 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1C586D1B16995000188B28 /* ViewModel.swift */; };
+		DD80142A1B16A15F007A673F /* RAC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8014261B16A15F007A673F /* RAC.swift */; };
+		DD80142B1B16A15F007A673F /* RACObserve.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8014271B16A15F007A673F /* RACObserve.swift */; };
+		DD80142C1B16A15F007A673F /* RACSignal+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8014281B16A15F007A673F /* RACSignal+Extensions.swift */; };
+		DD80142D1B16A15F007A673F /* TableViewBindingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8014291B16A15F007A673F /* TableViewBindingHelper.swift */; };
+		DDA5BDAE1B18DFEB003D69BD /* TipoutModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA5BDAD1B18DFEB003D69BD /* TipoutModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +33,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		30ED8F8AA8EC807AB7AB0DBA /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		908921366D489D5B2C33EF7D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		DD1C58481B16981D00188B28 /* Tippy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tippy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD1C584C1B16981D00188B28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD1C584D1B16981D00188B28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -36,6 +45,15 @@
 		DD1C585D1B16981E00188B28 /* TippyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TippyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD1C58621B16981E00188B28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD1C58631B16981E00188B28 /* TippyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TippyTests.swift; sourceTree = "<group>"; };
+		DD1C586D1B16995000188B28 /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		DD8014261B16A15F007A673F /* RAC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAC.swift; sourceTree = "<group>"; };
+		DD8014271B16A15F007A673F /* RACObserve.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RACObserve.swift; sourceTree = "<group>"; };
+		DD8014281B16A15F007A673F /* RACSignal+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RACSignal+Extensions.swift"; sourceTree = "<group>"; };
+		DD8014291B16A15F007A673F /* TableViewBindingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewBindingHelper.swift; sourceTree = "<group>"; };
+		DD80142E1B16A1F3007A673F /* bridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bridgingHeader.h; sourceTree = "<group>"; };
+		DDA5BDAD1B18DFEB003D69BD /* TipoutModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipoutModel.swift; sourceTree = "<group>"; };
+		DDA5BDB11B190886003D69BD /* ScratchPad.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = ScratchPad.playground; sourceTree = "<group>"; };
+		DE2128E7FE9BD666B33E078A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0817F1995AFF722FA24CE00F /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,12 +75,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E8F5C62A9B8825E5B38FD73 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				908921366D489D5B2C33EF7D /* Pods.debug.xcconfig */,
+				30ED8F8AA8EC807AB7AB0DBA /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		37DFF81F10D79D1C2B13583D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DE2128E7FE9BD666B33E078A /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		DD1C583F1B16981D00188B28 = {
 			isa = PBXGroup;
 			children = (
+				DD80142E1B16A1F3007A673F /* bridgingHeader.h */,
 				DD1C584A1B16981D00188B28 /* Tippy */,
 				DD1C58601B16981E00188B28 /* TippyTests */,
 				DD1C58491B16981D00188B28 /* Products */,
+				2E8F5C62A9B8825E5B38FD73 /* Pods */,
+				37DFF81F10D79D1C2B13583D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,9 +118,16 @@
 			children = (
 				DD1C584D1B16981D00188B28 /* AppDelegate.swift */,
 				DD1C584F1B16981D00188B28 /* ViewController.swift */,
+				DD1C586D1B16995000188B28 /* ViewModel.swift */,
+				DDA5BDAD1B18DFEB003D69BD /* TipoutModel.swift */,
 				DD1C58511B16981D00188B28 /* Main.storyboard */,
+				DDA5BDB11B190886003D69BD /* ScratchPad.playground */,
 				DD1C58541B16981D00188B28 /* Images.xcassets */,
 				DD1C58561B16981D00188B28 /* LaunchScreen.xib */,
+				DD8014261B16A15F007A673F /* RAC.swift */,
+				DD8014271B16A15F007A673F /* RACObserve.swift */,
+				DD8014281B16A15F007A673F /* RACSignal+Extensions.swift */,
+				DD8014291B16A15F007A673F /* TableViewBindingHelper.swift */,
 				DD1C584B1B16981D00188B28 /* Supporting Files */,
 			);
 			path = Tippy;
@@ -119,9 +165,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DD1C58671B16981E00188B28 /* Build configuration list for PBXNativeTarget "Tippy" */;
 			buildPhases = (
+				125FE7D229DCE63A90A751F4 /* Check Pods Manifest.lock */,
 				DD1C58441B16981D00188B28 /* Sources */,
 				DD1C58451B16981D00188B28 /* Frameworks */,
 				DD1C58461B16981D00188B28 /* Resources */,
+				3FCE40AB4A83D3CAF5C36D08 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -207,12 +255,51 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		125FE7D229DCE63A90A751F4 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		3FCE40AB4A83D3CAF5C36D08 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		DD1C58441B16981D00188B28 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD80142B1B16A15F007A673F /* RACObserve.swift in Sources */,
 				DD1C58501B16981D00188B28 /* ViewController.swift in Sources */,
+				DDA5BDAE1B18DFEB003D69BD /* TipoutModel.swift in Sources */,
+				DD80142C1B16A15F007A673F /* RACSignal+Extensions.swift in Sources */,
+				DD1C586E1B16995000188B28 /* ViewModel.swift in Sources */,
+				DD80142A1B16A15F007A673F /* RAC.swift in Sources */,
+				DD80142D1B16A15F007A673F /* TableViewBindingHelper.swift in Sources */,
 				DD1C584E1B16981D00188B28 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -291,9 +378,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -329,8 +417,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -338,21 +427,25 @@
 		};
 		DD1C58681B16981E00188B28 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 908921366D489D5B2C33EF7D /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Tippy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = bridgingHeader.h;
 			};
 			name = Debug;
 		};
 		DD1C58691B16981E00188B28 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 30ED8F8AA8EC807AB7AB0DBA /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Tippy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = bridgingHeader.h;
 			};
 			name = Release;
 		};
@@ -409,6 +502,7 @@
 				DD1C58691B16981E00188B28 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DD1C586A1B16981E00188B28 /* Build configuration list for PBXNativeTarget "TippyTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +511,7 @@
 				DD1C586C1B16981E00188B28 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
