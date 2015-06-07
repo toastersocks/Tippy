@@ -8,7 +8,7 @@
 
 import UIKit
 
-func round(num: Double, #toNearest: Double) ->Double {
+func round(num: Double, #toNearest: Double) -> Double {
     return round(num / 0.25) * 0.25
 }
 
@@ -19,18 +19,21 @@ class TipoutModel: NSObject {
    dynamic var total: Double = 0.0
     
    dynamic var kitchenTipout: Double {
+    
         return round((total * 0.3), toNearest: 0.25)
     }
     
-    dynamic var workersHours = [Double]() {
-        didSet {
-            debugPrintln(workersHours)
-        }
-    }
+    dynamic var workersHours = [Double]()
     
     dynamic var workersTipOuts: [Double] {
+        
+        println(self.totalWorkersHours)
+
         let tipouts = workersHours.map {
-        return round(((self.total - self.kitchenTipout) / self.totalWorkersHours * $0), toNearest: 0.25)
+            (workerHours: Double) -> Double in
+            let tipout = round(((self.total - self.kitchenTipout) / self.totalWorkersHours * workerHours), toNearest: 0.25)
+            // If we try to divide by zero, the result will be 'nan', 'Not a Number', so we have to check for this and return 0.0 if it is
+            return isnan(tipout) ? 0.0 : tipout
         }
         debugPrintln(tipouts)
         return tipouts
