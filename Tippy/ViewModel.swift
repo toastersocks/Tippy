@@ -21,8 +21,11 @@ class ViewModel: NSObject {
         }
     }
     
-   dynamic var kitchenTipoutText: String {
-        return "\(tipOutModel.kitchenTipout)"
+    dynamic var kitchenTipoutSignal: RACSignal {
+        return RACObserve(tipOutModel, "kitchenTipout")
+            .mapAs({ (tipout: NSNumber) -> NSString in
+                    return "\(self.tipOutModel.kitchenTipout)"
+                })
     }
     
    dynamic var workersHours: [String] {
@@ -35,9 +38,11 @@ class ViewModel: NSObject {
         }
     }
     
-   dynamic var workersTipouts: [String] {
-        return tipOutModel.workersTipOuts.map { "\($0)" }
+    dynamic var workersTipoutsSignal: RACSignal {
+        return RACObserve(tipOutModel, "workersTipOuts")
+            .mapAs { (tipouts: NSArray) -> NSArray in
+                return self.tipOutModel.workersTipOuts.map { "\($0)" }
+        }
     }
-    
     
 }

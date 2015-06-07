@@ -21,47 +21,32 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         super.viewDidLoad()
         
-       // totalField.delegate = self
-        
-        RACObserve(viewModel, "workersHours")
-            .subscribeNextAs {
-                (hoursArray: NSArray) in
-                map(enumerate(self.viewModel.workersHours)) {
-                    (index, hours) in
-                    workerTipoutLabels[index].text = viewModel.workersHours[index]
-                }
-        }
         
         workersHoursFields.map {
-            (textField: UITextField)  in
-            RACSignal.merge([textField.rac_textSignal(), self.totalField.rac_textSignal()])
-                .subscribeNextAs {
-                (text: NSString) -> () in
-//                debugPrintln(text)
-                self.viewModel.workersHours =
-                    self.workersHoursFields
-                    .map { $0.text }
-                map(enumerate(self.workerTipoutLabels)) {
-                    (index: Int, label: UILabel) -> Void in
-//                    debugPrintln(self.viewModel.workersTipouts[index])
-                    label.text = self.viewModel.workersTipouts[index]
+            (textField: UITextField) in
+                textField.rac_textSignal()
+                .subscribeNextAs { (hours: String) in
+                    self.viewModel.workersHours = self.workersHoursFields.map { $0.text }
                 }
-                return ()
+        }
+
+
+        viewModel.workersTipoutsSignal
+        .subscribeNextAs {
+            
+        (tipouts: NSArray) in
+            
+            map(enumerate(tipouts)) {
+                
+            (index, tipout) in
+                
+                self.workerTipoutLabels[index].text = tipout as? String
             }
         }
-        
 
         
-//        RACObserve(self, "workersHoursFields")
-//            .subscribeNextAs {
-//                (textFields: [UITextField]) in
-//                textFields.map {debugPrintln($0.text)}
-//        }
         
-        RACObserve(viewModel, "totalText")
-            .subscribeNextAs { (total: String) in
-            self.kitchenTipoutLabel.text = self.viewModel.kitchenTipoutText
-        }
+        RAC(kitchenTipoutLabel, "text") <~ viewModel.kitchenTipoutSignal
         
         RAC(viewModel, "totalText") <~ totalField.rac_textSignal()
         
