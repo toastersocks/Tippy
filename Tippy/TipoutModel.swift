@@ -12,20 +12,20 @@ func round(num: Double, #toNearest: Double) -> Double {
     return round(num / 0.25) * 0.25
 }
 
-class TipoutModel: NSObject {
+public class TipoutModel: NSObject {
     
 
    
-   dynamic var total: Double = 0.0
+   public dynamic var total: Double = 0.0
     
-   dynamic var kitchenTipout: Double {
+   public dynamic var kitchenTipout: Double {
     
         return round((total * 0.3), toNearest: 0.25)
     }
     
-    dynamic var workersHours = [Double]()
+    public dynamic var workersHours = [Double]()
     
-    dynamic var workersTipOuts: [Double] {
+    public dynamic var workersTipOuts: [Double] {
         
         println(self.totalWorkersHours)
 
@@ -35,11 +35,10 @@ class TipoutModel: NSObject {
             // If we try to divide by zero, the result will be 'nan', 'Not a Number', so we have to check for this and return 0.0 if it is
             return isnan(tipout) ? 0.0 : tipout
         }
-        debugPrintln(tipouts)
         return tipouts
     }
     
-    var totalWorkersHours: Double {
+   public var totalWorkersHours: Double {
         return workersHours.reduce(0, combine: {$0 + $1})
     }
     
