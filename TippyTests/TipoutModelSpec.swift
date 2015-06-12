@@ -7,7 +7,6 @@
 //
 
 import Foundation
-//import ReactiveCocoa
 import Tippy
 import Fox
 import Nimble
@@ -30,7 +29,7 @@ class TipoutModelSpec: QuickSpec {
             
             beforeEach {
                 tipoutModel = TipoutModel()
-//                tipoutModel.total = 100.9
+
                 tipoutModel.workersHours = [4.0, 3.0, 1.0]
             }
             
@@ -44,6 +43,18 @@ class TipoutModelSpec: QuickSpec {
                     }
 //                    expect(tipoutModel.total).to(equal(tipoutModel.workersTipOuts.reduce(tipoutModel.kitchenTipout, combine:{ $0 + $1 })))
                     expect(property).to(hold())
+                }
+            }
+            
+            /**
+            *  Sanity check
+            */
+            describe("its kitchen tipout") {
+                context("when the total tips are 100") {
+                    it("should be 30") {
+                        tipoutModel.total = 100.0
+                        expect(tipoutModel.kitchenTipout) == 30
+                    }
                 }
             }
         }
