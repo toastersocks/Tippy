@@ -14,21 +14,20 @@ func round(num: Double, #toNearest: Double) -> Double {
 
 public class TipoutModel: NSObject {
     
-
-   
-   public dynamic var total: Double = 0.0
     
-   public dynamic var kitchenTipout: Double {
     
-        return round((total * 0.3), toNearest: 0.25)
+    public dynamic var total: Double = 0.0
+    
+    public dynamic var kitchenTipout: Double {
+        var tipout = round((total * 0.3), toNearest: 0.25)
+        tipout = total - (tipout + round(total - tipout, toNearest: 0.25)) + tipout
+        return tipout
     }
     
-    public dynamic var workersHours = [Double]()
+    public dynamic var workersHours = [Double](count: 5, repeatedValue: 0.0)
     
     public dynamic var workersTipOuts: [Double] {
         
-        println(self.totalWorkersHours)
-
         let tipouts = workersHours.map {
             (workerHours: Double) -> Double in
             let tipout = round(((self.total - self.kitchenTipout) / self.totalWorkersHours * workerHours), toNearest: 0.25)
@@ -38,13 +37,13 @@ public class TipoutModel: NSObject {
         return tipouts
     }
     
-   public var totalWorkersHours: Double {
+    public var totalWorkersHours: Double {
         return workersHours.reduce(0, combine: {$0 + $1})
     }
     
     // MARK: - KVO
     class func keyPathsForValuesAffectingKitchenTipout() -> Set<NSObject> {
-    return Set(["total"])
+        return Set(["total"])
     }
     
     class func keyPathsForValuesAffectingTotalWorkersHours() -> Set<NSObject> {
