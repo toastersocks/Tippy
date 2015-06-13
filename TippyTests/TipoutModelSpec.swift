@@ -28,7 +28,7 @@ class TipoutModelSpec: QuickSpec {
             var tipoutModel: TipoutModel!
             
             beforeEach {
-                tipoutModel = TipoutModel()
+                tipoutModel = TipoutModel(roundToNearest: 0.25)
 
                 tipoutModel.workersHours = [4.0, 3.0, 1.0]
             }
@@ -53,7 +53,7 @@ class TipoutModelSpec: QuickSpec {
                 context("when the total tips are 100") {
                     it("should be 30") {
                         tipoutModel.total = 100.0
-                        expect(tipoutModel.kitchenTipout) == 30
+                        expect(tipoutModel.kitchenTipout) == 30.0
                     }
                 }
             }
