@@ -7,6 +7,9 @@
 //
 
 import Foundation
+import UIKit
+import ReactiveCocoa
+
 
 @objc protocol ReactiveView {
   func bindViewModel(viewModel: AnyObject)

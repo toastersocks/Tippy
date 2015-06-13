@@ -7,12 +7,13 @@
 //
 
 import Foundation
+import ReactiveCocoa
 
 class ViewModel: NSObject {
     
-    private let tipOutModel = TipoutModel()
+    private let tipOutModel = TipoutModel(roundToNearest: 0.25)
     
-   dynamic var totalText: String {
+    dynamic var totalText: String {
         get {
             return "\(tipOutModel.total)"
         }
@@ -28,7 +29,7 @@ class ViewModel: NSObject {
                 })
     }
     
-   dynamic var workersHours: [String] {
+    dynamic var workersHours: [String] {
         get {
         return tipOutModel.workersHours.map {"\($0)"}
         }
