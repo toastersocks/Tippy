@@ -16,6 +16,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var kitchenTipoutLabel: UILabel!
     @IBOutlet weak var totalField: UITextField!
     
+    @IBOutlet var calculationMethods: [UIButton]!
+    
     let viewModel = ViewModel()
     
     override func viewDidLoad() {
@@ -27,7 +29,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             (textField: UITextField) in
                 textField.rac_textSignal()
                 .subscribeNextAs { (hours: String) in
-                    self.viewModel.workersHours = self.workersHoursFields.map { $0.text }
+                    self.viewModel.setWorkersHours(self.workersHoursFields.map { $0.text })
                 }
         }
 

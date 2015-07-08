@@ -8,41 +8,41 @@
 
 import Foundation
 import ReactiveCocoa
+import Tipout
 
 class ViewModel: NSObject {
     
-    private let tipOutModel = TipoutModel(roundToNearest: 0.25)
+    private let tipoutModel = TipoutModel(roundToNearest: 0.25)
     
     dynamic var totalText: String {
         get {
-            return "\(tipOutModel.total)"
+            return "\(tipoutModel.total)"
         }
         set {
-            tipOutModel.total = NSString(string: newValue).doubleValue
+            tipoutModel.total = NSString(string: newValue).doubleValue
         }
     }
     
     dynamic var kitchenTipoutSignal: RACSignal {
-        return RACObserve(tipOutModel, "kitchenTipout")
-            .mapAs({ (tipout: NSNumber) -> NSString in
-                    return "\(self.tipOutModel.kitchenTipout)"
+        return RACObserve(tipoutModel, "tipouts")
+            .mapAs({ (tipouts: NSArray) -> NSString in
+                    return "\(tipouts[0])"
                 })
     }
     
-    dynamic var workersHours: [String] {
-        get {
-        return tipOutModel.workersHours.map {"\($0)"}
-        }
-        set {
-            tipOutModel.workersHours =
-                newValue.map { NSString(string: $0).doubleValue }
-        }
+    func setWorkersHours(hours: [String]) {
+        
+            let newWorkers: [TipoutMethod]
+
+            tipoutModel.setWorkers( [TipoutMethod.Percentage(0.3)] + hours.map { TipoutMethod.Hourly(NSString(string: $0).doubleValue) } )
     }
     
     dynamic var workersTipoutsSignal: RACSignal {
-        return RACObserve(tipOutModel, "workersTipOuts")
+        return RACObserve(tipoutModel, "tipouts")
+            
             .mapAs { (tipouts: NSArray) -> NSArray in
-                return self.tipOutModel.workersTipOuts.map { "\($0)" }
+                let workersTipouts = Array((tipouts as Array)[1 ..< tipouts.count])
+                return workersTipouts.map { "\($0)" }
         }
     }
     

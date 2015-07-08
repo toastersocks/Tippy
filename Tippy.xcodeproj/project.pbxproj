@@ -10,7 +10,6 @@
 		28440E9258E24EF7F81214F3 /* Pods_TippyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF705FFE020F128DA237EEAC /* Pods_TippyTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		3DB4C05336EA25A8E92C9953 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83539D73C0791EB5B4C2F8AA /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		A829A102E058894BF9866CAE /* Pods_Tippy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEFFD09179B75A8434E83C43 /* Pods_Tippy.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		DD1A48061B29D746003FA9DB /* TipoutModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1A48051B29D746003FA9DB /* TipoutModelSpec.swift */; };
 		DD1C584E1B16981D00188B28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1C584D1B16981D00188B28 /* AppDelegate.swift */; };
 		DD1C58501B16981D00188B28 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1C584F1B16981D00188B28 /* ViewController.swift */; };
 		DD1C58531B16981D00188B28 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD1C58511B16981D00188B28 /* Main.storyboard */; };
@@ -22,7 +21,7 @@
 		DD80142B1B16A15F007A673F /* RACObserve.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8014271B16A15F007A673F /* RACObserve.swift */; };
 		DD80142C1B16A15F007A673F /* RACSignal+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8014281B16A15F007A673F /* RACSignal+Extensions.swift */; };
 		DD80142D1B16A15F007A673F /* TableViewBindingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8014291B16A15F007A673F /* TableViewBindingHelper.swift */; };
-		DDA5BDAE1B18DFEB003D69BD /* TipoutModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA5BDAD1B18DFEB003D69BD /* TipoutModel.swift */; };
+		DDF557811B34AF7600D4D346 /* Tipout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDF557801B34AF7600D4D346 /* Tipout.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		EB2FA3E833732487A20C3DA3 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83539D73C0791EB5B4C2F8AA /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -45,7 +44,6 @@
 		DBDA99C7833065BFA9C5AA74 /* Pods-Tippy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tippy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tippy/Pods-Tippy.debug.xcconfig"; sourceTree = "<group>"; };
 		DD1A48031B28FE7D003FA9DB /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		DD1A48041B29D456003FA9DB /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		DD1A48051B29D746003FA9DB /* TipoutModelSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipoutModelSpec.swift; sourceTree = "<group>"; };
 		DD1C58481B16981D00188B28 /* Tippy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tippy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD1C584C1B16981D00188B28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD1C584D1B16981D00188B28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -62,8 +60,7 @@
 		DD8014281B16A15F007A673F /* RACSignal+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RACSignal+Extensions.swift"; sourceTree = "<group>"; };
 		DD8014291B16A15F007A673F /* TableViewBindingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewBindingHelper.swift; sourceTree = "<group>"; };
 		DD80142E1B16A1F3007A673F /* bridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bridgingHeader.h; sourceTree = "<group>"; };
-		DDA5BDAD1B18DFEB003D69BD /* TipoutModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipoutModel.swift; sourceTree = "<group>"; };
-		DDA5BDB11B190886003D69BD /* ScratchPad.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = ScratchPad.playground; sourceTree = "<group>"; };
+		DDF557801B34AF7600D4D346 /* Tipout.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Tipout.framework; path = "../Tipout/build/Debug-iphoneos/Tipout.framework"; sourceTree = "<group>"; };
 		EF705FFE020F128DA237EEAC /* Pods_TippyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TippyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -74,6 +71,7 @@
 			files = (
 				EB2FA3E833732487A20C3DA3 /* Pods.framework in Frameworks */,
 				A829A102E058894BF9866CAE /* Pods_Tippy.framework in Frameworks */,
+				DDF557811B34AF7600D4D346 /* Tipout.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +90,7 @@
 		37DFF81F10D79D1C2B13583D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DDF557801B34AF7600D4D346 /* Tipout.framework */,
 				83539D73C0791EB5B4C2F8AA /* Pods.framework */,
 				AEFFD09179B75A8434E83C43 /* Pods_Tippy.framework */,
 				EF705FFE020F128DA237EEAC /* Pods_TippyTests.framework */,
@@ -139,15 +138,11 @@
 				DD1C584D1B16981D00188B28 /* AppDelegate.swift */,
 				DD1C584F1B16981D00188B28 /* ViewController.swift */,
 				DD1C586D1B16995000188B28 /* ViewModel.swift */,
-				DDA5BDAD1B18DFEB003D69BD /* TipoutModel.swift */,
+				DD8BD6E91B2F226C00A57BAE /* Model */,
 				DD1C58511B16981D00188B28 /* Main.storyboard */,
-				DDA5BDB11B190886003D69BD /* ScratchPad.playground */,
 				DD1C58541B16981D00188B28 /* Images.xcassets */,
 				DD1C58561B16981D00188B28 /* LaunchScreen.xib */,
-				DD8014261B16A15F007A673F /* RAC.swift */,
-				DD8014271B16A15F007A673F /* RACObserve.swift */,
-				DD8014281B16A15F007A673F /* RACSignal+Extensions.swift */,
-				DD8014291B16A15F007A673F /* TableViewBindingHelper.swift */,
+				DD9B6F4B1B2F5A1200E5E96B /* Third-Party */,
 				DD1C584B1B16981D00188B28 /* Supporting Files */,
 			);
 			path = Tippy;
@@ -165,7 +160,6 @@
 			isa = PBXGroup;
 			children = (
 				DD1C58631B16981E00188B28 /* TippyTests.swift */,
-				DD1A48051B29D746003FA9DB /* TipoutModelSpec.swift */,
 				DD1C58611B16981E00188B28 /* Supporting Files */,
 			);
 			path = TippyTests;
@@ -177,6 +171,24 @@
 				DD1C58621B16981E00188B28 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DD8BD6E91B2F226C00A57BAE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		DD9B6F4B1B2F5A1200E5E96B /* Third-Party */ = {
+			isa = PBXGroup;
+			children = (
+				DD8014261B16A15F007A673F /* RAC.swift */,
+				DD8014271B16A15F007A673F /* RACObserve.swift */,
+				DD8014281B16A15F007A673F /* RACSignal+Extensions.swift */,
+				DD8014291B16A15F007A673F /* TableViewBindingHelper.swift */,
+			);
+			name = "Third-Party";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -380,7 +392,6 @@
 			files = (
 				DD80142B1B16A15F007A673F /* RACObserve.swift in Sources */,
 				DD1C58501B16981D00188B28 /* ViewController.swift in Sources */,
-				DDA5BDAE1B18DFEB003D69BD /* TipoutModel.swift in Sources */,
 				DD80142C1B16A15F007A673F /* RACSignal+Extensions.swift in Sources */,
 				DD1C586E1B16995000188B28 /* ViewModel.swift in Sources */,
 				DD80142A1B16A15F007A673F /* RAC.swift in Sources */,
@@ -393,7 +404,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD1A48061B29D746003FA9DB /* TipoutModelSpec.swift in Sources */,
 				DD1C58641B16981E00188B28 /* TippyTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -471,6 +481,7 @@
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_WHOLE_MODULE_OPTIMIZATION = YES;
 			};
 			name = Debug;
 		};
@@ -509,6 +520,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
+				SWIFT_WHOLE_MODULE_OPTIMIZATION = YES;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -518,6 +530,10 @@
 			baseConfigurationReference = DBDA99C7833065BFA9C5AA74 /* Pods-Tippy.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/jambes/Desktop/Projects/Tipout/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = Tippy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -530,6 +546,10 @@
 			baseConfigurationReference = 17D5463CDEB563F1D071D81A /* Pods-Tippy.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/jambes/Desktop/Projects/Tipout/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = Tippy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
