@@ -1,0 +1,7 @@
+github "ReactiveCocoa/ReactiveCocoa"
+
+git "https://bitbucket.org/toastersocks/tipout"
+
+#git "file:///Users/jambes/Desktop/Projects/Tipout"
+
+#git "file:///Users/jambes/Desktop/Projects/Tipout" "hotfix/v1.0.2"
