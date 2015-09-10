@@ -10,6 +10,6 @@ import Foundation
 import ReactiveCocoa
 
 // replaces the RACObserve macro
-func RACObserve(target: NSObject!, keyPath: String) -> RACSignal  {
+func RACObserve(target: NSObject!, _ keyPath: String) -> RACSignal  {
   return target.rac_valuesForKeyPath(keyPath, observer: target)
 }
