@@ -32,9 +32,7 @@ class ViewModel: NSObject {
     
     func setWorkersHours(hours: [String]) {
         
-            let newWorkers: [TipoutMethod]
-
-            tipoutModel.setWorkers( [TipoutMethod.Percentage(0.3)] + hours.map { TipoutMethod.Hourly(NSString(string: $0).doubleValue) } )
+        tipoutModel.workers = [Worker(method: .Percentage(0.3), id: "kitchen")] + zip(1...hours.count, hours).map { Worker(method: .Hourly(NSString(string: $1).doubleValue), id: String($0)) }
     }
     
     dynamic var workersTipoutsSignal: RACSignal {
