@@ -1,0 +1,2 @@
+github "ReactiveCocoa/ReactiveCocoa" "v2.5"
+git "https://bitbucket.org/toastersocks/tipout" "v2.0.2"

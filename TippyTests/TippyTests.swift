@@ -21,12 +21,12 @@ class TippyTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
+    func XtestExample() {
         // This is an example of a functional test case.
         XCTAssert(true, "Pass")
     }
     
-    func testPerformanceExample() {
+    func XtestPerformanceExample() {
         // This is an example of a performance test case.
         self.measureBlock() {
             // Put the code you want to measure the time of here.
