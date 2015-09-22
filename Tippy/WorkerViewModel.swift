@@ -110,15 +110,19 @@ class WorkerViewModel: NSObject {
     // MARK: = KVO
     
     class func keyPathsForValuesAffectingName() -> Set<NSObject> {
-        return Set(["worker.id"])
+        return Set(["worker", "worker.id"])
     }
     
     class func keyPathsForValuesAffectingAmount() -> Set<NSObject> {
-        return Set(["worker.tipout"])
+        return Set(["worker", "worker.tipout"])
     }
 
-    class func keyPathsForValuesAffectingTotalText() -> Set<NSObject> {
-        return Set(["tipoutModel.total"])
+    class func keyPathsForValuesAffectingHours() -> Set<NSObject> {
+        return Set(["worker", "worker.method"])
+    }
+    
+    class func keyPathsForValuesAffectingPercentage() -> Set<NSObject> {
+        return Set(["worker", "worker.tipout", "worker.method", "totalTipouts"])
     }
 }
 
