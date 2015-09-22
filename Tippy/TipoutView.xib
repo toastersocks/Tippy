@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TipoutView" customModule="Tippy" customModuleProvider="target">
+            <connections>
+                <outlet property="amountField" destination="tpq-ir-qfi" id="hoM-MT-jJh"/>
+                <outlet property="hoursField" destination="FIz-8f-mgV" id="Zlu-eV-oGG"/>
+                <outlet property="nameField" destination="TKA-nX-uEq" id="wVK-Lo-qwa"/>
+                <outlet property="percentageField" destination="uPw-2Q-Wt8" id="wJa-1r-grZ"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" verticalHuggingPriority="1000" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="462" height="135"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="248" horizontalCompressionResistancePriority="752" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Hours" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="FIz-8f-mgV">
+                    <rect key="frame" x="71" y="52" width="59" height="30"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Percentage" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="uPw-2Q-Wt8">
+                    <rect key="frame" x="185" y="52" width="93" height="30"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Amount" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="tpq-ir-qfi">
+                    <rect key="frame" x="391" y="52" width="71" height="30"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LjP-IY-zjp">
+                    <rect key="frame" x="380" y="57" width="11" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="evk-vs-TbU">
+                    <rect key="frame" x="278" y="57" width="13" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TKA-nX-uEq">
+                    <rect key="frame" x="0.0" y="52" width="59" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="evk-vs-TbU" firstAttribute="leading" secondItem="uPw-2Q-Wt8" secondAttribute="trailing" id="5RS-mS-BbE"/>
+                <constraint firstAttribute="centerY" secondItem="LjP-IY-zjp" secondAttribute="centerY" id="79d-9j-wQ7"/>
+                <constraint firstAttribute="centerY" secondItem="tpq-ir-qfi" secondAttribute="centerY" constant="0.5" id="9GS-bj-J4r"/>
+                <constraint firstAttribute="trailing" secondItem="tpq-ir-qfi" secondAttribute="trailing" id="NZw-AG-FGG"/>
+                <constraint firstAttribute="centerX" secondItem="uPw-2Q-Wt8" secondAttribute="centerX" priority="250" id="W5g-b1-wlG"/>
+                <constraint firstAttribute="centerY" secondItem="evk-vs-TbU" secondAttribute="centerY" id="X9g-60-thb"/>
+                <constraint firstAttribute="centerY" secondItem="FIz-8f-mgV" secondAttribute="centerY" constant="0.5" id="XfY-W9-zBA"/>
+                <constraint firstAttribute="centerY" secondItem="uPw-2Q-Wt8" secondAttribute="centerY" constant="0.5" id="YpX-cZ-Oty"/>
+                <constraint firstItem="FIz-8f-mgV" firstAttribute="leading" secondItem="TKA-nX-uEq" secondAttribute="trailing" constant="12" id="mCy-7B-8Dj"/>
+                <constraint firstItem="TKA-nX-uEq" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="nkp-hc-t4B"/>
+                <constraint firstItem="tpq-ir-qfi" firstAttribute="leading" secondItem="LjP-IY-zjp" secondAttribute="trailing" priority="900" id="tcX-5z-cIQ"/>
+                <constraint firstItem="LjP-IY-zjp" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="evk-vs-TbU" secondAttribute="trailing" priority="750" constant="7" id="u9T-Pn-eOf"/>
+                <constraint firstItem="TKA-nX-uEq" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="vxf-It-tvU"/>
+                <constraint firstItem="uPw-2Q-Wt8" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="FIz-8f-mgV" secondAttribute="trailing" constant="10" id="y1z-Oh-cfg"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="15" y="107.5"/>
+        </view>
+    </objects>
+</document>

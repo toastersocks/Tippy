@@ -61,7 +61,10 @@ class TableViewBindingHelper: NSObject, UITableViewDataSource, UITableViewDelega
 
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let item: AnyObject = data[indexPath.row]
-    let cell = tableView.dequeueReusableCellWithIdentifier(templateCell.reuseIdentifier!) as! UITableViewCell
+    guard let cell = tableView.dequeueReusableCellWithIdentifier(templateCell.reuseIdentifier!) else {
+        fatalError()
+    }
+    
     if let reactiveView = cell as? ReactiveView {
       reactiveView.bindViewModel(item)
     }
