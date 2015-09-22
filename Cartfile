@@ -1,8 +1,8 @@
-github "ReactiveCocoa/ReactiveCocoa"
+github "ReactiveCocoa/ReactiveCocoa" "v2.5"
 
 git "https://bitbucket.org/toastersocks/tipout"
 
-github "SnapKit/SnapKit" "swift-2.0"
+#github "SnapKit/SnapKit" "swift-2.0"
 
 #git "file:///Users/jambes/Desktop/Projects/Tipout"
 

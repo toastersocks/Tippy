@@ -1,3 +1,2 @@
 github "ReactiveCocoa/ReactiveCocoa" "v2.5"
-github "SnapKit/SnapKit" "4f19419528baa3dfaca20e26fea2be410ddc79e2"
-git "https://bitbucket.org/toastersocks/tipout" "v2.0"
+git "https://bitbucket.org/toastersocks/tipout" "v2.0.2"
