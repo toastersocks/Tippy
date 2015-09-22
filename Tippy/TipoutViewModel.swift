@@ -56,7 +56,7 @@ class TipoutViewModel: NSObject {
         }
     }
     
-    internal dynamic var workerViewModels: [WorkerViewModel] {
+    dynamic var workerViewModels: [WorkerViewModel] {
         return tipoutModel.workers.map {
             return WorkerViewModel(worker: $0, totalTipouts: tipoutModel.total)
         }
