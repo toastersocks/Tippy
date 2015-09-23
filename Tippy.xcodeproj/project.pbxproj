@@ -17,6 +17,7 @@
 		DD54AA791BB1A77C00AFFA68 /* testWorkerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD54AA781BB1A77C00AFFA68 /* testWorkerViewModel.swift */; settings = {ASSET_TAGS = (); }; };
 		DD54AA7E1BB1AA1200AFFA68 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD54AA7C1BB1AA1200AFFA68 /* Nimble.framework */; };
 		DD54AA7F1BB1AA1200AFFA68 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD54AA7D1BB1AA1200AFFA68 /* Quick.framework */; };
+		DD54AABF1BB30FF700AFFA68 /* ColorStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD54AABE1BB30FF700AFFA68 /* ColorStackView.swift */; settings = {ASSET_TAGS = (); }; };
 		DD67BD6C1B6861E4000EADD5 /* WorkerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD67BD6B1B6861E4000EADD5 /* WorkerViewModel.swift */; };
 		DD67BD701B697E2E000EADD5 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD67BD6E1B697E2E000EADD5 /* TableViewCell.xib */; };
 		DD6CB2F71B5C45040097BB76 /* TipoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6CB2F61B5C45040097BB76 /* TipoutView.swift */; };
@@ -81,6 +82,7 @@
 		DD54AA7A1BB1A82400AFFA68 /* Cartfile.private */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile.private; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		DD54AA7C1BB1AA1200AFFA68 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		DD54AA7D1BB1AA1200AFFA68 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
+		DD54AABE1BB30FF700AFFA68 /* ColorStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorStackView.swift; sourceTree = "<group>"; };
 		DD67BD6B1B6861E4000EADD5 /* WorkerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkerViewModel.swift; sourceTree = "<group>"; };
 		DD67BD6D1B697E2E000EADD5 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		DD67BD6E1B697E2E000EADD5 /* TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 		DD6CB2F51B5C3FA10097BB76 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DD54AABE1BB30FF700AFFA68 /* ColorStackView.swift */,
 				DDDAE7451B6BDE0B008D2140 /* WorkerTableViewController.swift */,
 				DD1C584F1B16981D00188B28 /* ViewController.swift */,
 				DD1C58511B16981D00188B28 /* Main.storyboard */,
@@ -397,6 +400,7 @@
 				DD54AA771BB0DB3300AFFA68 /* ViewModelable.swift in Sources */,
 				DDECA8EF1BA614D400D45446 /* Helpers.swift in Sources */,
 				DDE21BB61B4E15BE002D5859 /* Controller.swift in Sources */,
+				DD54AABF1BB30FF700AFFA68 /* ColorStackView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

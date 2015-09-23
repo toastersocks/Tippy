@@ -11,20 +11,20 @@ import ReactiveCocoa
 import Tipout
 
 
-class Controller: NSObject {
-   
+class Controller: NSObject, ColorStackViewDelegate {
+    
     // MARK: Properties
     
     private var tipoutModels = [TipoutModel]()
     
-    var currentViewModel: TipoutViewModel {
+    dynamic var currentViewModel: TipoutViewModel {
         return TipoutViewModel(tipoutModel: tipoutModels[currentIndex])
     }
     
     var count: Int { return tipoutModels.count }
-
-    private(set) var currentIndex = 0
-
+    
+    private(set) dynamic var currentIndex = 0
+    
     // Mark: Methods
     
     init(viewModel: TipoutModel = TipoutModel(roundToNearest: 0.25)) {
@@ -34,7 +34,7 @@ class Controller: NSObject {
     }
     
     func storeCurrent() {
-        let newTipout = TipoutModel()
+        let newTipout = TipoutModel(roundToNearest: 0.25)
         tipoutModels.append(newTipout)
         currentIndex = tipoutModels.count - 1
     }
@@ -47,18 +47,36 @@ class Controller: NSObject {
         }
     }
     
+    // MARK: - ColorStackViewDelegate
+    
+    @available(iOS 9.0, *)
+    func colorStackView(colorStackView: ColorStackView, didSelectIndex index: Int) {
+        currentIndex = index
+    }
+    
+    @available(iOS 9.0, *)
+    func numberOfItemsInColorStackView(colorStackView: ColorStackView) -> Int {
+        return count
+    }
+    
+    // MARK: - KVO
+    
+    class func keyPathsForValuesAffectingCurrentViewModel() -> Set<NSObject> {
+        return Set(["currentIndex"])
+    }
+    
     /*func workerViewModelAtIndex(index: Int) -> WorkerViewModel {
-        return currentViewModel.viewModelForWorkerAtIndex(index)
+    return currentViewModel.viewModelForWorkerAtIndex(index)
     }*/
     
-   }
+}
 
 /*extension Controller {
-    var addWorkerCommand: RACCommand {
-        return RACCommand(signalBlock: { (input) -> RACSignal! in
-            
-        })
-    }
+var addWorkerCommand: RACCommand {
+return RACCommand(signalBlock: { (input) -> RACSignal! in
+
+})
+}
 }
 */
 

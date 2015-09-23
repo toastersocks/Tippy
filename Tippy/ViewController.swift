@@ -9,6 +9,7 @@
 import UIKit
 import ReactiveCocoa
 
+@available(iOS 9.0, *)
 class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate, TipoutViewDelegate {
     
     private static let workersViewSegueID = "workersViewSegue"
@@ -20,13 +21,17 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
             workerTableView.dataSource = self
         }
     }
+    
+    @IBOutlet weak var colorStackView: ColorStackView! {
+        didSet {
+            colorStackView.delegate = controller
+        }
+    }
     @IBOutlet weak var totalField: UITextField!
     
     let controller = Controller()
     
     override func viewDidLoad() {
-        
-       
         
         super.viewDidLoad()
         let totalChannel = RACKVOChannel(target: controller, keyPath: "currentViewModel.totalText", nilValue: "")["followingTerminal"]
@@ -37,7 +42,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
             (_: TipoutViewModel) -> () in
             self.workerTableView.reloadData()
         }
-
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -76,6 +81,12 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
                 cell.viewModel = controller.currentViewModel[indexPath.row]
             }
         }
+    }
+    
+    
+    @IBAction func storeTapped(sender: UIButton) {
+        controller.storeCurrent()
+        colorStackView.reload()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
