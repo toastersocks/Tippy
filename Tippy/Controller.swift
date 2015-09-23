@@ -40,7 +40,7 @@ class Controller: NSObject {
     }
     
     func selectViewModel(index: Int) {
-        if index < tipoutModels.count - 1 {
+        if index < tipoutModels.count {
             currentIndex = index
         } else {
             fatalError("Index (\(index)) is out of range. tipoutModel count is \(tipoutModels.count)")
