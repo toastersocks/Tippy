@@ -29,11 +29,13 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
        
         
         super.viewDidLoad()
+        let totalChannel = RACKVOChannel(target: controller, keyPath: "currentViewModel.totalText", nilValue: "")["followingTerminal"]
+        totalField.rac_newTextChannel().subscribe(totalChannel)
+        totalChannel.subscribe(totalField.rac_newTextChannel())
         
-        totalField.rac_newTextChannel().subscribeNextAs {
-            (text: NSString) in
-            print(text)
-            self.controller.currentViewModel.totalText = text as String
+        RACObserve(controller, "currentViewModel").subscribeNextAs {
+            (_: TipoutViewModel) -> () in
+            self.workerTableView.reloadData()
         }
 
     }
