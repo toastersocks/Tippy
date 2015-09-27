@@ -59,7 +59,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
         workerTableView.endUpdates()
     }
     
-    func handleInputForTipoutView(tipoutView: TipoutView) {
+    func handleInputForTipoutView(tipoutView: TipoutView, activeText: String?) {
         var aView: UIView = tipoutView
         
         while !(aView is UITableViewCell) {
@@ -70,7 +70,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
 
         if let indexPath = workerTableView.indexPathForCell(cell) {
 
-            if let activeText = tipoutView.activeTextField?.text, placeholderText = tipoutView.activeTextField?.placeholder {
+            if let activeText = activeText, placeholderText = tipoutView.activeTextField?.placeholder {
 
                 controller.currentViewModel.addWorkerWithName(
                     tipoutView.nameField.text ?? "",
@@ -112,7 +112,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
         
         guard let cell = workerTableView.dequeueReusableCellWithIdentifier(ViewController.workerCellID) as? TableViewCell
             else { fatalError("Expected a TableViewCell") }
-
         resetPropertiesOfTipoutView(cell.workerView)
         cell.workerView.delegate = self
         
@@ -136,11 +135,13 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
     // MARK: TipoutView
     
     func tipoutViewDidEndEditing(tipoutView: TipoutView) {
-        handleInputForTipoutView(tipoutView)
+        handleInputForTipoutView(tipoutView, activeText: tipoutView.activeTextField?.text)
             }
     
     func tipoutView(tipoutView: TipoutView, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-        handleInputForTipoutView(tipoutView)
+        let currentText: NSString? = tipoutView.activeTextField?.text
+        let proposedText = currentText?.stringByReplacingCharactersInRange(range, withString: string)
+        handleInputForTipoutView(tipoutView, activeText: proposedText)
         return true
     }
     
