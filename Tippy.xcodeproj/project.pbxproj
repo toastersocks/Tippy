@@ -31,6 +31,7 @@
 		DD80142C1B16A15F007A673F /* RACSignal+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8014281B16A15F007A673F /* RACSignal+Extensions.swift */; };
 		DD80142D1B16A15F007A673F /* TableViewBindingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8014291B16A15F007A673F /* TableViewBindingHelper.swift */; };
 		DD90A9961B605F0C00EE0BB6 /* TipoutView+RAC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD90A9951B605F0C00EE0BB6 /* TipoutView+RAC.swift */; };
+		DDA1E8761BB33E4600ADEB47 /* RACExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA1E8751BB33E4600ADEB47 /* RACExtensions.swift */; settings = {ASSET_TAGS = (); }; };
 		DDC16F9A1BB0C29000AC9583 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD67BD6D1B697E2E000EADD5 /* TableViewCell.swift */; };
 		DDDAE7461B6BDE0B008D2140 /* WorkerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDAE7451B6BDE0B008D2140 /* WorkerTableViewController.swift */; };
 		DDE21BB61B4E15BE002D5859 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE21BB51B4E15BE002D5859 /* Controller.swift */; };
@@ -96,6 +97,7 @@
 		DD8014291B16A15F007A673F /* TableViewBindingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewBindingHelper.swift; sourceTree = "<group>"; };
 		DD80142E1B16A1F3007A673F /* bridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bridgingHeader.h; sourceTree = "<group>"; };
 		DD90A9951B605F0C00EE0BB6 /* TipoutView+RAC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TipoutView+RAC.swift"; sourceTree = "<group>"; };
+		DDA1E8751BB33E4600ADEB47 /* RACExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RACExtensions.swift; sourceTree = "<group>"; };
 		DDDAE7451B6BDE0B008D2140 /* WorkerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkerTableViewController.swift; sourceTree = "<group>"; };
 		DDE21BB51B4E15BE002D5859 /* Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
 		DDECA8EE1BA614D400D45446 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 			children = (
 				DD1C586D1B16995000188B28 /* TipoutViewModel.swift */,
 				DD67BD6B1B6861E4000EADD5 /* WorkerViewModel.swift */,
+				DDA1E8751BB33E4600ADEB47 /* RACExtensions.swift */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -396,6 +399,7 @@
 				DD67BD6C1B6861E4000EADD5 /* WorkerViewModel.swift in Sources */,
 				DD80142A1B16A15F007A673F /* RAC.swift in Sources */,
 				DD80142D1B16A15F007A673F /* TableViewBindingHelper.swift in Sources */,
+				DDA1E8761BB33E4600ADEB47 /* RACExtensions.swift in Sources */,
 				DD1C584E1B16981D00188B28 /* AppDelegate.swift in Sources */,
 				DD54AA771BB0DB3300AFFA68 /* ViewModelable.swift in Sources */,
 				DDECA8EF1BA614D400D45446 /* Helpers.swift in Sources */,
