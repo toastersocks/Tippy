@@ -64,7 +64,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		DD06BD5B1B5EE456003EE508 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 		DD1A48031B28FE7D003FA9DB /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		DD1A48041B29D456003FA9DB /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		DD1C58481B16981D00188B28 /* Tippy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tippy.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -130,7 +129,6 @@
 			children = (
 				DD54AA7C1BB1AA1200AFFA68 /* Nimble.framework */,
 				DD54AA7D1BB1AA1200AFFA68 /* Quick.framework */,
-				DD06BD5B1B5EE456003EE508 /* SnapKit.framework */,
 				DD7CBA2D1B598C5F003B718D /* ReactiveCocoa.framework */,
 				DD7CBA2E1B598C5F003B718D /* Tipout.framework */,
 			);
