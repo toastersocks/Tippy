@@ -83,6 +83,11 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
         }
     }
     
+    func resetPropertiesOfTipoutView(view: TipoutView) {
+        view.delegate = nil
+        view.activeTextField = nil
+    }
+    
     
     @IBAction func storeTapped(sender: UIButton) {
         controller.storeCurrent()
@@ -108,6 +113,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
         guard let cell = workerTableView.dequeueReusableCellWithIdentifier(ViewController.workerCellID) as? TableViewCell
             else { fatalError("Expected a TableViewCell") }
 
+        resetPropertiesOfTipoutView(cell.workerView)
         cell.workerView.delegate = self
         
         return cell
