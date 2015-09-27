@@ -137,3 +137,21 @@ extension WorkerViewModel: CustomReflectable {
         ])
     }
 }
+
+extension WorkerViewModel {
+    override var hashValue: Int {
+        return worker.hashValue
+    }
+    override var hash: Int {
+        return hashValue
+    }
+    
+    func isEqualToWorkerViewModel(object: AnyObject?) -> Bool {
+        return isEqual(object)
+    }
+    
+    override func isEqual(object: AnyObject?) -> Bool {
+        guard let workerViewModel = object as? WorkerViewModel else { return false }
+        return self.worker == workerViewModel.worker
+    }
+}
