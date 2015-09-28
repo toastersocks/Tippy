@@ -25,7 +25,7 @@ class Controller: NSObject, ColorStackViewDelegate {
     
     private(set) dynamic var currentIndex = 0
     
-    // Mark: Methods
+    // MARK: Methods
     
     func storeCurrent() {
         let newTipout = TipoutModel(roundToNearest: 0.25)
