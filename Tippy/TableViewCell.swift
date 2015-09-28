@@ -13,23 +13,35 @@ class TableViewCell: UITableViewCell {
     
     @IBOutlet weak var workerView: TipoutView!
     
-    var viewModel: WorkerViewModel = WorkerViewModel() {
+    var viewModel: WorkerViewModel = WorkerViewModel(name: "", method: "amount", value: "0") {
         didSet {
-            RACObserve(self.viewModel, "amount").subscribeNextAs {
-                (text: String) -> () in
-                self.workerView.amountField.text = text
+            RAC(workerView, "nameField.text") <~ viewModel.rac_nameTextSignal()
+            
+            RAC(workerView, "amountField.text") <~ viewModel.rac_amountTextSignal().filter {
+                (_: AnyObject!) in
+                if let activeTextField = self.workerView?.activeTextField {
+                    return activeTextField != self.workerView.amountField
+                } else {
+                    return true
+                }
             }
-            RACObserve(self.viewModel, "percentage").subscribeNextAs {
-                (text: String) -> () in
-                self.workerView.percentageField.text = text
+            
+            RAC(workerView, "hoursField.text") <~ viewModel.rac_hoursTextSignal().filter {
+                (_: AnyObject!) in
+                if let activeTextField = self.workerView?.activeTextField {
+                    return activeTextField != self.workerView.hoursField
+                } else {
+                    return true
+                }
             }
-            RACObserve(self.viewModel, "hours").subscribeNextAs {
-                (text: String) -> () in
-                self.workerView.hoursField.text = text
-            }
-            RACObserve(self.viewModel, "name").subscribeNextAs {
-                (text: String) -> () in
-                self.workerView.nameField.text = text
+            
+            RAC(workerView, "percentageField.text") <~ viewModel.rac_percentageTextSignal().filter {
+                (_: AnyObject!) in
+                if let activeTextField = self.workerView?.activeTextField {
+                    return activeTextField != self.workerView.percentageField
+                } else {
+                    return true
+                }
             }
         }
     }

@@ -9,6 +9,7 @@
 import UIKit
 import ReactiveCocoa
 
+@available(iOS 9.0, *)
 class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate, TipoutViewDelegate {
     
     private static let workersViewSegueID = "workersViewSegue"
@@ -20,22 +21,31 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
             workerTableView.dataSource = self
         }
     }
+    
+    @IBOutlet weak var colorStackView: ColorStackView! {
+        didSet {
+            colorStackView.delegate = controller
+        }
+    }
     @IBOutlet weak var totalField: UITextField!
     
-    let controller = Controller()
+    @IBOutlet weak var combineButton: UIButton!
+    @IBOutlet weak var storeOrDoneButton: UIButton!
+    
+    var controller = Controller()
     
     override func viewDidLoad() {
         
-       
-        
         super.viewDidLoad()
+        let totalChannel = RACKVOChannel(target: controller, keyPath: "currentViewModel.totalText", nilValue: "")["followingTerminal"]
+        totalField.rac_newTextChannel().subscribe(totalChannel)
+        totalChannel.subscribe(totalField.rac_newTextChannel())
         
-        totalField.rac_newTextChannel().subscribeNextAs {
-            (text: NSString) in
-            print(text)
-            self.controller.currentViewModel.totalText = text as String
+        RACObserve(controller, "currentViewModel").subscribeNextAs {
+            (_: TipoutViewModel) -> () in
+            self.workerTableView.reloadData()
         }
-
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -52,7 +62,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
         workerTableView.endUpdates()
     }
     
-    func handleInputForTipoutView(tipoutView: TipoutView) {
+    func handleInputForTipoutView(tipoutView: TipoutView, activeText: String?) {
         var aView: UIView = tipoutView
         
         while !(aView is UITableViewCell) {
@@ -63,7 +73,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
 
         if let indexPath = workerTableView.indexPathForCell(cell) {
 
-            if let activeText = tipoutView.activeTextField?.text, placeholderText = tipoutView.activeTextField?.placeholder {
+            if let activeText = activeText, placeholderText = tipoutView.activeTextField?.placeholder {
 
                 controller.currentViewModel.addWorkerWithName(
                     tipoutView.nameField.text ?? "",
@@ -74,6 +84,37 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
                 cell.viewModel = controller.currentViewModel[indexPath.row]
             }
         }
+    }
+    
+    func resetPropertiesOfTipoutView(view: TipoutView) {
+        view.delegate = nil
+        view.activeTextField = nil
+    }
+    
+    
+    @IBAction func storeTapped(sender: UIButton) {
+        controller.storeCurrent()
+        colorStackView.reload()
+    }
+    
+    @IBAction func combine(sender: UIButton) {
+        guard let viewController = storyboard?.instantiateViewControllerWithIdentifier("tipoutvc") as? ViewController else { fatalError("Unable to instantiate ViewController") }
+        
+        presentViewController(viewController, animated: true, completion: nil)
+
+        viewController.storeOrDoneButton.setTitle("Done", forState: .Normal)
+        viewController.storeOrDoneButton.removeTarget(viewController, action: "storeTapped:", forControlEvents: .TouchUpInside)
+        viewController.storeOrDoneButton.addTarget(viewController, action: "done:", forControlEvents: .TouchUpInside)
+        viewController.combineButton.hidden = true
+        if let combinedTipoutViewModel = controller.combinedTipoutsViewModel() {
+            viewController.controller = Controller(tipoutViewModel: combinedTipoutViewModel)
+        } else {
+            
+        }
+    }
+    
+    @IBAction func done(sender: UIButton) {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -94,7 +135,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
         
         guard let cell = workerTableView.dequeueReusableCellWithIdentifier(ViewController.workerCellID) as? TableViewCell
             else { fatalError("Expected a TableViewCell") }
-
+        resetPropertiesOfTipoutView(cell.workerView)
         cell.workerView.delegate = self
         
         return cell
@@ -114,14 +155,29 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
         return 1
     }
     
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            workerTableView.beginUpdates()
+            controller.currentViewModel.removeWorkerAtIndex(indexPath.row)
+            workerTableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+            workerTableView.endUpdates()
+        }
+    }
+    
     // MARK: TipoutView
     
     func tipoutViewDidEndEditing(tipoutView: TipoutView) {
-        handleInputForTipoutView(tipoutView)
+        handleInputForTipoutView(tipoutView, activeText: tipoutView.activeTextField?.text)
             }
     
     func tipoutView(tipoutView: TipoutView, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-        handleInputForTipoutView(tipoutView)
+        let currentText: NSString? = tipoutView.activeTextField?.text
+        let proposedText = currentText?.stringByReplacingCharactersInRange(range, withString: string)
+        handleInputForTipoutView(tipoutView, activeText: proposedText)
         return true
     }
     

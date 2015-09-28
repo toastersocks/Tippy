@@ -49,7 +49,7 @@ public protocol TipoutViewDelegate {
     @IBOutlet weak public var nameField: UITextField!
     
     /// The text field which was last edited. (Either the `amountField`, `percentageField`, or `hoursField`). Excludes `nameField`.
-    private(set) var activeTextField: UITextField? {
+    public var activeTextField: UITextField? {
         didSet {
             colorFields()
         }
@@ -92,10 +92,10 @@ public protocol TipoutViewDelegate {
         }
     }
     
-    private func handleInputEvent(textField: UITextField) {
+    private func handleInputEvent(placeholderText placeholder: String?, text: String) {
         
-        if let placeholderText = textField.placeholder {
-            switch placeholderText {
+        guard let placeholder = placeholder else { return }
+            switch placeholder {
             case "Amount":
                 activeTextField = amountField
             case "Percentage":
@@ -108,7 +108,7 @@ public protocol TipoutViewDelegate {
             if clearsInactiveFields {
                 clearInactiveFields()
             }
-        }
+        
     }
     
     func colorFields() {
@@ -128,21 +128,23 @@ public protocol TipoutViewDelegate {
     
     public func textFieldDidEndEditing(textField: UITextField) {
         if !activeOnChange {
-            handleInputEvent(textField)
+            handleInputEvent(placeholderText: textField.placeholder, text: textField.text ?? "")
             delegate?.tipoutViewDidEndEditing(self)
         }
     }
     
     public func textFieldDidBeginEditing(textField: UITextField) {
         if textField.placeholder != "Name" {
-            textField.text = ""
+//            textField.text = ""
         }
     }
     
     public func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         if activeOnChange {
-            handleInputEvent(textField)
+//            textField.text = string
+            handleInputEvent(placeholderText: textField.placeholder, text: string)
             delegate?.tipoutView(self, shouldChangeCharactersInRange: range, replacementString: string)
+            
         }
         
         return true

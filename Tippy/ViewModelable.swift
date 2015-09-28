@@ -14,5 +14,6 @@ will have a `viewModel` property, which is used by the object to display info to
 */
 protocol ViewModelable {
     /// The view model which will be used to display information.
-    var viewModel: Any { get set }
+    typealias ViewModel
+    var viewModel: ViewModel { get set }
 }

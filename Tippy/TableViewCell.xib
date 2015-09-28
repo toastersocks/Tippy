@@ -19,7 +19,7 @@
                         <rect key="frame" x="8" y="4" width="430" height="101"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="boolean" keyPath="activeOnChange" value="NO"/>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="activeOnChange" value="YES"/>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="clearsInactiveFields" value="YES"/>
                         </userDefinedRuntimeAttributes>
                     </view>

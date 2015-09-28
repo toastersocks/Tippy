@@ -11,54 +11,87 @@ import ReactiveCocoa
 import Tipout
 
 
-class Controller: NSObject {
-   
+class Controller: NSObject, ColorStackViewDelegate {
+    
     // MARK: Properties
     
     private var tipoutModels = [TipoutModel]()
     
-    var currentViewModel: TipoutViewModel {
+    dynamic var currentViewModel: TipoutViewModel {
         return TipoutViewModel(tipoutModel: tipoutModels[currentIndex])
     }
     
     var count: Int { return tipoutModels.count }
-
-    private(set) var currentIndex = 0
-
-    // Mark: Methods
     
-    init(viewModel: TipoutModel = TipoutModel(roundToNearest: 0.25)) {
-        self.tipoutModels.append(viewModel)
-        currentIndex = 0
-        super.init()
-    }
+    private(set) dynamic var currentIndex = 0
+    
+    // MARK: Methods
     
     func storeCurrent() {
-        let newTipout = TipoutModel()
+        let newTipout = TipoutModel(roundToNearest: 0.25)
         tipoutModels.append(newTipout)
         currentIndex = tipoutModels.count - 1
     }
     
     func selectViewModel(index: Int) {
-        if index < tipoutModels.count - 1 {
+        if index < tipoutModels.count {
             currentIndex = index
         } else {
             fatalError("Index (\(index)) is out of range. tipoutModel count is \(tipoutModels.count)")
         }
     }
     
+    func combinedTipoutsViewModel() -> TipoutViewModel? {
+        guard let tipoutModel = tipoutModels.reduce(+) else { return nil }
+        return TipoutViewModel(tipoutModel: tipoutModel)
+    }
+    
+    // MARK: - Initializers
+    
+    init(tipoutModel: TipoutModel) {
+        self.tipoutModels.append(tipoutModel)
+        currentIndex = 0
+        super.init()
+    }
+    
+    convenience override init() {
+        self.init(tipoutModel: TipoutModel(roundToNearest: 0.25))
+    }
+    
+    convenience init(tipoutViewModel: TipoutViewModel) {
+        self.init(tipoutModel: tipoutViewModel.tipoutModel)
+    }
+    
+    // MARK: - ColorStackViewDelegate
+    
+    @available(iOS 9.0, *)
+    func colorStackView(colorStackView: ColorStackView, didSelectIndex index: Int) {
+        currentIndex = index
+    }
+    
+    @available(iOS 9.0, *)
+    func numberOfItemsInColorStackView(colorStackView: ColorStackView) -> Int {
+        return count
+    }
+    
+    // MARK: - KVO
+    
+    class func keyPathsForValuesAffectingCurrentViewModel() -> Set<NSObject> {
+        return Set(["currentIndex"])
+    }
+    
     /*func workerViewModelAtIndex(index: Int) -> WorkerViewModel {
-        return currentViewModel.viewModelForWorkerAtIndex(index)
+    return currentViewModel.viewModelForWorkerAtIndex(index)
     }*/
     
-   }
+}
 
 /*extension Controller {
-    var addWorkerCommand: RACCommand {
-        return RACCommand(signalBlock: { (input) -> RACSignal! in
-            
-        })
-    }
+var addWorkerCommand: RACCommand {
+return RACCommand(signalBlock: { (input) -> RACSignal! in
+
+})
+}
 }
 */
 

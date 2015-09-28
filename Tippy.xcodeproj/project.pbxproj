@@ -12,9 +12,12 @@
 		DD1C58531B16981D00188B28 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD1C58511B16981D00188B28 /* Main.storyboard */; };
 		DD1C58551B16981D00188B28 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD1C58541B16981D00188B28 /* Images.xcassets */; };
 		DD1C58581B16981D00188B28 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD1C58561B16981D00188B28 /* LaunchScreen.xib */; };
-		DD1C58641B16981E00188B28 /* TippyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1C58631B16981E00188B28 /* TippyTests.swift */; };
 		DD1C586E1B16995000188B28 /* TipoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1C586D1B16995000188B28 /* TipoutViewModel.swift */; };
 		DD54AA771BB0DB3300AFFA68 /* ViewModelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD54AA761BB0DB3300AFFA68 /* ViewModelable.swift */; settings = {ASSET_TAGS = (); }; };
+		DD54AA791BB1A77C00AFFA68 /* testWorkerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD54AA781BB1A77C00AFFA68 /* testWorkerViewModel.swift */; settings = {ASSET_TAGS = (); }; };
+		DD54AA7E1BB1AA1200AFFA68 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD54AA7C1BB1AA1200AFFA68 /* Nimble.framework */; };
+		DD54AA7F1BB1AA1200AFFA68 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD54AA7D1BB1AA1200AFFA68 /* Quick.framework */; };
+		DD54AABF1BB30FF700AFFA68 /* ColorStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD54AABE1BB30FF700AFFA68 /* ColorStackView.swift */; settings = {ASSET_TAGS = (); }; };
 		DD67BD6C1B6861E4000EADD5 /* WorkerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD67BD6B1B6861E4000EADD5 /* WorkerViewModel.swift */; };
 		DD67BD701B697E2E000EADD5 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD67BD6E1B697E2E000EADD5 /* TableViewCell.xib */; };
 		DD6CB2F71B5C45040097BB76 /* TipoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6CB2F61B5C45040097BB76 /* TipoutView.swift */; };
@@ -28,6 +31,7 @@
 		DD80142C1B16A15F007A673F /* RACSignal+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8014281B16A15F007A673F /* RACSignal+Extensions.swift */; };
 		DD80142D1B16A15F007A673F /* TableViewBindingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8014291B16A15F007A673F /* TableViewBindingHelper.swift */; };
 		DD90A9961B605F0C00EE0BB6 /* TipoutView+RAC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD90A9951B605F0C00EE0BB6 /* TipoutView+RAC.swift */; };
+		DDA1E8761BB33E4600ADEB47 /* RACExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA1E8751BB33E4600ADEB47 /* RACExtensions.swift */; settings = {ASSET_TAGS = (); }; };
 		DDC16F9A1BB0C29000AC9583 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD67BD6D1B697E2E000EADD5 /* TableViewCell.swift */; };
 		DDDAE7461B6BDE0B008D2140 /* WorkerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDAE7451B6BDE0B008D2140 /* WorkerTableViewController.swift */; };
 		DDE21BB61B4E15BE002D5859 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE21BB51B4E15BE002D5859 /* Controller.swift */; };
@@ -60,7 +64,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		DD06BD5B1B5EE456003EE508 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 		DD1A48031B28FE7D003FA9DB /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		DD1A48041B29D456003FA9DB /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		DD1C58481B16981D00188B28 /* Tippy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tippy.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,10 +75,14 @@
 		DD1C58571B16981D00188B28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		DD1C585D1B16981E00188B28 /* TippyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TippyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD1C58621B16981E00188B28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DD1C58631B16981E00188B28 /* TippyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TippyTests.swift; sourceTree = "<group>"; };
 		DD1C586D1B16995000188B28 /* TipoutViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipoutViewModel.swift; sourceTree = "<group>"; };
 		DD309D221B5F081C000EE80B /* Scratchpad.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Scratchpad.playground; sourceTree = "<group>"; };
 		DD54AA761BB0DB3300AFFA68 /* ViewModelable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelable.swift; sourceTree = "<group>"; };
+		DD54AA781BB1A77C00AFFA68 /* testWorkerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = testWorkerViewModel.swift; sourceTree = "<group>"; };
+		DD54AA7A1BB1A82400AFFA68 /* Cartfile.private */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile.private; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		DD54AA7C1BB1AA1200AFFA68 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
+		DD54AA7D1BB1AA1200AFFA68 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
+		DD54AABE1BB30FF700AFFA68 /* ColorStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorStackView.swift; sourceTree = "<group>"; };
 		DD67BD6B1B6861E4000EADD5 /* WorkerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkerViewModel.swift; sourceTree = "<group>"; };
 		DD67BD6D1B697E2E000EADD5 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		DD67BD6E1B697E2E000EADD5 /* TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
@@ -89,6 +96,7 @@
 		DD8014291B16A15F007A673F /* TableViewBindingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewBindingHelper.swift; sourceTree = "<group>"; };
 		DD80142E1B16A1F3007A673F /* bridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bridgingHeader.h; sourceTree = "<group>"; };
 		DD90A9951B605F0C00EE0BB6 /* TipoutView+RAC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TipoutView+RAC.swift"; sourceTree = "<group>"; };
+		DDA1E8751BB33E4600ADEB47 /* RACExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RACExtensions.swift; sourceTree = "<group>"; };
 		DDDAE7451B6BDE0B008D2140 /* WorkerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkerTableViewController.swift; sourceTree = "<group>"; };
 		DDE21BB51B4E15BE002D5859 /* Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
 		DDECA8EE1BA614D400D45446 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
@@ -108,6 +116,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD54AA7E1BB1AA1200AFFA68 /* Nimble.framework in Frameworks */,
+				DD54AA7F1BB1AA1200AFFA68 /* Quick.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,7 +127,8 @@
 		37DFF81F10D79D1C2B13583D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				DD06BD5B1B5EE456003EE508 /* SnapKit.framework */,
+				DD54AA7C1BB1AA1200AFFA68 /* Nimble.framework */,
+				DD54AA7D1BB1AA1200AFFA68 /* Quick.framework */,
 				DD7CBA2D1B598C5F003B718D /* ReactiveCocoa.framework */,
 				DD7CBA2E1B598C5F003B718D /* Tipout.framework */,
 			);
@@ -129,6 +140,7 @@
 			children = (
 				DD309D221B5F081C000EE80B /* Scratchpad.playground */,
 				DD1A48031B28FE7D003FA9DB /* Cartfile */,
+				DD54AA7A1BB1A82400AFFA68 /* Cartfile.private */,
 				DD1A48041B29D456003FA9DB /* Podfile */,
 				DD80142E1B16A1F3007A673F /* bridgingHeader.h */,
 				DD1C584A1B16981D00188B28 /* Tippy */,
@@ -174,8 +186,8 @@
 		DD1C58601B16981E00188B28 /* TippyTests */ = {
 			isa = PBXGroup;
 			children = (
-				DD1C58631B16981E00188B28 /* TippyTests.swift */,
 				DD1C58611B16981E00188B28 /* Supporting Files */,
+				DD54AA781BB1A77C00AFFA68 /* testWorkerViewModel.swift */,
 			);
 			path = TippyTests;
 			sourceTree = "<group>";
@@ -191,6 +203,7 @@
 		DD6CB2F51B5C3FA10097BB76 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DD54AABE1BB30FF700AFFA68 /* ColorStackView.swift */,
 				DDDAE7451B6BDE0B008D2140 /* WorkerTableViewController.swift */,
 				DD1C584F1B16981D00188B28 /* ViewController.swift */,
 				DD1C58511B16981D00188B28 /* Main.storyboard */,
@@ -220,6 +233,7 @@
 			children = (
 				DD1C586D1B16995000188B28 /* TipoutViewModel.swift */,
 				DD67BD6B1B6861E4000EADD5 /* WorkerViewModel.swift */,
+				DDA1E8751BB33E4600ADEB47 /* RACExtensions.swift */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -261,6 +275,7 @@
 				DD1C58591B16981E00188B28 /* Sources */,
 				DD1C585A1B16981E00188B28 /* Frameworks */,
 				DD1C585B1B16981E00188B28 /* Resources */,
+				DD54AA7B1BB1A96D00AFFA68 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -334,6 +349,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		DD54AA7B1BB1A96D00AFFA68 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Quick.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Nimble.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
 		DD7CBA0F1B585174003B718D /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -367,10 +397,12 @@
 				DD67BD6C1B6861E4000EADD5 /* WorkerViewModel.swift in Sources */,
 				DD80142A1B16A15F007A673F /* RAC.swift in Sources */,
 				DD80142D1B16A15F007A673F /* TableViewBindingHelper.swift in Sources */,
+				DDA1E8761BB33E4600ADEB47 /* RACExtensions.swift in Sources */,
 				DD1C584E1B16981D00188B28 /* AppDelegate.swift in Sources */,
 				DD54AA771BB0DB3300AFFA68 /* ViewModelable.swift in Sources */,
 				DDECA8EF1BA614D400D45446 /* Helpers.swift in Sources */,
 				DDE21BB61B4E15BE002D5859 /* Controller.swift in Sources */,
+				DD54AABF1BB30FF700AFFA68 /* ColorStackView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,7 +410,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD1C58641B16981E00188B28 /* TippyTests.swift in Sources */,
+				DD54AA791BB1A77C00AFFA68 /* testWorkerViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -505,6 +537,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -525,6 +558,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -542,9 +576,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -554,6 +589,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.toastersocks.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tippy.app/Tippy";
 			};
 			name = Debug;
@@ -562,9 +598,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = TippyTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

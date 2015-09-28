@@ -10,6 +10,8 @@ import UIKit
 import Tipout
 
 class TipoutViewModel: NSObject {
+    // MARK: - Properties
+    
     var tipoutModel = TipoutModel(roundToNearest: 0.25)
     
     dynamic var count: Int {
@@ -24,7 +26,15 @@ class TipoutViewModel: NSObject {
             tipoutModel.total = NSString(string: newValue).doubleValue
         }
     }
+    
+    dynamic var workerViewModels: [WorkerViewModel] {
+        return tipoutModel.workers.map {
+            return WorkerViewModel(worker: $0, totalTipouts: tipoutModel.total)
+        }
+    }
 
+    // MARK: - Methods
+    
     func addWorkerWithName(name: String, method: String, value: String, atIndex index: Int) {
         
         let tipoutMethod: TipoutMethod
@@ -56,12 +66,11 @@ class TipoutViewModel: NSObject {
         }
     }
     
-    internal dynamic var workerViewModels: [WorkerViewModel] {
-        return tipoutModel.workers.map {
-            return WorkerViewModel(worker: $0, totalTipouts: tipoutModel.total)
-        }
+    func removeWorkerAtIndex(index: Int) {
+        tipoutModel.workers.removeAtIndex(index)
     }
     
+    // MARK: - Initializers
     
     init(tipoutModel: TipoutModel) {
         self.tipoutModel = tipoutModel
