@@ -155,6 +155,19 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
         return 1
     }
     
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            workerTableView.beginUpdates()
+            controller.currentViewModel.removeWorkerAtIndex(indexPath.row)
+            workerTableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+            workerTableView.endUpdates()
+        }
+    }
+    
     // MARK: TipoutView
     
     func tipoutViewDidEndEditing(tipoutView: TipoutView) {
