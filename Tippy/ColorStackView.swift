@@ -41,14 +41,12 @@ public protocol ColorStackViewDelegate {
     }
     
     func decrement() {
-//        stackView.removeArrangedSubview(stackView.arrangedSubviews[count-1])
         stackView.arrangedSubviews[count-1].removeFromSuperview()
     }
     
     @IBAction func handleTap(sender: UIButton) {
         guard let index = stackView.arrangedSubviews.indexOf(sender) else { fatalError("Index not in arranged subviews") }
         delegate?.colorStackView(self, didSelectIndex: index)
-        debugPrint("Index \(index) was tapped!")
     }
     
     func reload() {
@@ -60,7 +58,6 @@ public protocol ColorStackViewDelegate {
             (_: Int) in
             increment()
         }
-
     }
     
     // MARK: - Init stuff
@@ -83,8 +80,6 @@ public protocol ColorStackViewDelegate {
             options: [NSLayoutFormatOptions.DirectionLeftToRight],
             metrics: nil,
             views: ["stackView":stackView]))
-
-        
     }
     
     override init(frame: CGRect) {
@@ -96,12 +91,4 @@ public protocol ColorStackViewDelegate {
         super.init(coder: aDecoder)
         setup(frame)
     }
-    /*
-    // Only override drawRect: if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func drawRect(rect: CGRect) {
-        // Drawing code
-    }
-    */
-
 }
