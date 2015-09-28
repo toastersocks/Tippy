@@ -27,12 +27,6 @@ class Controller: NSObject, ColorStackViewDelegate {
     
     // Mark: Methods
     
-    init(viewModel: TipoutModel = TipoutModel(roundToNearest: 0.25)) {
-        self.tipoutModels.append(viewModel)
-        currentIndex = 0
-        super.init()
-    }
-    
     func storeCurrent() {
         let newTipout = TipoutModel(roundToNearest: 0.25)
         tipoutModels.append(newTipout)
@@ -45,6 +39,27 @@ class Controller: NSObject, ColorStackViewDelegate {
         } else {
             fatalError("Index (\(index)) is out of range. tipoutModel count is \(tipoutModels.count)")
         }
+    }
+    
+    func combinedTipoutsViewModel() -> TipoutViewModel? {
+        guard let tipoutModel = tipoutModels.reduce(+) else { return nil }
+        return TipoutViewModel(tipoutModel: tipoutModel)
+    }
+    
+    // MARK: - Initializers
+    
+    init(tipoutModel: TipoutModel) {
+        self.tipoutModels.append(tipoutModel)
+        currentIndex = 0
+        super.init()
+    }
+    
+    convenience override init() {
+        self.init(tipoutModel: TipoutModel(roundToNearest: 0.25))
+    }
+    
+    convenience init(tipoutViewModel: TipoutViewModel) {
+        self.init(tipoutModel: tipoutViewModel.tipoutModel)
     }
     
     // MARK: - ColorStackViewDelegate

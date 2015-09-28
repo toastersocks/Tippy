@@ -29,7 +29,10 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
     }
     @IBOutlet weak var totalField: UITextField!
     
-    let controller = Controller()
+    @IBOutlet weak var combineButton: UIButton!
+    @IBOutlet weak var storeOrDoneButton: UIButton!
+    
+    var controller = Controller()
     
     override func viewDidLoad() {
         
@@ -92,6 +95,26 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
     @IBAction func storeTapped(sender: UIButton) {
         controller.storeCurrent()
         colorStackView.reload()
+    }
+    
+    @IBAction func combine(sender: UIButton) {
+        guard let viewController = storyboard?.instantiateViewControllerWithIdentifier("tipoutvc") as? ViewController else { fatalError("Unable to instantiate ViewController") }
+        
+        presentViewController(viewController, animated: true, completion: nil)
+
+        viewController.storeOrDoneButton.setTitle("Done", forState: .Normal)
+        viewController.storeOrDoneButton.removeTarget(viewController, action: "storeTapped:", forControlEvents: .TouchUpInside)
+        viewController.storeOrDoneButton.addTarget(viewController, action: "done:", forControlEvents: .TouchUpInside)
+        viewController.combineButton.hidden = true
+        if let combinedTipoutViewModel = controller.combinedTipoutsViewModel() {
+            viewController.controller = Controller(tipoutViewModel: combinedTipoutViewModel)
+        } else {
+            
+        }
+    }
+    
+    @IBAction func done(sender: UIButton) {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
