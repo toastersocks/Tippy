@@ -26,15 +26,15 @@ class WorkerViewModel: NSObject {
             worker = Worker(method: worker.method, id: newValue)
         }
     }
-    
+    // TODO: Use localized number formatters for these to show properly formatted (and localized) strings
     dynamic var amount: String {
         get {
-            var formattedAmount = String(format: "%g", worker.tipout)
+            var formattedAmount = String(format: "%.2f", worker.tipout)
             
-            if (formattedAmount as NSString).pathExtension.characters.count == 1 {
-                formattedAmount = String(format: "%#.3g", worker.tipout)
+            if formattedAmount.hasSuffix(".00") {
+                formattedAmount = String(format: "%.f", worker.tipout)
             }
-            return formattedAmount
+            return worker.tipout == 0.0 ? "" : formattedAmount
         }
         set {
             worker = Worker(method: .Amount((newValue as NSString).doubleValue), id: worker.id)
@@ -62,7 +62,12 @@ class WorkerViewModel: NSObject {
             if case .Percentage(let percentage) = worker.method {
                 return "\(percentage)"
             } else if let totalTipouts = totalTipouts {
-                return "(\((worker.tipout / totalTipouts) * 100))"
+                let percentage = (worker.tipout / totalTipouts) * 100
+                var percentageString = String(format: "(%g)", percentage)
+                if (percentageString as NSString).pathExtension.characters.count > 2 {
+                    percentageString = String(format: "(%#.4g)", percentage)
+                }
+                return isnan(percentage) || percentageString == "(0)" ? "" : percentageString
             } else {
                 return ""
             }
