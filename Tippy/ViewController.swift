@@ -11,7 +11,7 @@ import ReactiveCocoa
 
 @available(iOS 9.0, *)
 class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate, TipoutViewDelegate {
-    
+    // MARK: - Properties
     private static let workersViewSegueID = "workersViewSegue"
     private static let workerCellID = "workerCell"
 
@@ -27,17 +27,20 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
             colorStackView.delegate = controller
         }
     }
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var totalField: UITextField!
     
     @IBOutlet weak var combineButton: UIButton!
     @IBOutlet weak var storeOrDoneButton: UIButton!
+    @IBOutlet weak var bottomBarLayoutConstraint: NSLayoutConstraint!
     
-    var controller = Controller()
+    dynamic var controller = Controller()
     
+    // MARK: - Methods
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        let totalChannel = RACKVOChannel(target: controller, keyPath: "currentViewModel.totalText", nilValue: "")["followingTerminal"]
+        let totalChannel = RACKVOChannel(target: self, keyPath: "controller.currentViewModel.totalText", nilValue: "")["followingTerminal"]
         totalField.rac_newTextChannel().subscribe(totalChannel)
         totalChannel.subscribe(totalField.rac_newTextChannel())
         
@@ -46,6 +49,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
             self.workerTableView.reloadData()
         }
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWasShown:", name: UIKeyboardDidShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillBeHidden:", name: UIKeyboardWillHideNotification, object: nil)
     }
     
     override func didReceiveMemoryWarning() {
@@ -107,6 +112,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
         viewController.storeOrDoneButton.addTarget(viewController, action: "done:", forControlEvents: .TouchUpInside)
         viewController.combineButton.hidden = true
         if let combinedTipoutViewModel = controller.combinedTipoutsViewModel() {
+            debugPrint(combinedTipoutViewModel.totalText)
             viewController.controller = Controller(tipoutViewModel: combinedTipoutViewModel)
         } else {
             
@@ -179,6 +185,27 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
         let proposedText = currentText?.stringByReplacingCharactersInRange(range, withString: string)
         handleInputForTipoutView(tipoutView, activeText: proposedText)
         return true
+    }
+    
+    // MARK: - Keyboard Observers
+    
+    func keyboardWasShown(notification: NSNotification) {
+        guard let info = notification.userInfo else { fatalError("Couldn't get info dictionary from notification") }
+        guard let kbSize = info[UIKeyboardFrameEndUserInfoKey]?.CGRectValue.size else { fatalError("Couldn't get keyboard size") }
+        guard let animationDuration = info[UIKeyboardAnimationDurationUserInfoKey]?.doubleValue else { fatalError("Couldn't get keyboard animation duration") }
+        bottomBarLayoutConstraint.constant = -kbSize.height
+        UIView.animateWithDuration(animationDuration) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    func keyboardWillBeHidden(notification: NSNotification) {
+        guard let info = notification.userInfo else { fatalError("Couldn't get info dictionary from notification") }
+        guard let animationDuration = info[UIKeyboardAnimationDurationUserInfoKey]?.doubleValue else { fatalError("Couldn't get keyboard animation duration") }
+        bottomBarLayoutConstraint.constant = 0
+        UIView.animateWithDuration(animationDuration) {
+            self.view.layoutIfNeeded()
+        }
     }
     
 }
