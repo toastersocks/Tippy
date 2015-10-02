@@ -20,7 +20,7 @@ class TipoutViewModel: NSObject {
     
     dynamic var totalText: String {
         get {
-            return "\(tipoutModel.total)"
+            return String(format: "%.2f", tipoutModel.total)
         }
         set {
             tipoutModel.total = NSString(string: newValue).doubleValue
