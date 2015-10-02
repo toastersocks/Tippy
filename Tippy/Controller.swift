@@ -77,7 +77,7 @@ class Controller: NSObject, ColorStackViewDelegate {
     // MARK: - KVO
     
     class func keyPathsForValuesAffectingCurrentViewModel() -> Set<NSObject> {
-        return Set(["currentIndex"])
+        return Set(["currentIndex", "tipoutModels"])
     }
     
     /*func workerViewModelAtIndex(index: Int) -> WorkerViewModel {
