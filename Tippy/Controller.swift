@@ -64,12 +64,12 @@ class Controller: NSObject, ColorStackViewDelegate {
     
     // MARK: - ColorStackViewDelegate
     
-    @available(iOS 9.0, *)
+
     func colorStackView(colorStackView: ColorStackView, didSelectIndex index: Int) {
         currentIndex = index
     }
     
-    @available(iOS 9.0, *)
+
     func numberOfItemsInColorStackView(colorStackView: ColorStackView) -> Int {
         return count
     }

@@ -9,7 +9,6 @@
 import UIKit
 import ReactiveCocoa
 
-@available(iOS 9.0, *)
 class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate, TipoutViewDelegate {
     // MARK: - Properties
     private static let workersViewSegueID = "workersViewSegue"

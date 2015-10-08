@@ -7,16 +7,14 @@
 //
 
 import UIKit
+import TZStackView
 
 public protocol ColorStackViewDelegate {
-    @available(iOS 9.0, *)
     func colorStackView(colorStackView: ColorStackView, didSelectIndex index: Int)
-    @available(iOS 9.0, *)
     func numberOfItemsInColorStackView(colorStackView: ColorStackView) -> Int
 }
 
 
-@available(iOS 9.0, *)
 @IBDesignable public class ColorStackView: UIControl {
 
     public var delegate: ColorStackViewDelegate? {
@@ -25,7 +23,7 @@ public protocol ColorStackViewDelegate {
         }
     }
     
-    public var stackView: UIStackView = UIStackView()
+    public var stackView = TZStackView()
     public var count: Int {
         return stackView.arrangedSubviews.count
     }
