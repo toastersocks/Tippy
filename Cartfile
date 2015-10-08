@@ -2,7 +2,10 @@ github "ReactiveCocoa/ReactiveCocoa" "v2.5"
 
 git "https://bitbucket.org/toastersocks/tipout"
 
+github "ViccAlexander/Chameleon"
+
 github "tomvanzummeren/TZStackView"
+
 #github "SnapKit/SnapKit" "swift-2.0"
 
 #git "file:///Users/jambes/Desktop/Projects/Tipout"

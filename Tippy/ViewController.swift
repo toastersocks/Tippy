@@ -9,6 +9,7 @@
 import UIKit
 import ReactiveCocoa
 
+
 class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate, TipoutViewDelegate {
     // MARK: - Properties
     private static let workersViewSegueID = "workersViewSegue"
@@ -24,6 +25,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
     @IBOutlet weak var colorStackView: ColorStackView! {
         didSet {
             colorStackView.delegate = controller
+            colorStackView.colorDelegate = ColorDelegate()
         }
     }
     @IBOutlet weak var scrollView: UIScrollView!

@@ -10,16 +10,27 @@ import UIKit
 import TZStackView
 
 public protocol ColorStackViewDelegate {
+
     func colorStackView(colorStackView: ColorStackView, didSelectIndex index: Int)
+
     func numberOfItemsInColorStackView(colorStackView: ColorStackView) -> Int
 }
 
+public protocol ColorStackViewColorDelegate {
+    func colorForIndex(index:Int) -> UIColor
+}
 
 @IBDesignable public class ColorStackView: UIControl {
 
     public var delegate: ColorStackViewDelegate? {
         didSet {
         reload()
+        }
+    }
+    
+    public var colorDelegate: ColorStackViewColorDelegate? {
+        didSet {
+            reload()
         }
     }
     
@@ -32,7 +43,9 @@ public protocol ColorStackViewDelegate {
     
     func increment() {
         let button = UIButton(type: .System)
-        button.backgroundColor = colors[count]
+        button.backgroundColor = colorDelegate?.colorForIndex(count) ?? colors[count % colors.count]
+//        button.backgroundColor = colors[count]
+
         button.addTarget(self, action: "handleTap:", forControlEvents: .TouchUpInside)
         
         stackView.addArrangedSubview(button)

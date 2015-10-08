@@ -11,6 +11,7 @@ import ReactiveCocoa
 import Tipout
 
 
+
 class Controller: NSObject, ColorStackViewDelegate {
     
     // MARK: Properties

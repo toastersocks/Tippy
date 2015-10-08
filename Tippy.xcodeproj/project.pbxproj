@@ -21,6 +21,8 @@
 		DD67BD6C1B6861E4000EADD5 /* WorkerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD67BD6B1B6861E4000EADD5 /* WorkerViewModel.swift */; };
 		DD67BD701B697E2E000EADD5 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD67BD6E1B697E2E000EADD5 /* TableViewCell.xib */; };
 		DD6CB2F71B5C45040097BB76 /* TipoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6CB2F61B5C45040097BB76 /* TipoutView.swift */; };
+		DD73DFC01BC1BC9B0005636C /* Chameleon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD73DFBF1BC1BC9B0005636C /* Chameleon.framework */; };
+		DD73DFC11BC1BC9B0005636C /* Chameleon.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DD73DFBF1BC1BC9B0005636C /* Chameleon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DD7CBA321B598DC8003B718D /* ReactiveCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DD7CBA2D1B598C5F003B718D /* ReactiveCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DD7CBA341B598DC8003B718D /* Tipout.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DD7CBA2E1B598C5F003B718D /* Tipout.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DD7CBA351B598DDE003B718D /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD7CBA2D1B598C5F003B718D /* ReactiveCocoa.framework */; };
@@ -31,6 +33,9 @@
 		DD80142C1B16A15F007A673F /* RACSignal+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8014281B16A15F007A673F /* RACSignal+Extensions.swift */; };
 		DD80142D1B16A15F007A673F /* TableViewBindingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8014291B16A15F007A673F /* TableViewBindingHelper.swift */; };
 		DD90A9961B605F0C00EE0BB6 /* TipoutView+RAC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD90A9951B605F0C00EE0BB6 /* TipoutView+RAC.swift */; };
+		DDA07EBF1BC5F2DF008B1081 /* ColorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA07EBE1BC5F2DF008B1081 /* ColorDelegate.swift */; settings = {ASSET_TAGS = (); }; };
+		DDA07EC11BC5F54D008B1081 /* TZStackView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDA07EC01BC5F54D008B1081 /* TZStackView.framework */; };
+		DDA07EC21BC5F54D008B1081 /* TZStackView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DDA07EC01BC5F54D008B1081 /* TZStackView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DDA1E8761BB33E4600ADEB47 /* RACExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA1E8751BB33E4600ADEB47 /* RACExtensions.swift */; settings = {ASSET_TAGS = (); }; };
 		DDC16F9A1BB0C29000AC9583 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD67BD6D1B697E2E000EADD5 /* TableViewCell.swift */; };
 		DDDAE7461B6BDE0B008D2140 /* WorkerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDAE7451B6BDE0B008D2140 /* WorkerTableViewController.swift */; };
@@ -55,8 +60,10 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				DDA07EC21BC5F54D008B1081 /* TZStackView.framework in Embed Frameworks */,
 				DD7CBA321B598DC8003B718D /* ReactiveCocoa.framework in Embed Frameworks */,
 				DD7CBA341B598DC8003B718D /* Tipout.framework in Embed Frameworks */,
+				DD73DFC11BC1BC9B0005636C /* Chameleon.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -87,6 +94,7 @@
 		DD67BD6D1B697E2E000EADD5 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		DD67BD6E1B697E2E000EADD5 /* TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		DD6CB2F61B5C45040097BB76 /* TipoutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipoutView.swift; sourceTree = "<group>"; };
+		DD73DFBF1BC1BC9B0005636C /* Chameleon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Chameleon.framework; path = Carthage/Build/iOS/Chameleon.framework; sourceTree = "<group>"; };
 		DD7CBA2D1B598C5F003B718D /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/iOS/ReactiveCocoa.framework; sourceTree = "<group>"; };
 		DD7CBA2E1B598C5F003B718D /* Tipout.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Tipout.framework; path = Carthage/Build/iOS/Tipout.framework; sourceTree = "<group>"; };
 		DD7CBA371B599444003B718D /* TipoutView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TipoutView.xib; sourceTree = "<group>"; };
@@ -96,6 +104,8 @@
 		DD8014291B16A15F007A673F /* TableViewBindingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewBindingHelper.swift; sourceTree = "<group>"; };
 		DD80142E1B16A1F3007A673F /* bridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bridgingHeader.h; sourceTree = "<group>"; };
 		DD90A9951B605F0C00EE0BB6 /* TipoutView+RAC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TipoutView+RAC.swift"; sourceTree = "<group>"; };
+		DDA07EBE1BC5F2DF008B1081 /* ColorDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorDelegate.swift; sourceTree = "<group>"; };
+		DDA07EC01BC5F54D008B1081 /* TZStackView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TZStackView.framework; path = Carthage/Build/iOS/TZStackView.framework; sourceTree = "<group>"; };
 		DDA1E8751BB33E4600ADEB47 /* RACExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RACExtensions.swift; sourceTree = "<group>"; };
 		DDDAE7451B6BDE0B008D2140 /* WorkerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkerTableViewController.swift; sourceTree = "<group>"; };
 		DDE21BB51B4E15BE002D5859 /* Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
@@ -107,8 +117,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDA07EC11BC5F54D008B1081 /* TZStackView.framework in Frameworks */,
 				DD7CBA351B598DDE003B718D /* ReactiveCocoa.framework in Frameworks */,
 				DD7CBA361B598DDE003B718D /* Tipout.framework in Frameworks */,
+				DD73DFC01BC1BC9B0005636C /* Chameleon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,6 +139,8 @@
 		37DFF81F10D79D1C2B13583D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DDA07EC01BC5F54D008B1081 /* TZStackView.framework */,
+				DD73DFBF1BC1BC9B0005636C /* Chameleon.framework */,
 				DD54AA7C1BB1AA1200AFFA68 /* Nimble.framework */,
 				DD54AA7D1BB1AA1200AFFA68 /* Quick.framework */,
 				DD7CBA2D1B598C5F003B718D /* ReactiveCocoa.framework */,
@@ -206,6 +220,7 @@
 				DD54AABE1BB30FF700AFFA68 /* ColorStackView.swift */,
 				DDDAE7451B6BDE0B008D2140 /* WorkerTableViewController.swift */,
 				DD1C584F1B16981D00188B28 /* ViewController.swift */,
+				DDA07EBE1BC5F2DF008B1081 /* ColorDelegate.swift */,
 				DD1C58511B16981D00188B28 /* Main.storyboard */,
 				DD7CBA371B599444003B718D /* TipoutView.xib */,
 				DD6CB2F61B5C45040097BB76 /* TipoutView.swift */,
@@ -372,6 +387,8 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Tipout.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/ReactiveCocoa.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Chameleon.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/TZStackView.framework",
 			);
 			outputPaths = (
 			);
@@ -388,6 +405,7 @@
 			files = (
 				DDC16F9A1BB0C29000AC9583 /* TableViewCell.swift in Sources */,
 				DD80142B1B16A15F007A673F /* RACObserve.swift in Sources */,
+				DDA07EBF1BC5F2DF008B1081 /* ColorDelegate.swift in Sources */,
 				DD90A9961B605F0C00EE0BB6 /* TipoutView+RAC.swift in Sources */,
 				DDDAE7461B6BDE0B008D2140 /* WorkerTableViewController.swift in Sources */,
 				DD1C58501B16981D00188B28 /* ViewController.swift in Sources */,
