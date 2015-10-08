@@ -66,6 +66,13 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
         workerTableView.insertRowsAtIndexPaths([NSIndexPath(forRow: viewModelCount, inSection: 0)], withRowAnimation: .Automatic)
         controller.currentViewModel.addWorkerWithName("", method: "amount", value: "0.0", atIndex: viewModelCount)
         workerTableView.endUpdates()
+        
+        guard let workerView = (workerTableView.cellForRowAtIndexPath(
+            NSIndexPath(forRow: viewModelCount, inSection: 0))
+            as? TableViewCell)?.workerView else { return }
+        
+        workerView.nameField.becomeFirstResponder()
+        
     }
     
     func handleInputForTipoutView(tipoutView: TipoutView, activeText: String?) {
@@ -208,6 +215,5 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
             self.view.layoutIfNeeded()
         }
     }
-    
 }
 
