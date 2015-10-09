@@ -75,6 +75,13 @@ class Controller: NSObject, ColorStackViewDelegate {
         return count
     }
     
+    func colorStackView(colorStackView: ColorStackView, shouldSelectIndex index: Int) -> Bool {
+        return true
+    }
+    
+    func currentIndexOfColorStackView(colorStackView: ColorStackView) -> Int {
+        return currentIndex
+    }
     // MARK: - KVO
     
     class func keyPathsForValuesAffectingCurrentViewModel() -> Set<NSObject> {
