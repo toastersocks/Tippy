@@ -134,6 +134,7 @@ public protocol TipoutViewDelegate {
     }
     
     public func textFieldDidBeginEditing(textField: UITextField) {
+        textField.selectAll(nil)
         if textField.placeholder != "Name" {
 //            textField.text = ""
         }
