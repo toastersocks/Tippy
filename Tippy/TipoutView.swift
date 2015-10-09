@@ -150,6 +150,11 @@ public protocol TipoutViewDelegate {
         return true
     }
     
+    public func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
     
     // MARK: - init
     
