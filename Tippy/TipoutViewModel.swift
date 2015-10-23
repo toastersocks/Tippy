@@ -9,7 +9,7 @@
 import UIKit
 import Tipout
 
-class TipoutViewModel: NSObject {
+class TipoutViewModel: NSObject, TipoutViewModelType {
     // MARK: - Properties
     
     var tipoutModel = TipoutModel(roundToNearest: 0.25)
@@ -27,7 +27,7 @@ class TipoutViewModel: NSObject {
         }
     }
     
-    dynamic var workerViewModels: [WorkerViewModel] {
+    dynamic var workerViewModels: [WorkerViewModelType] {
         return tipoutModel.workers.map {
             return WorkerViewModel(worker: $0, totalTipouts: tipoutModel.total)
         }
@@ -88,12 +88,12 @@ class TipoutViewModel: NSObject {
 }
 
 extension TipoutViewModel {
-    func viewModelForWorkerAtIndex(index: Int) -> WorkerViewModel {
+    func viewModelForWorkerAtIndex(index: Int) -> WorkerViewModelType {
         let worker = tipoutModel.workers[index]
         return WorkerViewModel(worker: worker, totalTipouts: tipoutModel.total)
     }
     
-    subscript(index: Int) -> WorkerViewModel {
+    subscript(index: Int) -> WorkerViewModelType {
         return viewModelForWorkerAtIndex(index)
     }
 }

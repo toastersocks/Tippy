@@ -13,7 +13,7 @@ class TableViewCell: UITableViewCell {
     
     @IBOutlet weak var workerView: TipoutView!
     
-    var viewModel: WorkerViewModel = WorkerViewModel(name: "", method: "amount", value: "0") {
+    var viewModel: WorkerViewModelType = WorkerViewModelType(name: "", method: "amount", value: "0") {
         didSet {
             RAC(workerView, "nameField.text") <~ viewModel.rac_nameTextSignal()
             

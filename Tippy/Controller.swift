@@ -18,7 +18,7 @@ class Controller: NSObject, ColorStackViewDelegate {
     
     private var tipoutModels = [TipoutModel]()
     
-    dynamic var currentViewModel: TipoutViewModel {
+    dynamic var currentViewModel: TipoutViewModelType {
         return TipoutViewModel(tipoutModel: tipoutModels[currentIndex])
     }
     
@@ -42,7 +42,7 @@ class Controller: NSObject, ColorStackViewDelegate {
         }
     }
     
-    func combinedTipoutsViewModel() -> TipoutViewModel? {
+    func combinedTipoutsViewModel() -> TipoutViewModelType? {
         guard let tipoutModel = tipoutModels.reduce(+) else { return nil }
         return TipoutViewModel(tipoutModel: tipoutModel)
     }
@@ -59,7 +59,8 @@ class Controller: NSObject, ColorStackViewDelegate {
         self.init(tipoutModel: TipoutModel(roundToNearest: 0.25))
     }
     
-    convenience init(tipoutViewModel: TipoutViewModel) {
+    convenience init(tipoutViewModel: TipoutViewModelType) {
+        guard let tipoutViewModel = tipoutViewModel as? TipoutViewModel else { self.init(tipoutModel: TipoutModel()); return }
         self.init(tipoutModel: tipoutViewModel.tipoutModel)
     }
     

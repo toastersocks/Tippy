@@ -9,11 +9,11 @@
 import UIKit
 import Tipout
 
-class WorkerViewModel: NSObject {
+class WorkerViewModel: NSObject, WorkerViewModelType {
     
     // MARK: - Properties
     
-    private dynamic var worker: Worker
+    dynamic var worker: Worker
     
     /// - note: This is used to optionaly calculate the percentage of the Worker tipout from the total tipouts
     private var totalTipouts: Double?

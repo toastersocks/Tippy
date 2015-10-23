@@ -46,7 +46,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
         totalChannel.subscribe(totalField.rac_newTextChannel())
         
         RACObserve(controller, "currentViewModel").subscribeNextAs {
-            (_: TipoutViewModel) -> () in
+            (_: TipoutViewModelType) -> () in
             self.workerTableView.reloadData()
         }
         
@@ -72,7 +72,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
             as? TableViewCell)?.workerView else { return }
         
         workerView.nameField.becomeFirstResponder()
-        
+
     }
     
     func handleInputForTipoutView(tipoutView: TipoutView, activeText: String?) {
