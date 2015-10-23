@@ -57,23 +57,25 @@ class WorkerViewModel: NSObject, WorkerViewModelType {
         }
     }
     
-    dynamic var percentage: String {
+    dynamic var percentage: NSAttributedString {
         get {
             if case .Percentage(let percentage) = worker.method {
-                return "\(percentage)"
+                return NSAttributedString(string: "\(percentage)")
             } else if let totalTipouts = totalTipouts {
                 let percentage = (worker.tipout / totalTipouts) * 100
                 var percentageString = String(format: "(%g)", percentage)
                 if (percentageString as NSString).pathExtension.characters.count > 2 {
                     percentageString = String(format: "(%#.4g)", percentage)
                 }
-                return isnan(percentage) || percentageString == "(0)" ? "" : percentageString
+                return NSAttributedString(string:
+                    isnan(percentage) || percentageString == "(0)" ? "" : percentageString,
+                    attributes: [NSForegroundColorAttributeName : UIColor.grayColor()])
             } else {
-                return ""
+                return NSAttributedString(string: "")
             }
         }
         set {
-            worker = Worker(method: .Percentage((newValue as NSString).doubleValue), id: worker.id)
+            worker = Worker(method: .Percentage((newValue.string as NSString).doubleValue), id: worker.id)
         }
     }
     

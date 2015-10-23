@@ -35,7 +35,7 @@ class TableViewCell: UITableViewCell {
                 }
             }
             
-            RAC(workerView, "percentageField.text") <~ viewModel.rac_percentageTextSignal().filter {
+            RAC(workerView, "percentageField.attributedText") <~ viewModel.rac_percentageTextSignal().filter {
                 (_: AnyObject!) in
                 if let activeTextField = self.workerView?.activeTextField {
                     return activeTextField != self.workerView.percentageField
