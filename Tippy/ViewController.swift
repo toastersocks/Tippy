@@ -10,17 +10,11 @@ import UIKit
 import ReactiveCocoa
 
 
-class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate, TipoutViewDelegate {
+class ViewController: UIViewController {
     // MARK: - Properties
     private static let workersViewSegueID = "workersViewSegue"
-    private static let workerCellID = "workerCell"
-
-    weak var workerTableView: UITableView! {
-        didSet {
-            workerTableView.delegate = self
-            workerTableView.dataSource = self
-        }
-    }
+    
+    weak var workerTableViewController: WorkerTableViewController!
     
     @IBOutlet weak var colorStackView: ColorStackView! {
         didSet {
@@ -45,9 +39,9 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
         totalField.rac_newTextChannel().subscribe(totalChannel)
         totalChannel.subscribe(totalField.rac_newTextChannel())
         
-        RACObserve(controller, "currentViewModel").subscribeNextAs {
-            (_: TipoutViewModelType) -> () in
-            self.workerTableView.reloadData()
+        RACObserve(self, "controller.currentViewModel").subscribeNextAs {
+            (viewModel: TipoutViewModelType) -> () in
+            self.workerTableViewController?.viewModel = viewModel
         }
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWasShown:", name: UIKeyboardDidShowNotification, object: nil)
@@ -59,56 +53,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
         // Dispose of any resources that can be recreated.
 
     }
-  
-    func newWorker() {
-        let viewModelCount = controller.currentViewModel.count
-        workerTableView.beginUpdates()
-        workerTableView.insertRowsAtIndexPaths([NSIndexPath(forRow: viewModelCount, inSection: 0)], withRowAnimation: .Automatic)
-        controller.currentViewModel.addWorkerWithName("", method: "amount", value: "0.0", atIndex: viewModelCount)
-        workerTableView.endUpdates()
-        
-        guard let workerView = (workerTableView.cellForRowAtIndexPath(
-            NSIndexPath(forRow: viewModelCount, inSection: 0))
-            as? TableViewCell)?.workerView else { return }
-        
-        workerView.nameField.becomeFirstResponder()
-
-    }
-    
-    func tableViewCellForTipoutView(tipoutView: TipoutView) -> TableViewCell? {
-        var aView: UIView = tipoutView
-        
-        while !(aView is UITableViewCell) {
-            aView = aView.superview!
-        }
-        
-        guard let cell = aView as? TableViewCell else { fatalError("Wrong cell type. Expected a TableViewCell") }
-        
-        return cell
-    }
-    
-    func handleInputForTipoutView(tipoutView: TipoutView, activeText: String?) {
-        guard let cell = tableViewCellForTipoutView(tipoutView) else { fatalError("Couldn't get tableViewCell") }
-        if let indexPath = workerTableView.indexPathForCell(cell) {
-
-            if let activeText = activeText, placeholderText = tipoutView.activeTextField?.placeholder {
-
-                controller.currentViewModel.addWorkerWithName(
-                    tipoutView.nameField.text ?? "",
-                    method: placeholderText,
-                    value: activeText,
-                    atIndex: indexPath.row)
-                
-                cell.viewModel = controller.currentViewModel[indexPath.row]
-            }
-        }
-    }
-    
-    func resetPropertiesOfTipoutView(view: TipoutView) {
-        view.delegate = nil
-        view.activeTextField = nil
-    }
-    
     
     @IBAction func storeTapped(sender: UIBarButtonItem) {
         controller.storeCurrent()
@@ -138,77 +82,12 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == ViewController.workersViewSegueID {
-            let workerTVC = segue.destinationViewController as! WorkerTableViewController
-            workerTableView = workerTVC.tableView
-            workerTVC.addNewButton.addTarget(self, action: "newWorker", forControlEvents: .TouchUpInside)
+            guard let workerTVC = segue.destinationViewController as? WorkerTableViewController else { return }
+            
             let tableViewCellNib = UINib(nibName: "TableViewCell", bundle: NSBundle.mainBundle())
-            workerTableView.registerNib(tableViewCellNib, forCellReuseIdentifier: ViewController.workerCellID)
-        } else if segue.identifier == "settings" {
-            print(segue.identifier)
+            workerTVC.tableView.registerNib(tableViewCellNib, forCellReuseIdentifier: WorkerTableViewController.workerCellID)
+            workerTableViewController = workerTVC
         }
-    }
-    
-    // MARK: Delegate Methods -
-    
-    // MARK: DataSource
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        guard let cell = workerTableView.dequeueReusableCellWithIdentifier(ViewController.workerCellID) as? TableViewCell
-            else { fatalError("Expected a TableViewCell") }
-        resetPropertiesOfTipoutView(cell.workerView)
-        cell.workerView.delegate = self
-        
-        return cell
-    }
-    
-    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        guard let tableViewCell = cell as? TableViewCell else { fatalError("Expected a TableViewCell; got a \(cell.dynamicType) instead") }
-        
-        tableViewCell.viewModel = controller.currentViewModel[indexPath.row]
-    }
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return controller.currentViewModel.count
-    }
-    
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
-    }
-    
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            workerTableView.beginUpdates()
-            controller.currentViewModel.removeWorkerAtIndex(indexPath.row)
-            workerTableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
-            workerTableView.endUpdates()
-        }
-    }
-    
-    // MARK: TipoutView
-    
-    func tipoutViewDidBeginEditing(tipoutView: TipoutView, textField: UITextField) {
-        guard let
-            cell = tableViewCellForTipoutView(tipoutView),
-            indexPath = workerTableView.indexPathForCell(cell)
-            else { fatalError("Couldn't get tableViewCell or index") }
-        
-        workerTableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: .None, animated: true)
-    }
-    
-    func tipoutViewDidEndEditing(tipoutView: TipoutView) {
-        handleInputForTipoutView(tipoutView, activeText: tipoutView.activeTextField?.text)
-            }
-    
-    func tipoutView(tipoutView: TipoutView, textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-        let currentText: NSString? = textField.text
-        let proposedText = currentText?.stringByReplacingCharactersInRange(range, withString: string)
-        handleInputForTipoutView(tipoutView, activeText: proposedText)
-        return true
     }
     
     // MARK: - Keyboard Observers

@@ -305,6 +305,9 @@
                             <state key="normal" title="Change me">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="newWorker" destination="zgZ-8d-KW8" eventType="touchUpInside" id="q8I-Pz-85d"/>
+                            </connections>
                         </button>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="workerCell" id="BxB-yq-Iqa" customClass="TableViewCell" customModule="Tippy" customModuleProvider="target">
