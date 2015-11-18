@@ -13,42 +13,38 @@ class TableViewCell: UITableViewCell {
     
     @IBOutlet weak var workerView: TipoutView!
     
-    var viewModel: WorkerViewModelType = WorkerViewModelType(name: "", method: "amount", value: "0") {
-        didSet {
-            RAC(workerView, "nameField.text") <~ viewModel.rac_nameTextSignal()
-            
-            RAC(workerView, "amountField.text") <~ viewModel.rac_amountTextSignal().filter {
-                (_: AnyObject!) in
-                if let activeTextField = self.workerView?.activeTextField {
-                    return activeTextField != self.workerView.amountField
-                } else {
-                    return true
-                }
-            }
-            
-            RAC(workerView, "hoursField.text") <~ viewModel.rac_hoursTextSignal().filter {
-                (_: AnyObject!) in
-                if let activeTextField = self.workerView?.activeTextField {
-                    return activeTextField != self.workerView.hoursField
-                } else {
-                    return true
-                }
-            }
-            
-            RAC(workerView, "percentageField.attributedText") <~ viewModel.rac_percentageTextSignal().filter {
-                (_: AnyObject!) in
-                if let activeTextField = self.workerView?.activeTextField {
-                    return activeTextField != self.workerView.percentageField
-                } else {
-                    return true
-                }
-            }
-        }
-    }
+    dynamic var viewModel: WorkerViewModelType!
     
     override func awakeFromNib() {
-        
         super.awakeFromNib()
+        RAC(workerView, "nameField.text") <~ RACObserve(self, "viewModel.name")
+        
+        RAC(workerView, "amountField.text") <~ RACObserve(self, "viewModel.amount").filter {
+            (_: AnyObject!) in
+            if let activeTextField = self.workerView?.activeTextField {
+                return activeTextField != self.workerView.amountField
+            } else {
+                return true
+            }
+        }
+        
+        RAC(workerView, "hoursField.text") <~ RACObserve(self, "viewModel.hours").filter {
+            (_: AnyObject!) in
+            if let activeTextField = self.workerView?.activeTextField {
+                return activeTextField != self.workerView.hoursField
+            } else {
+                return true
+            }
+        }
+        
+        RAC(workerView, "percentageField.attributedText") <~ RACObserve(self, "viewModel.percentage").filter {
+            (_: AnyObject!) in
+            if let activeTextField = self.workerView?.activeTextField {
+                return activeTextField != self.workerView.percentageField
+            } else {
+                return true
+            }
+        }
     }
     
     override func setSelected(selected: Bool, animated: Bool) {
