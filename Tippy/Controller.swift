@@ -9,6 +9,7 @@
 import UIKit
 import ReactiveCocoa
 import Tipout
+import SwiftyUserDefaults
 
 
 
@@ -29,7 +30,7 @@ class Controller: NSObject, ColorStackViewDelegate {
     // MARK: Methods
     
     func storeCurrent() {
-        let newTipout = TipoutModel(roundToNearest: 0.25)
+        let newTipout = TipoutModel(roundToNearest: Defaults[.roundToNearest])
         tipoutModels.append(newTipout)
         currentIndex = tipoutModels.count - 1
     }
@@ -49,14 +50,27 @@ class Controller: NSObject, ColorStackViewDelegate {
     
     // MARK: - Initializers
     
+    func setup() {
+        Defaults.rac_channelTerminalForKey("roundToNearest").subscribeNextAs {
+            (roundToNearest: Double) -> () in
+            self.tipoutModels = self.tipoutModels.map {
+                let model = TipoutModel(roundToNearest: roundToNearest)
+                model.total = $0.total
+                model.workers = $0.workers
+                return model
+            }
+        }
+    }
+    
     init(tipoutModel: TipoutModel) {
+        super.init()
+        setup()
         self.tipoutModels.append(tipoutModel)
         currentIndex = 0
-        super.init()
     }
     
     convenience override init() {
-        self.init(tipoutModel: TipoutModel(roundToNearest: 0.25))
+        self.init(tipoutModel: TipoutModel(roundToNearest: Defaults[.roundToNearest]))
     }
     
     convenience init(tipoutViewModel: TipoutViewModelType) {

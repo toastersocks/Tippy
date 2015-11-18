@@ -8,11 +8,12 @@
 
 import UIKit
 import Tipout
+import SwiftyUserDefaults
 
-class TipoutViewModel: NSObject, TipoutViewModelType {
+final class TipoutViewModel: NSObject, TipoutViewModelType {
     // MARK: - Properties
     
-    var tipoutModel = TipoutModel(roundToNearest: 0.25)
+    var tipoutModel = TipoutModel(roundToNearest: Defaults[.roundToNearest])
     
     dynamic var count: Int {
         return tipoutModel.tipouts.count
@@ -28,7 +29,7 @@ class TipoutViewModel: NSObject, TipoutViewModelType {
     }
     
     dynamic var workerViewModels: [WorkerViewModelType] {
-        return tipoutModel.workers.map {
+        return tipoutModel.workers.lazy.map {
             return WorkerViewModel(worker: $0, totalTipouts: tipoutModel.total)
         }
     }
@@ -88,6 +89,7 @@ class TipoutViewModel: NSObject, TipoutViewModelType {
 }
 
 extension TipoutViewModel {
+   
     func viewModelForWorkerAtIndex(index: Int) -> WorkerViewModelType {
         let worker = tipoutModel.workers[index]
         return WorkerViewModel(worker: worker, totalTipouts: tipoutModel.total)
