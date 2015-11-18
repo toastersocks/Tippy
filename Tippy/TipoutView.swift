@@ -97,13 +97,12 @@ public protocol TipoutViewDelegate {
     
     private func handleInputEvent(placeholderText placeholder: String?, text: String) {
         
-        guard let placeholder = placeholder else { return }
             switch placeholder {
-            case "Amount":
+            case "Amount"?:
                 activeTextField = amountField
-            case "Percentage":
+            case "Percentage"?:
                 activeTextField = percentageField
-            case "Hours":
+            case "Hours"?:
                 activeTextField = hoursField
             default:
                 break
