@@ -25,6 +25,7 @@ public protocol TipoutViewDelegate {
     Asks the delegate if the specified text should be changed
     
     - parameter tipoutView: The `TipoutView` containing the text field with text to be changed.
+    - parameter textField:  The textfield which has the changed text
     - parameter range:      The range of characters to be replaced
     - parameter string:     The replacement string
     
@@ -33,7 +34,9 @@ public protocol TipoutViewDelegate {
     - note: This basically forwards the respective `UITextFieldDelegate` calls
     - seeAlso: `UITextFieldDelegate`
     */
-    func tipoutView(tipoutView: TipoutView, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool
+    func tipoutView(tipoutView: TipoutView, textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool
+    
+    func tipoutViewDidBeginEditing(tipoutView: TipoutView, textField: UITextField)
 }
 
  /// A view for displaying text and receiving input concerning the tips of a worker.
@@ -124,6 +127,11 @@ public protocol TipoutViewDelegate {
         }
     }
     
+    
+    @IBAction func textDidChange(sender: UITextField) {
+        sender.invalidateIntrinsicContentSize()
+    }
+    
     // MARK: Delegate
     
     public func textFieldDidEndEditing(textField: UITextField) {
@@ -135,17 +143,14 @@ public protocol TipoutViewDelegate {
     
     public func textFieldDidBeginEditing(textField: UITextField) {
         textField.selectAll(nil)
-        if textField.placeholder != "Name" {
-//            textField.text = ""
-        }
+        delegate?.tipoutViewDidBeginEditing(self, textField: textField)
     }
     
     public func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         if activeOnChange {
 //            textField.text = string
             handleInputEvent(placeholderText: textField.placeholder, text: string)
-            delegate?.tipoutView(self, shouldChangeCharactersInRange: range, replacementString: string)
-            
+            delegate?.tipoutView(self, textField: textField, shouldChangeCharactersInRange: range, replacementString: string)
         }
         
         return true

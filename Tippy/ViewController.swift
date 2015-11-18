@@ -28,7 +28,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
             colorStackView.colorDelegate = ColorDelegate()
         }
     }
-    @IBOutlet weak var scrollView: UIScrollView!
+
     @IBOutlet weak var totalField: UITextField!
     
     @IBOutlet weak var combineButton: UIButton!
@@ -75,7 +75,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
 
     }
     
-    func handleInputForTipoutView(tipoutView: TipoutView, activeText: String?) {
+    func tableViewCellForTipoutView(tipoutView: TipoutView) -> TableViewCell? {
         var aView: UIView = tipoutView
         
         while !(aView is UITableViewCell) {
@@ -83,7 +83,12 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
         }
         
         guard let cell = aView as? TableViewCell else { fatalError("Wrong cell type. Expected a TableViewCell") }
-
+        
+        return cell
+    }
+    
+    func handleInputForTipoutView(tipoutView: TipoutView, activeText: String?) {
+        guard let cell = tableViewCellForTipoutView(tipoutView) else { fatalError("Couldn't get tableViewCell") }
         if let indexPath = workerTableView.indexPathForCell(cell) {
 
             if let activeText = activeText, placeholderText = tipoutView.activeTextField?.placeholder {
@@ -105,12 +110,12 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
     }
     
     
-    @IBAction func storeTapped(sender: UIButton) {
+    @IBAction func storeTapped(sender: UIBarButtonItem) {
         controller.storeCurrent()
         colorStackView.reload()
     }
     
-    @IBAction func combine(sender: UIButton) {
+    @IBAction func combine(sender: UIBarButtonItem) {
         guard let viewController = storyboard?.instantiateViewControllerWithIdentifier("tipoutvc") as? ViewController else { fatalError("Unable to instantiate ViewController") }
         
         presentViewController(viewController, animated: true, completion: nil)
@@ -138,6 +143,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
             workerTVC.addNewButton.addTarget(self, action: "newWorker", forControlEvents: .TouchUpInside)
             let tableViewCellNib = UINib(nibName: "TableViewCell", bundle: NSBundle.mainBundle())
             workerTableView.registerNib(tableViewCellNib, forCellReuseIdentifier: ViewController.workerCellID)
+        } else if segue.identifier == "settings" {
+            print(segue.identifier)
         }
     }
     
@@ -184,12 +191,21 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
     
     // MARK: TipoutView
     
+    func tipoutViewDidBeginEditing(tipoutView: TipoutView, textField: UITextField) {
+        guard let
+            cell = tableViewCellForTipoutView(tipoutView),
+            indexPath = workerTableView.indexPathForCell(cell)
+            else { fatalError("Couldn't get tableViewCell or index") }
+        
+        workerTableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: .None, animated: true)
+    }
+    
     func tipoutViewDidEndEditing(tipoutView: TipoutView) {
         handleInputForTipoutView(tipoutView, activeText: tipoutView.activeTextField?.text)
             }
     
-    func tipoutView(tipoutView: TipoutView, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-        let currentText: NSString? = tipoutView.activeTextField?.text
+    func tipoutView(tipoutView: TipoutView, textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        let currentText: NSString? = textField.text
         let proposedText = currentText?.stringByReplacingCharactersInRange(range, withString: string)
         handleInputForTipoutView(tipoutView, activeText: proposedText)
         return true
@@ -216,4 +232,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
         }
     }
 }
+
+
 
