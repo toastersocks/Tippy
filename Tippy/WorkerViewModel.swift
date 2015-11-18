@@ -9,7 +9,7 @@
 import UIKit
 import Tipout
 
-class WorkerViewModel: NSObject, WorkerViewModelType {
+final class WorkerViewModel: NSObject, WorkerViewModelType {
     
     // MARK: - Properties
     
