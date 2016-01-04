@@ -114,7 +114,7 @@ class ViewController: UIViewController {
     
     // MARK: - Keyboard Observers
     
-    func keyboardWasShown(notification: NSNotification) {
+    func keyboardWillShow(notification: NSNotification) {
         guard let info = notification.userInfo else { fatalError("Couldn't get info dictionary from notification") }
         guard let kbSize = info[UIKeyboardFrameEndUserInfoKey]?.CGRectValue.size else { fatalError("Couldn't get keyboard size") }
         guard let animationDuration = info[UIKeyboardAnimationDurationUserInfoKey]?.doubleValue else { fatalError("Couldn't get keyboard animation duration") }
@@ -124,7 +124,7 @@ class ViewController: UIViewController {
         }
     }
     
-    func keyboardWillBeHidden(notification: NSNotification) {
+    func keyboardWillHide(notification: NSNotification) {
         guard let info = notification.userInfo else { fatalError("Couldn't get info dictionary from notification") }
         guard let animationDuration = info[UIKeyboardAnimationDurationUserInfoKey]?.doubleValue else { fatalError("Couldn't get keyboard animation duration") }
         bottomBarLayoutConstraint.constant = 0
