@@ -8,6 +8,7 @@
 
 import UIKit
 import ReactiveCocoa
+import SwiftyUserDefaults
 
 
 class ViewController: UIViewController {
@@ -22,14 +23,28 @@ class ViewController: UIViewController {
             colorStackView.colorDelegate = ColorDelegate()
         }
     }
-
+    
     @IBOutlet weak var totalField: UITextField!
     
     @IBOutlet weak var combineButton: UIButton!
     @IBOutlet weak var storeOrDoneButton: UIButton!
     @IBOutlet weak var bottomBarLayoutConstraint: NSLayoutConstraint!
     
-    dynamic var controller = Controller()
+    @IBOutlet weak var numberFormatter: Formatter? {
+        didSet {
+            Defaults.rac_channelTerminalForKey(DefaultsKeys.percentageFormat._key).subscribeNextAs {
+                (option: Int) -> () in
+                self.numberFormatter?.percentFormat = option == 0 ? .Decimal : .WholeNumber
+            }
+            controller = Controller(numberFormatter: numberFormatter)
+        }
+    }
+    dynamic var controller: Controller
+    
+    required init?(coder aDecoder: NSCoder) {
+        controller = Controller() 
+        super.init(coder: aDecoder)
+    }
     
     // MARK: - Methods
     override func viewDidLoad() {
@@ -44,14 +59,19 @@ class ViewController: UIViewController {
             self.workerTableViewController?.viewModel = viewModel
         }
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWasShown:", name: UIKeyboardDidShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillBeHidden:", name: UIKeyboardWillHideNotification, object: nil)
+        Defaults.rac_channelTerminalForKey(DefaultsKeys.percentageFormat._key).subscribeNext {
+            (_: AnyObject!) -> Void in
+            self.workerTableViewController.tableView.reloadData()
+        }
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-
+        
     }
     
     @IBAction func storeTapped(sender: UIBarButtonItem) {
@@ -63,7 +83,7 @@ class ViewController: UIViewController {
         guard let viewController = storyboard?.instantiateViewControllerWithIdentifier("tipoutvc") as? ViewController else { fatalError("Unable to instantiate ViewController") }
         
         presentViewController(viewController, animated: true, completion: nil)
-
+        
         viewController.storeOrDoneButton.setTitle("Done", forState: .Normal)
         viewController.storeOrDoneButton.removeTarget(viewController, action: "storeTapped:", forControlEvents: .TouchUpInside)
         viewController.storeOrDoneButton.addTarget(viewController, action: "done:", forControlEvents: .TouchUpInside)
@@ -87,6 +107,8 @@ class ViewController: UIViewController {
             let tableViewCellNib = UINib(nibName: "TableViewCell", bundle: NSBundle.mainBundle())
             workerTVC.tableView.registerNib(tableViewCellNib, forCellReuseIdentifier: WorkerTableViewController.workerCellID)
             workerTableViewController = workerTVC
+            
+            workerTableViewController.formatter = numberFormatter
         }
     }
     

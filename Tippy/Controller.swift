@@ -51,7 +51,12 @@ class Controller: NSObject, ColorStackViewDelegate {
     // MARK: - Initializers
     
     func setup() {
-        Defaults.rac_channelTerminalForKey("roundToNearest").subscribeNextAs {
+        guard let defaultsPrefsFile = NSBundle.mainBundle().URLForResource("DefaultPreferences", withExtension: "plist"),
+            defaultsPrefs = NSDictionary(contentsOfURL: defaultsPrefsFile) as? Dictionary<String, AnyObject>
+            else { fatalError("Error loading DefaultPreferences.plist") }
+        
+        NSUserDefaults.standardUserDefaults().registerDefaults(defaultsPrefs)
+        Defaults.rac_channelTerminalForKey(DefaultsKeys.roundToNearest._key).subscribeNextAs {
             (roundToNearest: Double) -> () in
             self.tipoutModels = self.tipoutModels.map {
                 let model = TipoutModel(roundToNearest: roundToNearest)

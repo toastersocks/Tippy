@@ -30,6 +30,7 @@
 		DD71106F1BE18F2C00FA7006 /* DefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD71106E1BE18F2C00FA7006 /* DefaultsKeys.swift */; };
 		DD73DFC01BC1BC9B0005636C /* Chameleon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD73DFBF1BC1BC9B0005636C /* Chameleon.framework */; };
 		DD73DFC11BC1BC9B0005636C /* Chameleon.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DD73DFBF1BC1BC9B0005636C /* Chameleon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DD7B06E41C2EFBCF00880CBD /* DefaultPreferences.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD7B06E31C2EFBCF00880CBD /* DefaultPreferences.plist */; };
 		DD7CBA321B598DC8003B718D /* ReactiveCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DD7CBA2D1B598C5F003B718D /* ReactiveCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DD7CBA341B598DC8003B718D /* Tipout.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DD7CBA2E1B598C5F003B718D /* Tipout.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DD7CBA351B598DDE003B718D /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD7CBA2D1B598C5F003B718D /* ReactiveCocoa.framework */; };
@@ -111,6 +112,7 @@
 		DD71106B1BE18B9300FA7006 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		DD71106E1BE18F2C00FA7006 /* DefaultsKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultsKeys.swift; sourceTree = "<group>"; };
 		DD73DFBF1BC1BC9B0005636C /* Chameleon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Chameleon.framework; path = Carthage/Build/iOS/Chameleon.framework; sourceTree = "<group>"; };
+		DD7B06E31C2EFBCF00880CBD /* DefaultPreferences.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DefaultPreferences.plist; sourceTree = "<group>"; };
 		DD7CBA2D1B598C5F003B718D /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/iOS/ReactiveCocoa.framework; sourceTree = "<group>"; };
 		DD7CBA2E1B598C5F003B718D /* Tipout.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Tipout.framework; path = Carthage/Build/iOS/Tipout.framework; sourceTree = "<group>"; };
 		DD7CBA371B599444003B718D /* TipoutView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TipoutView.xib; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				DD1C584C1B16981D00188B28 /* Info.plist */,
+				DD7B06E31C2EFBCF00880CBD /* DefaultPreferences.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -383,6 +386,7 @@
 			files = (
 				DD1C58531B16981D00188B28 /* Main.storyboard in Resources */,
 				DD67BD701B697E2E000EADD5 /* TableViewCell.xib in Resources */,
+				DD7B06E41C2EFBCF00880CBD /* DefaultPreferences.plist in Resources */,
 				DD1C58581B16981D00188B28 /* LaunchScreen.xib in Resources */,
 				DD1C58551B16981D00188B28 /* Images.xcassets in Resources */,
 				DD7CBA381B599444003B718D /* TipoutView.xib in Resources */,
