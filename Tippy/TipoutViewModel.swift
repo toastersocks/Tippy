@@ -14,7 +14,7 @@ final class TipoutViewModel: NSObject, TipoutViewModelType {
     // MARK: - Properties
     
     var tipoutModel = TipoutModel(roundToNearest: Defaults[.roundToNearest])
-    
+    private let formatter: Formatter?
     dynamic var count: Int {
         return tipoutModel.tipouts.count
     }
@@ -73,7 +73,7 @@ final class TipoutViewModel: NSObject, TipoutViewModelType {
     
     // MARK: - Initializers
     
-    init(tipoutModel: TipoutModel) {
+    init(tipoutModel: TipoutModel, formatter: Formatter?) {
         self.tipoutModel = tipoutModel
     }
     
@@ -92,7 +92,7 @@ extension TipoutViewModel {
    
     func viewModelForWorkerAtIndex(index: Int) -> WorkerViewModelType {
         let worker = tipoutModel.workers[index]
-        return WorkerViewModel(worker: worker, totalTipouts: tipoutModel.total)
+        return WorkerViewModel(worker: worker, formatter: formatter, totalTipouts: tipoutModel.total)
     }
     
     subscript(index: Int) -> WorkerViewModelType {

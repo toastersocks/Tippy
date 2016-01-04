@@ -20,12 +20,12 @@ class Controller: NSObject, ColorStackViewDelegate {
     private var tipoutModels = [TipoutModel]()
     
     dynamic var currentViewModel: TipoutViewModelType {
-        return TipoutViewModel(tipoutModel: tipoutModels[currentIndex])
+        return TipoutViewModel(tipoutModel: tipoutModels[currentIndex], formatter: numberFormatter)
     }
     
     var count: Int { return tipoutModels.count }
-    
     private(set) dynamic var currentIndex = 0
+    var numberFormatter: Formatter?
     
     // MARK: Methods
     
@@ -45,7 +45,7 @@ class Controller: NSObject, ColorStackViewDelegate {
     
     func combinedTipoutsViewModel() -> TipoutViewModelType? {
         guard let tipoutModel = tipoutModels.reduce(+) else { return nil }
-        return TipoutViewModel(tipoutModel: tipoutModel)
+        return TipoutViewModel(tipoutModel: tipoutModel, formatter: numberFormatter)
     }
     
     // MARK: - Initializers
@@ -62,20 +62,22 @@ class Controller: NSObject, ColorStackViewDelegate {
         }
     }
     
-    init(tipoutModel: TipoutModel) {
+    init(tipoutModel: TipoutModel, numberFormatter formatter: Formatter?) {
         super.init()
         setup()
+        self.numberFormatter = formatter
         self.tipoutModels.append(tipoutModel)
         currentIndex = 0
     }
     
-    convenience override init() {
-        self.init(tipoutModel: TipoutModel(roundToNearest: Defaults[.roundToNearest]))
+    convenience init(numberFormatter formatter: Formatter? = nil) {
+        self.init(tipoutModel: TipoutModel(roundToNearest: Defaults[.roundToNearest]), numberFormatter: formatter)
     }
     
-    convenience init(tipoutViewModel: TipoutViewModelType) {
-        guard let tipoutViewModel = tipoutViewModel as? TipoutViewModel else { self.init(tipoutModel: TipoutModel()); return }
-        self.init(tipoutModel: tipoutViewModel.tipoutModel)
+    convenience init(tipoutViewModel: TipoutViewModelType, numberFormatter formatter: Formatter?) {
+        guard let tipoutViewModel = tipoutViewModel as? TipoutViewModel
+            else { self.init(tipoutModel: TipoutModel(), numberFormatter: formatter); return }
+        self.init(tipoutModel: tipoutViewModel.tipoutModel, numberFormatter: formatter)
     }
     
     // MARK: - ColorStackViewDelegate
@@ -102,19 +104,4 @@ class Controller: NSObject, ColorStackViewDelegate {
     class func keyPathsForValuesAffectingCurrentViewModel() -> Set<NSObject> {
         return Set(["currentIndex", "tipoutModels"])
     }
-    
-    /*func workerViewModelAtIndex(index: Int) -> WorkerViewModel {
-    return currentViewModel.viewModelForWorkerAtIndex(index)
-    }*/
-    
 }
-
-/*extension Controller {
-var addWorkerCommand: RACCommand {
-return RACCommand(signalBlock: { (input) -> RACSignal! in
-
-})
-}
-}
-*/
-

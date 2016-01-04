@@ -17,6 +17,7 @@ class WorkerTableViewController: UITableViewController, TipoutViewDelegate {
         }
     }
     
+    var formatter: Formatter?
     @IBOutlet weak var addNewButton: UIButton!
     
     override func viewDidLoad() {
@@ -35,7 +36,7 @@ class WorkerTableViewController: UITableViewController, TipoutViewDelegate {
     
     @IBAction func newWorker() {
         let viewModelCount = viewModel.count
-        viewModel.addWorkerWithName("", method: "amount", value: "0.0", atIndex: viewModelCount)
+        viewModel.addWorkerWithName("", method: .Amount, value: "0", atIndex: viewModelCount)
         
         tableView.beginUpdates()
         tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: viewModelCount, inSection: 0)], withRowAnimation: .Automatic)

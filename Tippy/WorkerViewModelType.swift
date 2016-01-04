@@ -15,8 +15,12 @@ import ReactiveCocoa
     var amount: String { get set }
     var hours: String { get set }
     var percentage: NSAttributedString { get set }
+    var currencySymbolPosition: SymbolPosition { get }
+    var percentSymbolPosition: SymbolPosition { get }
+    var percentSymbol: String { get }
+    var currencySymbol: String { get }
     //var method: (method: String, value: String) { get set }
-    init(name: String, method: String, value: String)
+//    init(name: String, method: String, value: String)
 
     // RAC Stuff
     func rac_newNameTextChannel() -> RACChannelTerminal

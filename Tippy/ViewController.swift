@@ -70,7 +70,7 @@ class ViewController: UIViewController {
         viewController.combineButton.hidden = true
         if let combinedTipoutViewModel = controller.combinedTipoutsViewModel() {
             debugPrint(combinedTipoutViewModel.totalText)
-            viewController.controller = Controller(tipoutViewModel: combinedTipoutViewModel)
+            viewController.controller = Controller(tipoutViewModel: combinedTipoutViewModel, numberFormatter: numberFormatter)
         } else {
             
         }
