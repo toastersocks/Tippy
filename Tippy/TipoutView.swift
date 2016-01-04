@@ -41,6 +41,13 @@ public protocol TipoutViewDelegate {
 
  /// A view for displaying text and receiving input concerning the tips of a worker.
 @IBDesignable public class TipoutView: UIControl, UITextFieldDelegate {
+    
+    @objc public enum TipoutViewField: Int {
+//        case Name = 0
+        case Hours = 1
+        case Percentage
+        case Amount
+    }
     private var view: UIView!
     
     public var delegate: TipoutViewDelegate?
@@ -95,18 +102,17 @@ public protocol TipoutViewDelegate {
         }
     }
     
-    private func handleInputEvent(placeholderText placeholder: String?, text: String) {
+    private func handleInputEvent(textField tag: TipoutViewField, text: String) {
         
-            switch placeholder {
-            case "Amount"?:
+            switch tag {
+            case .Amount:
                 activeTextField = amountField
-            case "Percentage"?:
+            case .Percentage:
                 activeTextField = percentageField
-            case "Hours"?:
+            case .Hours:
                 activeTextField = hoursField
-            default:
-                break
-            }
+//            case .Name: return
+        }
             if clearsInactiveFields {
                 clearInactiveFields()
             }
@@ -129,15 +135,21 @@ public protocol TipoutViewDelegate {
     
     @IBAction func textDidChange(sender: UITextField) {
         sender.invalidateIntrinsicContentSize()
+        if activeOnChange {
+            guard let tag = TipoutViewField(rawValue: sender.tag), text = sender.text else { return }
+            handleInputEvent(textField: tag, text: text)
+            delegate?.tipoutView(self, textField: sender, textDidChange: text)
+        }
     }
     
     // MARK: Delegate
     
     public func textFieldDidEndEditing(textField: UITextField) {
         if !activeOnChange {
-            handleInputEvent(placeholderText: textField.placeholder, text: textField.text ?? "")
-            delegate?.tipoutViewDidEndEditing(self)
+            guard let tag = TipoutViewField(rawValue: textField.tag) else { return }
+            handleInputEvent(textField: tag, text: textField.text ?? "")
         }
+        delegate?.tipoutViewDidEndEditing(self)
     }
     
     public func textFieldDidBeginEditing(textField: UITextField) {

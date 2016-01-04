@@ -30,40 +30,38 @@ final class TipoutViewModel: NSObject, TipoutViewModelType {
     
     dynamic var workerViewModels: [WorkerViewModelType] {
         return tipoutModel.workers.lazy.map {
-            return WorkerViewModel(worker: $0, totalTipouts: tipoutModel.total)
+            return WorkerViewModel(worker: $0, formatter: formatter, totalTipouts: tipoutModel.total)
         }
     }
-
+    
     // MARK: - Methods
     
-    func addWorkerWithName(name: String, method: String, value: String, atIndex index: Int) {
-        
+    func addWorkerWithName(name: String, method: TipoutView.TipoutViewField, value: String, atIndex index: Int) {
+        guard let formatter = formatter else { return }
         let tipoutMethod: TipoutMethod
-        let value = (value as NSString).doubleValue
         // TODO: Make these magic strings into enums
-        switch method {
-        case "hours":
-            fallthrough
-        case "Hours":
-            tipoutMethod = .Hourly(value)
-        case "percentage":
-            fallthrough
-        case "Percentage":
-            tipoutMethod = .Percentage(value)
-        case "amount":
-            fallthrough
-        case "Amount":
-            tipoutMethod = .Amount(value)
-        default:
-            tipoutMethod = .Amount(0.0)
-        }
+        if !value.isEmpty {
+            switch method {
+            case .Hours:
+                let hours = (value as NSString).doubleValue
+                tipoutMethod = .Hourly(hours)
+            case .Percentage:
+                let percentage = try! formatter.percentageFromString(value)
+                tipoutMethod = .Percentage(percentage.doubleValue)
+            case .Amount:
+                let currencyValue = try! formatter.currencyFromString(value)
+                tipoutMethod = .Amount(currencyValue.doubleValue)
+            /*default:
+                tipoutMethod = .Amount(0.0)*/
+            }
+        } else { tipoutMethod = .Amount(0.0) }
         
         let worker = Worker(method: tipoutMethod, id: name)
         
         if index < tipoutModel.workers.count {
             tipoutModel.workers[index] = worker
         } else if index == tipoutModel.workers.count {
-        tipoutModel.workers.append(worker)
+            tipoutModel.workers.append(worker)
         }
     }
     
@@ -75,6 +73,7 @@ final class TipoutViewModel: NSObject, TipoutViewModelType {
     
     init(tipoutModel: TipoutModel, formatter: Formatter?) {
         self.tipoutModel = tipoutModel
+        self.formatter = formatter
     }
     
     // MARK: - KVO
@@ -85,11 +84,11 @@ final class TipoutViewModel: NSObject, TipoutViewModelType {
     class func keyPathsForValuesAffectingCount() -> Set<NSObject> {
         return Set(["tipoutModel.tipouts.count"])
     }
-
+    
 }
 
 extension TipoutViewModel {
-   
+    
     func viewModelForWorkerAtIndex(index: Int) -> WorkerViewModelType {
         let worker = tipoutModel.workers[index]
         return WorkerViewModel(worker: worker, formatter: formatter, totalTipouts: tipoutModel.total)
