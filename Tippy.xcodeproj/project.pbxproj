@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD19B6391C192DC9000FFACA /* testFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD19B6381C192DC9000FFACA /* testFormatter.swift */; };
+		DD19B63E1C1A3375000FFACA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DD19B6401C1A3375000FFACA /* Localizable.strings */; };
+		DD19B6451C1A3EA4000FFACA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DD19B6471C1A3EA4000FFACA /* InfoPlist.strings */; };
+		DD19B64A1C1A3EA5000FFACA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DD19B64C1C1A3EA5000FFACA /* InfoPlist.strings */; };
 		DD1C584E1B16981D00188B28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1C584D1B16981D00188B28 /* AppDelegate.swift */; };
 		DD1C58501B16981D00188B28 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1C584F1B16981D00188B28 /* ViewController.swift */; };
 		DD1C58531B16981D00188B28 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD1C58511B16981D00188B28 /* Main.storyboard */; };
@@ -21,7 +25,6 @@
 		DD54AA7F1BB1AA1200AFFA68 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD54AA7D1BB1AA1200AFFA68 /* Quick.framework */; };
 		DD54AABF1BB30FF700AFFA68 /* ColorStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD54AABE1BB30FF700AFFA68 /* ColorStackView.swift */; };
 		DD67BD6C1B6861E4000EADD5 /* WorkerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD67BD6B1B6861E4000EADD5 /* WorkerViewModel.swift */; };
-		DD67BD701B697E2E000EADD5 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD67BD6E1B697E2E000EADD5 /* TableViewCell.xib */; };
 		DD6CB2F71B5C45040097BB76 /* TipoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6CB2F61B5C45040097BB76 /* TipoutView.swift */; };
 		DD6F0C381C1B98FC00A65CB0 /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6F0C371C1B98FC00A65CB0 /* Formatter.swift */; };
 		DD7110691BE189EF00FA7006 /* SwiftyUserDefaults.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD7110671BE189D900FA7006 /* SwiftyUserDefaults.framework */; };
@@ -35,7 +38,6 @@
 		DD7CBA341B598DC8003B718D /* Tipout.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DD7CBA2E1B598C5F003B718D /* Tipout.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DD7CBA351B598DDE003B718D /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD7CBA2D1B598C5F003B718D /* ReactiveCocoa.framework */; };
 		DD7CBA361B598DDE003B718D /* Tipout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD7CBA2E1B598C5F003B718D /* Tipout.framework */; };
-		DD7CBA381B599444003B718D /* TipoutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD7CBA371B599444003B718D /* TipoutView.xib */; };
 		DD80142A1B16A15F007A673F /* RAC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8014261B16A15F007A673F /* RAC.swift */; };
 		DD80142B1B16A15F007A673F /* RACObserve.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8014271B16A15F007A673F /* RACObserve.swift */; };
 		DD80142C1B16A15F007A673F /* RACSignal+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8014281B16A15F007A673F /* RACSignal+Extensions.swift */; };
@@ -50,6 +52,8 @@
 		DDDAE7461B6BDE0B008D2140 /* WorkerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDAE7451B6BDE0B008D2140 /* WorkerTableViewController.swift */; };
 		DDE21BB61B4E15BE002D5859 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE21BB51B4E15BE002D5859 /* Controller.swift */; };
 		DDE86B891C237E9C00DA7941 /* TotalFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE86B881C237E9C00DA7941 /* TotalFieldDelegate.swift */; };
+		DDE86B941C24E79700DA7941 /* TipoutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDE86B961C24E79700DA7941 /* TipoutView.xib */; };
+		DDE86B9B1C24E7B500DA7941 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDE86B9D1C24E7B500DA7941 /* TableViewCell.xib */; };
 		DDECA8EF1BA614D400D45446 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDECA8EE1BA614D400D45446 /* Helpers.swift */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +86,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		DD19B6381C192DC9000FFACA /* testFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = testFormatter.swift; sourceTree = "<group>"; };
+		DD19B63A1C1A2D55000FFACA /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/Main.strings"; sourceTree = "<group>"; };
+		DD19B63B1C1A2D56000FFACA /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		DD19B63F1C1A3375000FFACA /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		DD19B6411C1A337D000FFACA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DD19B6421C1A337F000FFACA /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DD19B6461C1A3EA4000FFACA /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		DD19B64B1C1A3EA5000FFACA /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		DD1A48031B28FE7D003FA9DB /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		DD1A48041B29D456003FA9DB /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		DD1C58481B16981D00188B28 /* Tippy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tippy.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,9 +117,13 @@
 		DD54AABE1BB30FF700AFFA68 /* ColorStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorStackView.swift; sourceTree = "<group>"; };
 		DD67BD6B1B6861E4000EADD5 /* WorkerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkerViewModel.swift; sourceTree = "<group>"; };
 		DD67BD6D1B697E2E000EADD5 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
-		DD67BD6E1B697E2E000EADD5 /* TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		DD6CB2F61B5C45040097BB76 /* TipoutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipoutView.swift; sourceTree = "<group>"; };
 		DD6F0C371C1B98FC00A65CB0 /* Formatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
+		DD6F0C391C1BA11400A65CB0 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Main.strings; sourceTree = "<group>"; };
+		DD6F0C3A1C1BA11400A65CB0 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		DD6F0C3B1C1BA11400A65CB0 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DD6F0C3C1C1BA11400A65CB0 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DD6F0C3D1C1BA11500A65CB0 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		DD7110671BE189D900FA7006 /* SwiftyUserDefaults.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyUserDefaults.framework; path = Carthage/Build/iOS/SwiftyUserDefaults.framework; sourceTree = "<group>"; };
 		DD71106B1BE18B9300FA7006 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		DD71106E1BE18F2C00FA7006 /* DefaultsKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultsKeys.swift; sourceTree = "<group>"; };
@@ -115,7 +131,6 @@
 		DD7B06E31C2EFBCF00880CBD /* DefaultPreferences.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DefaultPreferences.plist; sourceTree = "<group>"; };
 		DD7CBA2D1B598C5F003B718D /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/iOS/ReactiveCocoa.framework; sourceTree = "<group>"; };
 		DD7CBA2E1B598C5F003B718D /* Tipout.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Tipout.framework; path = Carthage/Build/iOS/Tipout.framework; sourceTree = "<group>"; };
-		DD7CBA371B599444003B718D /* TipoutView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TipoutView.xib; sourceTree = "<group>"; };
 		DD8014261B16A15F007A673F /* RAC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAC.swift; sourceTree = "<group>"; };
 		DD8014271B16A15F007A673F /* RACObserve.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RACObserve.swift; sourceTree = "<group>"; };
 		DD8014281B16A15F007A673F /* RACSignal+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RACSignal+Extensions.swift"; sourceTree = "<group>"; };
@@ -129,6 +144,23 @@
 		DDDAE7451B6BDE0B008D2140 /* WorkerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkerTableViewController.swift; sourceTree = "<group>"; };
 		DDE21BB51B4E15BE002D5859 /* Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
 		DDE86B881C237E9C00DA7941 /* TotalFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TotalFieldDelegate.swift; sourceTree = "<group>"; };
+		DDE86B8A1C24DF1A00DA7941 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Main.strings; sourceTree = "<group>"; };
+		DDE86B8B1C24DF1A00DA7941 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		DDE86B8C1C24DF1A00DA7941 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DDE86B8D1C24DF1A00DA7941 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DDE86B8E1C24DF1A00DA7941 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DDE86B951C24E79700DA7941 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/TipoutView.xib; sourceTree = "<group>"; };
+		DDE86B981C24E79C00DA7941 /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/TipoutView.strings"; sourceTree = "<group>"; };
+		DDE86B9A1C24E79F00DA7941 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/TipoutView.strings; sourceTree = "<group>"; };
+		DDE86B9C1C24E7B500DA7941 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/TableViewCell.xib; sourceTree = "<group>"; };
+		DDE86B9F1C24E7BB00DA7941 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TableViewCell.strings; sourceTree = "<group>"; };
+		DDE86BA01C24E7F400DA7941 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
+		DDE86BA11C24E7F400DA7941 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/TipoutView.strings; sourceTree = "<group>"; };
+		DDE86BA21C24E7F400DA7941 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		DDE86BA31C24E7F400DA7941 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DDE86BA41C24E7F500DA7941 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DDE86BA51C24E7F500DA7941 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DDE86BA61C24ECFC00DA7941 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/TableViewCell.strings; sourceTree = "<group>"; };
 		DDECA8EE1BA614D400D45446 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -215,7 +247,9 @@
 		DD1C584B1B16981D00188B28 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				DD19B64C1C1A3EA5000FFACA /* InfoPlist.strings */,
 				DD1C584C1B16981D00188B28 /* Info.plist */,
+				DD19B6401C1A3375000FFACA /* Localizable.strings */,
 				DD7B06E31C2EFBCF00880CBD /* DefaultPreferences.plist */,
 			);
 			name = "Supporting Files";
@@ -226,6 +260,7 @@
 			children = (
 				DD1C58611B16981E00188B28 /* Supporting Files */,
 				DD54AA781BB1A77C00AFFA68 /* testWorkerViewModel.swift */,
+				DD19B6381C192DC9000FFACA /* testFormatter.swift */,
 			);
 			path = TippyTests;
 			sourceTree = "<group>";
@@ -233,6 +268,7 @@
 		DD1C58611B16981E00188B28 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				DD19B6471C1A3EA4000FFACA /* InfoPlist.strings */,
 				DD1C58621B16981E00188B28 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -261,8 +297,8 @@
 			isa = PBXGroup;
 			children = (
 				DD1C58511B16981D00188B28 /* Main.storyboard */,
-				DD7CBA371B599444003B718D /* TipoutView.xib */,
-				DD67BD6E1B697E2E000EADD5 /* TableViewCell.xib */,
+				DDE86B961C24E79700DA7941 /* TipoutView.xib */,
+				DDE86B9D1C24E7B500DA7941 /* TableViewCell.xib */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -346,6 +382,9 @@
 		DD1C58401B16981D00188B28 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					name,
+				);
 				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0700;
@@ -367,6 +406,10 @@
 			knownRegions = (
 				en,
 				Base,
+				tr,
+				pt,
+				"pt-PT",
+				es,
 			);
 			mainGroup = DD1C583F1B16981D00188B28;
 			productRefGroup = DD1C58491B16981D00188B28 /* Products */;
@@ -385,11 +428,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD1C58531B16981D00188B28 /* Main.storyboard in Resources */,
-				DD67BD701B697E2E000EADD5 /* TableViewCell.xib in Resources */,
 				DD7B06E41C2EFBCF00880CBD /* DefaultPreferences.plist in Resources */,
+				DD19B64A1C1A3EA5000FFACA /* InfoPlist.strings in Resources */,
+				DD19B63E1C1A3375000FFACA /* Localizable.strings in Resources */,
+				DDE86B9B1C24E7B500DA7941 /* TableViewCell.xib in Resources */,
 				DD1C58581B16981D00188B28 /* LaunchScreen.xib in Resources */,
 				DD1C58551B16981D00188B28 /* Images.xcassets in Resources */,
-				DD7CBA381B599444003B718D /* TipoutView.xib in Resources */,
+				DDE86B941C24E79700DA7941 /* TipoutView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,6 +442,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD19B6451C1A3EA4000FFACA /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -475,6 +521,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD19B6391C192DC9000FFACA /* testFormatter.swift in Sources */,
 				DD54AA791BB1A77C00AFFA68 /* testWorkerViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -490,10 +537,49 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		DD19B6401C1A3375000FFACA /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DD19B63F1C1A3375000FFACA /* pt-PT */,
+				DD19B6411C1A337D000FFACA /* en */,
+				DD19B6421C1A337F000FFACA /* Base */,
+				DD6F0C3C1C1BA11400A65CB0 /* tr */,
+				DDE86B8D1C24DF1A00DA7941 /* pt */,
+				DDE86BA41C24E7F500DA7941 /* es */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		DD19B6471C1A3EA4000FFACA /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DD19B6461C1A3EA4000FFACA /* pt-PT */,
+				DD6F0C3D1C1BA11500A65CB0 /* tr */,
+				DDE86B8E1C24DF1A00DA7941 /* pt */,
+				DDE86BA51C24E7F500DA7941 /* es */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		DD19B64C1C1A3EA5000FFACA /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DD19B64B1C1A3EA5000FFACA /* pt-PT */,
+				DD6F0C3B1C1BA11400A65CB0 /* tr */,
+				DDE86B8C1C24DF1A00DA7941 /* pt */,
+				DDE86BA31C24E7F400DA7941 /* es */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		DD1C58511B16981D00188B28 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				DD1C58521B16981D00188B28 /* Base */,
+				DD19B63A1C1A2D55000FFACA /* pt-PT */,
+				DD6F0C391C1BA11400A65CB0 /* tr */,
+				DDE86B8A1C24DF1A00DA7941 /* pt */,
+				DDE86BA01C24E7F400DA7941 /* es */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -502,8 +588,33 @@
 			isa = PBXVariantGroup;
 			children = (
 				DD1C58571B16981D00188B28 /* Base */,
+				DD19B63B1C1A2D56000FFACA /* pt-PT */,
+				DD6F0C3A1C1BA11400A65CB0 /* tr */,
+				DDE86B8B1C24DF1A00DA7941 /* pt */,
+				DDE86BA21C24E7F400DA7941 /* es */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		DDE86B961C24E79700DA7941 /* TipoutView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DDE86B951C24E79700DA7941 /* Base */,
+				DDE86B981C24E79C00DA7941 /* pt-PT */,
+				DDE86B9A1C24E79F00DA7941 /* pt */,
+				DDE86BA11C24E7F400DA7941 /* es */,
+			);
+			name = TipoutView.xib;
+			sourceTree = "<group>";
+		};
+		DDE86B9D1C24E7B500DA7941 /* TableViewCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DDE86B9C1C24E7B500DA7941 /* Base */,
+				DDE86B9F1C24E7BB00DA7941 /* en */,
+				DDE86BA61C24ECFC00DA7941 /* pt */,
+			);
+			name = TableViewCell.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -608,7 +719,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = Tippy/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.toastersocks.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -630,7 +741,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = Tippy/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.toastersocks.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
