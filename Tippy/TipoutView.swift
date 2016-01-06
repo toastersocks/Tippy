@@ -37,6 +37,7 @@ public protocol TipoutViewDelegate {
     func tipoutView(tipoutView: TipoutView, textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool
     
     func tipoutViewDidBeginEditing(tipoutView: TipoutView, textField: UITextField)
+    func tipoutView(tipoutView: TipoutView, textField: UITextField, textDidChange text: String)
 }
 
  /// A view for displaying text and receiving input concerning the tips of a worker.
@@ -158,13 +159,8 @@ public protocol TipoutViewDelegate {
     }
     
     public func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-        if activeOnChange {
-//            textField.text = string
-            handleInputEvent(placeholderText: textField.placeholder, text: string)
-            delegate?.tipoutView(self, textField: textField, shouldChangeCharactersInRange: range, replacementString: string)
-        }
+           return delegate?.tipoutView(self, textField: textField, shouldChangeCharactersInRange: range, replacementString: string) ?? true
         
-        return true
     }
     
     public func textFieldShouldReturn(textField: UITextField) -> Bool {
