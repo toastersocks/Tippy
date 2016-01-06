@@ -9,6 +9,7 @@
 import UIKit
 
 class WorkerTableViewController: UITableViewController, TipoutViewDelegate {
+
     static let workerCellID = "workerCell"
     
     var viewModel: TipoutViewModelType! {
@@ -18,6 +19,7 @@ class WorkerTableViewController: UITableViewController, TipoutViewDelegate {
     }
     
     var formatter: Formatter?
+    
     @IBOutlet weak var addNewButton: UIButton!
     
     override func viewDidLoad() {
@@ -104,19 +106,20 @@ class WorkerTableViewController: UITableViewController, TipoutViewDelegate {
     
     func handleInputForTipoutView(tipoutView: TipoutView, activeText: String?) {
         guard let cell = tableViewCellForTipoutView(tipoutView) else { fatalError("Couldn't get tableViewCell") }
-        if let indexPath = tableView.indexPathForCell(cell) {
-            
-            if let activeText = activeText, placeholderText = tipoutView.activeTextField?.placeholder {
-                
-                viewModel.addWorkerWithName(
-                    tipoutView.nameField.text ?? "",
-                    method: placeholderText,
-                    value: activeText,
-                    atIndex: indexPath.row)
-                
-                cell.viewModel = viewModel[indexPath.row]
-            }
-        }
+        guard let
+            indexPath = tableView.indexPathForCell(cell),
+            activeText = tipoutView.activeTextField?.text,
+            tag = tipoutView.activeTextField?.tag,
+            textFieldTag = TipoutView.TipoutViewField(rawValue: tag)
+        else { return }
+        
+        viewModel.addWorkerWithName(
+            tipoutView.nameField.text ?? "",
+            method: textFieldTag,
+            value: activeText,
+            atIndex: indexPath.row)
+        
+        cell.viewModel = viewModel[indexPath.row]
     }
     
     func tipoutViewDidBeginEditing(tipoutView: TipoutView, textField: UITextField) {
@@ -129,13 +132,36 @@ class WorkerTableViewController: UITableViewController, TipoutViewDelegate {
     }
     
     func tipoutViewDidEndEditing(tipoutView: TipoutView) {
-        handleInputForTipoutView(tipoutView, activeText: tipoutView.activeTextField?.text)
+        guard let activeField = tipoutView.activeTextField,
+            text = activeField.text,
+        formatter = formatter else { return }
+        switch TipoutView.TipoutViewField(rawValue: activeField.tag) {
+        case .Amount?: activeField.text = try? formatter.formatNumberString(text)
+        case .Percentage?: activeField.text = try? formatter.formatPercentageString(text)
+        case .Hours?: activeField.text = try? formatter.formatNumberString(text)
+        case nil: break
+            }
+    }
+    
+    func tipoutView(tipoutView: TipoutView, textField: UITextField, textDidChange text: String) {
+        handleInputForTipoutView(tipoutView, activeText: text)
     }
     
     func tipoutView(tipoutView: TipoutView, textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-        let currentText: NSString? = textField.text
-        let proposedText = currentText?.stringByReplacingCharactersInRange(range, withString: string)
-        handleInputForTipoutView(tipoutView, activeText: proposedText)
+        let oldString: NSString = textField.text ?? ""
+        let newString = oldString.stringByReplacingCharactersInRange(range, withString: string)
+        if !newString.isEmpty {
+            do {
+                switch TipoutView.TipoutViewField(rawValue: textField.tag) {
+                case .Amount?: try formatter?.currencyFromString(newString)
+                case .Percentage?: try formatter?.percentageFromString(newString)
+                case .Hours?: try formatter?.formatNumberString(newString)
+                case nil: break
+                }
+            } catch {
+                return false
+            }
+        }
         return true
     }
 }
