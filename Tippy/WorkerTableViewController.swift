@@ -23,6 +23,10 @@ class WorkerTableViewController: UITableViewController, TipoutViewDelegate {
     @IBOutlet weak var addNewButton: UIButton!
     
     override func viewDidLoad() {
+        // These two lines are nessesary so table view cells don't overlap 
+        // over each other on iOS 8.1 & 8.2
+        tableView.estimatedRowHeight = 44
+        tableView.rowHeight = UITableViewAutomaticDimension
         super.viewDidLoad()
     }
 
