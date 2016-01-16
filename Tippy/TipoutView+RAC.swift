@@ -10,21 +10,48 @@ import Foundation
 import ReactiveCocoa
 
 extension TipoutView {
-    public var rac_newAmountTextChannel: RACChannelTerminal {
+    
+    // MARK: - Channels
+
+    public func rac_newAmountTextChannel() -> RACChannelTerminal! {
     return amountField.rac_newTextChannel()
     }
-    public var rac_newPercentageTextChannel: RACChannelTerminal {
+    public func rac_newPercentageTextChannel() -> RACChannelTerminal! {
         return percentageField.rac_newTextChannel()
     }
-    public var rac_newHoursTextChannel: RACChannelTerminal {
+    public func rac_newHoursTextChannel() -> RACChannelTerminal! {
         return hoursField.rac_newTextChannel()
     }
-    public var rac_newActiveFieldTextChannel: RACChannelTerminal? {
+    public func rac_newActiveFieldTextChannel() -> RACChannelTerminal? {
         
         return activeTextField?.rac_newTextChannel()
     }
     
-    public var rac_newNameTextChannel: RACChannelTerminal {
+    public func rac_newNameTextChannel() -> RACChannelTerminal! {
         return nameField.rac_newTextChannel()
     }
+    
+    
+    // MARK: - Signals
+    
+    public func rac_amountTextSignal() -> RACSignal! {
+        return amountField.rac_textSignal()
+    }
+    
+    public func rac_percentageTextSignal() -> RACSignal! {
+        return percentageField.rac_textSignal()
+    }
+    public func rac_hoursTextSignal() -> RACSignal! {
+        return hoursField.rac_textSignal()
+    }
+    public func rac_activeFieldTextSignal() -> RACSignal? {
+        
+        return activeTextField?.rac_textSignal()
+    }
+    
+    public func rac_nameTextSignal() -> RACSignal! {
+        return nameField.rac_textSignal()
+    }
+
+    
 }

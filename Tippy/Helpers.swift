@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+extension CollectionType where Generator.Element == SubSequence.Generator.Element {
+    func reduce(@noescape combine: (Generator.Element, Generator.Element) -> Generator.Element) -> Generator.Element? {
+        return first.map {
+            dropFirst().reduce($0, combine: combine)
+        }
+    }
+}
