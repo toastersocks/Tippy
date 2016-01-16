@@ -33,7 +33,7 @@ final class TipoutViewModel: NSObject, TipoutViewModelType {
             return WorkerViewModel(worker: $0, formatter: formatter, totalTipouts: tipoutModel.total)
         }
     }
-    
+
     // MARK: - Methods
     
     func addWorkerWithName(name: String, method: TipoutView.TipoutViewField, value: String, atIndex index: Int) {
@@ -84,7 +84,9 @@ final class TipoutViewModel: NSObject, TipoutViewModelType {
     class func keyPathsForValuesAffectingCount() -> Set<NSObject> {
         return Set(["tipoutModel.tipouts.count"])
     }
-    
+    class func keyPathsForValuesAffectingWorkerViewModels() -> Set<NSObject> {
+        return Set(["tipoutModel.workers"])
+    }
 }
 
 extension TipoutViewModel {
