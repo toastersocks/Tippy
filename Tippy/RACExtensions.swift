@@ -46,3 +46,14 @@ extension WorkerViewModel {
     
 
 }
+
+extension TipoutViewModel {
+    func rac_totalTextSignal() -> RACSignal! {
+        return RACObserve(self, "totalText")
+    }
+    
+    func rac_newWorkerViewModelsSignal() -> RACSignal! {
+        return RACObserve(self, "workerViewModels")
+    }
+}
+
