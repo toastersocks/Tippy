@@ -9,6 +9,8 @@
 import UIKit
 import ReactiveCocoa
 import Tipout
+import SwiftyUserDefaults
+
 
 
 class Controller: NSObject, ColorStackViewDelegate {
@@ -17,18 +19,18 @@ class Controller: NSObject, ColorStackViewDelegate {
     
     private var tipoutModels = [TipoutModel]()
     
-    dynamic var currentViewModel: TipoutViewModel {
-        return TipoutViewModel(tipoutModel: tipoutModels[currentIndex])
+    dynamic var currentViewModel: TipoutViewModelType {
+        return TipoutViewModel(tipoutModel: tipoutModels[currentIndex], formatter: numberFormatter)
     }
     
     var count: Int { return tipoutModels.count }
-    
     private(set) dynamic var currentIndex = 0
+    var numberFormatter: Formatter?
     
     // MARK: Methods
     
     func storeCurrent() {
-        let newTipout = TipoutModel(roundToNearest: 0.25)
+        let newTipout = TipoutModel(roundToNearest: Defaults[.roundToNearest])
         tipoutModels.append(newTipout)
         currentIndex = tipoutModels.count - 1
     }
@@ -41,57 +43,70 @@ class Controller: NSObject, ColorStackViewDelegate {
         }
     }
     
-    func combinedTipoutsViewModel() -> TipoutViewModel? {
+    func combinedTipoutsViewModel() -> TipoutViewModelType? {
         guard let tipoutModel = tipoutModels.reduce(+) else { return nil }
-        return TipoutViewModel(tipoutModel: tipoutModel)
+        return TipoutViewModel(tipoutModel: tipoutModel, formatter: numberFormatter)
     }
     
     // MARK: - Initializers
     
-    init(tipoutModel: TipoutModel) {
+    func setup() {
+        guard let defaultsPrefsFile = NSBundle.mainBundle().URLForResource("DefaultPreferences", withExtension: "plist"),
+            defaultsPrefs = NSDictionary(contentsOfURL: defaultsPrefsFile) as? Dictionary<String, AnyObject>
+            else { fatalError("Error loading DefaultPreferences.plist") }
+        
+        NSUserDefaults.standardUserDefaults().registerDefaults(defaultsPrefs)
+        Defaults.rac_channelTerminalForKey(DefaultsKeys.roundToNearest._key).subscribeNextAs {
+            (roundToNearest: Double) -> () in
+            self.tipoutModels = self.tipoutModels.map {
+                let model = TipoutModel(roundToNearest: roundToNearest)
+                model.total = $0.total
+                model.workers = $0.workers
+                return model
+            }
+        }
+    }
+    
+    init(tipoutModel: TipoutModel, numberFormatter formatter: Formatter?) {
+        super.init()
+        setup()
+        self.numberFormatter = formatter
         self.tipoutModels.append(tipoutModel)
         currentIndex = 0
-        super.init()
     }
     
-    convenience override init() {
-        self.init(tipoutModel: TipoutModel(roundToNearest: 0.25))
+    convenience init(numberFormatter formatter: Formatter? = nil) {
+        self.init(tipoutModel: TipoutModel(roundToNearest: Defaults[.roundToNearest]), numberFormatter: formatter)
     }
     
-    convenience init(tipoutViewModel: TipoutViewModel) {
-        self.init(tipoutModel: tipoutViewModel.tipoutModel)
+    convenience init(tipoutViewModel: TipoutViewModelType, numberFormatter formatter: Formatter?) {
+        guard let tipoutViewModel = tipoutViewModel as? TipoutViewModel
+            else { self.init(tipoutModel: TipoutModel(), numberFormatter: formatter); return }
+        self.init(tipoutModel: tipoutViewModel.tipoutModel, numberFormatter: formatter)
     }
     
     // MARK: - ColorStackViewDelegate
     
-    @available(iOS 9.0, *)
+
     func colorStackView(colorStackView: ColorStackView, didSelectIndex index: Int) {
         currentIndex = index
     }
     
-    @available(iOS 9.0, *)
+
     func numberOfItemsInColorStackView(colorStackView: ColorStackView) -> Int {
         return count
     }
     
+    func colorStackView(colorStackView: ColorStackView, shouldSelectIndex index: Int) -> Bool {
+        return true
+    }
+    
+    func currentIndexOfColorStackView(colorStackView: ColorStackView) -> Int {
+        return currentIndex
+    }
     // MARK: - KVO
     
     class func keyPathsForValuesAffectingCurrentViewModel() -> Set<NSObject> {
-        return Set(["currentIndex"])
+        return Set(["currentIndex", "tipoutModels"])
     }
-    
-    /*func workerViewModelAtIndex(index: Int) -> WorkerViewModel {
-    return currentViewModel.viewModelForWorkerAtIndex(index)
-    }*/
-    
 }
-
-/*extension Controller {
-var addWorkerCommand: RACCommand {
-return RACCommand(signalBlock: { (input) -> RACSignal! in
-
-})
-}
-}
-*/
-

@@ -1,0 +1,51 @@
+/* Class = "UITableViewSection"; headerTitle = "Feedback"; ObjectID = "3Um-hq-lka"; */
+"3Um-hq-lka.headerTitle" = "Comentarios";
+
+/* Class = "UIBarButtonItem"; title = "Done"; ObjectID = "7g5-Jg-BzS"; */
+"7g5-Jg-BzS.title" = "Descarta";
+
+/* Class = "UILabel"; text = "Acknowledgements"; ObjectID = "MFl-H6-J8J"; */
+"MFl-H6-J8J.text" = "Reconhecimentos";
+
+/* Class = "UISegmentedControl"; PqG-9W-4b1.segmentTitles[0] = "Decimal"; ObjectID = "PqG-9W-4b1"; */
+"PqG-9W-4b1.segmentTitles[0]" = "Decimal";
+
+/* Class = "UISegmentedControl"; PqG-9W-4b1.segmentTitles[1] = "Whole"; ObjectID = "PqG-9W-4b1"; */
+"PqG-9W-4b1.segmentTitles[1]" = "Inteiro";
+
+/* Class = "UIButton"; normalTitle = "Change me"; ObjectID = "WgE-Kv-GHU"; */
+"WgE-Kv-GHU.normalTitle" = "Muda-me";
+
+/* Class = "UIBarButtonItem"; title = "Settings"; ObjectID = "Xej-H8-aQK"; */
+"Xej-H8-aQK.title" = "Configurações";
+
+/* Class = "UILabel"; text = "Percentage Input"; ObjectID = "Y2C-Ko-NpJ"; */
+"Y2C-Ko-NpJ.text" = "Entrada Percentual";
+
+/* Class = "UITableViewSection"; headerTitle = "Settings"; ObjectID = "YaZ-9k-BQr"; */
+"YaZ-9k-BQr.headerTitle" = "Configurações";
+
+/* Class = "UILabel"; text = "0.3%"; ObjectID = "cUw-eG-GS8"; */
+"cUw-eG-GS8.text" = "0.3%";
+
+/* Class = "UINavigationItem"; title = "Settings"; ObjectID = "fkW-b6-RAE"; */
+"fkW-b6-RAE.title" = "Configurações";
+
+/* Class = "UILabel"; text = "Round to nearest..."; ObjectID = "hg0-4d-DaM"; */
+"hg0-4d-DaM.text" = "Arredonda para o mais próximo...";
+
+/* Class = "UIButton"; normalTitle = "Combine"; ObjectID = "n3W-G2-Wpg"; */
+"n3W-G2-Wpg.normalTitle" = "Combina";
+
+/* Class = "UITableViewSection"; headerTitle = "Acknowledgements"; ObjectID = "o4X-LY-uYi"; */
+"o4X-LY-uYi.headerTitle" = "Reconhecimentos";
+
+/* Class = "UIButton"; normalTitle = "Store"; ObjectID = "r19-kZ-h0U"; */
+"r19-kZ-h0U.normalTitle" = "Guarda";
+
+/* Class = "UITableViewController"; title = "Settings"; ObjectID = "rFC-Sg-CH6"; */
+"rFC-Sg-CH6.title" = "Configurações";
+
+/* Class = "UILabel"; text = "Total: $"; ObjectID = "s2T-4J-pvx"; */
+"s2T-4J-pvx.text" = "Total:";
+

@@ -13,48 +13,72 @@ class TableViewCell: UITableViewCell {
     
     @IBOutlet weak var workerView: TipoutView!
     
-    var viewModel: WorkerViewModel = WorkerViewModel(name: "", method: "amount", value: "0") {
+    dynamic var viewModel: WorkerViewModelType! {
         didSet {
-            RAC(workerView, "nameField.text") <~ viewModel.rac_nameTextSignal()
-            
-            RAC(workerView, "amountField.text") <~ viewModel.rac_amountTextSignal().filter {
-                (_: AnyObject!) in
-                if let activeTextField = self.workerView?.activeTextField {
-                    return activeTextField != self.workerView.amountField
-                } else {
-                    return true
-                }
+            let currencyLabel = UILabel()
+            currencyLabel.text = self.viewModel.currencySymbol
+            switch self.viewModel.currencySymbolPosition {
+            case .Beginning:
+                self.workerView.amountField.leftView = currencyLabel
+                self.workerView.amountField.leftViewMode = .Always
+                self.workerView.amountField.rightViewMode = .Never
+            case .End:
+                self.workerView.amountField.rightView = currencyLabel
+                self.workerView.amountField.rightViewMode = .Always
+                self.workerView.amountField.leftViewMode = .Never
+            default:
+                break
             }
+            currencyLabel.sizeToFit()
             
-            RAC(workerView, "hoursField.text") <~ viewModel.rac_hoursTextSignal().filter {
-                (_: AnyObject!) in
-                if let activeTextField = self.workerView?.activeTextField {
-                    return activeTextField != self.workerView.hoursField
-                } else {
-                    return true
-                }
+            let percentLabel = UILabel()
+            percentLabel.text = self.viewModel.percentSymbol
+            switch self.viewModel.percentSymbolPosition {
+            case .Beginning:
+                self.workerView.percentageField.leftView = percentLabel
+                self.workerView.percentageField.leftViewMode = .Always
+                self.workerView.percentageField.rightViewMode = .Never
+            case .End:
+                self.workerView.percentageField.rightView = percentLabel
+                self.workerView.percentageField.rightViewMode = .Always
+                self.workerView.percentageField.leftViewMode = .Never
+            default:
+                break
             }
+            percentLabel.sizeToFit()
             
-            RAC(workerView, "percentageField.text") <~ viewModel.rac_percentageTextSignal().filter {
-                (_: AnyObject!) in
-                if let activeTextField = self.workerView?.activeTextField {
-                    return activeTextField != self.workerView.percentageField
-                } else {
-                    return true
-                }
-            }
         }
     }
     
     override func awakeFromNib() {
-        
         super.awakeFromNib()
-    }
-    
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+        RAC(workerView, "nameField.text") <~ RACObserve(self, "viewModel.name")
         
-        // Configure the view for the selected state
+        RAC(workerView, "amountField.text") <~ RACObserve(self, "viewModel.amount").filter {
+            (_: AnyObject!) in
+            if let activeTextField = self.workerView?.activeTextField {
+                return activeTextField != self.workerView.amountField
+            } else {
+                return true
+            }
+        }
+        
+        RAC(workerView, "hoursField.text") <~ RACObserve(self, "viewModel.hours").filter {
+            (_: AnyObject!) in
+            if let activeTextField = self.workerView?.activeTextField {
+                return activeTextField != self.workerView.hoursField
+            } else {
+                return true
+            }
+        }
+        
+        RAC(workerView, "percentageField.attributedText") <~ RACObserve(self, "viewModel.percentage").filter {
+            (_: AnyObject!) in
+            if let activeTextField = self.workerView?.activeTextField {
+                return activeTextField != self.workerView.percentageField
+            } else {
+                return true
+            }
+        }
     }
-    
-}
+ }

@@ -8,14 +8,57 @@
 
 import UIKit
 import Tipout
+import SwiftyUserDefaults
 
-class WorkerViewModel: NSObject {
+/*enum SymbolPosition {
+    case Beginning(symbol: String)
+    case End(symbol: String)
+    case Other
+}*/
+@objc enum SymbolPosition: Int {
+    case Beginning
+    case End
+    case Other
+}
+
+final class WorkerViewModel: NSObject, WorkerViewModelType {
     
     // MARK: - Properties
     
-    private dynamic var worker: Worker
+    var currencySymbolPosition: SymbolPosition {
+        guard let formatter = formatter else { return .Other }
+        
+        switch formatter.currencySymbolPosition {
+        case .Beginning:
+            return .Beginning
+        case .End:
+            return .End
+        }
+    }
     
-    /// - note: This is used to optionaly calculate the percentage of the Worker tipout from the total tipouts
+    var percentSymbolPosition: SymbolPosition {
+        guard let formatter = formatter else { return .Other }
+        
+        switch formatter.percentSymbolPosition {
+        case .Beginning:
+            return .Beginning
+        case .End:
+            return .End
+        }
+    }
+    
+    var percentSymbol: String {
+        return formatter?.percentSymbol ?? ""
+    }
+    
+    var currencySymbol: String {
+        return formatter?.currencySymbol ?? ""
+    }
+    
+    dynamic var worker: Worker
+    private let formatter: Formatter?
+    
+    /// - note: This is used to optionally calculate the percentage of the Worker tipout from the total tipouts
     private var totalTipouts: Double?
     
     dynamic var name: String {
@@ -29,12 +72,10 @@ class WorkerViewModel: NSObject {
     
     dynamic var amount: String {
         get {
-            var formattedAmount = String(format: "%g", worker.tipout)
-            
-            if (formattedAmount as NSString).pathExtension.characters.count == 1 {
-                formattedAmount = String(format: "%#.3g", worker.tipout)
-            }
-            return formattedAmount
+            if let formatter = formatter,
+                currencyString = try? formatter.currencyStringFromNumber(worker.tipout) {
+            return currencyString
+            } else { return "" }
         }
         set {
             worker = Worker(method: .Amount((newValue as NSString).doubleValue), id: worker.id)
@@ -57,18 +98,29 @@ class WorkerViewModel: NSObject {
         }
     }
     
-    dynamic var percentage: String {
+    dynamic var percentage: NSAttributedString {
         get {
             if case .Percentage(let percentage) = worker.method {
-                return "\(percentage)"
+                    let percentageString = (try? formatter?.percentageStringFromNumber(percentage)).flatMap { $0 } ?? "\(percentage)"
+                return NSAttributedString(string: percentageString,
+                    attributes: [NSForegroundColorAttributeName : UIColor.blackColor()])
+                
             } else if let totalTipouts = totalTipouts {
-                return "(\((worker.tipout / totalTipouts) * 100))"
+                let percentage = (worker.tipout / totalTipouts)
+                let percentageString = (try? formatter?.percentageStringFromNumber(percentage)).flatMap { $0 } ?? "error"
+
+                return NSAttributedString(string:
+                    isnan(percentage) || percentageString == "(0)" ? "" : "(\(percentageString))",
+                    attributes: [NSForegroundColorAttributeName : UIColor.grayColor()])
             } else {
-                return ""
+                return NSAttributedString(string: "")
             }
         }
         set {
-            worker = Worker(method: .Percentage((newValue as NSString).doubleValue), id: worker.id)
+            worker = Worker(method: .Percentage(
+                try! formatter?.percentageFromString(newValue.string).doubleValue ?? (newValue.string as NSString).doubleValue),
+                id: worker.id
+            )
         }
     }
     
@@ -86,7 +138,7 @@ class WorkerViewModel: NSObject {
             }
         }
         set {
-            let tipoutMethod = WorkerViewModel.tipoutMethodFrom(newValue)
+            guard let tipoutMethod = TipoutMethod(method: newValue.method, value: newValue.value) else { return }// WorkerViewModel.tipoutMethodFrom(newValue)
             worker = Worker(method: tipoutMethod, id: worker.id)
         }
     }
@@ -110,14 +162,16 @@ class WorkerViewModel: NSObject {
     
     // MARK: - Initializers
     
-    init(worker: Worker, totalTipouts: Double? = nil) {
+    init(worker: Worker, formatter: Formatter? = nil, totalTipouts: Double? = nil) {
         self.worker = worker
         self.totalTipouts = totalTipouts
+        self.formatter = formatter
     }
     
-    init(name: String, method: String, value: String) {
+    init(name: String, method: String, value: String, formatter: Formatter? = nil) {
         let tipoutMethod = WorkerViewModel.tipoutMethodFrom(method: method, value: value)
         worker = Worker(method: tipoutMethod, id: name)
+        self.formatter = formatter
     }
     
     convenience override init() {

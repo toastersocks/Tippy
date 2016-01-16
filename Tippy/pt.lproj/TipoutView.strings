@@ -1,0 +1,12 @@
+/* Class = "UITextField"; placeholder = "Hours"; ObjectID = "FIz-8f-mgV"; */
+"FIz-8f-mgV.placeholder" = "Horas";
+
+/* Class = "UITextField"; placeholder = "Name"; ObjectID = "TKA-nX-uEq"; */
+"TKA-nX-uEq.placeholder" = "Nome";
+
+/* Class = "UITextField"; placeholder = "Amount"; ObjectID = "tpq-ir-qfi"; */
+"tpq-ir-qfi.placeholder" = "Quantia";
+
+/* Class = "UITextField"; placeholder = "Percentage"; ObjectID = "uPw-2Q-Wt8"; */
+"uPw-2Q-Wt8.placeholder" = "Porcentagem";
+

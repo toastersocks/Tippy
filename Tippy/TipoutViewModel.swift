@@ -8,61 +8,60 @@
 
 import UIKit
 import Tipout
+import SwiftyUserDefaults
 
-class TipoutViewModel: NSObject {
+final class TipoutViewModel: NSObject, TipoutViewModelType {
     // MARK: - Properties
     
-    var tipoutModel = TipoutModel(roundToNearest: 0.25)
-    
+    var tipoutModel = TipoutModel(roundToNearest: Defaults[.roundToNearest])
+    private let formatter: Formatter?
     dynamic var count: Int {
         return tipoutModel.tipouts.count
     }
     
     dynamic var totalText: String {
         get {
-            return "\(tipoutModel.total)"
+            return String(format: "%.2f", tipoutModel.total)
         }
         set {
             tipoutModel.total = NSString(string: newValue).doubleValue
         }
     }
     
-    dynamic var workerViewModels: [WorkerViewModel] {
-        return tipoutModel.workers.map {
-            return WorkerViewModel(worker: $0, totalTipouts: tipoutModel.total)
+    dynamic var workerViewModels: [WorkerViewModelType] {
+        return tipoutModel.workers.lazy.map {
+            return WorkerViewModel(worker: $0, formatter: formatter, totalTipouts: tipoutModel.total)
         }
     }
 
     // MARK: - Methods
     
-    func addWorkerWithName(name: String, method: String, value: String, atIndex index: Int) {
-        
+    func addWorkerWithName(name: String, method: TipoutView.TipoutViewField, value: String, atIndex index: Int) {
+        guard let formatter = formatter else { return }
         let tipoutMethod: TipoutMethod
-        let value = (value as NSString).doubleValue
         // TODO: Make these magic strings into enums
-        switch method {
-        case "hours":
-            fallthrough
-        case "Hours":
-            tipoutMethod = .Hourly(value)
-        case "percentage":
-            fallthrough
-        case "Percentage":
-            tipoutMethod = .Percentage(value)
-        case "amount":
-            fallthrough
-        case "Amount":
-            tipoutMethod = .Amount(value)
-        default:
-            tipoutMethod = .Amount(0.0)
-        }
+        if !value.isEmpty {
+            switch method {
+            case .Hours:
+                let hours = (value as NSString).doubleValue
+                tipoutMethod = .Hourly(hours)
+            case .Percentage:
+                let percentage = try! formatter.percentageFromString(value)
+                tipoutMethod = .Percentage(percentage.doubleValue)
+            case .Amount:
+                let currencyValue = try! formatter.currencyFromString(value)
+                tipoutMethod = .Amount(currencyValue.doubleValue)
+            /*default:
+                tipoutMethod = .Amount(0.0)*/
+            }
+        } else { tipoutMethod = .Amount(0.0) }
         
         let worker = Worker(method: tipoutMethod, id: name)
         
         if index < tipoutModel.workers.count {
             tipoutModel.workers[index] = worker
         } else if index == tipoutModel.workers.count {
-        tipoutModel.workers.append(worker)
+            tipoutModel.workers.append(worker)
         }
     }
     
@@ -72,8 +71,9 @@ class TipoutViewModel: NSObject {
     
     // MARK: - Initializers
     
-    init(tipoutModel: TipoutModel) {
+    init(tipoutModel: TipoutModel, formatter: Formatter?) {
         self.tipoutModel = tipoutModel
+        self.formatter = formatter
     }
     
     // MARK: - KVO
@@ -84,16 +84,19 @@ class TipoutViewModel: NSObject {
     class func keyPathsForValuesAffectingCount() -> Set<NSObject> {
         return Set(["tipoutModel.tipouts.count"])
     }
-
+    class func keyPathsForValuesAffectingWorkerViewModels() -> Set<NSObject> {
+        return Set(["tipoutModel.workers"])
+    }
 }
 
 extension TipoutViewModel {
-    func viewModelForWorkerAtIndex(index: Int) -> WorkerViewModel {
+    
+    func viewModelForWorkerAtIndex(index: Int) -> WorkerViewModelType {
         let worker = tipoutModel.workers[index]
-        return WorkerViewModel(worker: worker, totalTipouts: tipoutModel.total)
+        return WorkerViewModel(worker: worker, formatter: formatter, totalTipouts: tipoutModel.total)
     }
     
-    subscript(index: Int) -> WorkerViewModel {
+    subscript(index: Int) -> WorkerViewModelType {
         return viewModelForWorkerAtIndex(index)
     }
 }

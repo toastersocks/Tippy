@@ -7,35 +7,54 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD19B6391C192DC9000FFACA /* testFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD19B6381C192DC9000FFACA /* testFormatter.swift */; };
+		DD19B63E1C1A3375000FFACA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DD19B6401C1A3375000FFACA /* Localizable.strings */; };
+		DD19B6451C1A3EA4000FFACA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DD19B6471C1A3EA4000FFACA /* InfoPlist.strings */; };
+		DD19B64A1C1A3EA5000FFACA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DD19B64C1C1A3EA5000FFACA /* InfoPlist.strings */; };
 		DD1C584E1B16981D00188B28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1C584D1B16981D00188B28 /* AppDelegate.swift */; };
 		DD1C58501B16981D00188B28 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1C584F1B16981D00188B28 /* ViewController.swift */; };
 		DD1C58531B16981D00188B28 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD1C58511B16981D00188B28 /* Main.storyboard */; };
 		DD1C58551B16981D00188B28 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD1C58541B16981D00188B28 /* Images.xcassets */; };
 		DD1C58581B16981D00188B28 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD1C58561B16981D00188B28 /* LaunchScreen.xib */; };
 		DD1C586E1B16995000188B28 /* TipoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1C586D1B16995000188B28 /* TipoutViewModel.swift */; };
-		DD54AA771BB0DB3300AFFA68 /* ViewModelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD54AA761BB0DB3300AFFA68 /* ViewModelable.swift */; settings = {ASSET_TAGS = (); }; };
-		DD54AA791BB1A77C00AFFA68 /* testWorkerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD54AA781BB1A77C00AFFA68 /* testWorkerViewModel.swift */; settings = {ASSET_TAGS = (); }; };
+		DD20813A1BD94ACB00ED20CB /* TipoutViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2081391BD94ACB00ED20CB /* TipoutViewModelType.swift */; };
+		DD20813C1BD9524A00ED20CB /* WorkerViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD20813B1BD9524A00ED20CB /* WorkerViewModelType.swift */; };
+		DD54AA771BB0DB3300AFFA68 /* ViewModelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD54AA761BB0DB3300AFFA68 /* ViewModelable.swift */; };
+		DD54AA791BB1A77C00AFFA68 /* testWorkerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD54AA781BB1A77C00AFFA68 /* testWorkerViewModel.swift */; };
 		DD54AA7E1BB1AA1200AFFA68 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD54AA7C1BB1AA1200AFFA68 /* Nimble.framework */; };
 		DD54AA7F1BB1AA1200AFFA68 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD54AA7D1BB1AA1200AFFA68 /* Quick.framework */; };
-		DD54AABF1BB30FF700AFFA68 /* ColorStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD54AABE1BB30FF700AFFA68 /* ColorStackView.swift */; settings = {ASSET_TAGS = (); }; };
+		DD54AABF1BB30FF700AFFA68 /* ColorStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD54AABE1BB30FF700AFFA68 /* ColorStackView.swift */; };
 		DD67BD6C1B6861E4000EADD5 /* WorkerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD67BD6B1B6861E4000EADD5 /* WorkerViewModel.swift */; };
-		DD67BD701B697E2E000EADD5 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD67BD6E1B697E2E000EADD5 /* TableViewCell.xib */; };
 		DD6CB2F71B5C45040097BB76 /* TipoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6CB2F61B5C45040097BB76 /* TipoutView.swift */; };
+		DD6F0C381C1B98FC00A65CB0 /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6F0C371C1B98FC00A65CB0 /* Formatter.swift */; };
+		DD7110691BE189EF00FA7006 /* SwiftyUserDefaults.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD7110671BE189D900FA7006 /* SwiftyUserDefaults.framework */; };
+		DD71106A1BE189EF00FA7006 /* SwiftyUserDefaults.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DD7110671BE189D900FA7006 /* SwiftyUserDefaults.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DD71106C1BE18B9300FA7006 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD71106B1BE18B9300FA7006 /* SettingsTableViewController.swift */; };
+		DD71106F1BE18F2C00FA7006 /* DefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD71106E1BE18F2C00FA7006 /* DefaultsKeys.swift */; };
+		DD73DFC01BC1BC9B0005636C /* Chameleon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD73DFBF1BC1BC9B0005636C /* Chameleon.framework */; };
+		DD73DFC11BC1BC9B0005636C /* Chameleon.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DD73DFBF1BC1BC9B0005636C /* Chameleon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DD7B06E41C2EFBCF00880CBD /* DefaultPreferences.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD7B06E31C2EFBCF00880CBD /* DefaultPreferences.plist */; };
 		DD7CBA321B598DC8003B718D /* ReactiveCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DD7CBA2D1B598C5F003B718D /* ReactiveCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DD7CBA341B598DC8003B718D /* Tipout.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DD7CBA2E1B598C5F003B718D /* Tipout.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DD7CBA351B598DDE003B718D /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD7CBA2D1B598C5F003B718D /* ReactiveCocoa.framework */; };
 		DD7CBA361B598DDE003B718D /* Tipout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD7CBA2E1B598C5F003B718D /* Tipout.framework */; };
-		DD7CBA381B599444003B718D /* TipoutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD7CBA371B599444003B718D /* TipoutView.xib */; };
 		DD80142A1B16A15F007A673F /* RAC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8014261B16A15F007A673F /* RAC.swift */; };
 		DD80142B1B16A15F007A673F /* RACObserve.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8014271B16A15F007A673F /* RACObserve.swift */; };
 		DD80142C1B16A15F007A673F /* RACSignal+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8014281B16A15F007A673F /* RACSignal+Extensions.swift */; };
 		DD80142D1B16A15F007A673F /* TableViewBindingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8014291B16A15F007A673F /* TableViewBindingHelper.swift */; };
 		DD90A9961B605F0C00EE0BB6 /* TipoutView+RAC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD90A9951B605F0C00EE0BB6 /* TipoutView+RAC.swift */; };
-		DDA1E8761BB33E4600ADEB47 /* RACExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA1E8751BB33E4600ADEB47 /* RACExtensions.swift */; settings = {ASSET_TAGS = (); }; };
+		DDA07EBF1BC5F2DF008B1081 /* ColorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA07EBE1BC5F2DF008B1081 /* ColorDelegate.swift */; };
+		DDA07EC11BC5F54D008B1081 /* TZStackView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDA07EC01BC5F54D008B1081 /* TZStackView.framework */; };
+		DDA07EC21BC5F54D008B1081 /* TZStackView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DDA07EC01BC5F54D008B1081 /* TZStackView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DDA1E8761BB33E4600ADEB47 /* RACExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA1E8751BB33E4600ADEB47 /* RACExtensions.swift */; };
+		DDB9FD671BF40C5500FB6803 /* JCPTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB9FD661BF40C5500FB6803 /* JCPTextField.swift */; };
 		DDC16F9A1BB0C29000AC9583 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD67BD6D1B697E2E000EADD5 /* TableViewCell.swift */; };
 		DDDAE7461B6BDE0B008D2140 /* WorkerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDAE7451B6BDE0B008D2140 /* WorkerTableViewController.swift */; };
 		DDE21BB61B4E15BE002D5859 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE21BB51B4E15BE002D5859 /* Controller.swift */; };
-		DDECA8EF1BA614D400D45446 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDECA8EE1BA614D400D45446 /* Helpers.swift */; settings = {ASSET_TAGS = (); }; };
+		DDE86B891C237E9C00DA7941 /* TotalFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE86B881C237E9C00DA7941 /* TotalFieldDelegate.swift */; };
+		DDE86B941C24E79700DA7941 /* TipoutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDE86B961C24E79700DA7941 /* TipoutView.xib */; };
+		DDE86B9B1C24E7B500DA7941 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDE86B9D1C24E7B500DA7941 /* TableViewCell.xib */; };
+		DDECA8EF1BA614D400D45446 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDECA8EE1BA614D400D45446 /* Helpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,8 +74,11 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				DDA07EC21BC5F54D008B1081 /* TZStackView.framework in Embed Frameworks */,
 				DD7CBA321B598DC8003B718D /* ReactiveCocoa.framework in Embed Frameworks */,
 				DD7CBA341B598DC8003B718D /* Tipout.framework in Embed Frameworks */,
+				DD71106A1BE189EF00FA7006 /* SwiftyUserDefaults.framework in Embed Frameworks */,
+				DD73DFC11BC1BC9B0005636C /* Chameleon.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -64,6 +86,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		DD19B6381C192DC9000FFACA /* testFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = testFormatter.swift; sourceTree = "<group>"; };
+		DD19B63A1C1A2D55000FFACA /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/Main.strings"; sourceTree = "<group>"; };
+		DD19B63B1C1A2D56000FFACA /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		DD19B63F1C1A3375000FFACA /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		DD19B6411C1A337D000FFACA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DD19B6421C1A337F000FFACA /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DD19B6461C1A3EA4000FFACA /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		DD19B64B1C1A3EA5000FFACA /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		DD1A48031B28FE7D003FA9DB /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		DD1A48041B29D456003FA9DB /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		DD1C58481B16981D00188B28 /* Tippy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tippy.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,6 +106,8 @@
 		DD1C585D1B16981E00188B28 /* TippyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TippyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD1C58621B16981E00188B28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD1C586D1B16995000188B28 /* TipoutViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipoutViewModel.swift; sourceTree = "<group>"; };
+		DD2081391BD94ACB00ED20CB /* TipoutViewModelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipoutViewModelType.swift; sourceTree = "<group>"; };
+		DD20813B1BD9524A00ED20CB /* WorkerViewModelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkerViewModelType.swift; sourceTree = "<group>"; };
 		DD309D221B5F081C000EE80B /* Scratchpad.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Scratchpad.playground; sourceTree = "<group>"; };
 		DD54AA761BB0DB3300AFFA68 /* ViewModelable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelable.swift; sourceTree = "<group>"; };
 		DD54AA781BB1A77C00AFFA68 /* testWorkerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = testWorkerViewModel.swift; sourceTree = "<group>"; };
@@ -85,20 +117,50 @@
 		DD54AABE1BB30FF700AFFA68 /* ColorStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorStackView.swift; sourceTree = "<group>"; };
 		DD67BD6B1B6861E4000EADD5 /* WorkerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkerViewModel.swift; sourceTree = "<group>"; };
 		DD67BD6D1B697E2E000EADD5 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
-		DD67BD6E1B697E2E000EADD5 /* TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		DD6CB2F61B5C45040097BB76 /* TipoutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipoutView.swift; sourceTree = "<group>"; };
+		DD6F0C371C1B98FC00A65CB0 /* Formatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
+		DD6F0C391C1BA11400A65CB0 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Main.strings; sourceTree = "<group>"; };
+		DD6F0C3A1C1BA11400A65CB0 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		DD6F0C3B1C1BA11400A65CB0 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DD6F0C3C1C1BA11400A65CB0 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DD6F0C3D1C1BA11500A65CB0 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DD7110671BE189D900FA7006 /* SwiftyUserDefaults.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyUserDefaults.framework; path = Carthage/Build/iOS/SwiftyUserDefaults.framework; sourceTree = "<group>"; };
+		DD71106B1BE18B9300FA7006 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		DD71106E1BE18F2C00FA7006 /* DefaultsKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultsKeys.swift; sourceTree = "<group>"; };
+		DD73DFBF1BC1BC9B0005636C /* Chameleon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Chameleon.framework; path = Carthage/Build/iOS/Chameleon.framework; sourceTree = "<group>"; };
+		DD7B06E31C2EFBCF00880CBD /* DefaultPreferences.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DefaultPreferences.plist; sourceTree = "<group>"; };
 		DD7CBA2D1B598C5F003B718D /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/iOS/ReactiveCocoa.framework; sourceTree = "<group>"; };
 		DD7CBA2E1B598C5F003B718D /* Tipout.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Tipout.framework; path = Carthage/Build/iOS/Tipout.framework; sourceTree = "<group>"; };
-		DD7CBA371B599444003B718D /* TipoutView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TipoutView.xib; sourceTree = "<group>"; };
 		DD8014261B16A15F007A673F /* RAC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAC.swift; sourceTree = "<group>"; };
 		DD8014271B16A15F007A673F /* RACObserve.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RACObserve.swift; sourceTree = "<group>"; };
 		DD8014281B16A15F007A673F /* RACSignal+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RACSignal+Extensions.swift"; sourceTree = "<group>"; };
 		DD8014291B16A15F007A673F /* TableViewBindingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewBindingHelper.swift; sourceTree = "<group>"; };
 		DD80142E1B16A1F3007A673F /* bridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bridgingHeader.h; sourceTree = "<group>"; };
 		DD90A9951B605F0C00EE0BB6 /* TipoutView+RAC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TipoutView+RAC.swift"; sourceTree = "<group>"; };
+		DDA07EBE1BC5F2DF008B1081 /* ColorDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorDelegate.swift; sourceTree = "<group>"; };
+		DDA07EC01BC5F54D008B1081 /* TZStackView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TZStackView.framework; path = Carthage/Build/iOS/TZStackView.framework; sourceTree = "<group>"; };
 		DDA1E8751BB33E4600ADEB47 /* RACExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RACExtensions.swift; sourceTree = "<group>"; };
+		DDB9FD661BF40C5500FB6803 /* JCPTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JCPTextField.swift; sourceTree = "<group>"; };
 		DDDAE7451B6BDE0B008D2140 /* WorkerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkerTableViewController.swift; sourceTree = "<group>"; };
 		DDE21BB51B4E15BE002D5859 /* Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
+		DDE86B881C237E9C00DA7941 /* TotalFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TotalFieldDelegate.swift; sourceTree = "<group>"; };
+		DDE86B8A1C24DF1A00DA7941 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Main.strings; sourceTree = "<group>"; };
+		DDE86B8B1C24DF1A00DA7941 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		DDE86B8C1C24DF1A00DA7941 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DDE86B8D1C24DF1A00DA7941 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DDE86B8E1C24DF1A00DA7941 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DDE86B951C24E79700DA7941 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/TipoutView.xib; sourceTree = "<group>"; };
+		DDE86B981C24E79C00DA7941 /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/TipoutView.strings"; sourceTree = "<group>"; };
+		DDE86B9A1C24E79F00DA7941 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/TipoutView.strings; sourceTree = "<group>"; };
+		DDE86B9C1C24E7B500DA7941 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/TableViewCell.xib; sourceTree = "<group>"; };
+		DDE86B9F1C24E7BB00DA7941 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TableViewCell.strings; sourceTree = "<group>"; };
+		DDE86BA01C24E7F400DA7941 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
+		DDE86BA11C24E7F400DA7941 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/TipoutView.strings; sourceTree = "<group>"; };
+		DDE86BA21C24E7F400DA7941 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		DDE86BA31C24E7F400DA7941 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DDE86BA41C24E7F500DA7941 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DDE86BA51C24E7F500DA7941 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DDE86BA61C24ECFC00DA7941 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/TableViewCell.strings; sourceTree = "<group>"; };
 		DDECA8EE1BA614D400D45446 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -107,8 +169,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDA07EC11BC5F54D008B1081 /* TZStackView.framework in Frameworks */,
 				DD7CBA351B598DDE003B718D /* ReactiveCocoa.framework in Frameworks */,
+				DD7110691BE189EF00FA7006 /* SwiftyUserDefaults.framework in Frameworks */,
 				DD7CBA361B598DDE003B718D /* Tipout.framework in Frameworks */,
+				DD73DFC01BC1BC9B0005636C /* Chameleon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,6 +192,9 @@
 		37DFF81F10D79D1C2B13583D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DD7110671BE189D900FA7006 /* SwiftyUserDefaults.framework */,
+				DDA07EC01BC5F54D008B1081 /* TZStackView.framework */,
+				DD73DFBF1BC1BC9B0005636C /* Chameleon.framework */,
 				DD54AA7C1BB1AA1200AFFA68 /* Nimble.framework */,
 				DD54AA7D1BB1AA1200AFFA68 /* Quick.framework */,
 				DD7CBA2D1B598C5F003B718D /* ReactiveCocoa.framework */,
@@ -162,6 +230,7 @@
 		DD1C584A1B16981D00188B28 /* Tippy */ = {
 			isa = PBXGroup;
 			children = (
+				DD71106E1BE18F2C00FA7006 /* DefaultsKeys.swift */,
 				DDECA8EE1BA614D400D45446 /* Helpers.swift */,
 				DD1C584D1B16981D00188B28 /* AppDelegate.swift */,
 				DD6CB2F51B5C3FA10097BB76 /* View */,
@@ -178,7 +247,10 @@
 		DD1C584B1B16981D00188B28 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				DD19B64C1C1A3EA5000FFACA /* InfoPlist.strings */,
 				DD1C584C1B16981D00188B28 /* Info.plist */,
+				DD19B6401C1A3375000FFACA /* Localizable.strings */,
+				DD7B06E31C2EFBCF00880CBD /* DefaultPreferences.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -188,6 +260,7 @@
 			children = (
 				DD1C58611B16981E00188B28 /* Supporting Files */,
 				DD54AA781BB1A77C00AFFA68 /* testWorkerViewModel.swift */,
+				DD19B6381C192DC9000FFACA /* testFormatter.swift */,
 			);
 			path = TippyTests;
 			sourceTree = "<group>";
@@ -195,6 +268,7 @@
 		DD1C58611B16981E00188B28 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				DD19B6471C1A3EA4000FFACA /* InfoPlist.strings */,
 				DD1C58621B16981E00188B28 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -203,18 +277,30 @@
 		DD6CB2F51B5C3FA10097BB76 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DDB9FD661BF40C5500FB6803 /* JCPTextField.swift */,
+				DDE86B881C237E9C00DA7941 /* TotalFieldDelegate.swift */,
+				DD71106D1BE18EA300FA7006 /* UI */,
 				DD54AABE1BB30FF700AFFA68 /* ColorStackView.swift */,
 				DDDAE7451B6BDE0B008D2140 /* WorkerTableViewController.swift */,
 				DD1C584F1B16981D00188B28 /* ViewController.swift */,
-				DD1C58511B16981D00188B28 /* Main.storyboard */,
-				DD7CBA371B599444003B718D /* TipoutView.xib */,
+				DDA07EBE1BC5F2DF008B1081 /* ColorDelegate.swift */,
 				DD6CB2F61B5C45040097BB76 /* TipoutView.swift */,
 				DD90A9951B605F0C00EE0BB6 /* TipoutView+RAC.swift */,
 				DD67BD6D1B697E2E000EADD5 /* TableViewCell.swift */,
-				DD67BD6E1B697E2E000EADD5 /* TableViewCell.xib */,
 				DD54AA761BB0DB3300AFFA68 /* ViewModelable.swift */,
+				DD71106B1BE18B9300FA7006 /* SettingsTableViewController.swift */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		DD71106D1BE18EA300FA7006 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				DD1C58511B16981D00188B28 /* Main.storyboard */,
+				DDE86B961C24E79700DA7941 /* TipoutView.xib */,
+				DDE86B9D1C24E7B500DA7941 /* TableViewCell.xib */,
+			);
+			name = UI;
 			sourceTree = "<group>";
 		};
 		DD9B6F4B1B2F5A1200E5E96B /* Third-Party */ = {
@@ -233,7 +319,10 @@
 			children = (
 				DD1C586D1B16995000188B28 /* TipoutViewModel.swift */,
 				DD67BD6B1B6861E4000EADD5 /* WorkerViewModel.swift */,
+				DD20813B1BD9524A00ED20CB /* WorkerViewModelType.swift */,
 				DDA1E8751BB33E4600ADEB47 /* RACExtensions.swift */,
+				DD2081391BD94ACB00ED20CB /* TipoutViewModelType.swift */,
+				DD6F0C371C1B98FC00A65CB0 /* Formatter.swift */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -293,6 +382,9 @@
 		DD1C58401B16981D00188B28 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					name,
+				);
 				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0700;
@@ -314,6 +406,10 @@
 			knownRegions = (
 				en,
 				Base,
+				tr,
+				pt,
+				"pt-PT",
+				es,
 			);
 			mainGroup = DD1C583F1B16981D00188B28;
 			productRefGroup = DD1C58491B16981D00188B28 /* Products */;
@@ -332,10 +428,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD1C58531B16981D00188B28 /* Main.storyboard in Resources */,
-				DD67BD701B697E2E000EADD5 /* TableViewCell.xib in Resources */,
+				DD7B06E41C2EFBCF00880CBD /* DefaultPreferences.plist in Resources */,
+				DD19B64A1C1A3EA5000FFACA /* InfoPlist.strings in Resources */,
+				DD19B63E1C1A3375000FFACA /* Localizable.strings in Resources */,
+				DDE86B9B1C24E7B500DA7941 /* TableViewCell.xib in Resources */,
 				DD1C58581B16981D00188B28 /* LaunchScreen.xib in Resources */,
 				DD1C58551B16981D00188B28 /* Images.xcassets in Resources */,
-				DD7CBA381B599444003B718D /* TipoutView.xib in Resources */,
+				DDE86B941C24E79700DA7941 /* TipoutView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,6 +442,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD19B6451C1A3EA4000FFACA /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,6 +472,9 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Tipout.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/ReactiveCocoa.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Chameleon.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/TZStackView.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyUserDefaults.framework",
 			);
 			outputPaths = (
 			);
@@ -388,11 +491,16 @@
 			files = (
 				DDC16F9A1BB0C29000AC9583 /* TableViewCell.swift in Sources */,
 				DD80142B1B16A15F007A673F /* RACObserve.swift in Sources */,
+				DDA07EBF1BC5F2DF008B1081 /* ColorDelegate.swift in Sources */,
 				DD90A9961B605F0C00EE0BB6 /* TipoutView+RAC.swift in Sources */,
+				DD20813C1BD9524A00ED20CB /* WorkerViewModelType.swift in Sources */,
 				DDDAE7461B6BDE0B008D2140 /* WorkerTableViewController.swift in Sources */,
+				DD6F0C381C1B98FC00A65CB0 /* Formatter.swift in Sources */,
 				DD1C58501B16981D00188B28 /* ViewController.swift in Sources */,
 				DD80142C1B16A15F007A673F /* RACSignal+Extensions.swift in Sources */,
+				DDB9FD671BF40C5500FB6803 /* JCPTextField.swift in Sources */,
 				DD1C586E1B16995000188B28 /* TipoutViewModel.swift in Sources */,
+				DD20813A1BD94ACB00ED20CB /* TipoutViewModelType.swift in Sources */,
 				DD6CB2F71B5C45040097BB76 /* TipoutView.swift in Sources */,
 				DD67BD6C1B6861E4000EADD5 /* WorkerViewModel.swift in Sources */,
 				DD80142A1B16A15F007A673F /* RAC.swift in Sources */,
@@ -401,8 +509,11 @@
 				DD1C584E1B16981D00188B28 /* AppDelegate.swift in Sources */,
 				DD54AA771BB0DB3300AFFA68 /* ViewModelable.swift in Sources */,
 				DDECA8EF1BA614D400D45446 /* Helpers.swift in Sources */,
+				DDE86B891C237E9C00DA7941 /* TotalFieldDelegate.swift in Sources */,
 				DDE21BB61B4E15BE002D5859 /* Controller.swift in Sources */,
 				DD54AABF1BB30FF700AFFA68 /* ColorStackView.swift in Sources */,
+				DD71106C1BE18B9300FA7006 /* SettingsTableViewController.swift in Sources */,
+				DD71106F1BE18F2C00FA7006 /* DefaultsKeys.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,6 +521,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD19B6391C192DC9000FFACA /* testFormatter.swift in Sources */,
 				DD54AA791BB1A77C00AFFA68 /* testWorkerViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -425,10 +537,49 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		DD19B6401C1A3375000FFACA /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DD19B63F1C1A3375000FFACA /* pt-PT */,
+				DD19B6411C1A337D000FFACA /* en */,
+				DD19B6421C1A337F000FFACA /* Base */,
+				DD6F0C3C1C1BA11400A65CB0 /* tr */,
+				DDE86B8D1C24DF1A00DA7941 /* pt */,
+				DDE86BA41C24E7F500DA7941 /* es */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		DD19B6471C1A3EA4000FFACA /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DD19B6461C1A3EA4000FFACA /* pt-PT */,
+				DD6F0C3D1C1BA11500A65CB0 /* tr */,
+				DDE86B8E1C24DF1A00DA7941 /* pt */,
+				DDE86BA51C24E7F500DA7941 /* es */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		DD19B64C1C1A3EA5000FFACA /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DD19B64B1C1A3EA5000FFACA /* pt-PT */,
+				DD6F0C3B1C1BA11400A65CB0 /* tr */,
+				DDE86B8C1C24DF1A00DA7941 /* pt */,
+				DDE86BA31C24E7F400DA7941 /* es */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		DD1C58511B16981D00188B28 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				DD1C58521B16981D00188B28 /* Base */,
+				DD19B63A1C1A2D55000FFACA /* pt-PT */,
+				DD6F0C391C1BA11400A65CB0 /* tr */,
+				DDE86B8A1C24DF1A00DA7941 /* pt */,
+				DDE86BA01C24E7F400DA7941 /* es */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -437,8 +588,33 @@
 			isa = PBXVariantGroup;
 			children = (
 				DD1C58571B16981D00188B28 /* Base */,
+				DD19B63B1C1A2D56000FFACA /* pt-PT */,
+				DD6F0C3A1C1BA11400A65CB0 /* tr */,
+				DDE86B8B1C24DF1A00DA7941 /* pt */,
+				DDE86BA21C24E7F400DA7941 /* es */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		DDE86B961C24E79700DA7941 /* TipoutView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DDE86B951C24E79700DA7941 /* Base */,
+				DDE86B981C24E79C00DA7941 /* pt-PT */,
+				DDE86B9A1C24E79F00DA7941 /* pt */,
+				DDE86BA11C24E7F400DA7941 /* es */,
+			);
+			name = TipoutView.xib;
+			sourceTree = "<group>";
+		};
+		DDE86B9D1C24E7B500DA7941 /* TableViewCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DDE86B9C1C24E7B500DA7941 /* Base */,
+				DDE86B9F1C24E7BB00DA7941 /* en */,
+				DDE86BA61C24ECFC00DA7941 /* pt */,
+			);
+			name = TableViewCell.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -543,6 +719,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = Tippy/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.toastersocks.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -564,6 +741,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = Tippy/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.toastersocks.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -586,6 +764,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = TippyTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.toastersocks.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -604,6 +783,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = TippyTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.toastersocks.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";

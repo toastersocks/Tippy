@@ -25,6 +25,7 @@ public protocol TipoutViewDelegate {
     Asks the delegate if the specified text should be changed
     
     - parameter tipoutView: The `TipoutView` containing the text field with text to be changed.
+    - parameter textField:  The textfield which has the changed text
     - parameter range:      The range of characters to be replaced
     - parameter string:     The replacement string
     
@@ -33,11 +34,21 @@ public protocol TipoutViewDelegate {
     - note: This basically forwards the respective `UITextFieldDelegate` calls
     - seeAlso: `UITextFieldDelegate`
     */
-    func tipoutView(tipoutView: TipoutView, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool
+    func tipoutView(tipoutView: TipoutView, textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool
+    
+    func tipoutViewDidBeginEditing(tipoutView: TipoutView, textField: UITextField)
+    func tipoutView(tipoutView: TipoutView, textField: UITextField, textDidChange text: String)
 }
 
  /// A view for displaying text and receiving input concerning the tips of a worker.
 @IBDesignable public class TipoutView: UIControl, UITextFieldDelegate {
+    
+    @objc public enum TipoutViewField: Int {
+//        case Name = 0
+        case Hours = 1
+        case Percentage
+        case Amount
+    }
     private var view: UIView!
     
     public var delegate: TipoutViewDelegate?
@@ -92,19 +103,17 @@ public protocol TipoutViewDelegate {
         }
     }
     
-    private func handleInputEvent(placeholderText placeholder: String?, text: String) {
+    private func handleInputEvent(textField tag: TipoutViewField, text: String) {
         
-        guard let placeholder = placeholder else { return }
-            switch placeholder {
-            case "Amount":
+            switch tag {
+            case .Amount:
                 activeTextField = amountField
-            case "Percentage":
+            case .Percentage:
                 activeTextField = percentageField
-            case "Hours":
+            case .Hours:
                 activeTextField = hoursField
-            default:
-                break
-            }
+//            case .Name: return
+        }
             if clearsInactiveFields {
                 clearInactiveFields()
             }
@@ -124,29 +133,38 @@ public protocol TipoutViewDelegate {
         }
     }
     
+    
+    @IBAction func textDidChange(sender: UITextField) {
+        sender.invalidateIntrinsicContentSize()
+        if activeOnChange {
+            guard let tag = TipoutViewField(rawValue: sender.tag), text = sender.text else { return }
+            handleInputEvent(textField: tag, text: text)
+            delegate?.tipoutView(self, textField: sender, textDidChange: text)
+        }
+    }
+    
     // MARK: Delegate
     
     public func textFieldDidEndEditing(textField: UITextField) {
         if !activeOnChange {
-            handleInputEvent(placeholderText: textField.placeholder, text: textField.text ?? "")
-            delegate?.tipoutViewDidEndEditing(self)
+            guard let tag = TipoutViewField(rawValue: textField.tag) else { return }
+            handleInputEvent(textField: tag, text: textField.text ?? "")
         }
+        delegate?.tipoutViewDidEndEditing(self)
     }
     
     public func textFieldDidBeginEditing(textField: UITextField) {
-        if textField.placeholder != "Name" {
-//            textField.text = ""
-        }
+        textField.selectAll(nil)
+        delegate?.tipoutViewDidBeginEditing(self, textField: textField)
     }
     
     public func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-        if activeOnChange {
-//            textField.text = string
-            handleInputEvent(placeholderText: textField.placeholder, text: string)
-            delegate?.tipoutView(self, shouldChangeCharactersInRange: range, replacementString: string)
-            
-        }
+           return delegate?.tipoutView(self, textField: textField, shouldChangeCharactersInRange: range, replacementString: string) ?? true
         
+    }
+    
+    public func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
         return true
     }
     

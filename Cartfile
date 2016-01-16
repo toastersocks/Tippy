@@ -2,8 +2,8 @@ github "ReactiveCocoa/ReactiveCocoa" "v2.5"
 
 git "https://bitbucket.org/toastersocks/tipout"
 
-#github "SnapKit/SnapKit" "swift-2.0"
+github "ViccAlexander/Chameleon"
 
-#git "file:///Users/jambes/Desktop/Projects/Tipout"
+github "tomvanzummeren/TZStackView"
 
-#git "file:///Users/jambes/Desktop/Projects/Tipout" "hotfix/v1.0.2"
+github "radex/SwiftyUserDefaults"

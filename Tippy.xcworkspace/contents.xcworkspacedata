@@ -8,9 +8,6 @@
       location = "group:Tippy.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Pods/Pods.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:../Tipout/Tipout.xcodeproj">
    </FileRef>
 </Workspace>
