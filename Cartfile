@@ -7,9 +7,3 @@ github "ViccAlexander/Chameleon"
 github "tomvanzummeren/TZStackView"
 
 github "radex/SwiftyUserDefaults"
-
-#github "SnapKit/SnapKit" "swift-2.0"
-
-#git "file:///Users/jambes/Desktop/Projects/Tipout"
-
-#git "file:///Users/jambes/Desktop/Projects/Tipout" "hotfix/v1.0.2"
