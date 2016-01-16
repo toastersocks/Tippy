@@ -48,22 +48,32 @@ class ViewController: UIViewController {
     
     // MARK: - Methods
     override func viewDidLoad() {
-        
         super.viewDidLoad()
+        
+        // Total
         let totalChannel = RACKVOChannel(target: self, keyPath: "controller.currentViewModel.totalText", nilValue: "")["followingTerminal"]
         totalField.rac_newTextChannel().subscribe(totalChannel)
         totalChannel.subscribe(totalField.rac_newTextChannel())
         
+        // ViewModel
         RACObserve(self, "controller.currentViewModel").subscribeNextAs {
             (viewModel: TipoutViewModelType) -> () in
             self.workerTableViewController?.viewModel = viewModel
         }
         
+        // Workers
+        RACObserve(self, "controller.currentViewModel.workerViewModels").subscribeNextAs {
+            (workerViewModels: AnyObject) -> () in
+            self.workerTableViewController.tableView.reloadData()
+        }
+        
+        // Settings
         Defaults.rac_channelTerminalForKey(DefaultsKeys.percentageFormat._key).subscribeNext {
             (_: AnyObject!) -> Void in
             self.workerTableViewController.tableView.reloadData()
         }
         
+        // Keyboard
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
     }
