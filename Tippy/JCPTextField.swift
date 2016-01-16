@@ -21,12 +21,12 @@ class JCPTextField: UITextField {
     override func intrinsicContentSize() -> CGSize {
         if let text = self.text where !text.isEmpty {
             let textSize = (text as NSString).sizeWithAttributes(typingAttributes)
-            return CGSize(
-                width: textSize.width +
-                    (rightView?.bounds.size.width ?? 0) +
-                    (leftView?.bounds.size.width ?? 0) +
-                    25, // size of caret
-                height: super.intrinsicContentSize().height)
+            let width = textSize.width +
+                (rightView?.bounds.size.width ?? 0) +
+                (leftView?.bounds.size.width ?? 0) +
+                25 //!!!: where does this extra needed space come from?
+            let size = CGSize(width: width, height: super.intrinsicContentSize().height)
+            return size
         } else {
             return super.intrinsicContentSize()
         }
@@ -35,7 +35,7 @@ class JCPTextField: UITextField {
     func tableViewCell() -> UIView? {
         var aView: UIView? = superview
         
-        while !(aView is UITableView) && aView != nil {
+        while !(aView is UITableViewCell) && aView != nil {
             aView = aView?.superview
         }
         /*while var aView: UIView? = superview where !(aView is UITableViewCell) {
