@@ -50,10 +50,15 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Total
-        let totalChannel = RACKVOChannel(target: self, keyPath: "controller.currentViewModel.totalText", nilValue: "")["followingTerminal"]
-        totalField.rac_newTextChannel().subscribe(totalChannel)
-        totalChannel.subscribe(totalField.rac_newTextChannel())
+        // Total Field
+        let totalSignal = RACObserve(self, "controller.currentViewModel.totalText")
+        totalField.rac_textSignal().subscribeNextAs({ (text: NSString) -> () in
+            self.controller.currentViewModel.totalText = text as String
+            self.workerTableViewController.tableView.reloadData()
+        })
+        totalSignal.subscribeNextAs { (text: NSString) -> () in
+            self.totalField.text = text as String
+        }
         
         // ViewModel
         RACObserve(self, "controller.currentViewModel").subscribeNextAs {
