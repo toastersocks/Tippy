@@ -20,49 +20,31 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="300" horizontalCompressionResistancePriority="250" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Hours" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="FIz-8f-mgV" customClass="JCPTextField" customModule="Tippy" customModuleProvider="target">
-                    <rect key="frame" x="71" y="52" width="59" height="30"/>
-                    <animations/>
+                    <rect key="frame" x="75" y="52" width="59" height="30"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                     <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                     <connections>
                         <action selector="textDidChange:" destination="-1" eventType="editingChanged" id="UmG-uj-XwD"/>
                     </connections>
                 </textField>
-                <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="350" horizontalCompressionResistancePriority="250" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Percentage" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="uPw-2Q-Wt8" customClass="JCPTextField" customModule="Tippy" customModuleProvider="target">
-                    <rect key="frame" x="185" y="0.0" width="93" height="135"/>
-                    <animations/>
+                <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Percentage" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="uPw-2Q-Wt8" customClass="JCPTextField" customModule="Tippy" customModuleProvider="target">
+                    <rect key="frame" x="185" y="8" width="93" height="119"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                     <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                     <connections>
                         <action selector="textDidChange:" destination="-1" eventType="editingChanged" id="S1a-51-OCu"/>
                     </connections>
                 </textField>
-                <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="350" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Amount" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="tpq-ir-qfi" customClass="JCPTextField" customModule="Tippy" customModuleProvider="target">
-                    <rect key="frame" x="391" y="52" width="71" height="30"/>
-                    <animations/>
+                <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Amount" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="tpq-ir-qfi" customClass="JCPTextField" customModule="Tippy" customModuleProvider="target">
+                    <rect key="frame" x="383" y="52" width="71" height="30"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                     <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                     <connections>
                         <action selector="textDidChange:" destination="-1" eventType="editingChanged" id="zjV-DZ-HFJ"/>
                     </connections>
                 </textField>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LjP-IY-zjp">
-                    <rect key="frame" x="380" y="57" width="0.0" height="0.0"/>
-                    <animations/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="evk-vs-TbU">
-                    <rect key="frame" x="278" y="57" width="0.0" height="0.0"/>
-                    <animations/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="300" horizontalCompressionResistancePriority="800" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TKA-nX-uEq" customClass="JCPTextField" customModule="Tippy" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="52" width="59" height="30"/>
-                    <animations/>
+                    <rect key="frame" x="8" y="52" width="59" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                     <connections>
@@ -70,25 +52,20 @@
                     </connections>
                 </textField>
             </subviews>
-            <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="evk-vs-TbU" firstAttribute="leading" secondItem="uPw-2Q-Wt8" secondAttribute="trailing" id="5RS-mS-BbE"/>
-                <constraint firstAttribute="centerY" secondItem="LjP-IY-zjp" secondAttribute="centerY" id="79d-9j-wQ7"/>
                 <constraint firstAttribute="centerY" secondItem="tpq-ir-qfi" secondAttribute="centerY" constant="0.5" id="9GS-bj-J4r"/>
-                <constraint firstAttribute="trailing" secondItem="tpq-ir-qfi" secondAttribute="trailing" id="NZw-AG-FGG"/>
+                <constraint firstItem="tpq-ir-qfi" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailingMargin" id="NZw-AG-FGG"/>
                 <constraint firstAttribute="centerX" secondItem="uPw-2Q-Wt8" secondAttribute="centerX" priority="250" id="W5g-b1-wlG"/>
-                <constraint firstAttribute="centerY" secondItem="evk-vs-TbU" secondAttribute="centerY" id="X9g-60-thb"/>
                 <constraint firstAttribute="centerY" secondItem="FIz-8f-mgV" secondAttribute="centerY" constant="0.5" id="XfY-W9-zBA"/>
-                <constraint firstAttribute="centerY" secondItem="uPw-2Q-Wt8" secondAttribute="centerY" constant="0.5" id="YpX-cZ-Oty"/>
-                <constraint firstItem="uPw-2Q-Wt8" firstAttribute="bottomMargin" secondItem="iN0-l3-epB" secondAttribute="bottomMargin" id="j4G-np-fwo"/>
-                <constraint firstItem="FIz-8f-mgV" firstAttribute="leading" secondItem="TKA-nX-uEq" secondAttribute="trailing" constant="12" id="mCy-7B-8Dj"/>
-                <constraint firstItem="TKA-nX-uEq" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="nkp-hc-t4B"/>
-                <constraint firstAttribute="topMargin" secondItem="uPw-2Q-Wt8" secondAttribute="topMargin" id="tBg-ZZ-J6c"/>
-                <constraint firstItem="tpq-ir-qfi" firstAttribute="leading" secondItem="LjP-IY-zjp" secondAttribute="trailing" priority="900" id="tcX-5z-cIQ"/>
-                <constraint firstItem="LjP-IY-zjp" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="evk-vs-TbU" secondAttribute="trailing" priority="750" constant="7" id="u9T-Pn-eOf"/>
+                <constraint firstItem="uPw-2Q-Wt8" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="YpX-cZ-Oty"/>
+                <constraint firstItem="uPw-2Q-Wt8" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottomMargin" id="j4G-np-fwo"/>
+                <constraint firstItem="uPw-2Q-Wt8" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="tpq-ir-qfi" secondAttribute="leading" constant="8" id="k3t-XC-Pqb"/>
+                <constraint firstItem="FIz-8f-mgV" firstAttribute="leading" secondItem="TKA-nX-uEq" secondAttribute="trailing" constant="8" id="mCy-7B-8Dj"/>
+                <constraint firstItem="TKA-nX-uEq" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="nkp-hc-t4B"/>
+                <constraint firstItem="uPw-2Q-Wt8" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="topMargin" id="tBg-ZZ-J6c"/>
                 <constraint firstItem="TKA-nX-uEq" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="vxf-It-tvU"/>
-                <constraint firstItem="uPw-2Q-Wt8" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="FIz-8f-mgV" secondAttribute="trailing" constant="10" id="y1z-Oh-cfg"/>
+                <constraint firstItem="uPw-2Q-Wt8" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="FIz-8f-mgV" secondAttribute="trailing" constant="8" id="y1z-Oh-cfg"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

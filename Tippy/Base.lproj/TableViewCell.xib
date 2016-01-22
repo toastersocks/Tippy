@@ -15,8 +15,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h06-Nd-YC3" customClass="TipoutView" customModule="Tippy" customModuleProvider="target">
-                        <rect key="frame" x="8" y="8" width="430" height="93"/>
-                        <animations/>
+                        <rect key="frame" x="0.0" y="0.0" width="446" height="109"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="activeOnChange" value="YES"/>
@@ -24,15 +23,13 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
-                <animations/>
                 <constraints>
-                    <constraint firstItem="h06-Nd-YC3" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="0pM-Fc-RqF"/>
-                    <constraint firstItem="h06-Nd-YC3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="MhR-Ks-GhE"/>
-                    <constraint firstItem="h06-Nd-YC3" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="OZh-8y-6XH"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="h06-Nd-YC3" secondAttribute="bottom" id="pyB-V5-fnu"/>
+                    <constraint firstItem="h06-Nd-YC3" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailing" id="0pM-Fc-RqF"/>
+                    <constraint firstItem="h06-Nd-YC3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="MhR-Ks-GhE"/>
+                    <constraint firstItem="h06-Nd-YC3" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="OZh-8y-6XH"/>
+                    <constraint firstAttribute="bottom" secondItem="h06-Nd-YC3" secondAttribute="bottom" id="pyB-V5-fnu"/>
                 </constraints>
             </tableViewCellContentView>
-            <animations/>
             <connections>
                 <outlet property="workerView" destination="h06-Nd-YC3" id="m4s-El-tdr"/>
             </connections>
