@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 extension CollectionType where Generator.Element == SubSequence.Generator.Element {
     func reduce(@noescape combine: (Generator.Element, Generator.Element) -> Generator.Element) -> Generator.Element? {
@@ -15,3 +16,12 @@ extension CollectionType where Generator.Element == SubSequence.Generator.Elemen
         }
     }
 }
+
+func isiPhone4S() -> Bool {
+    if UIScreen.mainScreen().bounds.size.height == 480 {
+        return true
+    } else {
+        return false
+    }
+}
+    
