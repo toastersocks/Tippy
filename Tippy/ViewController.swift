@@ -29,6 +29,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var combineButton: UIButton!
     @IBOutlet weak var storeOrDoneButton: UIButton!
     @IBOutlet weak var bottomBarLayoutConstraint: NSLayoutConstraint!
+    @IBOutlet weak var bottomBar: UIView!
+    @IBOutlet weak var iPhone4SColorStackViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var containerView: UIView!
     
     @IBOutlet weak var numberFormatter: Formatter? {
         didSet {
@@ -135,16 +138,17 @@ class ViewController: UIViewController {
         guard let animationDuration = info[UIKeyboardAnimationDurationUserInfoKey]?.doubleValue else { fatalError("Couldn't get keyboard animation duration") }
         bottomBarLayoutConstraint.constant = -kbSize.height
         UIView.animateWithDuration(animationDuration) {
-            self.view.layoutIfNeeded()
+            self.bottomBar.layoutIfNeeded()
         }
     }
     
     func keyboardWillHide(notification: NSNotification) {
         guard let info = notification.userInfo else { fatalError("Couldn't get info dictionary from notification") }
         guard let animationDuration = info[UIKeyboardAnimationDurationUserInfoKey]?.doubleValue else { fatalError("Couldn't get keyboard animation duration") }
-        bottomBarLayoutConstraint.constant = 0
+//        self.view.layoutIfNeeded()
+        self.bottomBarLayoutConstraint.constant = 0
         UIView.animateWithDuration(animationDuration) {
-            self.view.layoutIfNeeded()
+            self.bottomBar.layoutIfNeeded()
         }
     }
 }
