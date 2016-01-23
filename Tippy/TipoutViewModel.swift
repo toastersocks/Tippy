@@ -51,8 +51,8 @@ final class TipoutViewModel: NSObject, TipoutViewModelType {
             case .Amount:
                 let currencyValue = try! formatter.currencyFromString(value)
                 tipoutMethod = .Amount(currencyValue.doubleValue)
-            /*default:
-                tipoutMethod = .Amount(0.0)*/
+            case .Name:
+                fatalError("\(method) is not a valid tipout method")
             }
         } else { tipoutMethod = .Amount(0.0) }
         

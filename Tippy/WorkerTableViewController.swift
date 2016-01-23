@@ -112,8 +112,8 @@ class WorkerTableViewController: UITableViewController, TipoutViewDelegate {
         guard let cell = tableViewCellForTipoutView(tipoutView) else { fatalError("Couldn't get tableViewCell") }
         guard let
             indexPath = tableView.indexPathForCell(cell),
-            activeText = tipoutView.activeTextField?.text,
-            tag = tipoutView.activeTextField?.tag,
+            activeText = tipoutView.activeTextField?.text ?? .Some("0"),
+            tag = tipoutView.activeTextField?.tag ?? .Some(3), // Amount tag
             textFieldTag = TipoutView.TipoutViewField(rawValue: tag)
         else { return }
         
@@ -143,6 +143,7 @@ class WorkerTableViewController: UITableViewController, TipoutViewDelegate {
         case .Amount?: activeField.text = try? formatter.formatNumberString(text)
         case .Percentage?: activeField.text = try? formatter.formatPercentageString(text)
         case .Hours?: activeField.text = try? formatter.formatNumberString(text)
+        case .Name?: break
         case nil: break
             }
     }
@@ -160,6 +161,7 @@ class WorkerTableViewController: UITableViewController, TipoutViewDelegate {
                 case .Amount?: try formatter?.currencyFromString(newString)
                 case .Percentage?: try formatter?.percentageFromString(newString)
                 case .Hours?: try formatter?.formatNumberString(newString)
+                case .Name?: break
                 case nil: break
                 }
             } catch {

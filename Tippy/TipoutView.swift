@@ -44,7 +44,7 @@ public protocol TipoutViewDelegate {
 @IBDesignable public class TipoutView: UIControl, UITextFieldDelegate {
     
     @objc public enum TipoutViewField: Int {
-//        case Name = 0
+        case Name = 0
         case Hours = 1
         case Percentage
         case Amount
@@ -112,7 +112,7 @@ public protocol TipoutViewDelegate {
                 activeTextField = percentageField
             case .Hours:
                 activeTextField = hoursField
-//            case .Name: return
+            case .Name: return
         }
             if clearsInactiveFields {
                 clearInactiveFields()
