@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import TZStackView
 
 
 /**
@@ -135,6 +136,14 @@ public protocol TipoutViewDelegate {
     
     
     @IBAction func textDidChange(sender: UITextField) {
+        if let isEmpty = sender.text?.isEmpty where  isEmpty == true {
+            sender.setContentCompressionResistancePriority(UILayoutPriorityDefaultLow, forAxis: .Horizontal)
+        } else if sender.text == nil {
+            sender.setContentCompressionResistancePriority(UILayoutPriorityDefaultLow, forAxis: .Horizontal)
+        } else {
+            sender.self.setContentCompressionResistancePriority(UILayoutPriorityDefaultHigh, forAxis: .Horizontal)
+            
+        }
         sender.invalidateIntrinsicContentSize()
         if activeOnChange {
             guard let tag = TipoutViewField(rawValue: sender.tag), text = sender.text else { return }
@@ -206,13 +215,21 @@ public protocol TipoutViewDelegate {
     func loadViewFromXib() -> UIView {
         let bundle = NSBundle(forClass: self.dynamicType)
         let xib = UINib(nibName: "TipoutView", bundle: bundle)
-        let view = xib.instantiateWithOwner(self, options: nil)[0] as! UIView
+        // make sure we load correct view by tag in case there's multiple objects in the xib
+        guard let view = (xib.instantiateWithOwner(self, options: nil) as? [UIView])?
+            .filter({
+            return $0.tag == 4 ? true : false
+                
+            })
+            .last else { fatalError("Cannot load view from Xib") }
+        
         return view
     }
     
     // MARK: - UIView
     
     override public func didMoveToSuperview() {
+        
         colorFields()
     }
     
