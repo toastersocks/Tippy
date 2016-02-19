@@ -21,7 +21,10 @@ final class TipoutViewModel: NSObject, TipoutViewModelType {
     
     dynamic var totalText: String {
         get {
-            return String(format: "%.2f", tipoutModel.total)
+            if let formatter = formatter,
+                currencyText = try? formatter.currencyStringFromNumber(tipoutModel.total) {
+                    return currencyText
+            } else { return String(format: "%f", tipoutModel.total) }
         }
         set {
             tipoutModel.total = NSString(string: newValue).doubleValue
