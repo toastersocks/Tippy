@@ -24,4 +24,20 @@ func isiPhone4S() -> Bool {
         return false
     }
 }
-    
+
+extension Set { // TODO: make this an extension for CollectionType
+    func randomElement() -> Element {
+        let index = self.startIndex.advancedBy(Int(arc4random_uniform(UInt32(self.count))))
+        return self[index]
+
+    }
+}
+
+extension Array {
+    func removeAtIndices<ExcludeIndices: SequenceType
+        where ExcludeIndices.Generator.Element == Index>
+        (indices: ExcludeIndices) -> Array {
+            let keepIndices = self.indices.filter { !indices.contains($0) }
+            return Array(PermutationGenerator(elements: self, indices: keepIndices))
+    }
+}
