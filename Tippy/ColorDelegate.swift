@@ -9,27 +9,73 @@
 import UIKit
 import Chameleon
 
-class ColorDelegate: ColorStackViewColorDelegate {
+/** 
+ NOTE: Should this be made to be an 'infinite' sequence that will give you the color of any index it's asked for?
+ (i.e. when asked for an index greater than the current index, add colors to itself until it can give the correct color) 
+ */
 
-    func colorForIndex(var index: Int) -> UIColor {
+class ColorDelegate: NSObject, ColorStackViewColorDelegate {
+
+    
+    var colors = [UIColor]()
+    
+    lazy var colorPool: Set<UIColor> = {
         
-        let colors:[UIColor] = [
+        let seedColors:[UIColor] = [
             UIColor(hexString: "E35F55"),
             UIColor(hexString: "E39955"),
             UIColor(hexString: "36818B"),
             UIColor(hexString: "41AE54")
-            ]
-    
-        let colorSchemes = colors.map {
+        ]
+        
+        let startingColors = seedColors.flatMap {
             color -> [UIColor] in
-            guard let scheme = NSArray(ofColorsWithColorScheme: .Triadic, usingColor: color, withFlatScheme: false) as? Array<UIColor> else { fatalError("Couldn't convert array") }
+            
+            guard let scheme = NSArray(
+                ofColorsWithColorScheme: .Triadic,
+                usingColor: color,
+                withFlatScheme: false)
+                as? Array<UIColor> else { fatalError("Couldn't convert array") }
+            
             return scheme
         }
-        let sequence = [2, 1, 3]
-        index = index % (colorSchemes.count * sequence.count)
-        let y: Int = index / colorSchemes.count
-        let x = abs(colorSchemes.count * y - index)
-        let color = colorSchemes[x][sequence[y]]
-        return color
+        
+        return Set(startingColors)
+    }()
+    
+    func colorForIndex(index: Int) -> UIColor {
+        
+        return colors[index]
+    }
+    
+    func getRandomColor() -> UIColor {
+        
+        return colorPool.randomElement()
+    }
+    
+    func addColor() {
+        let unUsedColors = colorPool.subtract(colors)
+        var newColor: UIColor
+        
+        if !unUsedColors.isEmpty {
+            newColor = unUsedColors.randomElement()
+        } else {
+            let newColorIndex = colors.count % colorPool.count
+            newColor = colors[newColorIndex]
+            if newColor == colors.last { // We don't want two of the same color next to eachother
+                newColor = colors[newColorIndex + 1]
+            }
+        }
+        colors.append(newColor)
+    }
+    
+    func removeColorAtIndex(index: Int) {
+        guard index < colors.count else { fatalError("index outside bounds of color array") }
+        colors.removeAtIndex(index)
+    }
+    
+    func insertColorAtIndex(index: Int) {
+        guard index <= colors.count else { fatalError("index outside bounds of color array") }
+        colors.insert(getRandomColor(), atIndex: index)
     }
 }

@@ -26,13 +26,55 @@ class Controller: NSObject, ColorStackViewDelegate {
     var count: Int { return tipoutModels.count }
     private(set) dynamic var currentIndex = 0
     var numberFormatter: Formatter?
+    var colorStack: ColorDelegate? {
+        didSet {
+            tipoutModels.forEach { _ in
+                colorStack?.addColor()
+            }
+        }
+    }
     
+    var roundToNearest: Double {
+        return Defaults[.roundToNearest]
+    }
+    
+//    var colors = [UIColor]()
+    
+    dynamic var currentColor: UIColor {
+        return colorStack?.colorForIndex(currentIndex) ?? UIColor.clearColor()
+    }
     // MARK: Methods
     
+    
+    func removeCurrent() {
+        tipoutModels.removeAtIndex(currentIndex)
+        colorStack?.removeColorAtIndex(currentIndex)
+        if currentIndex > 0 {
+            currentIndex -= 1
+        }
+        if count == 0 {
+            appendTipout(TipoutModel(roundToNearest: roundToNearest))
+        }
+    }
+    
+    func removeAll() {
+        tipoutModels.removeAll()
+        colorStack?.colors.removeAll()
+        appendTipout(TipoutModel(roundToNearest: roundToNearest))
+        currentIndex = 0
+    }
+    
     func storeCurrent() {
-        let newTipout = TipoutModel(roundToNearest: Defaults[.roundToNearest])
-        tipoutModels.append(newTipout)
+        let newTipout = TipoutModel(roundToNearest: roundToNearest)
+        appendTipout(newTipout)
         currentIndex = tipoutModels.count - 1
+        
+        
+    }
+    
+    func appendTipout(tipout: TipoutModel) {
+        tipoutModels.append(tipout)
+        colorStack?.addColor()
     }
     
     func selectViewModel(index: Int) {
@@ -73,6 +115,7 @@ class Controller: NSObject, ColorStackViewDelegate {
         self.numberFormatter = formatter
         self.tipoutModels.append(tipoutModel)
         currentIndex = 0
+        
     }
     
     convenience init(numberFormatter formatter: Formatter? = nil) {
@@ -104,9 +147,14 @@ class Controller: NSObject, ColorStackViewDelegate {
     func currentIndexOfColorStackView(colorStackView: ColorStackView) -> Int {
         return currentIndex
     }
+    
     // MARK: - KVO
     
     class func keyPathsForValuesAffectingCurrentViewModel() -> Set<NSObject> {
+        return Set(["currentIndex", "tipoutModels"])
+    }
+    
+    class func keyPathsForValuesAffectingCurrentColor() -> Set<NSObject> {
         return Set(["currentIndex", "tipoutModels"])
     }
 }

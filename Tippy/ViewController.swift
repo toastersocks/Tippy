@@ -9,6 +9,8 @@
 import UIKit
 import ReactiveCocoa
 import SwiftyUserDefaults
+import Gecco
+import Chameleon
 
 
 class ViewController: UIViewController {
@@ -17,41 +19,64 @@ class ViewController: UIViewController {
     
     weak var workerTableViewController: WorkerTableViewController!
     
-    @IBOutlet weak var colorStackView: ColorStackView! {
-        didSet {
-            colorStackView.delegate = controller
-            colorStackView.colorDelegate = ColorDelegate()
-        }
-    }
+    @IBOutlet weak var colorStackView: ColorStackView!
+    
+    @IBOutlet weak var upperToolbar: UIToolbar!
+    var colorDelegate: ColorDelegate? = ColorDelegate()
     
     @IBOutlet weak var totalField: UITextField!
     
-    @IBOutlet weak var combineButton: UIButton!
-    @IBOutlet weak var storeOrDoneButton: UIButton!
+    @IBOutlet weak var settingsBarButton: UIButton!
+    @IBOutlet weak var combineOrDoneButton: UIButton! {
+        didSet {
+            combineOrDoneButton.addTarget(self, action: "combine", forControlEvents: .TouchUpInside)
+        }
+    }
+    @IBOutlet weak var storeButton: UIButton! {
+        didSet {
+            storeButton.addTarget(self, action: "store", forControlEvents: .TouchUpInside)
+        }
+    }
+    @IBOutlet weak var clearButton: UIButton! {
+        didSet {
+            clearButton.addTarget(self, action: "clear:", forControlEvents: .TouchUpInside)
+        }
+    }
+    
+    @IBOutlet weak var clearAllButton: UIButton! {
+        didSet {
+            clearAllButton.addTarget(self, action: "clearAll:", forControlEvents: .TouchUpInside)
+        }
+    }
+    
     @IBOutlet weak var bottomBarLayoutConstraint: NSLayoutConstraint!
     @IBOutlet weak var bottomBar: UIView!
     @IBOutlet weak var iPhone4SColorStackViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var containerView: UIView!
     
-    @IBOutlet weak var numberFormatter: Formatter? {
+    @IBOutlet var numberFormatter: Formatter? {
         didSet {
             Defaults.rac_channelTerminalForKey(DefaultsKeys.percentageFormat._key).subscribeNextAs {
                 (option: Int) -> () in
                 self.numberFormatter?.percentFormat = option == 0 ? .Decimal : .WholeNumber
             }
-            controller = Controller(numberFormatter: numberFormatter)
         }
     }
-    dynamic var controller: Controller
+    dynamic var controller: Controller = Controller()
     
     required init?(coder aDecoder: NSCoder) {
-        controller = Controller() 
         super.init(coder: aDecoder)
     }
     
     // MARK: - Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        colorStackView.delegate = controller
+        colorStackView.colorDelegate = colorDelegate
+        controller.colorStack = colorDelegate
+        controller.numberFormatter = numberFormatter
+        colorStackView.reload()
         
         // Total Field
         let totalSignal = RACObserve(self, "controller.currentViewModel.totalText")
@@ -69,6 +94,20 @@ class ViewController: UIViewController {
             self.workerTableViewController?.viewModel = viewModel
         }
         
+        // Color
+        RACObserve(self, "controller.currentColor").subscribeNextAs {
+            (color: UIColor) in
+//            Chameleon.setGlobalThemeUsingPrimaryColor(color, withContentStyle: .Contrast)
+//            self.containerView.backgroundColor = color.colorWithAlphaComponent(0.25)
+            self.workerTableViewController.view.backgroundColor = color.colorWithAlphaComponent(0.25)
+            self.upperToolbar.barTintColor = color.colorWithAlphaComponent(0.25)
+            self.bottomBar.backgroundColor = color.colorWithAlphaComponent(0.25)
+//            self.bottomBar.tintColor = UIColor(contrastingBlackOrWhiteColorOn: color.colorWithAlphaComponent(0.25), isFlat: true)
+            self.upperToolbar.tintColor = UIColor(contrastingBlackOrWhiteColorOn: self.upperToolbar.barTintColor, isFlat: true)
+//            self.setThemeUsingPrimaryColor(color, withContentStyle: .Contrast)
+//            self.workerTableViewController.setThemeUsingPrimaryColor(color, withContentStyle: .Contrast)
+        }
+        
         // Workers
         RACObserve(self, "controller.currentViewModel.workerViewModels").subscribeNextAs {
             (workerViewModels: AnyObject) -> () in
@@ -76,6 +115,7 @@ class ViewController: UIViewController {
         }
         
         // Settings
+        
         Defaults.rac_channelTerminalForKey(DefaultsKeys.percentageFormat._key).subscribeNext {
             (_: AnyObject!) -> Void in
             self.workerTableViewController.tableView.reloadData()
@@ -112,29 +152,43 @@ class ViewController: UIViewController {
         
     }
     
-    @IBAction func storeTapped(sender: UIBarButtonItem) {
+    @IBAction func store() {
         controller.storeCurrent()
         colorStackView.reload()
     }
     
-    @IBAction func combine(sender: UIBarButtonItem) {
+    @IBAction func clear(sender: UIButton) {
+        controller.removeCurrent()
+        colorStackView.reload()
+    }
+    
+    @IBAction func clearAll(sender: UIButton) {
+        controller.removeAll()
+        colorStackView.reload()
+    }
+    
+    @IBAction func combine() {
         guard let viewController = storyboard?.instantiateViewControllerWithIdentifier("tipoutvc") as? ViewController else { fatalError("Unable to instantiate ViewController") }
         
         presentViewController(viewController, animated: true, completion: nil)
-        
-        viewController.storeOrDoneButton.setTitle("Done", forState: .Normal)
-        viewController.storeOrDoneButton.removeTarget(viewController, action: "storeTapped:", forControlEvents: .TouchUpInside)
-        viewController.storeOrDoneButton.addTarget(viewController, action: "done:", forControlEvents: .TouchUpInside)
-        viewController.combineButton.hidden = true
+//        viewController.storeOrDoneButton.title = "Done"
+        viewController.combineOrDoneButton.setTitle(NSBundle(identifier: "com.apple.UIKit")?.localizedStringForKey("Done", value: "", table: nil), forState: .Normal)
+        viewController.combineOrDoneButton.removeTarget(viewController, action: "store", forControlEvents: .TouchUpInside)
+        viewController.combineOrDoneButton.addTarget(viewController, action: "done", forControlEvents: .TouchUpInside)
+//        viewController.combineOrDoneButton.target = viewController
+//        viewController.combineOrDoneButton.action = "done"
+//        viewController.combineButton.hidden = true
+        viewController.storeButton.enabled = false
+
         if let combinedTipoutViewModel = controller.combinedTipoutsViewModel() {
-            debugPrint(combinedTipoutViewModel.totalText)
+//            debugPrint(combinedTipoutViewModel.totalText)
             viewController.controller = Controller(tipoutViewModel: combinedTipoutViewModel, numberFormatter: numberFormatter)
         } else {
             
         }
     }
     
-    @IBAction func done(sender: UIButton) {
+    @IBAction func done() {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     

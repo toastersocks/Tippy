@@ -17,7 +17,7 @@ public protocol ColorStackViewDelegate {
     func currentIndexOfColorStackView(colorStackView: ColorStackView) -> Int
 }
 
-public protocol ColorStackViewColorDelegate {
+@objc public protocol ColorStackViewColorDelegate {
     func colorForIndex(index:Int) -> UIColor
 }
 
@@ -25,13 +25,13 @@ public protocol ColorStackViewColorDelegate {
 
     public var delegate: ColorStackViewDelegate? {
         didSet {
-        reload()
+//        reload()
         }
     }
     
-    public var colorDelegate: ColorStackViewColorDelegate? {
+    @IBOutlet public var colorDelegate: ColorStackViewColorDelegate? {
         didSet {
-            reload()
+//            reload()
         }
     }
     
@@ -42,6 +42,15 @@ public protocol ColorStackViewColorDelegate {
     
     public var colors: [UIColor] = [.greenColor(), .redColor(), .blueColor(), .orangeColor()]
     
+    private func animationStartEndPositionConstraintsWithView(view: UIView) -> [NSLayoutConstraint] {
+        return [
+            NSLayoutConstraint(item: view, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1, constant: 0),
+            NSLayoutConstraint(item: view, attribute: .Height, relatedBy: .Equal, toItem: stackView, attribute: .Height, multiplier: 1, constant: 0),
+            NSLayoutConstraint(item: view, attribute: .Leading, relatedBy: .Equal, toItem: stackView, attribute: .Trailing, multiplier: 1, constant: 0),
+            NSLayoutConstraint(item: view, attribute: .Top, relatedBy: .Equal, toItem: stackView, attribute: .Top, multiplier: 1, constant: 0)
+        ]
+}
+    
     func increment(animated animated: Bool) {
         let button = UIButton(type: .System)
         button.addTarget(self, action: "handleTap:", forControlEvents: .TouchUpInside)
@@ -49,12 +58,7 @@ public protocol ColorStackViewColorDelegate {
         self.stackView.addArrangedSubview(button)
         
         if animated {
-        let animationStartConstraints = [
-            NSLayoutConstraint(item: button, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: button, attribute: .Height, relatedBy: .Equal, toItem: stackView, attribute: .Height, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: button, attribute: .Leading, relatedBy: .Equal, toItem: stackView, attribute: .Trailing, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: button, attribute: .Top, relatedBy: .Equal, toItem: stackView, attribute: .Top, multiplier: 1, constant: 0)
-            ]
+        let animationStartConstraints = animationStartEndPositionConstraintsWithView(button)
         button.hidden = true
         stackView.addConstraints(animationStartConstraints)
         stackView.layoutIfNeeded()
@@ -68,7 +72,19 @@ public protocol ColorStackViewColorDelegate {
     }
     
     func decrement(animated animated: Bool) {
-        stackView.arrangedSubviews[count-1].removeFromSuperview()
+        guard let viewToRemove = stackView.arrangedSubviews.last else { return }
+        if animated {
+            let animatedEndConstraints = animationStartEndPositionConstraintsWithView(viewToRemove)
+            UIView.animateWithDuration(0.3, delay: 0, options: [UIViewAnimationOptions.CurveEaseInOut], animations: {
+                self.stackView.addConstraints(animatedEndConstraints)
+                self.stackView.layoutIfNeeded()
+                viewToRemove.hidden = true
+                }, completion: nil)
+            
+            viewToRemove.removeFromSuperview()
+            
+            
+        }
     }
     
     @IBAction func handleTap(sender: UIButton) {
@@ -80,24 +96,29 @@ public protocol ColorStackViewColorDelegate {
     
     func reload() {
         guard let numberOfItems = delegate?.numberOfItemsInColorStackView(self) else { return }
+        
+        let diff = numberOfItems - count
+        
+        if diff > 0 {
+            (0..<diff).forEach {
+                (_: Int) in
+                increment(animated: true)
+            }
+        } else if diff < 0 {
+            (0..<abs(diff)).forEach {
+                (_: Int) in
+                decrement(animated: true)
+            }
+        }
+        
+        guard let delegate = delegate else { return }
+        
         stackView.arrangedSubviews.enumerate().forEach {
             index, button in
             button.backgroundColor = colorDelegate?.colorForIndex(index) ?? colors[index % colors.count]
         }
-        let diff = numberOfItems - count
-        if diff > 0 {
-        (0..<diff).forEach {
-            (_: Int) in
-            increment(animated: true)
-            }
-        } else if diff < 0 {
-                (0..<abs(diff)).forEach {
-                    (_: Int) in
-                    decrement(animated: true)
-                }
-            }
-        guard let delegate = delegate, colorDelegate = colorDelegate else { return }
-        backgroundColor = colorDelegate.colorForIndex(delegate.currentIndexOfColorStackView(self))
+        
+        backgroundColor = colorDelegate?.colorForIndex(delegate.currentIndexOfColorStackView(self))
     }
     
     // MARK: - Init stuff
