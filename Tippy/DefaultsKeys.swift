@@ -18,6 +18,7 @@ extension DefaultsKeys {
     
     static let percentageFormat = DefaultsKey<Int>("percentageFormat")
     static let roundToNearest = DefaultsKey<Double>("roundToNearest")
+    static let showWalkthrough = DefaultsKey<Bool>("showWalkthrough")
 }
 
 extension NSUserDefaults {

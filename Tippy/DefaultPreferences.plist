@@ -6,5 +6,7 @@
 	<integer>0</integer>
 	<key>percentageFormat</key>
 	<integer>1</integer>
+	<key>showWalkthrough</key>
+	<true/>
 </dict>
 </plist>

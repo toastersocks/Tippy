@@ -86,6 +86,26 @@ class ViewController: UIViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
     }
     
+    override func viewDidAppear(animated: Bool) {
+        Defaults.rac_channelTerminalForKey(DefaultsKeys.showWalkthrough._key).subscribeNextAs {
+            (showWalkthrough: Bool) -> () in
+            if showWalkthrough {
+                self.showWalkthrough()
+            }
+        }
+
+    }
+    
+    func showWalkthrough() {
+        let walkthroughController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Walkthrough") as! WalkthroughViewController
+        walkthroughController.views = [storeButton, combineOrDoneButton, settingsBarButton]
+        walkthroughController.alpha = 0.5
+        self.presentViewController(walkthroughController, animated: true) {
+            Defaults[.showWalkthrough] = false
+        }
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
