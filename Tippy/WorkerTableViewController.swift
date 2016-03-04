@@ -63,6 +63,7 @@ class WorkerTableViewController: UITableViewController, TipoutViewDelegate {
             else { fatalError("Expected a TableViewCell") }
         resetPropertiesOfTipoutView(cell.workerView)
         cell.workerView.delegate = self
+        cell.backgroundColor = UIColor.clearColor()
         
         return cell
     }

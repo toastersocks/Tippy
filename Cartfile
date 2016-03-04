@@ -7,3 +7,5 @@ github "ViccAlexander/Chameleon"
 github "tomvanzummeren/TZStackView"
 
 github "radex/SwiftyUserDefaults"
+
+github "yukiasai/Gecco" "carthage"

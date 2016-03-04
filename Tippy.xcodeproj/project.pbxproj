@@ -48,6 +48,8 @@
 		DDA07EC21BC5F54D008B1081 /* TZStackView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DDA07EC01BC5F54D008B1081 /* TZStackView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DDA1E8761BB33E4600ADEB47 /* RACExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA1E8751BB33E4600ADEB47 /* RACExtensions.swift */; };
 		DDB9FD671BF40C5500FB6803 /* JCPTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB9FD661BF40C5500FB6803 /* JCPTextField.swift */; };
+		DDBFF7CE1C78F8A800D43C77 /* Gecco.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDBFF7CD1C78F8A800D43C77 /* Gecco.framework */; };
+		DDBFF7CF1C78F8A800D43C77 /* Gecco.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DDBFF7CD1C78F8A800D43C77 /* Gecco.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DDC16F9A1BB0C29000AC9583 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD67BD6D1B697E2E000EADD5 /* TableViewCell.swift */; };
 		DDDAE7461B6BDE0B008D2140 /* WorkerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDAE7451B6BDE0B008D2140 /* WorkerTableViewController.swift */; };
 		DDE21BB61B4E15BE002D5859 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE21BB51B4E15BE002D5859 /* Controller.swift */; };
@@ -55,6 +57,7 @@
 		DDE86B941C24E79700DA7941 /* TipoutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDE86B961C24E79700DA7941 /* TipoutView.xib */; };
 		DDE86B9B1C24E7B500DA7941 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDE86B9D1C24E7B500DA7941 /* TableViewCell.xib */; };
 		DDECA8EF1BA614D400D45446 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDECA8EE1BA614D400D45446 /* Helpers.swift */; };
+		DDF375761C7A82BC006977F2 /* WalkthroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF375751C7A82BC006977F2 /* WalkthroughViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +79,7 @@
 			files = (
 				DDA07EC21BC5F54D008B1081 /* TZStackView.framework in Embed Frameworks */,
 				DD45FB861C641A3400DE5D7A /* Tipout.framework in Embed Frameworks */,
+				DDBFF7CF1C78F8A800D43C77 /* Gecco.framework in Embed Frameworks */,
 				DD7CBA321B598DC8003B718D /* ReactiveCocoa.framework in Embed Frameworks */,
 				DD71106A1BE189EF00FA7006 /* SwiftyUserDefaults.framework in Embed Frameworks */,
 				DD73DFC11BC1BC9B0005636C /* Chameleon.framework in Embed Frameworks */,
@@ -142,6 +146,7 @@
 		DDA07EC01BC5F54D008B1081 /* TZStackView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TZStackView.framework; path = Carthage/Build/iOS/TZStackView.framework; sourceTree = "<group>"; };
 		DDA1E8751BB33E4600ADEB47 /* RACExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RACExtensions.swift; sourceTree = "<group>"; };
 		DDB9FD661BF40C5500FB6803 /* JCPTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JCPTextField.swift; sourceTree = "<group>"; };
+		DDBFF7CD1C78F8A800D43C77 /* Gecco.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Gecco.framework; path = Carthage/Build/iOS/Gecco.framework; sourceTree = "<group>"; };
 		DDDAE7451B6BDE0B008D2140 /* WorkerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkerTableViewController.swift; sourceTree = "<group>"; };
 		DDE21BB51B4E15BE002D5859 /* Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
 		DDE86B881C237E9C00DA7941 /* TotalFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TotalFieldDelegate.swift; sourceTree = "<group>"; };
@@ -163,6 +168,7 @@
 		DDE86BA51C24E7F500DA7941 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		DDE86BA61C24ECFC00DA7941 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/TableViewCell.strings; sourceTree = "<group>"; };
 		DDECA8EE1BA614D400D45446 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		DDF375751C7A82BC006977F2 /* WalkthroughViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkthroughViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +178,7 @@
 			files = (
 				DD7CBA351B598DDE003B718D /* ReactiveCocoa.framework in Frameworks */,
 				DD45FB851C641A3400DE5D7A /* Tipout.framework in Frameworks */,
+				DDBFF7CE1C78F8A800D43C77 /* Gecco.framework in Frameworks */,
 				DD45FB821C64199E00DE5D7A /* TZStackView.framework in Frameworks */,
 				DD7110691BE189EF00FA7006 /* SwiftyUserDefaults.framework in Frameworks */,
 				DD73DFC01BC1BC9B0005636C /* Chameleon.framework in Frameworks */,
@@ -206,6 +213,7 @@
 		DD1C583F1B16981D00188B28 = {
 			isa = PBXGroup;
 			children = (
+				DDBFF7CD1C78F8A800D43C77 /* Gecco.framework */,
 				DD45FB841C641A3400DE5D7A /* Tipout.framework */,
 				DD45FB811C64199E00DE5D7A /* TZStackView.framework */,
 				DD309D221B5F081C000EE80B /* Scratchpad.playground */,
@@ -282,6 +290,7 @@
 				DDB9FD661BF40C5500FB6803 /* JCPTextField.swift */,
 				DDE86B881C237E9C00DA7941 /* TotalFieldDelegate.swift */,
 				DD71106D1BE18EA300FA7006 /* UI */,
+				DDF375751C7A82BC006977F2 /* WalkthroughViewController.swift */,
 				DD54AABE1BB30FF700AFFA68 /* ColorStackView.swift */,
 				DDDAE7451B6BDE0B008D2140 /* WorkerTableViewController.swift */,
 				DD1C584F1B16981D00188B28 /* ViewController.swift */,
@@ -477,6 +486,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Chameleon.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/TZStackView.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyUserDefaults.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Gecco.framework",
 			);
 			outputPaths = (
 			);
@@ -496,6 +506,7 @@
 				DDA07EBF1BC5F2DF008B1081 /* ColorDelegate.swift in Sources */,
 				DD90A9961B605F0C00EE0BB6 /* TipoutView+RAC.swift in Sources */,
 				DD20813C1BD9524A00ED20CB /* WorkerViewModelType.swift in Sources */,
+				DDF375761C7A82BC006977F2 /* WalkthroughViewController.swift in Sources */,
 				DDDAE7461B6BDE0B008D2140 /* WorkerTableViewController.swift in Sources */,
 				DD6F0C381C1B98FC00A65CB0 /* Formatter.swift in Sources */,
 				DD1C58501B16981D00188B28 /* ViewController.swift in Sources */,
