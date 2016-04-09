@@ -8,4 +8,4 @@ github "tomvanzummeren/TZStackView"
 
 github "radex/SwiftyUserDefaults"
 
-github "yukiasai/Gecco" "carthage"
+github "toastersocks/Gecco" "carthage"
