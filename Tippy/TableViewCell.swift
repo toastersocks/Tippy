@@ -52,33 +52,26 @@ class TableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        RAC(workerView, "nameField.text") <~ RACObserve(self, "viewModel.name")
-        
-        RAC(workerView, "amountField.text") <~ RACObserve(self, "viewModel.amount").filter {
-            (_: AnyObject!) in
-            if let activeTextField = self.workerView?.activeTextField {
-                return activeTextField != self.workerView.amountField
-            } else {
-                return true
-            }
+        RAC(workerView, "nameField.text") <~ RACObserve(self, "viewModel.name").filter { _ in
+            return !self.workerView.nameField.isFirstResponder()
         }
         
-        RAC(workerView, "hoursField.text") <~ RACObserve(self, "viewModel.hours").filter {
-            (_: AnyObject!) in
-            if let activeTextField = self.workerView?.activeTextField {
-                return activeTextField != self.workerView.hoursField
-            } else {
-                return true
-            }
+        RAC(workerView, "amountField.text") <~ RACObserve(self, "viewModel.amount").filter { _ in
+            return !self.workerView.amountField.isFirstResponder()
         }
         
-        RAC(workerView, "percentageField.attributedText") <~ RACObserve(self, "viewModel.percentage").filter {
-            (_: AnyObject!) in
-            if let activeTextField = self.workerView?.activeTextField {
-                return activeTextField != self.workerView.percentageField
-            } else {
-                return true
+        RAC(workerView, "hoursField.text") <~ RACObserve(self, "viewModel.hours").filter { _ in
+            return !self.workerView.hoursField.isFirstResponder()
+        }
+        
+        RAC(workerView, "percentageField.attributedText") <~ RACObserve(self, "viewModel.percentage")
+            .doNext { _ in
+                if self.workerView.percentageField.isFirstResponder() {
+                    self.workerView.percentageField.textColor = .blackColor()
+                }
             }
+            .filter { _ in
+                return !self.workerView.percentageField.isFirstResponder()
         }
     }
- }
+}
