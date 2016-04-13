@@ -7,17 +7,17 @@
 		<key>Tippy EN.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>2</integer>
+			<integer>3</integer>
 		</dict>
 		<key>Tippy-PT.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>3</integer>
+			<integer>4</integer>
 		</dict>
 		<key>Tippy-Turkey.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>4</integer>
+			<integer>5</integer>
 		</dict>
 		<key>Tippy.xcscheme_^#shared#^_</key>
 		<dict>
@@ -33,6 +33,11 @@
 			<true/>
 		</dict>
 		<key>DD1C585C1B16981E00188B28</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DD5B09231C8B788B00A7A32E</key>
 		<dict>
 			<key>primary</key>
 			<true/>

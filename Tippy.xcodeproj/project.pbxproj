@@ -11,6 +11,8 @@
 		DD19B63E1C1A3375000FFACA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DD19B6401C1A3375000FFACA /* Localizable.strings */; };
 		DD19B6451C1A3EA4000FFACA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DD19B6471C1A3EA4000FFACA /* InfoPlist.strings */; };
 		DD19B64A1C1A3EA5000FFACA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DD19B64C1C1A3EA5000FFACA /* InfoPlist.strings */; };
+		DD1B5EE61CB99AFE0041CACD /* Tipout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD1B5EE51CB99AFE0041CACD /* Tipout.framework */; };
+		DD1B5EE71CB99AFE0041CACD /* Tipout.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DD1B5EE51CB99AFE0041CACD /* Tipout.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DD1C584E1B16981D00188B28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1C584D1B16981D00188B28 /* AppDelegate.swift */; };
 		DD1C58501B16981D00188B28 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1C584F1B16981D00188B28 /* ViewController.swift */; };
 		DD1C58531B16981D00188B28 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD1C58511B16981D00188B28 /* Main.storyboard */; };
@@ -19,9 +21,8 @@
 		DD1C586E1B16995000188B28 /* TipoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1C586D1B16995000188B28 /* TipoutViewModel.swift */; };
 		DD20813A1BD94ACB00ED20CB /* TipoutViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2081391BD94ACB00ED20CB /* TipoutViewModelType.swift */; };
 		DD20813C1BD9524A00ED20CB /* WorkerViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD20813B1BD9524A00ED20CB /* WorkerViewModelType.swift */; };
+		DD36481B1CBEF479002CA8A5 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = DD36481A1CBEF479002CA8A5 /* .gitignore */; };
 		DD45FB821C64199E00DE5D7A /* TZStackView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD45FB811C64199E00DE5D7A /* TZStackView.framework */; };
-		DD45FB851C641A3400DE5D7A /* Tipout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD45FB841C641A3400DE5D7A /* Tipout.framework */; };
-		DD45FB861C641A3400DE5D7A /* Tipout.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DD45FB841C641A3400DE5D7A /* Tipout.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DD54AA771BB0DB3300AFFA68 /* ViewModelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD54AA761BB0DB3300AFFA68 /* ViewModelable.swift */; };
 		DD54AA791BB1A77C00AFFA68 /* testWorkerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD54AA781BB1A77C00AFFA68 /* testWorkerViewModel.swift */; };
 		DD54AA7E1BB1AA1200AFFA68 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD54AA7C1BB1AA1200AFFA68 /* Nimble.framework */; };
@@ -78,11 +79,11 @@
 			dstSubfolderSpec = 10;
 			files = (
 				DDA07EC21BC5F54D008B1081 /* TZStackView.framework in Embed Frameworks */,
-				DD45FB861C641A3400DE5D7A /* Tipout.framework in Embed Frameworks */,
 				DDBFF7CF1C78F8A800D43C77 /* Gecco.framework in Embed Frameworks */,
 				DD7CBA321B598DC8003B718D /* ReactiveCocoa.framework in Embed Frameworks */,
 				DD71106A1BE189EF00FA7006 /* SwiftyUserDefaults.framework in Embed Frameworks */,
 				DD73DFC11BC1BC9B0005636C /* Chameleon.framework in Embed Frameworks */,
+				DD1B5EE71CB99AFE0041CACD /* Tipout.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -100,6 +101,7 @@
 		DD19B64B1C1A3EA5000FFACA /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		DD1A48031B28FE7D003FA9DB /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		DD1A48041B29D456003FA9DB /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		DD1B5EE51CB99AFE0041CACD /* Tipout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = Tipout.framework; path = "/Users/jambes/Library/Developer/Xcode/DerivedData/Tippy-gvkefezoraqnmecjpvbnpgwrqnty/Build/Products/Debug-iphoneos/Tipout.framework"; sourceTree = "<absolute>"; };
 		DD1C58481B16981D00188B28 /* Tippy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tippy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD1C584C1B16981D00188B28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD1C584D1B16981D00188B28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -113,14 +115,15 @@
 		DD2081391BD94ACB00ED20CB /* TipoutViewModelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipoutViewModelType.swift; sourceTree = "<group>"; };
 		DD20813B1BD9524A00ED20CB /* WorkerViewModelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkerViewModelType.swift; sourceTree = "<group>"; };
 		DD309D221B5F081C000EE80B /* Scratchpad.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Scratchpad.playground; sourceTree = "<group>"; };
+		DD36481A1CBEF479002CA8A5 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		DD45FB811C64199E00DE5D7A /* TZStackView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TZStackView.framework; path = Carthage/Build/iOS/TZStackView.framework; sourceTree = "<group>"; };
-		DD45FB841C641A3400DE5D7A /* Tipout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = Tipout.framework; path = "/Users/jambes/Library/Developer/Xcode/DerivedData/Tippy-gvkefezoraqnmecjpvbnpgwrqnty/Build/Products/Debug-iphoneos/Tipout.framework"; sourceTree = "<absolute>"; };
 		DD54AA761BB0DB3300AFFA68 /* ViewModelable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelable.swift; sourceTree = "<group>"; };
 		DD54AA781BB1A77C00AFFA68 /* testWorkerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = testWorkerViewModel.swift; sourceTree = "<group>"; };
 		DD54AA7A1BB1A82400AFFA68 /* Cartfile.private */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile.private; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		DD54AA7C1BB1AA1200AFFA68 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		DD54AA7D1BB1AA1200AFFA68 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		DD54AABE1BB30FF700AFFA68 /* ColorStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorStackView.swift; sourceTree = "<group>"; };
+		DD5B095B1C8B788C00A7A32E /* Tippy copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Tippy copy-Info.plist"; path = "/Users/jambes/Desktop/Projects/Tippy/Tippy copy-Info.plist"; sourceTree = "<absolute>"; };
 		DD67BD6B1B6861E4000EADD5 /* WorkerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkerViewModel.swift; sourceTree = "<group>"; };
 		DD67BD6D1B697E2E000EADD5 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		DD6CB2F61B5C45040097BB76 /* TipoutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipoutView.swift; sourceTree = "<group>"; };
@@ -177,11 +180,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD7CBA351B598DDE003B718D /* ReactiveCocoa.framework in Frameworks */,
-				DD45FB851C641A3400DE5D7A /* Tipout.framework in Frameworks */,
 				DDBFF7CE1C78F8A800D43C77 /* Gecco.framework in Frameworks */,
 				DD45FB821C64199E00DE5D7A /* TZStackView.framework in Frameworks */,
 				DD7110691BE189EF00FA7006 /* SwiftyUserDefaults.framework in Frameworks */,
 				DD73DFC01BC1BC9B0005636C /* Chameleon.framework in Frameworks */,
+				DD1B5EE61CB99AFE0041CACD /* Tipout.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,6 +203,8 @@
 		37DFF81F10D79D1C2B13583D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DDBFF7CD1C78F8A800D43C77 /* Gecco.framework */,
+				DD45FB811C64199E00DE5D7A /* TZStackView.framework */,
 				DD7110671BE189D900FA7006 /* SwiftyUserDefaults.framework */,
 				DDA07EC01BC5F54D008B1081 /* TZStackView.framework */,
 				DD73DFBF1BC1BC9B0005636C /* Chameleon.framework */,
@@ -213,9 +218,8 @@
 		DD1C583F1B16981D00188B28 = {
 			isa = PBXGroup;
 			children = (
-				DDBFF7CD1C78F8A800D43C77 /* Gecco.framework */,
-				DD45FB841C641A3400DE5D7A /* Tipout.framework */,
-				DD45FB811C64199E00DE5D7A /* TZStackView.framework */,
+				DD36481A1CBEF479002CA8A5 /* .gitignore */,
+				DD1B5EE51CB99AFE0041CACD /* Tipout.framework */,
 				DD309D221B5F081C000EE80B /* Scratchpad.playground */,
 				DD1A48031B28FE7D003FA9DB /* Cartfile */,
 				DD54AA7A1BB1A82400AFFA68 /* Cartfile.private */,
@@ -225,6 +229,7 @@
 				DD1C58601B16981E00188B28 /* TippyTests */,
 				DD1C58491B16981D00188B28 /* Products */,
 				37DFF81F10D79D1C2B13583D /* Frameworks */,
+				DD5B095B1C8B788C00A7A32E /* Tippy copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -358,6 +363,7 @@
 				DD1C58451B16981D00188B28 /* Frameworks */,
 				DD7CBA0F1B585174003B718D /* ShellScript */,
 				DD7CBA1A1B598B4A003B718D /* Embed Frameworks */,
+				DD1B5EE81CBD97540041CACD /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -446,6 +452,7 @@
 				DDE86B9B1C24E7B500DA7941 /* TableViewCell.xib in Resources */,
 				DD1C58581B16981D00188B28 /* LaunchScreen.xib in Resources */,
 				DD1C58551B16981D00188B28 /* Images.xcassets in Resources */,
+				DD36481B1CBEF479002CA8A5 /* .gitignore in Resources */,
 				DDE86B941C24E79700DA7941 /* TipoutView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -461,6 +468,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		DD1B5EE81CBD97540041CACD /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "APP_PATH=\"${TARGET_BUILD_DIR}/${WRAPPER_NAME}\"\n\n# This script loops through the frameworks embedded in the application and\n# removes unused architectures.\nfind \"$APP_PATH\" -name '*.framework' -type d | while read -r FRAMEWORK\ndo\n\nFRAMEWORK_EXECUTABLE_NAME=$(defaults read \"$FRAMEWORK/Info.plist\" CFBundleExecutable)\necho \"framework name is $FRAMEWORK_EXECUTABLE_NAME\"\n#echo $FRAMEWORK_EXECUTABLE_NAME >> ~/Desktop/outputText.txt\nif [ $FRAMEWORK_EXECUTABLE_NAME != \"Tipout\" ]; then\nFRAMEWORK_EXECUTABLE_PATH=\"$FRAMEWORK/$FRAMEWORK_EXECUTABLE_NAME\"\necho \"Executable is $FRAMEWORK_EXECUTABLE_PATH\"\n\nEXTRACTED_ARCHS=()\n\nfor ARCH in $ARCHS\ndo\necho \"Extracting $ARCH from $FRAMEWORK_EXECUTABLE_NAME\"\nlipo -extract \"$ARCH\" \"$FRAMEWORK_EXECUTABLE_PATH\" -o \"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\"\nEXTRACTED_ARCHS+=(\"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\")\ndone\n\necho \"Merging extracted architectures: ${ARCHS}\"\nlipo -o \"$FRAMEWORK_EXECUTABLE_PATH-merged\" -create \"${EXTRACTED_ARCHS[@]}\"\nrm \"${EXTRACTED_ARCHS[@]}\"\n\necho \"Replacing original executable with thinned version\"\nrm \"$FRAMEWORK_EXECUTABLE_PATH\"\nmv \"$FRAMEWORK_EXECUTABLE_PATH-merged\" \"$FRAMEWORK_EXECUTABLE_PATH\"\nfi\ndone";
+		};
 		DD54AA7B1BB1A96D00AFFA68 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -726,6 +746,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 13;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -748,6 +769,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 13;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
