@@ -79,6 +79,24 @@ class ViewController: UIViewController {
         colorStackView.reload()
         
         // Total Field
+        
+        let currencyLabel = UILabel()
+        currencyLabel.text = numberFormatter?.currencySymbol
+        switch numberFormatter?.currencySymbolPosition {
+        case .Beginning?:
+            totalField.leftView = currencyLabel
+            totalField.leftViewMode = .Always
+            totalField.rightViewMode = .Never
+        case .End?:
+            totalField.rightView = currencyLabel
+            totalField.rightViewMode = .Always
+            totalField.leftViewMode = .Never
+        default:
+            break
+        }
+        currencyLabel.sizeToFit()
+        
+
         let totalSignal = RACObserve(self, "controller.currentViewModel.totalText")
         totalField.rac_textSignal().subscribeNextAs({ (text: NSString) -> () in
             self.controller.currentViewModel.totalText = text as String
