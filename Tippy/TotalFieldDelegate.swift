@@ -37,6 +37,9 @@ class TotalFieldDelegate: NSObject, UITextFieldDelegate {
         return true
     }
     
+    @IBAction func editingChanged(sender: UITextField) {
+        sender.invalidateIntrinsicContentSize()
+    }
     /*init(formatter: Formatter) {
     self.formatter = formatter
     super.init()
