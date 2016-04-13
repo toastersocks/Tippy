@@ -113,17 +113,22 @@ public class Formatter: NSObject {
     }
     
     public func percentageFromString(string: String) throws ->  NSNumber {
+        var checkedString = string
         
+        if string.hasPrefix("\(decimalSeparator)") {
+            checkedString = "0" + checkedString
+        }
+
         let percentString: String
         if !string.containsString(percentSymbol) {
             switch percentSymbolPosition {
             case .End:
-                percentString = string.stringByAppendingString(percentSymbol)
+                percentString = checkedString.stringByAppendingString(percentSymbol)
             case .Beginning:
-                percentString = percentSymbol.stringByAppendingString(string)
+                percentString = percentSymbol.stringByAppendingString(checkedString)
             }
             
-        } else { percentString = string }
+        } else { percentString = checkedString }
 
         guard let num = percentFormatter.numberFromString(percentString) else { throw FormatterError.ConvertError }
         return num
@@ -147,8 +152,12 @@ public class Formatter: NSObject {
             }
             
         } else { amountString = string }*/
+        var checkedString = string
+        if string.hasPrefix("\(decimalSeparator)") {
+                checkedString = "0" + checkedString
+        }
         
-        guard let num = currencyFormatter.numberFromString(string) else { throw FormatterError.ConvertError }
+        guard let num = currencyFormatter.numberFromString(checkedString) else { throw FormatterError.ConvertError }
         
         return num
     }
