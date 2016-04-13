@@ -11,10 +11,10 @@ import Tipout
 import SwiftyUserDefaults
 
 /*enum SymbolPosition {
-    case Beginning(symbol: String)
-    case End(symbol: String)
-    case Other
-}*/
+ case Beginning(symbol: String)
+ case End(symbol: String)
+ case Other
+ }*/
 @objc enum SymbolPosition: Int {
     case Beginning
     case End
@@ -74,7 +74,7 @@ final class WorkerViewModel: NSObject, WorkerViewModelType {
         get {
             if let formatter = formatter,
                 currencyString = try? formatter.currencyStringFromNumber(worker.tipout) {
-            return currencyString
+                return currencyString
             } else { return "" }
         }
         set {
@@ -100,26 +100,35 @@ final class WorkerViewModel: NSObject, WorkerViewModelType {
     
     dynamic var percentage: NSAttributedString {
         get {
-            if case .Percentage(let percentage) = worker.method {
-                    let percentageString = (try? formatter?.percentageStringFromNumber(percentage)).flatMap { $0 } ?? "\(percentage)"
-                return NSAttributedString(string: percentageString,
-                    attributes: [NSForegroundColorAttributeName : UIColor.blackColor()])
+            let attributedString: NSAttributedString
+            
+            switch (worker.method, totalTipouts) {
                 
-            } else if let totalTipouts = totalTipouts {
+            case (.Percentage(let percentage), _):
+                
+                let percentageString = (try? formatter?.percentageStringFromNumber(percentage)).flatMap { $0 } ?? "\(percentage)"
+                attributedString = NSAttributedString(string: percentageString,
+                                                      attributes: [NSForegroundColorAttributeName : UIColor.blackColor()])
+                
+            case (_, let totalTipouts?):
+                
                 let percentage = (worker.tipout / totalTipouts)
                 let percentageString = (try? formatter?.percentageStringFromNumber(percentage)).flatMap { $0 } ?? "error"
-
-                return NSAttributedString(string:
+                attributedString = NSAttributedString(string:
                     isnan(percentage) || percentageString == "(0)" ? "" : "(\(percentageString))",
-                    attributes: [NSForegroundColorAttributeName : UIColor.grayColor()])
-            } else {
-                return NSAttributedString(string: "")
+                                                      attributes: [NSForegroundColorAttributeName : UIColor.grayColor()])
+            default:
+                
+                 attributedString = NSAttributedString(string: "")
             }
+            return attributedString
+            
         }
+        
         set {
             worker = Worker(method: .Percentage(
                 try! formatter?.percentageFromString(newValue.string).doubleValue ?? (newValue.string as NSString).doubleValue),
-                id: worker.id
+                            id: worker.id
             )
         }
     }
