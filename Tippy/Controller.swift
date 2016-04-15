@@ -49,11 +49,18 @@ class Controller: NSObject, ColorStackViewDelegate {
     func removeCurrent() {
         tipoutModels.removeAtIndex(currentIndex)
         colorStack?.removeColorAtIndex(currentIndex)
-        if currentIndex > 0 {
-            currentIndex -= 1
+        if count > 0 {
+            if currentIndex > 0 {
+                currentIndex -= 1
+            } else if currentIndex == 0 {
+                // Trigger KVO notification for observers
+                willChangeValueForKey("currentIndex")
+                didChangeValueForKey("currentIndex")
+            }
         }
         if count == 0 {
             appendTipout(TipoutModel(roundToNearest: roundToNearest))
+            currentIndex = tipoutModels.count - 1
         }
     }
     
