@@ -70,12 +70,12 @@ class ColorDelegate: NSObject, ColorStackViewColorDelegate {
     }
     
     func removeColorAtIndex(index: Int) {
-        guard index < colors.count else { fatalError("index outside bounds of color array") }
+        precondition(index < colors.count, "Index outside bounds of color array")
         colors.removeAtIndex(index)
     }
     
     func insertColorAtIndex(index: Int) {
-        guard index <= colors.count else { fatalError("index outside bounds of color array") }
+        precondition(index <= colors.count, "Index outside bounds of color array")
         colors.insert(getRandomColor(), atIndex: index)
     }
 }
