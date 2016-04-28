@@ -19,6 +19,7 @@ import ReactiveCocoa
     var percentSymbolPosition: SymbolPosition { get }
     var percentSymbol: String { get }
     var currencySymbol: String { get }
+    var formatter: Formatter? { get }
     //var method: (method: String, value: String) { get set }
 //    init(name: String, method: String, value: String)
 

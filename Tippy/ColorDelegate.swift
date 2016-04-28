@@ -54,19 +54,7 @@ class ColorDelegate: NSObject, ColorStackViewColorDelegate {
     }
     
     func addColor() {
-        let unUsedColors = colorPool.subtract(colors)
-        var newColor: UIColor
-        
-        if !unUsedColors.isEmpty {
-            newColor = unUsedColors.randomElement()
-        } else {
-            let newColorIndex = colors.count % colorPool.count
-            newColor = colors[newColorIndex]
-            if newColor == colors.last { // We don't want two of the same color next to eachother
-                newColor = colors[newColorIndex + 1]
-            }
-        }
-        colors.append(newColor)
+       insertColorAtIndex(colors.count)
     }
     
     func removeColorAtIndex(index: Int) {
@@ -76,6 +64,22 @@ class ColorDelegate: NSObject, ColorStackViewColorDelegate {
     
     func insertColorAtIndex(index: Int) {
         precondition(index <= colors.count, "Index outside bounds of color array")
-        colors.insert(getRandomColor(), atIndex: index)
+        
+        let unusedColors = colorPool.subtract(colors)
+        var newColor: UIColor
+        
+        if !unusedColors.isEmpty {
+            newColor = unusedColors.randomElement()
+        } else {
+            let newColorIndex = index % colorPool.count //colors.count % colorPool.count
+            newColor = colors[newColorIndex]
+            while newColor == colors[index > 0 ? index - 1 : 0] || newColor == colors[index < colors.count ? index : colors.count - 1] { // We don't want two of the same color next to eachother
+//                newColorIndex += 1
+                newColor = colorPool.randomElement() //colors[newColorIndex]
+            }
+        }
+        colors.insert(newColor, atIndex: index)
+
+//        colors.insert(getRandomColor(), atIndex: index)
     }
 }

@@ -11,8 +11,6 @@
 		DD19B63E1C1A3375000FFACA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DD19B6401C1A3375000FFACA /* Localizable.strings */; };
 		DD19B6451C1A3EA4000FFACA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DD19B6471C1A3EA4000FFACA /* InfoPlist.strings */; };
 		DD19B64A1C1A3EA5000FFACA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DD19B64C1C1A3EA5000FFACA /* InfoPlist.strings */; };
-		DD1B5EE61CB99AFE0041CACD /* Tipout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD1B5EE51CB99AFE0041CACD /* Tipout.framework */; };
-		DD1B5EE71CB99AFE0041CACD /* Tipout.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DD1B5EE51CB99AFE0041CACD /* Tipout.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DD1C584E1B16981D00188B28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1C584D1B16981D00188B28 /* AppDelegate.swift */; };
 		DD1C58501B16981D00188B28 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1C584F1B16981D00188B28 /* ViewController.swift */; };
 		DD1C58531B16981D00188B28 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD1C58511B16981D00188B28 /* Main.storyboard */; };
@@ -22,6 +20,10 @@
 		DD20813A1BD94ACB00ED20CB /* TipoutViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2081391BD94ACB00ED20CB /* TipoutViewModelType.swift */; };
 		DD20813C1BD9524A00ED20CB /* WorkerViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD20813B1BD9524A00ED20CB /* WorkerViewModelType.swift */; };
 		DD36481B1CBEF479002CA8A5 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = DD36481A1CBEF479002CA8A5 /* .gitignore */; };
+		DD36481D1CC828A7002CA8A5 /* SwiftAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD36481C1CC828A7002CA8A5 /* SwiftAlertView.swift */; };
+		DD3648201CC82AB7002CA8A5 /* SplitAmountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD36481E1CC82AB7002CA8A5 /* SplitAmountView.swift */; };
+		DD3648211CC82AB7002CA8A5 /* SplitAmountView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD36481F1CC82AB7002CA8A5 /* SplitAmountView.xib */; };
+		DD3648231CD17099002CA8A5 /* Formatter+UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3648221CD17099002CA8A5 /* Formatter+UILabel.swift */; };
 		DD45FB821C64199E00DE5D7A /* TZStackView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD45FB811C64199E00DE5D7A /* TZStackView.framework */; };
 		DD54AA771BB0DB3300AFFA68 /* ViewModelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD54AA761BB0DB3300AFFA68 /* ViewModelable.swift */; };
 		DD54AA791BB1A77C00AFFA68 /* testWorkerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD54AA781BB1A77C00AFFA68 /* testWorkerViewModel.swift */; };
@@ -48,6 +50,7 @@
 		DDA07EBF1BC5F2DF008B1081 /* ColorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA07EBE1BC5F2DF008B1081 /* ColorDelegate.swift */; };
 		DDA07EC21BC5F54D008B1081 /* TZStackView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DDA07EC01BC5F54D008B1081 /* TZStackView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DDA1E8761BB33E4600ADEB47 /* RACExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA1E8751BB33E4600ADEB47 /* RACExtensions.swift */; };
+		DDA4959E1CD19965007CDB56 /* Tipout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDA4959D1CD19965007CDB56 /* Tipout.framework */; };
 		DDB9FD671BF40C5500FB6803 /* JCPTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB9FD661BF40C5500FB6803 /* JCPTextField.swift */; };
 		DDBFF7CE1C78F8A800D43C77 /* Gecco.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDBFF7CD1C78F8A800D43C77 /* Gecco.framework */; };
 		DDBFF7CF1C78F8A800D43C77 /* Gecco.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DDBFF7CD1C78F8A800D43C77 /* Gecco.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -83,7 +86,6 @@
 				DD7CBA321B598DC8003B718D /* ReactiveCocoa.framework in Embed Frameworks */,
 				DD71106A1BE189EF00FA7006 /* SwiftyUserDefaults.framework in Embed Frameworks */,
 				DD73DFC11BC1BC9B0005636C /* Chameleon.framework in Embed Frameworks */,
-				DD1B5EE71CB99AFE0041CACD /* Tipout.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -101,7 +103,6 @@
 		DD19B64B1C1A3EA5000FFACA /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		DD1A48031B28FE7D003FA9DB /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		DD1A48041B29D456003FA9DB /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		DD1B5EE51CB99AFE0041CACD /* Tipout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = Tipout.framework; path = "/Users/jambes/Library/Developer/Xcode/DerivedData/Tippy-gvkefezoraqnmecjpvbnpgwrqnty/Build/Products/Debug-iphoneos/Tipout.framework"; sourceTree = "<absolute>"; };
 		DD1C58481B16981D00188B28 /* Tippy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tippy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD1C584C1B16981D00188B28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD1C584D1B16981D00188B28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -116,6 +117,10 @@
 		DD20813B1BD9524A00ED20CB /* WorkerViewModelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkerViewModelType.swift; sourceTree = "<group>"; };
 		DD309D221B5F081C000EE80B /* Scratchpad.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Scratchpad.playground; sourceTree = "<group>"; };
 		DD36481A1CBEF479002CA8A5 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		DD36481C1CC828A7002CA8A5 /* SwiftAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftAlertView.swift; sourceTree = "<group>"; };
+		DD36481E1CC82AB7002CA8A5 /* SplitAmountView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitAmountView.swift; sourceTree = "<group>"; };
+		DD36481F1CC82AB7002CA8A5 /* SplitAmountView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SplitAmountView.xib; sourceTree = "<group>"; };
+		DD3648221CD17099002CA8A5 /* Formatter+UILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Formatter+UILabel.swift"; sourceTree = "<group>"; };
 		DD45FB811C64199E00DE5D7A /* TZStackView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TZStackView.framework; path = Carthage/Build/iOS/TZStackView.framework; sourceTree = "<group>"; };
 		DD54AA761BB0DB3300AFFA68 /* ViewModelable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelable.swift; sourceTree = "<group>"; };
 		DD54AA781BB1A77C00AFFA68 /* testWorkerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = testWorkerViewModel.swift; sourceTree = "<group>"; };
@@ -148,6 +153,7 @@
 		DDA07EBE1BC5F2DF008B1081 /* ColorDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorDelegate.swift; sourceTree = "<group>"; };
 		DDA07EC01BC5F54D008B1081 /* TZStackView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TZStackView.framework; path = Carthage/Build/iOS/TZStackView.framework; sourceTree = "<group>"; };
 		DDA1E8751BB33E4600ADEB47 /* RACExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RACExtensions.swift; sourceTree = "<group>"; };
+		DDA4959D1CD19965007CDB56 /* Tipout.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Tipout.framework; path = "../../../Library/Developer/Xcode/DerivedData/Tippy-gvkefezoraqnmecjpvbnpgwrqnty/Build/Products/Debug-iphonesimulator/Tipout.framework"; sourceTree = "<group>"; };
 		DDB9FD661BF40C5500FB6803 /* JCPTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JCPTextField.swift; sourceTree = "<group>"; };
 		DDBFF7CD1C78F8A800D43C77 /* Gecco.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Gecco.framework; path = Carthage/Build/iOS/Gecco.framework; sourceTree = "<group>"; };
 		DDDAE7451B6BDE0B008D2140 /* WorkerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkerTableViewController.swift; sourceTree = "<group>"; };
@@ -179,12 +185,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDA4959E1CD19965007CDB56 /* Tipout.framework in Frameworks */,
 				DD7CBA351B598DDE003B718D /* ReactiveCocoa.framework in Frameworks */,
 				DDBFF7CE1C78F8A800D43C77 /* Gecco.framework in Frameworks */,
 				DD45FB821C64199E00DE5D7A /* TZStackView.framework in Frameworks */,
 				DD7110691BE189EF00FA7006 /* SwiftyUserDefaults.framework in Frameworks */,
 				DD73DFC01BC1BC9B0005636C /* Chameleon.framework in Frameworks */,
-				DD1B5EE61CB99AFE0041CACD /* Tipout.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,6 +209,7 @@
 		37DFF81F10D79D1C2B13583D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DDA4959D1CD19965007CDB56 /* Tipout.framework */,
 				DDBFF7CD1C78F8A800D43C77 /* Gecco.framework */,
 				DD45FB811C64199E00DE5D7A /* TZStackView.framework */,
 				DD7110671BE189D900FA7006 /* SwiftyUserDefaults.framework */,
@@ -219,7 +226,6 @@
 			isa = PBXGroup;
 			children = (
 				DD36481A1CBEF479002CA8A5 /* .gitignore */,
-				DD1B5EE51CB99AFE0041CACD /* Tipout.framework */,
 				DD309D221B5F081C000EE80B /* Scratchpad.playground */,
 				DD1A48031B28FE7D003FA9DB /* Cartfile */,
 				DD54AA7A1BB1A82400AFFA68 /* Cartfile.private */,
@@ -305,6 +311,7 @@
 				DD67BD6D1B697E2E000EADD5 /* TableViewCell.swift */,
 				DD54AA761BB0DB3300AFFA68 /* ViewModelable.swift */,
 				DD71106B1BE18B9300FA7006 /* SettingsTableViewController.swift */,
+				DD3648221CD17099002CA8A5 /* Formatter+UILabel.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -315,6 +322,8 @@
 				DD1C58511B16981D00188B28 /* Main.storyboard */,
 				DDE86B961C24E79700DA7941 /* TipoutView.xib */,
 				DDE86B9D1C24E7B500DA7941 /* TableViewCell.xib */,
+				DD36481E1CC82AB7002CA8A5 /* SplitAmountView.swift */,
+				DD36481F1CC82AB7002CA8A5 /* SplitAmountView.xib */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -322,6 +331,7 @@
 		DD9B6F4B1B2F5A1200E5E96B /* Third-Party */ = {
 			isa = PBXGroup;
 			children = (
+				DD36481C1CC828A7002CA8A5 /* SwiftAlertView.swift */,
 				DD8014261B16A15F007A673F /* RAC.swift */,
 				DD8014271B16A15F007A673F /* RACObserve.swift */,
 				DD8014281B16A15F007A673F /* RACSignal+Extensions.swift */,
@@ -446,6 +456,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD1C58531B16981D00188B28 /* Main.storyboard in Resources */,
+				DD3648211CC82AB7002CA8A5 /* SplitAmountView.xib in Resources */,
 				DD7B06E41C2EFBCF00880CBD /* DefaultPreferences.plist in Resources */,
 				DD19B64A1C1A3EA5000FFACA /* InfoPlist.strings in Resources */,
 				DD19B63E1C1A3375000FFACA /* Localizable.strings in Resources */,
@@ -538,10 +549,13 @@
 				DD67BD6C1B6861E4000EADD5 /* WorkerViewModel.swift in Sources */,
 				DD80142A1B16A15F007A673F /* RAC.swift in Sources */,
 				DD80142D1B16A15F007A673F /* TableViewBindingHelper.swift in Sources */,
+				DD3648231CD17099002CA8A5 /* Formatter+UILabel.swift in Sources */,
+				DD3648201CC82AB7002CA8A5 /* SplitAmountView.swift in Sources */,
 				DDA1E8761BB33E4600ADEB47 /* RACExtensions.swift in Sources */,
 				DD1C584E1B16981D00188B28 /* AppDelegate.swift in Sources */,
 				DD54AA771BB0DB3300AFFA68 /* ViewModelable.swift in Sources */,
 				DDECA8EF1BA614D400D45446 /* Helpers.swift in Sources */,
+				DD36481D1CC828A7002CA8A5 /* SwiftAlertView.swift in Sources */,
 				DDE86B891C237E9C00DA7941 /* TotalFieldDelegate.swift in Sources */,
 				DDE21BB61B4E15BE002D5859 /* Controller.swift in Sources */,
 				DD54AABF1BB30FF700AFFA68 /* ColorStackView.swift in Sources */,
@@ -753,7 +767,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = Tippy/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.toastersocks.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -776,7 +790,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = Tippy/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.toastersocks.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";

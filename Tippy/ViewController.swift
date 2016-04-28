@@ -80,24 +80,11 @@ class ViewController: UIViewController {
         
         // Total Field
         
-        let currencyLabel = UILabel()
-        currencyLabel.text = numberFormatter?.currencySymbol
-        switch numberFormatter?.currencySymbolPosition {
-        case .Beginning?:
-            totalField.leftView = currencyLabel
-            totalField.leftViewMode = .Always
-            totalField.rightViewMode = .Never
-        case .End?:
-            totalField.rightView = currencyLabel
-            totalField.rightViewMode = .Always
-            totalField.leftViewMode = .Never
-        default:
-            break
-        }
-        currencyLabel.sizeToFit()
+        numberFormatter?.configureAmountTextfield(&totalField!)
         
 
         let totalSignal = RACObserve(self, "controller.currentViewModel.totalText")
+        
         totalField.rac_textSignal().subscribeNextAs({ (text: NSString) -> () in
             self.controller.currentViewModel.totalText = text as String
             self.workerTableViewController.tableView.reloadData()
@@ -117,6 +104,8 @@ class ViewController: UIViewController {
             (color: UIColor) in
 //            Chameleon.setGlobalThemeUsingPrimaryColor(color, withContentStyle: .Contrast)
 //            self.containerView.backgroundColor = color.colorWithAlphaComponent(0.25)
+            let color = color
+            
             self.workerTableViewController.view.backgroundColor = color.colorWithAlphaComponent(0.25)
             self.upperToolbar.barTintColor = color.colorWithAlphaComponent(0.25)
             self.bottomBar.backgroundColor = color.colorWithAlphaComponent(0.25)
@@ -189,6 +178,9 @@ class ViewController: UIViewController {
         guard let viewController = storyboard?.instantiateViewControllerWithIdentifier("tipoutvc") as? ViewController else { fatalError("Unable to instantiate ViewController") }
         
         presentViewController(viewController, animated: true, completion: nil)
+        let combinedTipoutViewModel = controller.combinedTipoutsViewModel()
+        viewController.controller = Controller(tipoutViewModel: combinedTipoutViewModel, numberFormatter: numberFormatter)
+        controller.colorStack = colorDelegate
 //        viewController.storeOrDoneButton.title = "Done"
         viewController.combineOrDoneButton.setTitle(NSBundle(identifier: "com.apple.UIKit")?.localizedStringForKey("Done", value: "", table: nil), forState: .Normal)
         viewController.combineOrDoneButton.removeTarget(viewController, action: "store", forControlEvents: .TouchUpInside)
@@ -198,12 +190,40 @@ class ViewController: UIViewController {
 //        viewController.combineButton.hidden = true
         viewController.storeButton.enabled = false
 
-        if let combinedTipoutViewModel = controller.combinedTipoutsViewModel() {
 //            debugPrint(combinedTipoutViewModel.totalText)
-            viewController.controller = Controller(tipoutViewModel: combinedTipoutViewModel, numberFormatter: numberFormatter)
-        } else {
+    
+    }
+    
+    @IBAction func split() {
+        let alertView = SwiftAlertView(nibName: "SplitAmountView", delegate: nil, cancelButtonTitle: "Cancel", otherButtonTitles: "Split")
+        (alertView.contentView as! SplitAmountView).formatter = numberFormatter
+        alertView.clickedOtherButtonAction = {
+            (buttonIndex: Int) in
+            switch buttonIndex {
+            case 0: // Cancel
+                break
+            case 1: // Split
+                guard let splitAmountView = alertView.contentView as? SplitAmountView else { return }
+                let splitMethod = splitAmountView.splitMethod
+
+                // If amount is zero, there's nothing to split
+                if case let .Amount(amount) = splitMethod where amount == 0.0 {
+                    return
+                } else if case let .Percentage(amount) = splitMethod where amount == 0.0 {
+                    return
+                }
+                
+                self.controller.split(by: splitAmountView.splitMethod)
+            default:
+                return
+            }
             
+            self.colorStackView.reload()
+            print("Button index is \(buttonIndex)")
         }
+        
+        
+        alertView.show()
     }
     
     @IBAction func done() {

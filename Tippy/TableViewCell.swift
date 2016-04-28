@@ -15,38 +15,8 @@ class TableViewCell: UITableViewCell {
     
     dynamic var viewModel: WorkerViewModelType! {
         didSet {
-            let currencyLabel = UILabel()
-            currencyLabel.text = self.viewModel.currencySymbol
-            switch self.viewModel.currencySymbolPosition {
-            case .Beginning:
-                self.workerView.amountField.leftView = currencyLabel
-                self.workerView.amountField.leftViewMode = .Always
-                self.workerView.amountField.rightViewMode = .Never
-            case .End:
-                self.workerView.amountField.rightView = currencyLabel
-                self.workerView.amountField.rightViewMode = .Always
-                self.workerView.amountField.leftViewMode = .Never
-            default:
-                break
-            }
-            currencyLabel.sizeToFit()
-            
-            let percentLabel = UILabel()
-            percentLabel.text = self.viewModel.percentSymbol
-            switch self.viewModel.percentSymbolPosition {
-            case .Beginning:
-                self.workerView.percentageField.leftView = percentLabel
-                self.workerView.percentageField.leftViewMode = .Always
-                self.workerView.percentageField.rightViewMode = .Never
-            case .End:
-                self.workerView.percentageField.rightView = percentLabel
-                self.workerView.percentageField.rightViewMode = .Always
-                self.workerView.percentageField.leftViewMode = .Never
-            default:
-                break
-            }
-            percentLabel.sizeToFit()
-            
+            viewModel.formatter?.configureAmountTextfield(&workerView.amountField!)
+            viewModel.formatter?.configurePercentTextfield(&workerView.percentageField!)
         }
     }
     

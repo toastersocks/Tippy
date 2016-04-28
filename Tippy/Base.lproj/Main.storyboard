@@ -192,12 +192,21 @@
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j3G-1F-3RX">
+                                                        <rect key="frame" x="168" y="7" width="44" height="30"/>
+                                                        <state key="normal" title="Split..."/>
+                                                        <connections>
+                                                            <action selector="split" destination="vXZ-lx-hvc" eventType="touchUpInside" id="aFT-eb-xV2"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
+                                                    <constraint firstItem="j3G-1F-3RX" firstAttribute="centerY" secondItem="dMV-GZ-dbK" secondAttribute="centerY" id="8gx-5u-BBT"/>
                                                     <constraint firstItem="s2T-4J-pvx" firstAttribute="leading" secondItem="dMV-GZ-dbK" secondAttribute="leadingMargin" id="9Zk-dO-aDU"/>
                                                     <constraint firstItem="LeT-AW-ZnX" firstAttribute="leading" secondItem="s2T-4J-pvx" secondAttribute="trailing" id="AGq-Nw-bx4"/>
                                                     <constraint firstItem="s2T-4J-pvx" firstAttribute="centerY" secondItem="dMV-GZ-dbK" secondAttribute="centerYWithinMargins" id="XtO-WN-zWt"/>
+                                                    <constraint firstItem="j3G-1F-3RX" firstAttribute="leading" secondItem="LeT-AW-ZnX" secondAttribute="trailing" constant="8" symbolic="YES" id="xDa-QR-9ul"/>
                                                     <constraint firstItem="LeT-AW-ZnX" firstAttribute="baseline" secondItem="s2T-4J-pvx" secondAttribute="baseline" id="ym7-GO-cFb"/>
                                                 </constraints>
                                             </view>

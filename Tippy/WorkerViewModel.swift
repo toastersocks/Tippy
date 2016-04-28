@@ -56,7 +56,7 @@ final class WorkerViewModel: NSObject, WorkerViewModelType {
     }
     
     dynamic var worker: Worker
-    private let formatter: Formatter?
+    let formatter: Formatter?
     
     /// - note: This is used to optionally calculate the percentage of the Worker tipout from the total tipouts
     private var totalTipouts: Double?
