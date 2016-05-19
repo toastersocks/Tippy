@@ -226,6 +226,8 @@
 		37DFF81F10D79D1C2B13583D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DDA4959F1CD3F7D0007CDB56 /* Tipout.framework */,
+				DD08EA4B1CED42510032DCC8 /* Mixpanel.framework */,
 				DDA4959D1CD19965007CDB56 /* Tipout.framework */,
 				DDBFF7CD1C78F8A800D43C77 /* Gecco.framework */,
 				DD45FB811C64199E00DE5D7A /* TZStackView.framework */,
@@ -242,8 +244,6 @@
 		DD1C583F1B16981D00188B28 = {
 			isa = PBXGroup;
 			children = (
-				DD08EA4B1CED42510032DCC8 /* Mixpanel.framework */,
-				DDA4959F1CD3F7D0007CDB56 /* Tipout.framework */,
 				DD36481A1CBEF479002CA8A5 /* .gitignore */,
 				DD309D221B5F081C000EE80B /* Scratchpad.playground */,
 				DD1A48031B28FE7D003FA9DB /* Cartfile */,
@@ -789,7 +789,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 17;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -813,7 +813,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 17;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
