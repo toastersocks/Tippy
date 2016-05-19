@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -161,8 +162,16 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ki6-n8-chI" userLabel="Container View">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q39-Kl-yPH" customClass="ColorStackView" customModule="Tippy" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q39-Kl-yPH">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="67"/>
+                                        <subviews>
+                                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uyn-lB-VCR">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="67"/>
+                                                <connections>
+                                                    <segue destination="ldX-Ob-KYb" kind="embed" identifier="colorStackSegue" id="u6c-Fk-nGK"/>
+                                                </connections>
+                                            </containerView>
+                                        </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PYn-if-1iV" userLabel="Workers Container View">
@@ -175,7 +184,7 @@
                                         <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dMV-GZ-dbK" userLabel="Total Container">
-                                                <rect key="frame" x="0.0" y="0.0" width="260" height="44"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="266" height="44"/>
                                                 <subviews>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalCompressionResistancePriority="800" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="                       " minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LeT-AW-ZnX" customClass="JCPTextField" customModule="Tippy" customModuleProvider="target">
                                                         <rect key="frame" x="51" y="9" width="109" height="30"/>
@@ -210,14 +219,14 @@
                                                     <constraint firstItem="LeT-AW-ZnX" firstAttribute="baseline" secondItem="s2T-4J-pvx" secondAttribute="baseline" id="ym7-GO-cFb"/>
                                                 </constraints>
                                             </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="60P-I6-phS">
+                                                <rect key="frame" x="266" y="7" width="31" height="30"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <state key="normal" title="New"/>
+                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qSR-OL-u54">
                                                 <rect key="frame" x="305" y="7" width="62" height="30"/>
                                                 <state key="normal" title="Combine"/>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="60P-I6-phS">
-                                                <rect key="frame" x="260" y="7" width="37" height="30"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                <state key="normal" title="Store"/>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -239,7 +248,7 @@
                                         <items>
                                             <barButtonItem style="plain" id="FwJ-kg-a0S" userLabel="Settings">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4K1-RY-c0v">
-                                                    <rect key="frame" x="16" y="7" width="96" height="30"/>
+                                                    <rect key="frame" x="16" y="4" width="96" height="36"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Settings"/>
                                                     <connections>
@@ -309,13 +318,13 @@
                     <connections>
                         <outlet property="bottomBar" destination="wAa-02-xiX" id="32G-pE-VO9"/>
                         <outlet property="bottomBarLayoutConstraint" destination="G3H-ti-PyG" id="FWb-d9-2q1"/>
-                        <outlet property="clearAllButton" destination="Clm-pj-aYP" id="ibx-WJ-t6I"/>
-                        <outlet property="clearButton" destination="Qgh-NW-lUk" id="qUK-5a-oiC"/>
-                        <outlet property="colorStackView" destination="q39-Kl-yPH" id="Xfa-7t-ZQi"/>
+                        <outlet property="clearAllButton" destination="Clm-pj-aYP" id="a6v-Zf-nam"/>
+                        <outlet property="clearButton" destination="Qgh-NW-lUk" id="mR0-4R-mw8"/>
                         <outlet property="combineOrDoneButton" destination="qSR-OL-u54" id="UGW-wA-OtS"/>
                         <outlet property="containerView" destination="ki6-n8-chI" id="7XV-UH-zgi"/>
                         <outlet property="numberFormatter" destination="ZSj-WC-Na2" id="Z4h-dY-p5g"/>
                         <outlet property="settingsBarButton" destination="4K1-RY-c0v" id="e5W-Ve-kYD"/>
+                        <outlet property="splitButton" destination="j3G-1F-3RX" id="094-L5-IXP"/>
                         <outlet property="storeButton" destination="60P-I6-phS" id="Zyl-fY-bDT"/>
                         <outlet property="totalField" destination="LeT-AW-ZnX" id="pS3-wz-g6V"/>
                         <outlet property="upperToolbar" destination="QfZ-GG-Mgk" id="lXl-0y-ik8"/>
@@ -402,21 +411,56 @@
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="Split an amount or percentage from the total tipouts to work on seperately" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5f4-NX-0OI" userLabel="Settings">
+                                <rect key="frame" x="14" y="393" width="565" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="Clear the current tipout" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="72s-a6-bdR" userLabel="Settings">
+                                <rect key="frame" x="401" y="160" width="179" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="Clear all your tipouts" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ra2-AO-xaS" userLabel="Settings">
+                                <rect key="frame" x="423" y="180" width="157" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="Tap the colored tabs to switch between tipouts" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hvU-X7-2cN" userLabel="Settings">
+                                <rect key="frame" x="121" y="160" width="358" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="hvU-X7-2cN" firstAttribute="centerX" secondItem="tmZ-bZ-Xt3" secondAttribute="centerX" id="0Vm-i7-Pul"/>
                             <constraint firstItem="Dba-8d-l9R" firstAttribute="centerX" secondItem="tmZ-bZ-Xt3" secondAttribute="centerX" id="0hP-PH-ET5"/>
                             <constraint firstAttribute="trailingMargin" relation="lessThanOrEqual" secondItem="Vod-yr-7GK" secondAttribute="trailing" id="9gr-dN-554"/>
+                            <constraint firstItem="ra2-AO-xaS" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="tmZ-bZ-Xt3" secondAttribute="leadingMargin" id="AeD-X1-6a5"/>
+                            <constraint firstItem="vQh-iP-IOX" firstAttribute="top" secondItem="5f4-NX-0OI" secondAttribute="bottom" constant="186" id="CZe-GW-kvz"/>
                             <constraint firstItem="R4I-Fe-UmZ" firstAttribute="centerY" secondItem="tmZ-bZ-Xt3" secondAttribute="centerY" id="L5P-YT-nLf"/>
+                            <constraint firstItem="hvU-X7-2cN" firstAttribute="top" secondItem="anT-Dh-qjU" secondAttribute="bottom" constant="140" id="QPS-jU-Ykc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="5f4-NX-0OI" secondAttribute="trailing" constant="1" id="RQ2-Ex-uWm"/>
                             <constraint firstItem="R4I-Fe-UmZ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="tmZ-bZ-Xt3" secondAttribute="leadingMargin" id="SdW-H8-dKG"/>
+                            <constraint firstItem="5f4-NX-0OI" firstAttribute="leading" secondItem="tmZ-bZ-Xt3" secondAttribute="leadingMargin" constant="-6" id="SzS-F4-wn2"/>
                             <constraint firstAttribute="trailingMargin" relation="lessThanOrEqual" secondItem="Dba-8d-l9R" secondAttribute="trailing" id="VnT-kJ-pkW"/>
                             <constraint firstItem="Dba-8d-l9R" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="tmZ-bZ-Xt3" secondAttribute="leadingMargin" id="Web-HM-glC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="72s-a6-bdR" secondAttribute="trailing" id="Ydi-cv-PqS"/>
                             <constraint firstAttribute="trailingMargin" relation="lessThanOrEqual" secondItem="R4I-Fe-UmZ" secondAttribute="trailing" id="amK-ST-tO3"/>
                             <constraint firstItem="Vod-yr-7GK" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="tmZ-bZ-Xt3" secondAttribute="leadingMargin" id="dqm-Yb-gTA"/>
                             <constraint firstItem="Dba-8d-l9R" firstAttribute="centerY" secondItem="tmZ-bZ-Xt3" secondAttribute="centerY" id="rPN-Tc-Ru9"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ra2-AO-xaS" secondAttribute="trailing" id="sVM-1L-I8E"/>
+                            <constraint firstItem="ra2-AO-xaS" firstAttribute="top" secondItem="anT-Dh-qjU" secondAttribute="bottom" constant="160" id="smk-01-a1I"/>
                             <constraint firstItem="R4I-Fe-UmZ" firstAttribute="centerX" secondItem="tmZ-bZ-Xt3" secondAttribute="centerX" id="tSv-MS-ra9"/>
+                            <constraint firstItem="72s-a6-bdR" firstAttribute="top" secondItem="anT-Dh-qjU" secondAttribute="bottom" constant="140" id="vqm-Ga-IEl"/>
                             <constraint firstItem="Vod-yr-7GK" firstAttribute="centerX" secondItem="tmZ-bZ-Xt3" secondAttribute="centerX" id="wkp-Z7-baL"/>
                             <constraint firstItem="Vod-yr-7GK" firstAttribute="centerY" secondItem="tmZ-bZ-Xt3" secondAttribute="centerY" id="xlf-7I-cSL"/>
+                            <constraint firstItem="72s-a6-bdR" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="tmZ-bZ-Xt3" secondAttribute="leadingMargin" id="xwr-M9-oJR"/>
                         </constraints>
                     </view>
                     <connections>
@@ -424,6 +468,10 @@
                         <outletCollection property="annotations" destination="R4I-Fe-UmZ" collectionClass="NSMutableArray" id="ndH-j2-ojA"/>
                         <outletCollection property="annotations" destination="Vod-yr-7GK" collectionClass="NSMutableArray" id="4um-k7-ilF"/>
                         <outletCollection property="annotations" destination="Dba-8d-l9R" collectionClass="NSMutableArray" id="pua-4t-3nc"/>
+                        <outletCollection property="annotations" destination="5f4-NX-0OI" collectionClass="NSMutableArray" id="gr7-bS-D4I"/>
+                        <outletCollection property="annotations" destination="72s-a6-bdR" collectionClass="NSMutableArray" id="d0t-Ad-wp4"/>
+                        <outletCollection property="annotations" destination="ra2-AO-xaS" collectionClass="NSMutableArray" id="sqp-cp-pPD"/>
+                        <outletCollection property="annotations" destination="hvU-X7-2cN" id="5oC-bH-Yrj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nKU-hQ-mQL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -451,6 +499,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pMA-hf-yus" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="416.5" y="-399.5"/>
+        </scene>
+        <!--ColorStack-->
+        <scene sceneID="cHG-P2-ABs">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ColorStack" id="ldX-Ob-KYb" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nKz-Zw-afd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-127.5" y="-522"/>
         </scene>
     </scenes>
 </document>

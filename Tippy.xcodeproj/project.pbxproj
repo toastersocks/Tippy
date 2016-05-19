@@ -29,7 +29,6 @@
 		DD54AA791BB1A77C00AFFA68 /* testWorkerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD54AA781BB1A77C00AFFA68 /* testWorkerViewModel.swift */; };
 		DD54AA7E1BB1AA1200AFFA68 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD54AA7C1BB1AA1200AFFA68 /* Nimble.framework */; };
 		DD54AA7F1BB1AA1200AFFA68 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD54AA7D1BB1AA1200AFFA68 /* Quick.framework */; };
-		DD54AABF1BB30FF700AFFA68 /* ColorStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD54AABE1BB30FF700AFFA68 /* ColorStackView.swift */; };
 		DD67BD6C1B6861E4000EADD5 /* WorkerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD67BD6B1B6861E4000EADD5 /* WorkerViewModel.swift */; };
 		DD6CB2F71B5C45040097BB76 /* TipoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6CB2F61B5C45040097BB76 /* TipoutView.swift */; };
 		DD6F0C381C1B98FC00A65CB0 /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6F0C371C1B98FC00A65CB0 /* Formatter.swift */; };
@@ -46,11 +45,17 @@
 		DD80142B1B16A15F007A673F /* RACObserve.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8014271B16A15F007A673F /* RACObserve.swift */; };
 		DD80142C1B16A15F007A673F /* RACSignal+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8014281B16A15F007A673F /* RACSignal+Extensions.swift */; };
 		DD80142D1B16A15F007A673F /* TableViewBindingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8014291B16A15F007A673F /* TableViewBindingHelper.swift */; };
+		DD8672341CE5430B00ED1D29 /* StackLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8672331CE5430B00ED1D29 /* StackLayout.swift */; };
+		DD8672361CEBE9CF00ED1D29 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8672351CEBE9CE00ED1D29 /* main.swift */; };
 		DD90A9961B605F0C00EE0BB6 /* TipoutView+RAC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD90A9951B605F0C00EE0BB6 /* TipoutView+RAC.swift */; };
 		DDA07EBF1BC5F2DF008B1081 /* ColorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA07EBE1BC5F2DF008B1081 /* ColorDelegate.swift */; };
 		DDA07EC21BC5F54D008B1081 /* TZStackView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DDA07EC01BC5F54D008B1081 /* TZStackView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DDA1E8761BB33E4600ADEB47 /* RACExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA1E8751BB33E4600ADEB47 /* RACExtensions.swift */; };
-		DDA4959E1CD19965007CDB56 /* Tipout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDA4959D1CD19965007CDB56 /* Tipout.framework */; };
+		DDA495A21CD3F9AD007CDB56 /* Tipout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDA4959F1CD3F7D0007CDB56 /* Tipout.framework */; };
+		DDA495A31CD3F9AD007CDB56 /* Tipout.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DDA4959F1CD3F7D0007CDB56 /* Tipout.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DDB6BC591CDD337A00D8A9D1 /* ColorStack.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDB6BC571CDD337A00D8A9D1 /* ColorStack.storyboard */; };
+		DDB6BC5A1CDD337A00D8A9D1 /* ColorStackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB6BC581CDD337A00D8A9D1 /* ColorStackViewController.swift */; };
+		DDB6BC5C1CDD33DE00D8A9D1 /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB6BC5B1CDD33DE00D8A9D1 /* ColorCell.swift */; };
 		DDB9FD671BF40C5500FB6803 /* JCPTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB9FD661BF40C5500FB6803 /* JCPTextField.swift */; };
 		DDBFF7CE1C78F8A800D43C77 /* Gecco.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDBFF7CD1C78F8A800D43C77 /* Gecco.framework */; };
 		DDBFF7CF1C78F8A800D43C77 /* Gecco.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DDBFF7CD1C78F8A800D43C77 /* Gecco.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -86,6 +91,7 @@
 				DD7CBA321B598DC8003B718D /* ReactiveCocoa.framework in Embed Frameworks */,
 				DD71106A1BE189EF00FA7006 /* SwiftyUserDefaults.framework in Embed Frameworks */,
 				DD73DFC11BC1BC9B0005636C /* Chameleon.framework in Embed Frameworks */,
+				DDA495A31CD3F9AD007CDB56 /* Tipout.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -149,11 +155,16 @@
 		DD8014281B16A15F007A673F /* RACSignal+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RACSignal+Extensions.swift"; sourceTree = "<group>"; };
 		DD8014291B16A15F007A673F /* TableViewBindingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewBindingHelper.swift; sourceTree = "<group>"; };
 		DD80142E1B16A1F3007A673F /* bridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bridgingHeader.h; sourceTree = "<group>"; };
+		DD8672331CE5430B00ED1D29 /* StackLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackLayout.swift; sourceTree = "<group>"; };
 		DD90A9951B605F0C00EE0BB6 /* TipoutView+RAC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TipoutView+RAC.swift"; sourceTree = "<group>"; };
 		DDA07EBE1BC5F2DF008B1081 /* ColorDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorDelegate.swift; sourceTree = "<group>"; };
 		DDA07EC01BC5F54D008B1081 /* TZStackView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TZStackView.framework; path = Carthage/Build/iOS/TZStackView.framework; sourceTree = "<group>"; };
 		DDA1E8751BB33E4600ADEB47 /* RACExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RACExtensions.swift; sourceTree = "<group>"; };
 		DDA4959D1CD19965007CDB56 /* Tipout.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Tipout.framework; path = "../../../Library/Developer/Xcode/DerivedData/Tippy-gvkefezoraqnmecjpvbnpgwrqnty/Build/Products/Debug-iphonesimulator/Tipout.framework"; sourceTree = "<group>"; };
+		DDA4959F1CD3F7D0007CDB56 /* Tipout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = Tipout.framework; path = "/Users/jambes/Library/Developer/Xcode/DerivedData/Tippy-gvkefezoraqnmecjpvbnpgwrqnty/Build/Products/Debug-iphoneos/Tipout.framework"; sourceTree = "<absolute>"; };
+		DDB6BC571CDD337A00D8A9D1 /* ColorStack.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ColorStack.storyboard; sourceTree = "<group>"; };
+		DDB6BC581CDD337A00D8A9D1 /* ColorStackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorStackViewController.swift; sourceTree = "<group>"; };
+		DDB6BC5B1CDD33DE00D8A9D1 /* ColorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorCell.swift; sourceTree = "<group>"; };
 		DDB9FD661BF40C5500FB6803 /* JCPTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JCPTextField.swift; sourceTree = "<group>"; };
 		DDBFF7CD1C78F8A800D43C77 /* Gecco.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Gecco.framework; path = Carthage/Build/iOS/Gecco.framework; sourceTree = "<group>"; };
 		DDDAE7451B6BDE0B008D2140 /* WorkerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkerTableViewController.swift; sourceTree = "<group>"; };
@@ -185,12 +196,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDA4959E1CD19965007CDB56 /* Tipout.framework in Frameworks */,
 				DD7CBA351B598DDE003B718D /* ReactiveCocoa.framework in Frameworks */,
 				DDBFF7CE1C78F8A800D43C77 /* Gecco.framework in Frameworks */,
 				DD45FB821C64199E00DE5D7A /* TZStackView.framework in Frameworks */,
 				DD7110691BE189EF00FA7006 /* SwiftyUserDefaults.framework in Frameworks */,
 				DD73DFC01BC1BC9B0005636C /* Chameleon.framework in Frameworks */,
+				DDA495A21CD3F9AD007CDB56 /* Tipout.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,6 +236,7 @@
 		DD1C583F1B16981D00188B28 = {
 			isa = PBXGroup;
 			children = (
+				DDA4959F1CD3F7D0007CDB56 /* Tipout.framework */,
 				DD36481A1CBEF479002CA8A5 /* .gitignore */,
 				DD309D221B5F081C000EE80B /* Scratchpad.playground */,
 				DD1A48031B28FE7D003FA9DB /* Cartfile */,
@@ -319,11 +331,15 @@
 		DD71106D1BE18EA300FA7006 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				DDB6BC5B1CDD33DE00D8A9D1 /* ColorCell.swift */,
+				DDB6BC571CDD337A00D8A9D1 /* ColorStack.storyboard */,
+				DDB6BC581CDD337A00D8A9D1 /* ColorStackViewController.swift */,
 				DD1C58511B16981D00188B28 /* Main.storyboard */,
 				DDE86B961C24E79700DA7941 /* TipoutView.xib */,
 				DDE86B9D1C24E7B500DA7941 /* TableViewCell.xib */,
 				DD36481E1CC82AB7002CA8A5 /* SplitAmountView.swift */,
 				DD36481F1CC82AB7002CA8A5 /* SplitAmountView.xib */,
+				DD8672331CE5430B00ED1D29 /* StackLayout.swift */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -455,6 +471,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDB6BC591CDD337A00D8A9D1 /* ColorStack.storyboard in Resources */,
 				DD1C58531B16981D00188B28 /* Main.storyboard in Resources */,
 				DD3648211CC82AB7002CA8A5 /* SplitAmountView.xib in Resources */,
 				DD7B06E41C2EFBCF00880CBD /* DefaultPreferences.plist in Resources */,
@@ -535,6 +552,7 @@
 				DDC16F9A1BB0C29000AC9583 /* TableViewCell.swift in Sources */,
 				DD80142B1B16A15F007A673F /* RACObserve.swift in Sources */,
 				DDA07EBF1BC5F2DF008B1081 /* ColorDelegate.swift in Sources */,
+				DDB6BC5A1CDD337A00D8A9D1 /* ColorStackViewController.swift in Sources */,
 				DD90A9961B605F0C00EE0BB6 /* TipoutView+RAC.swift in Sources */,
 				DD20813C1BD9524A00ED20CB /* WorkerViewModelType.swift in Sources */,
 				DDF375761C7A82BC006977F2 /* WalkthroughViewController.swift in Sources */,
@@ -551,14 +569,15 @@
 				DD80142D1B16A15F007A673F /* TableViewBindingHelper.swift in Sources */,
 				DD3648231CD17099002CA8A5 /* Formatter+UILabel.swift in Sources */,
 				DD3648201CC82AB7002CA8A5 /* SplitAmountView.swift in Sources */,
+				DD8672341CE5430B00ED1D29 /* StackLayout.swift in Sources */,
 				DDA1E8761BB33E4600ADEB47 /* RACExtensions.swift in Sources */,
 				DD1C584E1B16981D00188B28 /* AppDelegate.swift in Sources */,
 				DD54AA771BB0DB3300AFFA68 /* ViewModelable.swift in Sources */,
 				DDECA8EF1BA614D400D45446 /* Helpers.swift in Sources */,
 				DD36481D1CC828A7002CA8A5 /* SwiftAlertView.swift in Sources */,
 				DDE86B891C237E9C00DA7941 /* TotalFieldDelegate.swift in Sources */,
+				DDB6BC5C1CDD33DE00D8A9D1 /* ColorCell.swift in Sources */,
 				DDE21BB61B4E15BE002D5859 /* Controller.swift in Sources */,
-				DD54AABF1BB30FF700AFFA68 /* ColorStackView.swift in Sources */,
 				DD71106C1BE18B9300FA7006 /* SettingsTableViewController.swift in Sources */,
 				DD71106F1BE18F2C00FA7006 /* DefaultsKeys.swift in Sources */,
 			);

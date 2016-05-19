@@ -16,15 +16,19 @@ import Chameleon
 class ViewController: UIViewController {
     // MARK: - Properties
     private static let workersViewSegueID = "workersViewSegue"
+    private static let colorStackSegueID = "colorStackSegue"
     
     weak var workerTableViewController: WorkerTableViewController!
     
-    @IBOutlet weak var colorStackView: ColorStackView!
+    @IBOutlet weak var colorStackViewController: ColorStackViewController!
     
     @IBOutlet weak var upperToolbar: UIToolbar!
     var colorDelegate: ColorDelegate? = ColorDelegate()
     
     @IBOutlet weak var totalField: UITextField!
+    @IBOutlet weak var splitButton: UIButton!
+//    @IBOutlet weak var clearButton: UIButton!
+//    @IBOutlet weak var clearAllButton: UIButton!
     
     @IBOutlet weak var settingsBarButton: UIButton!
     @IBOutlet weak var combineOrDoneButton: UIButton! {
@@ -72,11 +76,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        colorStackView.delegate = controller
-        colorStackView.colorDelegate = colorDelegate
+//        colorStackViewController.delegate = controller
+//        colorStackViewController.colorDelegate = colorDelegate
         controller.colorStack = colorDelegate
         controller.numberFormatter = numberFormatter
-        colorStackView.reload()
+//        colorStackViewController.reload()
         
         // Total Field
         
@@ -145,7 +149,7 @@ class ViewController: UIViewController {
     
     func showWalkthrough() {
         let walkthroughController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Walkthrough") as! WalkthroughViewController
-        walkthroughController.views = [storeButton, combineOrDoneButton, settingsBarButton]
+        walkthroughController.views = [storeButton, combineOrDoneButton, settingsBarButton, splitButton, clearButton, clearAllButton, colorStackViewController.view]
         walkthroughController.alpha = 0.5
         self.presentViewController(walkthroughController, animated: true) {
             Defaults[.showWalkthrough] = false
@@ -161,17 +165,18 @@ class ViewController: UIViewController {
     
     @IBAction func store() {
         controller.storeCurrent()
-        colorStackView.reload()
+        colorStackViewController.increment()
+//        colorStackViewController.reload()
     }
     
     @IBAction func clear(sender: UIButton) {
         controller.removeCurrent()
-        colorStackView.reload()
+        colorStackViewController.reload()
     }
     
     @IBAction func clearAll(sender: UIButton) {
         controller.removeAll()
-        colorStackView.reload()
+        colorStackViewController.reload()
     }
     
     @IBAction func combine() {
@@ -218,7 +223,7 @@ class ViewController: UIViewController {
                 return
             }
             
-            self.colorStackView.reload()
+            self.colorStackViewController.reload()
             print("Button index is \(buttonIndex)")
         }
         
@@ -239,6 +244,20 @@ class ViewController: UIViewController {
             workerTableViewController = workerTVC
             workerTableViewController.tableView.panGestureRecognizer.delaysTouchesBegan = true
             workerTableViewController.formatter = numberFormatter
+        } else if segue.identifier == ViewController.colorStackSegueID {
+            guard let colorStackVC = segue.destinationViewController as? ColorStackViewController else { return }
+            controller.colorStack = colorDelegate
+            colorStackViewController = colorStackVC
+            colorStackViewController.colorDelegate = colorDelegate
+            colorStackViewController.delegate = controller
+            colorStackViewController.reload()
+        }
+        
+    }
+    
+    override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?) {
+        if motion == .MotionShake {
+            showWalkthrough()
         }
     }
     

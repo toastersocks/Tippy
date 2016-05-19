@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="FuP-NT-pDq">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Tippy" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vce-eu-g6T">
+                                <rect key="frame" x="0.0" y="66" width="600" height="534"/>
+                                <connections>
+                                    <segue destination="FuP-NT-pDq" kind="embed" id="iLf-d4-vRL"/>
+                                </connections>
+                            </containerView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xSJ-jd-U3j">
+                                <rect key="frame" x="525" y="27" width="55" height="30"/>
+                                <state key="normal" title="Remove"/>
+                                <connections>
+                                    <action selector="remove" destination="BYZ-38-t0r" eventType="touchUpInside" id="fGY-Av-lBg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4eV-Ou-MaC">
+                                <rect key="frame" x="33" y="28" width="30" height="30"/>
+                                <state key="normal" title="Add"/>
+                                <connections>
+                                    <action selector="add" destination="BYZ-38-t0r" eventType="touchUpInside" id="CH5-2V-Lys"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="vce-eu-g6T" secondAttribute="trailing" constant="-20" id="1x8-x5-W3n"/>
+                            <constraint firstItem="xSJ-jd-U3j" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="FNQ-hd-nCv"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xSJ-jd-U3j" secondAttribute="trailing" id="Lvm-Hp-FWH"/>
+                            <constraint firstItem="4eV-Ou-MaC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="13" id="PfO-BI-CYN"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="vce-eu-g6T" secondAttribute="bottom" id="XZR-NS-9bg"/>
+                            <constraint firstItem="vce-eu-g6T" firstAttribute="top" secondItem="4eV-Ou-MaC" secondAttribute="bottom" constant="8" symbolic="YES" id="djK-Kc-Fge"/>
+                            <constraint firstItem="4eV-Ou-MaC" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="poj-Gx-b9Z"/>
+                            <constraint firstItem="vce-eu-g6T" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="q7e-Cg-jcx"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="176" y="396"/>
+        </scene>
+        <!--Color Stack View Controller-->
+        <scene sceneID="ZsR-fU-3pg">
+            <objects>
+                <collectionViewController id="FuP-NT-pDq" customClass="ColorStackViewController" customModule="Tippy" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" id="N03-ps-ene">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="534"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="NZt-k0-5QV" customClass="StackLayout" customModule="Tippy" customModuleProvider="target">
+                            <size key="itemSize" width="50" height="528"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="50" height="50"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="colorCell" id="p5Y-YM-JK5" customClass="ColorCell" customModule="Tippy" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="3" width="50" height="528"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="50" height="528"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mYL-zx-aTJ">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="528"/>
+                                            <state key="normal" title="Button"/>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="mYL-zx-aTJ" firstAttribute="centerY" secondItem="p5Y-YM-JK5" secondAttribute="centerY" id="VJG-Gw-hbu"/>
+                                    <constraint firstItem="mYL-zx-aTJ" firstAttribute="height" secondItem="p5Y-YM-JK5" secondAttribute="height" id="hFT-nC-mmU"/>
+                                    <constraint firstItem="mYL-zx-aTJ" firstAttribute="width" secondItem="p5Y-YM-JK5" secondAttribute="width" id="sX2-r6-Wai"/>
+                                    <constraint firstItem="mYL-zx-aTJ" firstAttribute="centerX" secondItem="p5Y-YM-JK5" secondAttribute="centerX" id="vEl-hL-KTo"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="button" destination="mYL-zx-aTJ" id="ctt-PF-g7z"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="footerView" id="Owa-u9-w0f" userLabel="Footer view">
+                            <rect key="frame" x="50" y="0.0" width="50" height="534"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <color key="backgroundColor" red="0.40000000600000002" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </collectionReusableView>
+                        <connections>
+                            <outlet property="dataSource" destination="FuP-NT-pDq" id="Lip-aS-hr2"/>
+                            <outlet property="delegate" destination="FuP-NT-pDq" id="Vnd-ok-huF"/>
+                        </connections>
+                    </collectionView>
+                    <connections>
+                        <outlet property="flowLayout" destination="NZt-k0-5QV" id="nqf-A2-Quy"/>
+                    </connections>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q4w-Of-sfs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="911" y="396"/>
+        </scene>
+    </scenes>
+</document>

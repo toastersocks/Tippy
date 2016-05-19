@@ -155,20 +155,20 @@ class Controller: NSObject, ColorStackViewDelegate {
     // MARK: - ColorStackViewDelegate
     
 
-    func colorStackView(colorStackView: ColorStackView, didSelectIndex index: Int) {
+    func colorStackViewController(colorStackViewController: ColorStackViewController, didSelectIndex index: Int) {
         currentIndex = index
     }
     
 
-    func numberOfItemsInColorStackView(colorStackView: ColorStackView) -> Int {
+    func numberOfItemsInColorStackView(colorStackView: ColorStackViewController) -> Int {
         return count
     }
     
-    func colorStackView(colorStackView: ColorStackView, shouldSelectIndex index: Int) -> Bool {
+    func colorStackViewController(colorStackViewController: ColorStackViewController, shouldSelectIndex index: Int) -> Bool {
         return true
     }
     
-    func currentIndexOfColorStackView(colorStackView: ColorStackView) -> Int {
+    func currentIndexOfColorStackView(colorStackViewController: ColorStackViewController) -> Int {
         return currentIndex
     }
     

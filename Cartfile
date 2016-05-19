@@ -9,3 +9,7 @@ github "tomvanzummeren/TZStackView"
 github "radex/SwiftyUserDefaults"
 
 github "toastersocks/Gecco" "carthage"
+
+#github "dinhquan/SwiftAlertView" "e7eb2288f79eef5122d530e3ef3433e2283c2f13"
+github "toastersocks/SwiftAlertView" "carthage"
+
