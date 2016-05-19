@@ -32,7 +32,7 @@ class WalkthroughViewController: SpotlightViewController {
     func next(animated animated: Bool) {
         guard stepIndex < views.count else { dismissViewControllerAnimated(true, completion: nil); return }
         updateAnnotations(animated: animated)
-            spotlightView.appear(Spotlight.RoundedRect(view: views[stepIndex], margin: 1, cornerRadius: 25))
+            spotlightView.appear(Spotlight.RoundedRect(view: views[stepIndex], margin: 5, cornerRadius: 20))
     
         stepIndex += 1
     }
