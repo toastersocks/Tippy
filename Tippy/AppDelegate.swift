@@ -8,13 +8,20 @@
 
 import UIKit
 
-@UIApplicationMain
+
+//@UIApplicationMain
+
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        let mixpanel = Mixpanel.sharedInstanceWithToken("7d099edd7dcdb4e8fd8e8776a40361b9")
+        #if DEBUG
+            StartupTimeProfiler.addEvent("App finished launching")
+            print("Total startup time: \(StartupTimeProfiler.totalTime)")
+        #endif
         // Override point for customization after application launch.
         return true
     }
@@ -34,6 +41,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidBecomeActive(application: UIApplication) {
+        #if DEBUG
+            StartupTimeProfiler.addEvent("App did finish loading")
+            print("Total time to active: \(StartupTimeProfiler.totalTime)")
+        #endif
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     }
 

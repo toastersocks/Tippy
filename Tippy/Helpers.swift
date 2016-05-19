@@ -9,6 +9,28 @@
 import Foundation
 import UIKit
 
+public class StartupTimeProfiler {
+    public struct Event {
+        let message: String
+        let time: NSDate
+    }
+    
+    static public var totalTime: NSTimeInterval {
+        guard let first = events.first, last = events.last else { return 0.0 }
+        return last.time.timeIntervalSinceDate(first.time)
+    }
+    
+    static public var events = [Event]()
+    
+    static public func addEvent(message: String) {
+        events.append(Event(message: message, time: NSDate()))
+    }
+    
+    static public func timeBetween(event: Event, event2: Event) -> NSTimeInterval {
+        return event.time.timeIntervalSinceDate(event2.time)
+    }
+}
+
 extension CollectionType where Generator.Element == SubSequence.Generator.Element {
     func reduce(@noescape combine: (Generator.Element, Generator.Element) -> Generator.Element) -> Generator.Element? {
         return first.map {
