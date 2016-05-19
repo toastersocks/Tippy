@@ -11,3 +11,5 @@
 
 
 #endif
+
+#import "Mixpanel/Mixpanel.h"

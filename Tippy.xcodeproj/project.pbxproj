@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD08EA4C1CED42510032DCC8 /* Mixpanel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD08EA4B1CED42510032DCC8 /* Mixpanel.framework */; };
+		DD08EA4D1CED42510032DCC8 /* Mixpanel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DD08EA4B1CED42510032DCC8 /* Mixpanel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DD19B6391C192DC9000FFACA /* testFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD19B6381C192DC9000FFACA /* testFormatter.swift */; };
 		DD19B63E1C1A3375000FFACA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DD19B6401C1A3375000FFACA /* Localizable.strings */; };
 		DD19B6451C1A3EA4000FFACA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DD19B6471C1A3EA4000FFACA /* InfoPlist.strings */; };
@@ -92,6 +94,7 @@
 				DD71106A1BE189EF00FA7006 /* SwiftyUserDefaults.framework in Embed Frameworks */,
 				DD73DFC11BC1BC9B0005636C /* Chameleon.framework in Embed Frameworks */,
 				DDA495A31CD3F9AD007CDB56 /* Tipout.framework in Embed Frameworks */,
+				DD08EA4D1CED42510032DCC8 /* Mixpanel.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -99,6 +102,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		DD08EA4B1CED42510032DCC8 /* Mixpanel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mixpanel.framework; path = Carthage/Build/iOS/Mixpanel.framework; sourceTree = "<group>"; };
 		DD19B6381C192DC9000FFACA /* testFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = testFormatter.swift; sourceTree = "<group>"; };
 		DD19B63A1C1A2D55000FFACA /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/Main.strings"; sourceTree = "<group>"; };
 		DD19B63B1C1A2D56000FFACA /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
@@ -203,6 +207,7 @@
 				DD7110691BE189EF00FA7006 /* SwiftyUserDefaults.framework in Frameworks */,
 				DD73DFC01BC1BC9B0005636C /* Chameleon.framework in Frameworks */,
 				DDA495A21CD3F9AD007CDB56 /* Tipout.framework in Frameworks */,
+				DD08EA4C1CED42510032DCC8 /* Mixpanel.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,6 +242,7 @@
 		DD1C583F1B16981D00188B28 = {
 			isa = PBXGroup;
 			children = (
+				DD08EA4B1CED42510032DCC8 /* Mixpanel.framework */,
 				DDA4959F1CD3F7D0007CDB56 /* Tipout.framework */,
 				DD36481A1CBEF479002CA8A5 /* .gitignore */,
 				DD309D221B5F081C000EE80B /* Scratchpad.playground */,
@@ -537,6 +543,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/TZStackView.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyUserDefaults.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Gecco.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Mixpanel.framework",
 			);
 			outputPaths = (
 			);
@@ -782,7 +789,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 13;
+				CURRENT_PROJECT_VERSION = 14;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -806,7 +813,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 13;
+				CURRENT_PROJECT_VERSION = 14;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
