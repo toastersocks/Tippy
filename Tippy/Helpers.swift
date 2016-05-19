@@ -59,7 +59,16 @@ extension Array {
     func removeAtIndices<ExcludeIndices: SequenceType
         where ExcludeIndices.Generator.Element == Index>
         (indices: ExcludeIndices) -> Array {
-            let keepIndices = self.indices.filter { !indices.contains($0) }
-            return Array(PermutationGenerator(elements: self, indices: keepIndices))
+        // NOTE: PermutationGenerator is deprecated
+        let orderedIndices = indices.sort().reverse()
+        var selfToReturn = self
+        for index in orderedIndices {
+            selfToReturn.removeAtIndex(index)
+        }
+        return selfToReturn
+            /*
+         // PermutationGenerator is deprecated
+         let keepIndices = self.indices.filter { !indices.contains($0) }
+            return Array(PermutationGenerator(elements: self, indices: keepIndices))*/
     }
 }

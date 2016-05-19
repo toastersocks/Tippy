@@ -33,23 +33,23 @@ class ViewController: UIViewController {
     @IBOutlet weak var settingsBarButton: UIButton!
     @IBOutlet weak var combineOrDoneButton: UIButton! {
         didSet {
-            combineOrDoneButton.addTarget(self, action: "combine", forControlEvents: .TouchUpInside)
+            combineOrDoneButton.addTarget(self, action: .combine, forControlEvents: .TouchUpInside)
         }
     }
     @IBOutlet weak var storeButton: UIButton! {
         didSet {
-            storeButton.addTarget(self, action: "store", forControlEvents: .TouchUpInside)
+            storeButton.addTarget(self, action: .store, forControlEvents: .TouchUpInside)
         }
     }
     @IBOutlet weak var clearButton: UIButton! {
         didSet {
-            clearButton.addTarget(self, action: "clear:", forControlEvents: .TouchUpInside)
+            clearButton.addTarget(self, action: .clear, forControlEvents: .TouchUpInside)
         }
     }
     
     @IBOutlet weak var clearAllButton: UIButton! {
         didSet {
-            clearAllButton.addTarget(self, action: "clearAll:", forControlEvents: .TouchUpInside)
+            clearAllButton.addTarget(self, action: .clearAll, forControlEvents: .TouchUpInside)
         }
     }
     
@@ -133,8 +133,8 @@ class ViewController: UIViewController {
         }
         
         // Keyboard
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: .keyboardWillShow, name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: .keyboardWillHide, name: UIKeyboardWillHideNotification, object: nil)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -188,8 +188,8 @@ class ViewController: UIViewController {
         controller.colorStack = colorDelegate
 //        viewController.storeOrDoneButton.title = "Done"
         viewController.combineOrDoneButton.setTitle(NSBundle(identifier: "com.apple.UIKit")?.localizedStringForKey("Done", value: "", table: nil), forState: .Normal)
-        viewController.combineOrDoneButton.removeTarget(viewController, action: "store", forControlEvents: .TouchUpInside)
-        viewController.combineOrDoneButton.addTarget(viewController, action: "done", forControlEvents: .TouchUpInside)
+        viewController.combineOrDoneButton.removeTarget(viewController, action: .store, forControlEvents: .TouchUpInside)
+        viewController.combineOrDoneButton.addTarget(viewController, action: .done, forControlEvents: .TouchUpInside)
 //        viewController.combineOrDoneButton.target = viewController
 //        viewController.combineOrDoneButton.action = "done"
 //        viewController.combineButton.hidden = true
@@ -284,5 +284,15 @@ class ViewController: UIViewController {
     }
 }
 
+private extension Selector {
+    static let combine = #selector(ViewController.combine)
+    static let store = #selector(ViewController.store)
+    static let done = #selector(ViewController.done)
+    static let clear = #selector(ViewController.clear(_:))
+    static let clearAll = #selector(ViewController.clearAll(_:))
+    static let keyboardWillShow = #selector(ViewController.keyboardWillShow(_:))
+    static let keyboardWillHide = #selector(ViewController.keyboardWillHide(_:))
+    
+}
 
 

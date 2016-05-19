@@ -82,8 +82,12 @@ class TableViewBindingHelper: NSObject, UITableViewDataSource, UITableViewDelega
   }
   
   func scrollViewDidScroll(scrollView: UIScrollView) {
-    if self.delegate?.respondsToSelector(Selector("scrollViewDidScroll:")) == true {
+    if self.delegate?.respondsToSelector(.scrollViewDidScroll) == true {
       self.delegate?.scrollViewDidScroll?(scrollView);
     }
   }
+}
+
+private extension Selector {
+    static let scrollViewDidScroll = #selector(UITableViewDelegate.scrollViewDidScroll(_:))
 }
