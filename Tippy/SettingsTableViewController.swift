@@ -13,26 +13,20 @@ import SwiftyUserDefaults
 class SettingsTableViewController: UITableViewController {
 
     @IBOutlet weak var percentageSegmentedControl: UISegmentedControl!
-    @IBOutlet weak var percentageExampleLabel: UILabel!
-    @IBOutlet weak var roundToNearest: UITextField!
-    let percentFormatter: NSNumberFormatter = {
-        let formatter = NSNumberFormatter()
-        formatter.percentSymbol = ""
-        formatter.positiveSuffix = "%"
-        Defaults.rac_channelTerminalForKey("percentageFormat").subscribeNextAs{
-            (segment: Int) -> () in
-            
-            switch segment {
-            case 0:
-                formatter.numberStyle = .DecimalStyle
-            case 1:
-                formatter.numberStyle = .PercentStyle
-            default:
-                fatalError("\(segment) is not a valid percentageFormat Option")
-            }
+    @IBOutlet weak var percentageExampleLabel: UITextField! {
+        didSet {
+            percentageExampleLabel.userInteractionEnabled = false
+            formatter?.configurePercentTextfield(&percentageExampleLabel!)
         }
-        return formatter
-    }()
+    }
+    
+    @IBOutlet weak var roundToNearest: UITextField! {
+        didSet {
+            formatter?.configureAmountTextfield(&roundToNearest!)
+        }
+    }
+    
+    var formatter: Formatter?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +41,7 @@ class SettingsTableViewController: UITableViewController {
         }
         Defaults.rac_channelTerminalForKey("percentageFormat").subscribeNextAs {
             (option: Int) -> () in
-            self.percentageExampleLabel.text = self.percentFormatter.stringFromNumber(0.3)
+            self.percentageExampleLabel.text = try? self.formatter?.percentageStringFromNumber(0.3) ?? "0.3"
         }
         roundToNearest.rac_newTextChannel().mapAs {
             (text: NSString) -> AnyObject in

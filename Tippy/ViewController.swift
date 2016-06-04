@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     // MARK: - Properties
     private static let workersViewSegueID = "workersViewSegue"
     private static let colorStackSegueID = "colorStackSegue"
+    private static let settingsViewControllerID = "settingsSegue"
     
     weak var workerTableViewController: WorkerTableViewController!
     
@@ -237,7 +238,7 @@ class ViewController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == ViewController.workersViewSegueID {
-            guard let workerTVC = segue.destinationViewController as? WorkerTableViewController else { return }
+            guard let workerTVC = segue.destinationViewController as? WorkerTableViewController else { fatalError("Couldn't worker table view controller") }
             
             let tableViewCellNib = UINib(nibName: "TableViewCell", bundle: NSBundle.mainBundle())
             workerTVC.tableView.registerNib(tableViewCellNib, forCellReuseIdentifier: WorkerTableViewController.workerCellID)
@@ -245,12 +246,16 @@ class ViewController: UIViewController {
             workerTableViewController.tableView.panGestureRecognizer.delaysTouchesBegan = true
             workerTableViewController.formatter = numberFormatter
         } else if segue.identifier == ViewController.colorStackSegueID {
-            guard let colorStackVC = segue.destinationViewController as? ColorStackViewController else { return }
+            guard let colorStackVC = segue.destinationViewController as? ColorStackViewController else { fatalError("Couldn't access color stack view controller") }
             controller.colorStack = colorDelegate
             colorStackViewController = colorStackVC
             colorStackViewController.colorDelegate = colorDelegate
             colorStackViewController.delegate = controller
             colorStackViewController.reload()
+        } else if segue.identifier == ViewController.settingsViewControllerID {
+            guard let navVC = segue.destinationViewController as? UINavigationController,
+                settingsVC = navVC.topViewController as? SettingsTableViewController else { fatalError("Couldn't access settings table view controller") }
+            settingsVC.formatter = numberFormatter
         }
         
     }
