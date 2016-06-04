@@ -24,7 +24,7 @@ public protocol ColorStackViewDelegate {
 }
 
 public class ColorStackViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
-//    private var stack = [UIButton]()
+
     public var colors: [UIColor] = [.greenColor(), .redColor(), .blueColor(), .orangeColor()]
     var delegate: ColorStackViewDelegate? {
         didSet {
@@ -41,23 +41,14 @@ public class ColorStackViewController: UICollectionViewController, UICollectionV
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     weak var footerView: UICollectionReusableView!
     
-    /*public var count: Int {
-        return stack.count
-    }*/
-    
     override public func viewDidLoad() {
         super.viewDidLoad()
-//        delegate = Delegate(colorDelegate: colorDelegate)
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
         
         // Register cell classes
         collectionView!.registerClass(ColorCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         collectionView!.registerClass(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, withReuseIdentifier: footerReuseIdentifier)
         flowLayout.footerReferenceSize = CGSize(width: collectionView!.bounds.width, height: 10)
-//        collectionView?.backgroundColor = colorDelegate?.colorForIndex(0)
-//        flowLayout.minimumInteritemSpacing = 0
+
         
     }
     
@@ -68,13 +59,9 @@ public class ColorStackViewController: UICollectionViewController, UICollectionV
     
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        /*let colorDelegate = ColorDelegate()
-         self.delegate = Delegate(colorDelegate: colorDelegate)
-         self.colorDelegate = colorDelegate*/
     }
     
     func removeItemAtIndex(index: Int) {
-//        stack.removeAtIndex(index)
         collectionView?.deleteItemsAtIndexPaths([NSIndexPath(forItem: index, inSection: 0)])
     }
     
@@ -84,10 +71,6 @@ public class ColorStackViewController: UICollectionViewController, UICollectionV
     }
     
     func insertItemAtIndex(index: Int) {
-//        let button = UIButton(type: .System)
-//        button.addTarget(self, action: "handleTap:", forControlEvents: .TouchUpInside)
-//        button.backgroundColor = colorDelegate?.colorForIndex(count) ?? colors[count % colors.count]
-//        stack.append(button)
         collectionView?.insertItemsAtIndexPaths([NSIndexPath(forItem: index, inSection: 0)])
     }
     
@@ -115,7 +98,6 @@ public class ColorStackViewController: UICollectionViewController, UICollectionV
     // MARK: UICollectionViewDataSource
     
     override public func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        
         return 1
     }
     
@@ -134,6 +116,7 @@ public class ColorStackViewController: UICollectionViewController, UICollectionV
         return cell
     }
     
+    
     override public func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
         let footer = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: footerReuseIdentifier, forIndexPath: indexPath)
         footerView = footer
@@ -142,8 +125,7 @@ public class ColorStackViewController: UICollectionViewController, UICollectionV
     
     // MARK: UICollectionViewDelegate
     
-    override public func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-//        footerView.backgroundColor = colorDelegate.colorForIndex(indexPath.item)
+    public override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
         guard let delegate = delegate where delegate.colorStackViewController(self, shouldSelectIndex: indexPath.item) == true else { return }
         delegate.colorStackViewController(self, didSelectIndex: indexPath.item)
