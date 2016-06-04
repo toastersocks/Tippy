@@ -12,22 +12,22 @@ import UIKit
 public class StartupTimeProfiler {
     public struct Event {
         let message: String
-        let time: NSDate
+        let time: NSTimeInterval
     }
     
     static public var totalTime: NSTimeInterval {
         guard let first = events.first, last = events.last else { return 0.0 }
-        return last.time.timeIntervalSinceDate(first.time)
+        return last.time - first.time
     }
     
     static public var events = [Event]()
     
     static public func addEvent(message: String) {
-        events.append(Event(message: message, time: NSDate()))
+        events.append(Event(message: message, time: CACurrentMediaTime()))
     }
     
     static public func timeBetween(event: Event, event2: Event) -> NSTimeInterval {
-        return event.time.timeIntervalSinceDate(event2.time)
+        return event.time - event2.time
     }
 }
 
