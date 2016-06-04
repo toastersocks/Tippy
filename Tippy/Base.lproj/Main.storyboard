@@ -164,7 +164,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q39-Kl-yPH">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="67"/>
                                         <subviews>
-                                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uyn-lB-VCR">
+                                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uyn-lB-VCR">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="67"/>
                                                 <connections>
                                                     <segue destination="ldX-Ob-KYb" kind="embed" identifier="colorStackSegue" id="u6c-Fk-nGK"/>
@@ -172,6 +172,12 @@
                                             </containerView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="Uyn-lB-VCR" firstAttribute="centerY" secondItem="q39-Kl-yPH" secondAttribute="centerY" id="FOk-K0-KVY"/>
+                                            <constraint firstItem="Uyn-lB-VCR" firstAttribute="width" secondItem="q39-Kl-yPH" secondAttribute="width" id="LAW-Bc-LZJ"/>
+                                            <constraint firstItem="Uyn-lB-VCR" firstAttribute="centerX" secondItem="q39-Kl-yPH" secondAttribute="centerX" id="kZv-lB-2Ba"/>
+                                            <constraint firstItem="Uyn-lB-VCR" firstAttribute="height" secondItem="q39-Kl-yPH" secondAttribute="height" id="sDc-lL-vdU"/>
+                                        </constraints>
                                     </view>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PYn-if-1iV" userLabel="Workers Container View">
                                         <rect key="frame" x="0.0" y="115" width="375" height="508"/>
@@ -392,44 +398,50 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="Create new tipouts here (your current tipout will be saved)" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R4I-Fe-UmZ" userLabel="New">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="Create new tipouts here (your current tipout will be saved)" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R4I-Fe-UmZ" userLabel="New tip">
                                 <rect key="frame" x="20" y="290" width="560" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="Combine all your tipouts together" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vod-yr-7GK" userLabel="Combine">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="Combine all your tipouts together" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vod-yr-7GK" userLabel="Combine tip">
                                 <rect key="frame" x="20" y="290" width="560" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="Change settings for rounding and percentage input" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dba-8d-l9R" userLabel="Settings">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="Change settings for rounding and percentage input" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dba-8d-l9R" userLabel="Settings tip">
                                 <rect key="frame" x="21" y="290" width="559" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="Split an amount or percentage from the total tipouts to work on seperately" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5f4-NX-0OI" userLabel="Settings">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="Split an amount or percentage from the total tipouts to work on seperately" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5f4-NX-0OI" userLabel="Split tip">
                                 <rect key="frame" x="14" y="393" width="565" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="Clear the current tipout" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="72s-a6-bdR" userLabel="Settings">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="Clear the current tipout" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="72s-a6-bdR" userLabel="Clear tip">
                                 <rect key="frame" x="401" y="160" width="179" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="Clear all your tipouts" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ra2-AO-xaS" userLabel="Settings">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="Clear all your tipouts" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ra2-AO-xaS" userLabel="Clear all tip">
                                 <rect key="frame" x="423" y="180" width="157" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="Tap the colored tabs to switch between tipouts" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hvU-X7-2cN" userLabel="Settings">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="Tap the colored tabs to switch between tipouts" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hvU-X7-2cN" userLabel="Tabs tip">
                                 <rect key="frame" x="121" y="160" width="358" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="Tap to add new workers (left-swipe a worker to delete)" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ESV-TY-5WW" userLabel="New worker tip">
+                                <rect key="frame" x="92" y="243" width="416" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -439,19 +451,25 @@
                         <constraints>
                             <constraint firstItem="hvU-X7-2cN" firstAttribute="centerX" secondItem="tmZ-bZ-Xt3" secondAttribute="centerX" id="0Vm-i7-Pul"/>
                             <constraint firstItem="Dba-8d-l9R" firstAttribute="centerX" secondItem="tmZ-bZ-Xt3" secondAttribute="centerX" id="0hP-PH-ET5"/>
+                            <constraint firstItem="ESV-TY-5WW" firstAttribute="top" secondItem="anT-Dh-qjU" secondAttribute="bottom" constant="223" id="8rJ-tg-H9i"/>
                             <constraint firstAttribute="trailingMargin" relation="lessThanOrEqual" secondItem="Vod-yr-7GK" secondAttribute="trailing" id="9gr-dN-554"/>
                             <constraint firstItem="ra2-AO-xaS" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="tmZ-bZ-Xt3" secondAttribute="leadingMargin" id="AeD-X1-6a5"/>
                             <constraint firstItem="vQh-iP-IOX" firstAttribute="top" secondItem="5f4-NX-0OI" secondAttribute="bottom" constant="186" id="CZe-GW-kvz"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="hvU-X7-2cN" secondAttribute="trailing" id="Ft5-Zz-LN1"/>
                             <constraint firstItem="R4I-Fe-UmZ" firstAttribute="centerY" secondItem="tmZ-bZ-Xt3" secondAttribute="centerY" id="L5P-YT-nLf"/>
                             <constraint firstItem="hvU-X7-2cN" firstAttribute="top" secondItem="anT-Dh-qjU" secondAttribute="bottom" constant="140" id="QPS-jU-Ykc"/>
                             <constraint firstAttribute="trailingMargin" secondItem="5f4-NX-0OI" secondAttribute="trailing" constant="1" id="RQ2-Ex-uWm"/>
                             <constraint firstItem="R4I-Fe-UmZ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="tmZ-bZ-Xt3" secondAttribute="leadingMargin" id="SdW-H8-dKG"/>
                             <constraint firstItem="5f4-NX-0OI" firstAttribute="leading" secondItem="tmZ-bZ-Xt3" secondAttribute="leadingMargin" constant="-6" id="SzS-F4-wn2"/>
+                            <constraint firstItem="ESV-TY-5WW" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="tmZ-bZ-Xt3" secondAttribute="leadingMargin" id="Tau-jr-Wja"/>
                             <constraint firstAttribute="trailingMargin" relation="lessThanOrEqual" secondItem="Dba-8d-l9R" secondAttribute="trailing" id="VnT-kJ-pkW"/>
                             <constraint firstItem="Dba-8d-l9R" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="tmZ-bZ-Xt3" secondAttribute="leadingMargin" id="Web-HM-glC"/>
                             <constraint firstAttribute="trailingMargin" secondItem="72s-a6-bdR" secondAttribute="trailing" id="Ydi-cv-PqS"/>
+                            <constraint firstItem="ESV-TY-5WW" firstAttribute="centerX" secondItem="tmZ-bZ-Xt3" secondAttribute="centerX" id="ZLn-Ei-7NG"/>
                             <constraint firstAttribute="trailingMargin" relation="lessThanOrEqual" secondItem="R4I-Fe-UmZ" secondAttribute="trailing" id="amK-ST-tO3"/>
                             <constraint firstItem="Vod-yr-7GK" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="tmZ-bZ-Xt3" secondAttribute="leadingMargin" id="dqm-Yb-gTA"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="ESV-TY-5WW" secondAttribute="trailing" id="hzB-D0-rOP"/>
+                            <constraint firstItem="hvU-X7-2cN" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="tmZ-bZ-Xt3" secondAttribute="leadingMargin" id="obd-px-df9"/>
                             <constraint firstItem="Dba-8d-l9R" firstAttribute="centerY" secondItem="tmZ-bZ-Xt3" secondAttribute="centerY" id="rPN-Tc-Ru9"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ra2-AO-xaS" secondAttribute="trailing" id="sVM-1L-I8E"/>
                             <constraint firstItem="ra2-AO-xaS" firstAttribute="top" secondItem="anT-Dh-qjU" secondAttribute="bottom" constant="160" id="smk-01-a1I"/>
@@ -471,6 +489,7 @@
                         <outletCollection property="annotations" destination="72s-a6-bdR" collectionClass="NSMutableArray" id="d0t-Ad-wp4"/>
                         <outletCollection property="annotations" destination="ra2-AO-xaS" collectionClass="NSMutableArray" id="sqp-cp-pPD"/>
                         <outletCollection property="annotations" destination="hvU-X7-2cN" collectionClass="NSMutableArray" id="5oC-bH-Yrj"/>
+                        <outletCollection property="annotations" destination="ESV-TY-5WW" collectionClass="NSMutableArray" id="kxr-kX-IdW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nKU-hQ-mQL" userLabel="First Responder" sceneMemberID="firstResponder"/>

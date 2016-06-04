@@ -150,7 +150,7 @@ class ViewController: UIViewController {
     
     func showWalkthrough() {
         let walkthroughController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Walkthrough") as! WalkthroughViewController
-        walkthroughController.views = [storeButton, combineOrDoneButton, settingsBarButton, splitButton, clearButton, clearAllButton, colorStackViewController.view]
+        walkthroughController.views = [storeButton, combineOrDoneButton, settingsBarButton, splitButton, clearButton, clearAllButton, colorStackViewController.view, workerTableViewController.addNewButton]
         walkthroughController.alpha = 0.5
         self.presentViewController(walkthroughController, animated: true) {
             Defaults[.showWalkthrough] = false
