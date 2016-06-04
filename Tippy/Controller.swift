@@ -68,7 +68,9 @@ class Controller: NSObject, ColorStackViewDelegate {
         case .Amount(let amount):
             newTipoutTotal = amount
         case .Percentage(let percentage):
-            newTipoutTotal = tipoutModels[currentIndex].total * percentage
+            let unroundedSplit = tipoutModels[currentIndex].total * percentage
+            let roundedSplit = round(unroundedSplit, toNearest: roundToNearest)
+            newTipoutTotal = roundedSplit
         }
         
         tipoutModels[currentIndex].total -= newTipoutTotal
