@@ -16,6 +16,7 @@ class SettingsTableViewController: UITableViewController {
     @IBOutlet weak var percentageExampleLabel: UITextField! {
         didSet {
             percentageExampleLabel.userInteractionEnabled = false
+            percentageExampleLabel.enabled = false
             formatter?.configurePercentTextfield(&percentageExampleLabel!)
         }
     }
