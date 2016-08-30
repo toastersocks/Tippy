@@ -10,9 +10,9 @@ import UIKit
 
 
 autoreleasepool {
-    #if DEBUG
+    debug {
         StartupTimeProfiler.addEvent("App start")
-    #endif
+    }
     
     UIApplicationMain(Process.argc, Process.unsafeArgv, NSStringFromClass(UIApplication), NSStringFromClass(AppDelegate))
 }

@@ -72,3 +72,9 @@ extension Array {
             return Array(PermutationGenerator(elements: self, indices: keepIndices))*/
     }
 }
+
+func debug(block: () -> Void) {
+    #if DEBUG
+        block()
+    #endif
+}
