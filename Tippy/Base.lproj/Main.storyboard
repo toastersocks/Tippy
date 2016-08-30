@@ -13,7 +13,7 @@
             <objects>
                 <tableViewController title="Settings" id="rFC-Sg-CH6" customClass="SettingsTableViewController" customModule="Tippy" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="lqH-0t-43Z">
-                        <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
@@ -159,13 +159,13 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ki6-n8-chI" userLabel="Container View">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q39-Kl-yPH">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="67"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
                                         <subviews>
                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uyn-lB-VCR">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="67"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
                                                 <connections>
                                                     <segue destination="ldX-Ob-KYb" kind="embed" identifier="colorStackSegue" id="u6c-Fk-nGK"/>
                                                 </connections>
@@ -180,13 +180,13 @@
                                         </constraints>
                                     </view>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PYn-if-1iV" userLabel="Workers Container View">
-                                        <rect key="frame" x="0.0" y="115" width="375" height="508"/>
+                                        <rect key="frame" x="0.0" y="113" width="375" height="490"/>
                                         <connections>
                                             <segue destination="zgZ-8d-KW8" kind="embed" identifier="workersViewSegue" id="hNE-TL-9zN"/>
                                         </connections>
                                     </containerView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wAa-02-xiX" userLabel="Bottom Bar Container">
-                                        <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="603" width="375" height="44"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dMV-GZ-dbK" userLabel="Total Container">
                                                 <rect key="frame" x="0.0" y="0.0" width="266" height="44"/>
@@ -256,7 +256,7 @@
                                         </constraints>
                                     </view>
                                     <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QfZ-GG-Mgk">
-                                        <rect key="frame" x="0.0" y="67" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="65" width="375" height="44"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <items>
                                             <barButtonItem style="plain" id="FwJ-kg-a0S" userLabel="Settings">
@@ -323,13 +323,19 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="ki6-n8-chI" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="9vo-Og-Vp6"/>
                             <constraint firstItem="ki6-n8-chI" firstAttribute="width" secondItem="kh9-bI-dsS" secondAttribute="width" id="TLw-Nb-fhK"/>
                             <constraint firstItem="ki6-n8-chI" firstAttribute="bottom" secondItem="2fi-mo-0CV" secondAttribute="top" id="ZIp-Gj-qCs"/>
                             <constraint firstItem="ki6-n8-chI" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="m57-ab-1re"/>
                             <constraint firstItem="ki6-n8-chI" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="n3J-u8-xbj"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="n3J-u8-xbj"/>
+                            </mask>
+                        </variation>
                     </view>
-                    <nil key="simulatedStatusBarMetrics"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="bottomBar" destination="wAa-02-xiX" id="32G-pE-VO9"/>
@@ -361,7 +367,7 @@
             <objects>
                 <tableViewController id="zgZ-8d-KW8" customClass="WorkerTableViewController" customModule="Tippy" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="9bE-R4-dx4">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="508"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="490"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="WgE-Kv-GHU">
