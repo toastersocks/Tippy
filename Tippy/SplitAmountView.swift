@@ -42,12 +42,12 @@ class SplitAmountView: UIView {
                     switch index {
                         
                     case 0: // Amount
-                        self.methodAmountField.placeholder = NSLocalizedString("Amount", comment: "Amount of currency")  // TODO: Localize this
+                        self.methodAmountField.placeholder = NSLocalizedString("Amount", comment: "Amount of currency")
                         
                         self.formatter?.configureAmountTextfield(&self.methodAmountField!)
                         
                     case 1: // Percentage
-                        self.methodAmountField.placeholder = NSLocalizedString("Percent", comment: "Percent of currency")  // TODO: Localize this
+                        self.methodAmountField.placeholder = NSLocalizedString("Percent", comment: "Percent of currency")
                         
                         self.formatter?.configurePercentTextfield(&self.methodAmountField!)
                     default:
