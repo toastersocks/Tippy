@@ -53,10 +53,9 @@ class Controller: NSObject, ColorStackViewDelegate {
                 willChangeValueForKey("currentIndex")
                 didChangeValueForKey("currentIndex")
             }
-        }
-        if count == 0 {
+        } else if count == 0 {
             appendTipout(TipoutModel(roundToNearest: roundToNearest))
-            currentIndex = tipoutModels.count - 1
+            currentIndex = 0
         }
     }
     
@@ -77,7 +76,6 @@ class Controller: NSObject, ColorStackViewDelegate {
         let newTipoutModel = TipoutModel(roundToNearest: roundToNearest)
         newTipoutModel.total = newTipoutTotal
         insertTipout(newTipoutModel, atIndex: currentIndex + 1)
-//        tipoutModels.insert(newTipoutModel, atIndex: currentIndex + 1)
     }
     
     func removeAll() {
@@ -87,7 +85,7 @@ class Controller: NSObject, ColorStackViewDelegate {
         currentIndex = 0
     }
     
-    func storeCurrent() {
+    func new() {
         let newTipout = TipoutModel(roundToNearest: roundToNearest)
         appendTipout(newTipout)
         currentIndex = tipoutModels.count - 1

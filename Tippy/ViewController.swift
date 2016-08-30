@@ -37,9 +37,9 @@ class ViewController: UIViewController {
             combineOrDoneButton.addTarget(self, action: .combine, forControlEvents: .TouchUpInside)
         }
     }
-    @IBOutlet weak var storeButton: UIButton! {
+    @IBOutlet weak var newButton: UIButton! {
         didSet {
-            storeButton.addTarget(self, action: .store, forControlEvents: .TouchUpInside)
+            newButton.addTarget(self, action: .new, forControlEvents: .TouchUpInside)
         }
     }
     @IBOutlet weak var clearButton: UIButton! {
@@ -76,12 +76,9 @@ class ViewController: UIViewController {
     // MARK: - Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        colorStackViewController.delegate = controller
-//        colorStackViewController.colorDelegate = colorDelegate
+       
         controller.colorStack = colorDelegate
         controller.numberFormatter = numberFormatter
-//        colorStackViewController.reload()
         
         // Total Field
         
@@ -150,7 +147,7 @@ class ViewController: UIViewController {
     
     func showWalkthrough() {
         let walkthroughController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Walkthrough") as! WalkthroughViewController
-        walkthroughController.views = [storeButton, combineOrDoneButton, settingsBarButton, splitButton, clearButton, clearAllButton, colorStackViewController.view, workerTableViewController.addNewButton]
+        walkthroughController.views = [newButton, combineOrDoneButton, settingsBarButton, splitButton, clearButton, clearAllButton, colorStackViewController.view, workerTableViewController.addNewButton]
         walkthroughController.alpha = 0.5
         self.presentViewController(walkthroughController, animated: true) {
             Defaults[.showWalkthrough] = false
@@ -164,15 +161,19 @@ class ViewController: UIViewController {
         
     }
     
-    @IBAction func store() {
-        controller.storeCurrent()
+    @IBAction func new() {
+        controller.new()
         colorStackViewController.increment()
-//        colorStackViewController.reload()
     }
     
     @IBAction func clear(sender: UIButton) {
+        let index = controller.currentIndex
         controller.removeCurrent()
-        colorStackViewController.reload()
+        if controller.count == 1 {
+            colorStackViewController.reload()
+        } else {
+        colorStackViewController.removeItemAtIndex(index)
+        }
     }
     
     @IBAction func clearAll(sender: UIButton) {
@@ -182,26 +183,23 @@ class ViewController: UIViewController {
     
     @IBAction func combine() {
         guard let viewController = storyboard?.instantiateViewControllerWithIdentifier("tipoutvc") as? ViewController else { fatalError("Unable to instantiate ViewController") }
-        
+        let bundle = NSBundle(identifier: "com.apple.UIKit")
         presentViewController(viewController, animated: true, completion: nil)
         let combinedTipoutViewModel = controller.combinedTipoutsViewModel()
         viewController.controller = Controller(tipoutViewModel: combinedTipoutViewModel, numberFormatter: numberFormatter)
         controller.colorStack = colorDelegate
-//        viewController.storeOrDoneButton.title = "Done"
-        viewController.combineOrDoneButton.setTitle(NSBundle(identifier: "com.apple.UIKit")?.localizedStringForKey("Done", value: "", table: nil), forState: .Normal)
-        viewController.combineOrDoneButton.removeTarget(viewController, action: .store, forControlEvents: .TouchUpInside)
+        viewController.combineOrDoneButton.setTitle(bundle?.localizedStringForKey("Done", value: "", table: nil), forState: .Normal)
+        viewController.combineOrDoneButton.removeTarget(viewController, action: .new, forControlEvents: .TouchUpInside)
         viewController.combineOrDoneButton.addTarget(viewController, action: .done, forControlEvents: .TouchUpInside)
-//        viewController.combineOrDoneButton.target = viewController
-//        viewController.combineOrDoneButton.action = "done"
-//        viewController.combineButton.hidden = true
-        viewController.storeButton.enabled = false
+        viewController.newButton.enabled = false
 
 //            debugPrint(combinedTipoutViewModel.totalText)
     
     }
     
     @IBAction func split() {
-        let alertView = SwiftAlertView(nibName: "SplitAmountView", delegate: nil, cancelButtonTitle: "Cancel", otherButtonTitles: "Split")
+        let bundle = NSBundle(identifier: "com.apple.UIKit")
+        let alertView = SwiftAlertView(nibName: "SplitAmountView", delegate: nil, cancelButtonTitle: bundle?.localizedStringForKey("Cancel", value: "", table: nil), otherButtonTitles: NSLocalizedString("Split", comment: "Split an amount of currency"))
         (alertView.contentView as! SplitAmountView).formatter = numberFormatter
         alertView.clickedOtherButtonAction = {
             (buttonIndex: Int) in
@@ -224,7 +222,7 @@ class ViewController: UIViewController {
                 return
             }
             
-            self.colorStackViewController.reload()
+            self.colorStackViewController.insertItemAtIndex(self.controller.currentIndex + 1)
             print("Button index is \(buttonIndex)")
         }
         
@@ -291,7 +289,7 @@ class ViewController: UIViewController {
 
 private extension Selector {
     static let combine = #selector(ViewController.combine)
-    static let store = #selector(ViewController.store)
+    static let new = #selector(ViewController.new)
     static let done = #selector(ViewController.done)
     static let clear = #selector(ViewController.clear(_:))
     static let clearAll = #selector(ViewController.clearAll(_:))
