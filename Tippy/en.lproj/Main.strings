@@ -1,123 +1,153 @@
+
 /* Class = "UITableViewSection"; headerTitle = "Feedback"; ObjectID = "3Um-hq-lka"; */
-"3Um-hq-lka.headerTitle" = "Comentarios";
+"3Um-hq-lka.headerTitle" = "Feedback";
 
 /* Class = "UIButton"; accessibilityIdentifier = "settings"; ObjectID = "4K1-RY-c0v"; */
-"4K1-RY-c0v.accessibilityIdentifier" = "";
+"4K1-RY-c0v.accessibilityIdentifier" = "settings";
 
 /* Class = "UIButton"; accessibilityLabel = "Settings"; ObjectID = "4K1-RY-c0v"; */
-"4K1-RY-c0v.accessibilityLabel" = "Configurações";
+"4K1-RY-c0v.accessibilityLabel" = "Settings";
 
 /* Class = "UIButton"; normalTitle = "Settings"; ObjectID = "4K1-RY-c0v"; */
-"4K1-RY-c0v.normalTitle" = "Configurações";
+"4K1-RY-c0v.normalTitle" = "Settings";
 
 /* Class = "UILabel"; text = "Split an amount or percentage from the total tipouts to work on seperately"; ObjectID = "5f4-NX-0OI"; */
-"5f4-NX-0OI.text" = "Dividir uma quantia ou percentagem do total para calcular separadamente";
+"5f4-NX-0OI.text" = "Split an amount or percentage from the total tipouts to work on seperately";
 
 /* Class = "UIButton"; accessibilityHint = "Create a new tipout"; ObjectID = "60P-I6-phS"; */
-"60P-I6-phS.accessibilityHint" = "Crear uma gorjeta nova";
+"60P-I6-phS.accessibilityHint" = "Create a new tipout";
+
+/* Class = "UIButton"; accessibilityIdentifier = "new"; ObjectID = "60P-I6-phS"; */
+"60P-I6-phS.accessibilityIdentifier" = "new";
 
 /* Class = "UIButton"; accessibilityLabel = "New"; ObjectID = "60P-I6-phS"; */
-"60P-I6-phS.accessibilityLabel" = "Nova";
+"60P-I6-phS.accessibilityLabel" = "New";
 
 /* Class = "UIButton"; normalTitle = "New"; ObjectID = "60P-I6-phS"; */
-"60P-I6-phS.normalTitle" = "Nova";
+"60P-I6-phS.normalTitle" = "New";
 
 /* Class = "UILabel"; text = "Clear the current tipout"; ObjectID = "72s-a6-bdR"; */
-"72s-a6-bdR.text" = "Apagar gorjeta atual";
+"72s-a6-bdR.text" = "Clear the current tipout";
 
 /* Class = "UIButton"; accessibilityHint = "Clear all tipouts"; ObjectID = "Clm-pj-aYP"; */
-"Clm-pj-aYP.accessibilityHint" = "Apagar gorjetas todas";
+"Clm-pj-aYP.accessibilityHint" = "Clear all tipouts";
+
+/* Class = "UIButton"; accessibilityIdentifier = "clearAll"; ObjectID = "Clm-pj-aYP"; */
+"Clm-pj-aYP.accessibilityIdentifier" = "clearAll";
 
 /* Class = "UIButton"; accessibilityLabel = "Clear all"; ObjectID = "Clm-pj-aYP"; */
-"Clm-pj-aYP.accessibilityLabel" = "Apagar tudo";
+"Clm-pj-aYP.accessibilityLabel" = "Clear all";
 
 /* Class = "UIButton"; normalTitle = "Clear All"; ObjectID = "Clm-pj-aYP"; */
-"Clm-pj-aYP.normalTitle" = "Apagar tudo";
+"Clm-pj-aYP.normalTitle" = "Clear All";
 
 /* Class = "UILabel"; text = "Change settings for rounding and percentage input"; ObjectID = "Dba-8d-l9R"; */
-"Dba-8d-l9R.text" = "Ajustes para arredondamento e entrada de porcentagem";
+"Dba-8d-l9R.text" = "Change settings for rounding and percentage input";
 
 /* Class = "UILabel"; text = "Tap to add new workers (left-swipe a worker to delete)"; ObjectID = "ESV-TY-5WW"; */
-"ESV-TY-5WW.text" = "Toque para adicionar novos trabalhadores (deslizar-los para a esquerda para excluir)";
+"ESV-TY-5WW.text" = "Tap to add new workers (left-swipe a worker to delete)";
+
+/* Class = "UITextField"; accessibilityIdentifier = "total"; ObjectID = "LeT-AW-ZnX"; */
+"LeT-AW-ZnX.accessibilityIdentifier" = "total";
 
 /* Class = "UITextField"; accessibilityLabel = "Total"; ObjectID = "LeT-AW-ZnX"; */
 "LeT-AW-ZnX.accessibilityLabel" = "Total";
 
+/* Class = "UITextField"; placeholder = "                       "; ObjectID = "LeT-AW-ZnX"; */
+"LeT-AW-ZnX.placeholder" = "                       ";
+
 /* Class = "UILabel"; text = "Acknowledgements"; ObjectID = "MFl-H6-J8J"; */
-"MFl-H6-J8J.text" = "Reconhecimentos";
+"MFl-H6-J8J.text" = "Acknowledgements";
 
 /* Class = "UISegmentedControl"; PqG-9W-4b1.segmentTitles[0] = "Decimal"; ObjectID = "PqG-9W-4b1"; */
 "PqG-9W-4b1.segmentTitles[0]" = "Decimal";
 
 /* Class = "UISegmentedControl"; PqG-9W-4b1.segmentTitles[1] = "Whole"; ObjectID = "PqG-9W-4b1"; */
-"PqG-9W-4b1.segmentTitles[1]" = "Inteiro";
+"PqG-9W-4b1.segmentTitles[1]" = "Whole";
 
 /* Class = "UIButton"; accessibilityHint = "Clear current tipout"; ObjectID = "Qgh-NW-lUk"; */
-"Qgh-NW-lUk.accessibilityHint" = "Apagar gorjeta atual";
+"Qgh-NW-lUk.accessibilityHint" = "Clear current tipout";
+
+/* Class = "UIButton"; accessibilityIdentifier = "clear"; ObjectID = "Qgh-NW-lUk"; */
+"Qgh-NW-lUk.accessibilityIdentifier" = "clear";
 
 /* Class = "UIButton"; accessibilityLabel = "Clear"; ObjectID = "Qgh-NW-lUk"; */
-"Qgh-NW-lUk.accessibilityLabel" = "Apagar";
+"Qgh-NW-lUk.accessibilityLabel" = "Clear";
 
 /* Class = "UIButton"; normalTitle = "Clear"; ObjectID = "Qgh-NW-lUk"; */
-"Qgh-NW-lUk.normalTitle" = "Apagar";
+"Qgh-NW-lUk.normalTitle" = "Clear";
 
 /* Class = "UILabel"; text = "Create new tipouts here (your current tipout will be saved)"; ObjectID = "R4I-Fe-UmZ"; */
-"R4I-Fe-UmZ.text" = "Criar novas gorjetas aqui (a gorjeta atual será guarda)";
+"R4I-Fe-UmZ.text" = "Create new tipouts here (your current tipout will be saved)";
 
 /* Class = "UILabel"; text = "Combine all your tipouts together"; ObjectID = "Vod-yr-7GK"; */
-"Vod-yr-7GK.text" = "Combinar todas as suas gorjetas";
+"Vod-yr-7GK.text" = "Combine all your tipouts together";
+
+/* Class = "UIButton"; accessibilityIdentifier = "addWorker"; ObjectID = "WgE-Kv-GHU"; */
+"WgE-Kv-GHU.accessibilityIdentifier" = "addWorker";
 
 /* Class = "UIButton"; accessibilityLabel = "Add worker"; ObjectID = "WgE-Kv-GHU"; */
-"WgE-Kv-GHU.accessibilityLabel" = "Adicionar empregado";
+"WgE-Kv-GHU.accessibilityLabel" = "Add worker";
 
 /* Class = "UIButton"; normalTitle = "Add Worker"; ObjectID = "WgE-Kv-GHU"; */
-"WgE-Kv-GHU.normalTitle" = "Adicionar empregado";
+"WgE-Kv-GHU.normalTitle" = "Add Worker";
 
 /* Class = "UILabel"; text = "Percentage Input"; ObjectID = "Y2C-Ko-NpJ"; */
-"Y2C-Ko-NpJ.text" = "Entrada Percentual";
+"Y2C-Ko-NpJ.text" = "Percentage Input";
 
 /* Class = "UITableViewSection"; headerTitle = "Settings"; ObjectID = "YaZ-9k-BQr"; */
-"YaZ-9k-BQr.headerTitle" = "Configurações";
+"YaZ-9k-BQr.headerTitle" = "Settings";
 
 /* Class = "UINavigationItem"; title = "Settings"; ObjectID = "fkW-b6-RAE"; */
-"fkW-b6-RAE.title" = "Configurações";
+"fkW-b6-RAE.title" = "Settings";
 
 /* Class = "UILabel"; text = "Round to nearest..."; ObjectID = "hg0-4d-DaM"; */
-"hg0-4d-DaM.text" = "Arredonda para o mais próximo...";
+"hg0-4d-DaM.text" = "Round to nearest...";
 
 /* Class = "UILabel"; text = "Tap the colored tabs to switch between tipouts"; ObjectID = "hvU-X7-2cN"; */
-"hvU-X7-2cN.text" = "Toque nas abas coloridas para alternar entre gorjetas";
+"hvU-X7-2cN.text" = "Tap the colored tabs to switch between tipouts";
 
 /* Class = "UIButton"; accessibilityHint = "Split an amount from the total into another tipout"; ObjectID = "j3G-1F-3RX"; */
-"j3G-1F-3RX.accessibilityHint" = "Separe um quantia do total para calcular separadamente";
+"j3G-1F-3RX.accessibilityHint" = "Split an amount from the total into another tipout";
+
+/* Class = "UIButton"; accessibilityIdentifier = "split"; ObjectID = "j3G-1F-3RX"; */
+"j3G-1F-3RX.accessibilityIdentifier" = "split";
 
 /* Class = "UIButton"; accessibilityLabel = "Split"; ObjectID = "j3G-1F-3RX"; */
-"j3G-1F-3RX.accessibilityLabel" = "Separe";
+"j3G-1F-3RX.accessibilityLabel" = "Split";
 
 /* Class = "UIButton"; normalTitle = "Split..."; ObjectID = "j3G-1F-3RX"; */
-"j3G-1F-3RX.normalTitle" = "Separe...";
+"j3G-1F-3RX.normalTitle" = "Split...";
 
 /* Class = "UIBarButtonItem"; title = "Done"; ObjectID = "nEO-a7-nmn"; */
-"nEO-a7-nmn.title" = "OK";
+"nEO-a7-nmn.title" = "Done";
 
 /* Class = "UITableViewSection"; headerTitle = "Acknowledgements"; ObjectID = "o4X-LY-uYi"; */
-"o4X-LY-uYi.headerTitle" = "Reconhecimentos";
+"o4X-LY-uYi.headerTitle" = "Acknowledgements";
 
 /* Class = "UIButton"; accessibilityHint = "Combine all tipouts"; ObjectID = "qSR-OL-u54"; */
-"qSR-OL-u54.accessibilityHint" = "Combina as gorjetas todas";
+"qSR-OL-u54.accessibilityHint" = "Combine all tipouts";
+
+/* Class = "UIButton"; accessibilityIdentifier = "combine"; ObjectID = "qSR-OL-u54"; */
+"qSR-OL-u54.accessibilityIdentifier" = "combine";
 
 /* Class = "UIButton"; accessibilityLabel = "Combine"; ObjectID = "qSR-OL-u54"; */
-"qSR-OL-u54.accessibilityLabel" = "Combina";
+"qSR-OL-u54.accessibilityLabel" = "Combine";
 
 /* Class = "UIButton"; normalTitle = "Combine"; ObjectID = "qSR-OL-u54"; */
-"qSR-OL-u54.normalTitle" = "Combina";
+"qSR-OL-u54.normalTitle" = "Combine";
 
 /* Class = "UITableViewController"; title = "Settings"; ObjectID = "rFC-Sg-CH6"; */
-"rFC-Sg-CH6.title" = "Configurações";
+"rFC-Sg-CH6.title" = "Settings";
 
 /* Class = "UILabel"; text = "Clear all your tipouts"; ObjectID = "ra2-AO-xaS"; */
-"ra2-AO-xaS.text" = "Apaga as gorjetas todas";
+"ra2-AO-xaS.text" = "Clear all your tipouts";
+
+/* Class = "UILabel"; accessibilityIdentifier = "totalLabel"; ObjectID = "s2T-4J-pvx"; */
+"s2T-4J-pvx.accessibilityIdentifier" = "totalLabel";
+
+/* Class = "UILabel"; accessibilityLabel = "Total label"; ObjectID = "s2T-4J-pvx"; */
+"s2T-4J-pvx.accessibilityLabel" = "Total label";
 
 /* Class = "UILabel"; text = "Total:"; ObjectID = "s2T-4J-pvx"; */
 "s2T-4J-pvx.text" = "Total:";
-

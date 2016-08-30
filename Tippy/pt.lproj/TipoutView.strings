@@ -1,12 +1,24 @@
-/* Class = "UITextField"; placeholder = "Hours"; ObjectID = "FIz-8f-mgV"; */
-"FIz-8f-mgV.placeholder" = "Horas";
+/* Class = "UITextField"; accessibilityLabel = "Name"; ObjectID = "2ro-lY-Lgc"; */
+"2ro-lY-Lgc.accessibilityLabel" = "Nome";
 
-/* Class = "UITextField"; placeholder = "Name"; ObjectID = "TKA-nX-uEq"; */
-"TKA-nX-uEq.placeholder" = "Nome";
+/* Class = "UITextField"; placeholder = "Name"; ObjectID = "2ro-lY-Lgc"; */
+"2ro-lY-Lgc.placeholder" = "Nome";
 
-/* Class = "UITextField"; placeholder = "Amount"; ObjectID = "tpq-ir-qfi"; */
-"tpq-ir-qfi.placeholder" = "Quantia";
+/* Class = "UITextField"; accessibilityLabel = "Percent"; ObjectID = "KYw-C6-HDU"; */
+"KYw-C6-HDU.accessibilityLabel" = "Percentagem";
 
-/* Class = "UITextField"; placeholder = "Percentage"; ObjectID = "uPw-2Q-Wt8"; */
-"uPw-2Q-Wt8.placeholder" = "Porcentagem";
+/* Class = "UITextField"; placeholder = "Percentage"; ObjectID = "KYw-C6-HDU"; */
+"KYw-C6-HDU.placeholder" = "Percentagem";
+
+/* Class = "UITextField"; accessibilityLabel = "Hours"; ObjectID = "ZYw-qH-tIw"; */
+"ZYw-qH-tIw.accessibilityLabel" = "Horas";
+
+/* Class = "UITextField"; placeholder = "Hours"; ObjectID = "ZYw-qH-tIw"; */
+"ZYw-qH-tIw.placeholder" = "Horas";
+
+/* Class = "UITextField"; accessibilityLabel = "Amount"; ObjectID = "xyf-xE-rf0"; */
+"xyf-xE-rf0.accessibilityLabel" = "Quantia";
+
+/* Class = "UITextField"; placeholder = "Amount"; ObjectID = "xyf-xE-rf0"; */
+"xyf-xE-rf0.placeholder" = "Quantia";
 

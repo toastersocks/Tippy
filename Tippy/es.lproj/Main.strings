@@ -1,51 +1,132 @@
-
 /* Class = "UITableViewSection"; headerTitle = "Feedback"; ObjectID = "3Um-hq-lka"; */
-"3Um-hq-lka.headerTitle" = "Feedback";
+"3Um-hq-lka.headerTitle" = "Retroalimentación";
 
-/* Class = "UIBarButtonItem"; title = "Done"; ObjectID = "7g5-Jg-BzS"; */
-"7g5-Jg-BzS.title" = "Done";
+/* Class = "UIButton"; accessibilityIdentifier = "settings"; ObjectID = "4K1-RY-c0v"; */
+"4K1-RY-c0v.accessibilityIdentifier" = "configuración";
+
+/* Class = "UIButton"; accessibilityLabel = "Settings"; ObjectID = "4K1-RY-c0v"; */
+"4K1-RY-c0v.accessibilityLabel" = "Configuración";
+
+/* Class = "UIButton"; normalTitle = "Settings"; ObjectID = "4K1-RY-c0v"; */
+"4K1-RY-c0v.normalTitle" = "Configuración";
+
+/* Class = "UILabel"; text = "Split an amount or percentage from the total tipouts to work on seperately"; ObjectID = "5f4-NX-0OI"; */
+"5f4-NX-0OI.text" = "Dividir una cantidad o porcentaje de las propinas totales para calcular por separado";
+
+/* Class = "UIButton"; accessibilityHint = "Create a new tipout"; ObjectID = "60P-I6-phS"; */
+"60P-I6-phS.accessibilityHint" = "Cree una nueva propina";
+
+/* Class = "UIButton"; accessibilityLabel = "New"; ObjectID = "60P-I6-phS"; */
+"60P-I6-phS.accessibilityLabel" = "Nueva";
+
+/* Class = "UIButton"; normalTitle = "New"; ObjectID = "60P-I6-phS"; */
+"60P-I6-phS.normalTitle" = "Nueva";
+
+/* Class = "UILabel"; text = "Clear the current tipout"; ObjectID = "72s-a6-bdR"; */
+"72s-a6-bdR.text" = "Borrar la propina actual";
+
+/* Class = "UIButton"; accessibilityHint = "Clear all tipouts"; ObjectID = "Clm-pj-aYP"; */
+"Clm-pj-aYP.accessibilityHint" = "Borrar todas las propinas";
+
+/* Class = "UIButton"; accessibilityLabel = "Clear all"; ObjectID = "Clm-pj-aYP"; */
+"Clm-pj-aYP.accessibilityLabel" = "Borrar Todas";
+
+/* Class = "UIButton"; normalTitle = "Clear All"; ObjectID = "Clm-pj-aYP"; */
+"Clm-pj-aYP.normalTitle" = "Borrar Todas";
+
+/* Class = "UILabel"; text = "Change settings for rounding and percentage input"; ObjectID = "Dba-8d-l9R"; */
+"Dba-8d-l9R.text" = "Cambiar la configuración de redondeo y la entrada de porcentaje";
+
+/* Class = "UILabel"; text = "Tap to add new workers (left-swipe a worker to delete)"; ObjectID = "ESV-TY-5WW"; */
+"ESV-TY-5WW.text" = "Pulse para crear empleados nuevas (deslizar izquierdo para borrar)";
+
+/* Class = "UITextField"; accessibilityIdentifier = "total"; ObjectID = "LeT-AW-ZnX"; */
+"LeT-AW-ZnX.accessibilityIdentifier" = "";
+
+/* Class = "UITextField"; accessibilityLabel = "Total"; ObjectID = "LeT-AW-ZnX"; */
+"LeT-AW-ZnX.accessibilityLabel" = "Total";
 
 /* Class = "UILabel"; text = "Acknowledgements"; ObjectID = "MFl-H6-J8J"; */
-"MFl-H6-J8J.text" = "Acknowledgements";
+"MFl-H6-J8J.text" = "Licencias";
 
 /* Class = "UISegmentedControl"; PqG-9W-4b1.segmentTitles[0] = "Decimal"; ObjectID = "PqG-9W-4b1"; */
 "PqG-9W-4b1.segmentTitles[0]" = "Decimal";
 
 /* Class = "UISegmentedControl"; PqG-9W-4b1.segmentTitles[1] = "Whole"; ObjectID = "PqG-9W-4b1"; */
-"PqG-9W-4b1.segmentTitles[1]" = "Whole";
+"PqG-9W-4b1.segmentTitles[1]" = "Entero";
 
-/* Class = "UIButton"; normalTitle = "Change me"; ObjectID = "WgE-Kv-GHU"; */
-"WgE-Kv-GHU.normalTitle" = "Change me";
+/* Class = "UIButton"; accessibilityHint = "Clear current tipout"; ObjectID = "Qgh-NW-lUk"; */
+"Qgh-NW-lUk.accessibilityHint" = "Borrar la propina actual";
 
-/* Class = "UIBarButtonItem"; title = "Settings"; ObjectID = "Xej-H8-aQK"; */
-"Xej-H8-aQK.title" = "Settings";
+/* Class = "UIButton"; accessibilityLabel = "Clear"; ObjectID = "Qgh-NW-lUk"; */
+"Qgh-NW-lUk.accessibilityLabel" = "Borrar";
+
+/* Class = "UIButton"; normalTitle = "Clear"; ObjectID = "Qgh-NW-lUk"; */
+"Qgh-NW-lUk.normalTitle" = "Borrar";
+
+/* Class = "UILabel"; text = "Create new tipouts here (your current tipout will be saved)"; ObjectID = "R4I-Fe-UmZ"; */
+"R4I-Fe-UmZ.text" = "Crear nuevos propinas aquí (la propina actual se guarda)";
+
+/* Class = "UILabel"; text = "Combine all your tipouts together"; ObjectID = "Vod-yr-7GK"; */
+"Vod-yr-7GK.text" = "Combina todas sus propinas juntas";
+
+/* Class = "UIButton"; accessibilityLabel = "Add worker"; ObjectID = "WgE-Kv-GHU"; */
+"WgE-Kv-GHU.accessibilityLabel" = "Cree empleado";
+
+/* Class = "UIButton"; normalTitle = "Add Worker"; ObjectID = "WgE-Kv-GHU"; */
+"WgE-Kv-GHU.normalTitle" = "Cree empleado";
 
 /* Class = "UILabel"; text = "Percentage Input"; ObjectID = "Y2C-Ko-NpJ"; */
-"Y2C-Ko-NpJ.text" = "Percentage Input";
+"Y2C-Ko-NpJ.text" = "Entradas porcentuales";
 
 /* Class = "UITableViewSection"; headerTitle = "Settings"; ObjectID = "YaZ-9k-BQr"; */
-"YaZ-9k-BQr.headerTitle" = "Settings";
-
-/* Class = "UILabel"; text = "0.3%"; ObjectID = "cUw-eG-GS8"; */
-"cUw-eG-GS8.text" = "0.3%";
+"YaZ-9k-BQr.headerTitle" = "Configuración";
 
 /* Class = "UINavigationItem"; title = "Settings"; ObjectID = "fkW-b6-RAE"; */
-"fkW-b6-RAE.title" = "Settings";
+"fkW-b6-RAE.title" = "Configuración";
 
 /* Class = "UILabel"; text = "Round to nearest..."; ObjectID = "hg0-4d-DaM"; */
-"hg0-4d-DaM.text" = "Round to nearest...";
+"hg0-4d-DaM.text" = "Redondear al más cercano";
 
-/* Class = "UIButton"; normalTitle = "Combine"; ObjectID = "n3W-G2-Wpg"; */
-"n3W-G2-Wpg.normalTitle" = "Combine";
+/* Class = "UILabel"; text = "Tap the colored tabs to switch between tipouts"; ObjectID = "hvU-X7-2cN"; */
+"hvU-X7-2cN.text" = "Pulse en las fichas de colores para cambiar entre las propinas";
+
+/* Class = "UIButton"; accessibilityHint = "Split an amount from the total into another tipout"; ObjectID = "j3G-1F-3RX"; */
+"j3G-1F-3RX.accessibilityHint" = "Dividir una cantidad del total en otro propina";
+
+/* Class = "UIButton"; accessibilityIdentifier = "split"; ObjectID = "j3G-1F-3RX"; */
+"j3G-1F-3RX.accessibilityIdentifier" = "";
+
+/* Class = "UIButton"; accessibilityLabel = "Split"; ObjectID = "j3G-1F-3RX"; */
+"j3G-1F-3RX.accessibilityLabel" = "Dividir";
+
+/* Class = "UIButton"; normalTitle = "Split..."; ObjectID = "j3G-1F-3RX"; */
+"j3G-1F-3RX.normalTitle" = "Dividir...";
+
+/* Class = "UIBarButtonItem"; title = "Done"; ObjectID = "nEO-a7-nmn"; */
+"nEO-a7-nmn.title" = "OK";
 
 /* Class = "UITableViewSection"; headerTitle = "Acknowledgements"; ObjectID = "o4X-LY-uYi"; */
-"o4X-LY-uYi.headerTitle" = "Acknowledgements";
+"o4X-LY-uYi.headerTitle" = "Licencias";
 
-/* Class = "UIButton"; normalTitle = "Store"; ObjectID = "r19-kZ-h0U"; */
-"r19-kZ-h0U.normalTitle" = "Store";
+/* Class = "UIButton"; accessibilityHint = "Combine all tipouts"; ObjectID = "qSR-OL-u54"; */
+"qSR-OL-u54.accessibilityHint" = "Combina todas propinas";
+
+/* Class = "UIButton"; accessibilityIdentifier = "combine"; ObjectID = "qSR-OL-u54"; */
+"qSR-OL-u54.accessibilityIdentifier" = "";
+
+/* Class = "UIButton"; accessibilityLabel = "Combine"; ObjectID = "qSR-OL-u54"; */
+"qSR-OL-u54.accessibilityLabel" = "Combina";
+
+/* Class = "UIButton"; normalTitle = "Combine"; ObjectID = "qSR-OL-u54"; */
+"qSR-OL-u54.normalTitle" = "Combina";
 
 /* Class = "UITableViewController"; title = "Settings"; ObjectID = "rFC-Sg-CH6"; */
-"rFC-Sg-CH6.title" = "Settings";
+"rFC-Sg-CH6.title" = "Configuración";
 
-/* Class = "UILabel"; text = "Total: $"; ObjectID = "s2T-4J-pvx"; */
-"s2T-4J-pvx.text" = "Total: $";
+/* Class = "UILabel"; text = "Clear all your tipouts"; ObjectID = "ra2-AO-xaS"; */
+"ra2-AO-xaS.text" = "Borrar todas las propinas";
+
+/* Class = "UILabel"; text = "Total:"; ObjectID = "s2T-4J-pvx"; */
+"s2T-4J-pvx.text" = "Total:";
+

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -193,6 +193,7 @@
                                                 <subviews>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalCompressionResistancePriority="800" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="                       " minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LeT-AW-ZnX" customClass="JCPTextField" customModule="Tippy" customModuleProvider="target">
                                                         <rect key="frame" x="51" y="9" width="109" height="30"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="total" label="Total"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                         <connections>
@@ -202,12 +203,14 @@
                                                     </textField>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s2T-4J-pvx">
                                                         <rect key="frame" x="8" y="12" width="43" height="21"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="totalLabel" label="Total label"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j3G-1F-3RX">
                                                         <rect key="frame" x="168" y="7" width="44" height="30"/>
+                                                        <accessibility key="accessibilityConfiguration" hint="Split an amount from the total into another tipout" identifier="split" label="Split"/>
                                                         <state key="normal" title="Split..."/>
                                                         <connections>
                                                             <action selector="split" destination="vXZ-lx-hvc" eventType="touchUpInside" id="aFT-eb-xV2"/>
@@ -227,10 +230,15 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="60P-I6-phS">
                                                 <rect key="frame" x="266" y="7" width="31" height="30"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <accessibility key="accessibilityConfiguration" hint="Create a new tipout" identifier="new" label="New"/>
                                                 <state key="normal" title="New"/>
+                                                <connections>
+                                                    <action selector="new" destination="vXZ-lx-hvc" eventType="touchUpInside" id="vmH-Co-6SR"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qSR-OL-u54">
                                                 <rect key="frame" x="305" y="7" width="62" height="30"/>
+                                                <accessibility key="accessibilityConfiguration" hint="Combine all tipouts" identifier="combine" label="Combine"/>
                                                 <state key="normal" title="Combine"/>
                                             </button>
                                         </subviews>
@@ -253,8 +261,9 @@
                                         <items>
                                             <barButtonItem style="plain" id="FwJ-kg-a0S" userLabel="Settings">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4K1-RY-c0v">
-                                                    <rect key="frame" x="16" y="4" width="96" height="36"/>
+                                                    <rect key="frame" x="16" y="5" width="107" height="34"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="settings" label="Settings"/>
                                                     <state key="normal" title="Settings"/>
                                                     <connections>
                                                         <segue destination="wch-xj-OvX" kind="show" identifier="settingsSegue" id="Rxw-p7-w8Q"/>
@@ -264,8 +273,9 @@
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="7ae-vn-VXw"/>
                                             <barButtonItem style="plain" id="0s4-Oc-Gej">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Qgh-NW-lUk">
-                                                    <rect key="frame" x="217" y="7" width="63" height="30"/>
+                                                    <rect key="frame" x="182" y="7" width="63" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <accessibility key="accessibilityConfiguration" hint="Clear current tipout" identifier="clear" label="Clear"/>
                                                     <state key="normal" title="Clear"/>
                                                     <connections>
                                                         <action selector="clear:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="bTb-d5-jeX"/>
@@ -274,8 +284,9 @@
                                             </barButtonItem>
                                             <barButtonItem style="plain" id="f8d-3G-Z9p">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Clm-pj-aYP">
-                                                    <rect key="frame" x="290" y="7" width="69" height="30"/>
+                                                    <rect key="frame" x="255" y="7" width="104" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <accessibility key="accessibilityConfiguration" hint="Clear all tipouts" identifier="clearAll" label="Clear all"/>
                                                     <state key="normal" title="Clear All"/>
                                                     <connections>
                                                         <action selector="clearAll:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="we2-CR-hjX"/>
@@ -327,10 +338,10 @@
                         <outlet property="clearButton" destination="Qgh-NW-lUk" id="mR0-4R-mw8"/>
                         <outlet property="combineOrDoneButton" destination="qSR-OL-u54" id="UGW-wA-OtS"/>
                         <outlet property="containerView" destination="ki6-n8-chI" id="7XV-UH-zgi"/>
+                        <outlet property="newButton" destination="60P-I6-phS" id="R9K-Zk-XcH"/>
                         <outlet property="numberFormatter" destination="ZSj-WC-Na2" id="Z4h-dY-p5g"/>
                         <outlet property="settingsBarButton" destination="4K1-RY-c0v" id="e5W-Ve-kYD"/>
                         <outlet property="splitButton" destination="j3G-1F-3RX" id="094-L5-IXP"/>
-                        <outlet property="storeButton" destination="60P-I6-phS" id="Zyl-fY-bDT"/>
                         <outlet property="totalField" destination="LeT-AW-ZnX" id="pS3-wz-g6V"/>
                         <outlet property="upperToolbar" destination="QfZ-GG-Mgk" id="lXl-0y-ik8"/>
                     </connections>
@@ -356,6 +367,7 @@
                         <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="WgE-Kv-GHU">
                             <rect key="frame" x="0.0" y="66" width="375" height="70"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <accessibility key="accessibilityConfiguration" identifier="addWorker" label="Add worker"/>
                             <state key="normal" title="Add Worker">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>

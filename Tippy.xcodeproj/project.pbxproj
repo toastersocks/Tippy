@@ -21,10 +21,13 @@
 		DD1C586E1B16995000188B28 /* TipoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1C586D1B16995000188B28 /* TipoutViewModel.swift */; };
 		DD20813A1BD94ACB00ED20CB /* TipoutViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2081391BD94ACB00ED20CB /* TipoutViewModelType.swift */; };
 		DD20813C1BD9524A00ED20CB /* WorkerViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD20813B1BD9524A00ED20CB /* WorkerViewModelType.swift */; };
+		DD24E69A1D75334300B2FADF /* SplitAmountView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD24E69C1D75334300B2FADF /* SplitAmountView.xib */; };
+		DD2908591D1F02ED00E08799 /* Tipout.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DD2908581D1F02ED00E08799 /* Tipout.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DD29085A1D1F031D00E08799 /* Tipout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD2908581D1F02ED00E08799 /* Tipout.framework */; };
+		DD29085C1D1F130800E08799 /* ControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD29085B1D1F130800E08799 /* ControllerTests.swift */; };
 		DD36481B1CBEF479002CA8A5 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = DD36481A1CBEF479002CA8A5 /* .gitignore */; };
 		DD36481D1CC828A7002CA8A5 /* SwiftAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD36481C1CC828A7002CA8A5 /* SwiftAlertView.swift */; };
 		DD3648201CC82AB7002CA8A5 /* SplitAmountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD36481E1CC82AB7002CA8A5 /* SplitAmountView.swift */; };
-		DD3648211CC82AB7002CA8A5 /* SplitAmountView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD36481F1CC82AB7002CA8A5 /* SplitAmountView.xib */; };
 		DD3648231CD17099002CA8A5 /* Formatter+UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3648221CD17099002CA8A5 /* Formatter+UILabel.swift */; };
 		DD45FB821C64199E00DE5D7A /* TZStackView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD45FB811C64199E00DE5D7A /* TZStackView.framework */; };
 		DD54AA771BB0DB3300AFFA68 /* ViewModelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD54AA761BB0DB3300AFFA68 /* ViewModelable.swift */; };
@@ -48,19 +51,18 @@
 		DD80142C1B16A15F007A673F /* RACSignal+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8014281B16A15F007A673F /* RACSignal+Extensions.swift */; };
 		DD80142D1B16A15F007A673F /* TableViewBindingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8014291B16A15F007A673F /* TableViewBindingHelper.swift */; };
 		DD8672341CE5430B00ED1D29 /* StackLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8672331CE5430B00ED1D29 /* StackLayout.swift */; };
-		DD8672361CEBE9CF00ED1D29 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8672351CEBE9CE00ED1D29 /* main.swift */; };
 		DD90A9961B605F0C00EE0BB6 /* TipoutView+RAC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD90A9951B605F0C00EE0BB6 /* TipoutView+RAC.swift */; };
 		DDA07EBF1BC5F2DF008B1081 /* ColorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA07EBE1BC5F2DF008B1081 /* ColorDelegate.swift */; };
 		DDA07EC21BC5F54D008B1081 /* TZStackView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DDA07EC01BC5F54D008B1081 /* TZStackView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DDA1E8761BB33E4600ADEB47 /* RACExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA1E8751BB33E4600ADEB47 /* RACExtensions.swift */; };
-		DDA495A21CD3F9AD007CDB56 /* Tipout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDA4959F1CD3F7D0007CDB56 /* Tipout.framework */; };
-		DDA495A31CD3F9AD007CDB56 /* Tipout.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DDA4959F1CD3F7D0007CDB56 /* Tipout.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DDB6BC591CDD337A00D8A9D1 /* ColorStack.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDB6BC571CDD337A00D8A9D1 /* ColorStack.storyboard */; };
 		DDB6BC5A1CDD337A00D8A9D1 /* ColorStackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB6BC581CDD337A00D8A9D1 /* ColorStackViewController.swift */; };
 		DDB6BC5C1CDD33DE00D8A9D1 /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB6BC5B1CDD33DE00D8A9D1 /* ColorCell.swift */; };
 		DDB9FD671BF40C5500FB6803 /* JCPTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB9FD661BF40C5500FB6803 /* JCPTextField.swift */; };
+		DDBD12981D75056B0028350A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DDBD129A1D75056B0028350A /* InfoPlist.strings */; };
 		DDBFF7CE1C78F8A800D43C77 /* Gecco.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDBFF7CD1C78F8A800D43C77 /* Gecco.framework */; };
 		DDBFF7CF1C78F8A800D43C77 /* Gecco.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DDBFF7CD1C78F8A800D43C77 /* Gecco.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DDC061B51D11E3C1008081DB /* TippyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC061B41D11E3C1008081DB /* TippyUITests.swift */; };
 		DDC16F9A1BB0C29000AC9583 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD67BD6D1B697E2E000EADD5 /* TableViewCell.swift */; };
 		DDDAE7461B6BDE0B008D2140 /* WorkerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDAE7451B6BDE0B008D2140 /* WorkerTableViewController.swift */; };
 		DDE21BB61B4E15BE002D5859 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE21BB51B4E15BE002D5859 /* Controller.swift */; };
@@ -79,6 +81,13 @@
 			remoteGlobalIDString = DD1C58471B16981D00188B28;
 			remoteInfo = Tippy;
 		};
+		DDC061B71D11E3C1008081DB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD1C58401B16981D00188B28 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DD1C58471B16981D00188B28;
+			remoteInfo = Tippy;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -88,12 +97,12 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				DD2908591D1F02ED00E08799 /* Tipout.framework in Embed Frameworks */,
 				DDA07EC21BC5F54D008B1081 /* TZStackView.framework in Embed Frameworks */,
 				DDBFF7CF1C78F8A800D43C77 /* Gecco.framework in Embed Frameworks */,
 				DD7CBA321B598DC8003B718D /* ReactiveCocoa.framework in Embed Frameworks */,
 				DD71106A1BE189EF00FA7006 /* SwiftyUserDefaults.framework in Embed Frameworks */,
 				DD73DFC11BC1BC9B0005636C /* Chameleon.framework in Embed Frameworks */,
-				DDA495A31CD3F9AD007CDB56 /* Tipout.framework in Embed Frameworks */,
 				DD08EA4D1CED42510032DCC8 /* Mixpanel.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -104,7 +113,6 @@
 /* Begin PBXFileReference section */
 		DD08EA4B1CED42510032DCC8 /* Mixpanel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mixpanel.framework; path = Carthage/Build/iOS/Mixpanel.framework; sourceTree = "<group>"; };
 		DD19B6381C192DC9000FFACA /* testFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = testFormatter.swift; sourceTree = "<group>"; };
-		DD19B63A1C1A2D55000FFACA /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/Main.strings"; sourceTree = "<group>"; };
 		DD19B63B1C1A2D56000FFACA /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		DD19B63F1C1A3375000FFACA /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		DD19B6411C1A337D000FFACA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -125,11 +133,20 @@
 		DD1C586D1B16995000188B28 /* TipoutViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipoutViewModel.swift; sourceTree = "<group>"; };
 		DD2081391BD94ACB00ED20CB /* TipoutViewModelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipoutViewModelType.swift; sourceTree = "<group>"; };
 		DD20813B1BD9524A00ED20CB /* WorkerViewModelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkerViewModelType.swift; sourceTree = "<group>"; };
+		DD24E6941D752D2000B2FADF /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DD24E6951D752D2100B2FADF /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/TableViewCell.strings; sourceTree = "<group>"; };
+		DD24E6971D7532FA00B2FADF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		DD24E6991D75331700B2FADF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TipoutView.strings; sourceTree = "<group>"; };
+		DD24E69B1D75334300B2FADF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SplitAmountView.xib; sourceTree = "<group>"; };
+		DD24E69E1D75334900B2FADF /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/SplitAmountView.strings; sourceTree = "<group>"; };
+		DD24E6A01D75334D00B2FADF /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/SplitAmountView.strings; sourceTree = "<group>"; };
+		DD24E6A21D75334F00B2FADF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SplitAmountView.strings; sourceTree = "<group>"; };
+		DD2908581D1F02ED00E08799 /* Tipout.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Tipout.framework; path = Carthage/Build/iOS/Tipout.framework; sourceTree = "<group>"; };
+		DD29085B1D1F130800E08799 /* ControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerTests.swift; sourceTree = "<group>"; };
 		DD309D221B5F081C000EE80B /* Scratchpad.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Scratchpad.playground; sourceTree = "<group>"; };
 		DD36481A1CBEF479002CA8A5 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		DD36481C1CC828A7002CA8A5 /* SwiftAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftAlertView.swift; sourceTree = "<group>"; };
 		DD36481E1CC82AB7002CA8A5 /* SplitAmountView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitAmountView.swift; sourceTree = "<group>"; };
-		DD36481F1CC82AB7002CA8A5 /* SplitAmountView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SplitAmountView.xib; sourceTree = "<group>"; };
 		DD3648221CD17099002CA8A5 /* Formatter+UILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Formatter+UILabel.swift"; sourceTree = "<group>"; };
 		DD45FB811C64199E00DE5D7A /* TZStackView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TZStackView.framework; path = Carthage/Build/iOS/TZStackView.framework; sourceTree = "<group>"; };
 		DD54AA761BB0DB3300AFFA68 /* ViewModelable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelable.swift; sourceTree = "<group>"; };
@@ -143,7 +160,6 @@
 		DD67BD6D1B697E2E000EADD5 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		DD6CB2F61B5C45040097BB76 /* TipoutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipoutView.swift; sourceTree = "<group>"; };
 		DD6F0C371C1B98FC00A65CB0 /* Formatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
-		DD6F0C391C1BA11400A65CB0 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Main.strings; sourceTree = "<group>"; };
 		DD6F0C3A1C1BA11400A65CB0 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		DD6F0C3B1C1BA11400A65CB0 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		DD6F0C3C1C1BA11400A65CB0 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -166,12 +182,15 @@
 		DDA07EC01BC5F54D008B1081 /* TZStackView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TZStackView.framework; path = Carthage/Build/iOS/TZStackView.framework; sourceTree = "<group>"; };
 		DDA1E8751BB33E4600ADEB47 /* RACExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RACExtensions.swift; sourceTree = "<group>"; };
 		DDA4959D1CD19965007CDB56 /* Tipout.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Tipout.framework; path = "../../../Library/Developer/Xcode/DerivedData/Tippy-gvkefezoraqnmecjpvbnpgwrqnty/Build/Products/Debug-iphonesimulator/Tipout.framework"; sourceTree = "<group>"; };
-		DDA4959F1CD3F7D0007CDB56 /* Tipout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = Tipout.framework; path = "/Users/jambes/Library/Developer/Xcode/DerivedData/Tippy-gvkefezoraqnmecjpvbnpgwrqnty/Build/Products/Debug-iphoneos/Tipout.framework"; sourceTree = "<absolute>"; };
 		DDB6BC571CDD337A00D8A9D1 /* ColorStack.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ColorStack.storyboard; sourceTree = "<group>"; };
 		DDB6BC581CDD337A00D8A9D1 /* ColorStackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorStackViewController.swift; sourceTree = "<group>"; };
 		DDB6BC5B1CDD33DE00D8A9D1 /* ColorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorCell.swift; sourceTree = "<group>"; };
 		DDB9FD661BF40C5500FB6803 /* JCPTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JCPTextField.swift; sourceTree = "<group>"; };
+		DDBD12991D75056B0028350A /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		DDBFF7CD1C78F8A800D43C77 /* Gecco.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Gecco.framework; path = Carthage/Build/iOS/Gecco.framework; sourceTree = "<group>"; };
+		DDC061B21D11E3C1008081DB /* TippyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TippyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DDC061B41D11E3C1008081DB /* TippyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TippyUITests.swift; sourceTree = "<group>"; usesTabs = 0; };
+		DDC061B61D11E3C1008081DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DDDAE7451B6BDE0B008D2140 /* WorkerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkerTableViewController.swift; sourceTree = "<group>"; };
 		DDE21BB51B4E15BE002D5859 /* Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
 		DDE86B881C237E9C00DA7941 /* TotalFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TotalFieldDelegate.swift; sourceTree = "<group>"; };
@@ -181,7 +200,6 @@
 		DDE86B8D1C24DF1A00DA7941 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DDE86B8E1C24DF1A00DA7941 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		DDE86B951C24E79700DA7941 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/TipoutView.xib; sourceTree = "<group>"; };
-		DDE86B981C24E79C00DA7941 /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/TipoutView.strings"; sourceTree = "<group>"; };
 		DDE86B9A1C24E79F00DA7941 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/TipoutView.strings; sourceTree = "<group>"; };
 		DDE86B9C1C24E7B500DA7941 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/TableViewCell.xib; sourceTree = "<group>"; };
 		DDE86B9F1C24E7BB00DA7941 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TableViewCell.strings; sourceTree = "<group>"; };
@@ -201,12 +219,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD29085A1D1F031D00E08799 /* Tipout.framework in Frameworks */,
 				DD7CBA351B598DDE003B718D /* ReactiveCocoa.framework in Frameworks */,
 				DDBFF7CE1C78F8A800D43C77 /* Gecco.framework in Frameworks */,
 				DD45FB821C64199E00DE5D7A /* TZStackView.framework in Frameworks */,
 				DD7110691BE189EF00FA7006 /* SwiftyUserDefaults.framework in Frameworks */,
 				DD73DFC01BC1BC9B0005636C /* Chameleon.framework in Frameworks */,
-				DDA495A21CD3F9AD007CDB56 /* Tipout.framework in Frameworks */,
 				DD08EA4C1CED42510032DCC8 /* Mixpanel.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -220,13 +238,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DDC061AF1D11E3C1008081DB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		37DFF81F10D79D1C2B13583D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				DDA4959F1CD3F7D0007CDB56 /* Tipout.framework */,
+				DD2908581D1F02ED00E08799 /* Tipout.framework */,
 				DD08EA4B1CED42510032DCC8 /* Mixpanel.framework */,
 				DDA4959D1CD19965007CDB56 /* Tipout.framework */,
 				DDBFF7CD1C78F8A800D43C77 /* Gecco.framework */,
@@ -252,6 +277,7 @@
 				DD80142E1B16A1F3007A673F /* bridgingHeader.h */,
 				DD1C584A1B16981D00188B28 /* Tippy */,
 				DD1C58601B16981E00188B28 /* TippyTests */,
+				DDC061B31D11E3C1008081DB /* TippyUITests */,
 				DD1C58491B16981D00188B28 /* Products */,
 				37DFF81F10D79D1C2B13583D /* Frameworks */,
 				DD5B095B1C8B788C00A7A32E /* Tippy copy-Info.plist */,
@@ -263,6 +289,7 @@
 			children = (
 				DD1C58481B16981D00188B28 /* Tippy.app */,
 				DD1C585D1B16981E00188B28 /* TippyTests.xctest */,
+				DDC061B21D11E3C1008081DB /* TippyUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -301,6 +328,7 @@
 			children = (
 				DD1C58611B16981E00188B28 /* Supporting Files */,
 				DD54AA781BB1A77C00AFFA68 /* testWorkerViewModel.swift */,
+				DD29085B1D1F130800E08799 /* ControllerTests.swift */,
 				DD19B6381C192DC9000FFACA /* testFormatter.swift */,
 			);
 			path = TippyTests;
@@ -346,7 +374,7 @@
 				DDE86B961C24E79700DA7941 /* TipoutView.xib */,
 				DDE86B9D1C24E7B500DA7941 /* TableViewCell.xib */,
 				DD36481E1CC82AB7002CA8A5 /* SplitAmountView.swift */,
-				DD36481F1CC82AB7002CA8A5 /* SplitAmountView.xib */,
+				DD24E69C1D75334300B2FADF /* SplitAmountView.xib */,
 				DD8672331CE5430B00ED1D29 /* StackLayout.swift */,
 			);
 			name = UI;
@@ -362,6 +390,16 @@
 				DD8014291B16A15F007A673F /* TableViewBindingHelper.swift */,
 			);
 			name = "Third-Party";
+			sourceTree = "<group>";
+		};
+		DDC061B31D11E3C1008081DB /* TippyUITests */ = {
+			isa = PBXGroup;
+			children = (
+				DDBD129A1D75056B0028350A /* InfoPlist.strings */,
+				DDC061B41D11E3C1008081DB /* TippyUITests.swift */,
+				DDC061B61D11E3C1008081DB /* Info.plist */,
+			);
+			path = TippyUITests;
 			sourceTree = "<group>";
 		};
 		DDECA8EA1BA32E5B00D45446 /* ViewModel */ = {
@@ -427,6 +465,24 @@
 			productReference = DD1C585D1B16981E00188B28 /* TippyTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		DDC061B11D11E3C1008081DB /* TippyUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DDC061BB1D11E3C1008081DB /* Build configuration list for PBXNativeTarget "TippyUITests" */;
+			buildPhases = (
+				DDC061AE1D11E3C1008081DB /* Sources */,
+				DDC061AF1D11E3C1008081DB /* Frameworks */,
+				DDC061B01D11E3C1008081DB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DDC061B81D11E3C1008081DB /* PBXTargetDependency */,
+			);
+			name = TippyUITests;
+			productName = TippyUITests;
+			productReference = DDC061B21D11E3C1008081DB /* TippyUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -437,7 +493,7 @@
 					name,
 				);
 				LastSwiftMigration = 0700;
-				LastSwiftUpdateCheck = 0700;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "James Pamplona";
 				TargetAttributes = {
@@ -447,6 +503,10 @@
 					};
 					DD1C585C1B16981E00188B28 = {
 						CreatedOnToolsVersion = 6.3.2;
+						TestTargetID = DD1C58471B16981D00188B28;
+					};
+					DDC061B11D11E3C1008081DB = {
+						CreatedOnToolsVersion = 7.3;
 						TestTargetID = DD1C58471B16981D00188B28;
 					};
 				};
@@ -470,6 +530,7 @@
 			targets = (
 				DD1C58471B16981D00188B28 /* Tippy */,
 				DD1C585C1B16981E00188B28 /* TippyTests */,
+				DDC061B11D11E3C1008081DB /* TippyUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -481,7 +542,7 @@
 			files = (
 				DDB6BC591CDD337A00D8A9D1 /* ColorStack.storyboard in Resources */,
 				DD1C58531B16981D00188B28 /* Main.storyboard in Resources */,
-				DD3648211CC82AB7002CA8A5 /* SplitAmountView.xib in Resources */,
+				DD24E69A1D75334300B2FADF /* SplitAmountView.xib in Resources */,
 				DD7B06E41C2EFBCF00880CBD /* DefaultPreferences.plist in Resources */,
 				DD19B64A1C1A3EA5000FFACA /* InfoPlist.strings in Resources */,
 				DD19B63E1C1A3375000FFACA /* Localizable.strings in Resources */,
@@ -501,6 +562,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DDC061B01D11E3C1008081DB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DDBD12981D75056B0028350A /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -515,7 +584,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "APP_PATH=\"${TARGET_BUILD_DIR}/${WRAPPER_NAME}\"\n\n# This script loops through the frameworks embedded in the application and\n# removes unused architectures.\nfind \"$APP_PATH\" -name '*.framework' -type d | while read -r FRAMEWORK\ndo\n\nFRAMEWORK_EXECUTABLE_NAME=$(defaults read \"$FRAMEWORK/Info.plist\" CFBundleExecutable)\necho \"framework name is $FRAMEWORK_EXECUTABLE_NAME\"\n#echo $FRAMEWORK_EXECUTABLE_NAME >> ~/Desktop/outputText.txt\nif [ $FRAMEWORK_EXECUTABLE_NAME != \"Tipout\" ]; then\nFRAMEWORK_EXECUTABLE_PATH=\"$FRAMEWORK/$FRAMEWORK_EXECUTABLE_NAME\"\necho \"Executable is $FRAMEWORK_EXECUTABLE_PATH\"\n\nEXTRACTED_ARCHS=()\n\nfor ARCH in $ARCHS\ndo\necho \"Extracting $ARCH from $FRAMEWORK_EXECUTABLE_NAME\"\nlipo -extract \"$ARCH\" \"$FRAMEWORK_EXECUTABLE_PATH\" -o \"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\"\nEXTRACTED_ARCHS+=(\"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\")\ndone\n\necho \"Merging extracted architectures: ${ARCHS}\"\nlipo -o \"$FRAMEWORK_EXECUTABLE_PATH-merged\" -create \"${EXTRACTED_ARCHS[@]}\"\nrm \"${EXTRACTED_ARCHS[@]}\"\n\necho \"Replacing original executable with thinned version\"\nrm \"$FRAMEWORK_EXECUTABLE_PATH\"\nmv \"$FRAMEWORK_EXECUTABLE_PATH-merged\" \"$FRAMEWORK_EXECUTABLE_PATH\"\nfi\ndone";
+			shellScript = "APP_PATH=\"${TARGET_BUILD_DIR}/${WRAPPER_NAME}\"\n\n# This script loops through the frameworks embedded in the application and\n# removes unused architectures.\nfind \"$APP_PATH\" -name '*.framework' -type d | while read -r FRAMEWORK\ndo\n\nFRAMEWORK_EXECUTABLE_NAME=$(defaults read \"$FRAMEWORK/Info.plist\" CFBundleExecutable)\necho \"framework name is $FRAMEWORK_EXECUTABLE_NAME\"\n#echo $FRAMEWORK_EXECUTABLE_NAME >> ~/Desktop/outputText.txt\n#if [ $FRAMEWORK_EXECUTABLE_NAME != \"Tipout\" ]; then\nFRAMEWORK_EXECUTABLE_PATH=\"$FRAMEWORK/$FRAMEWORK_EXECUTABLE_NAME\"\necho \"Executable is $FRAMEWORK_EXECUTABLE_PATH\"\n\nEXTRACTED_ARCHS=()\n\nfor ARCH in $ARCHS\ndo\necho \"Extracting $ARCH from $FRAMEWORK_EXECUTABLE_NAME\"\nlipo -extract \"$ARCH\" \"$FRAMEWORK_EXECUTABLE_PATH\" -o \"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\"\nEXTRACTED_ARCHS+=(\"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\")\ndone\n\necho \"Merging extracted architectures: ${ARCHS}\"\nlipo -o \"$FRAMEWORK_EXECUTABLE_PATH-merged\" -create \"${EXTRACTED_ARCHS[@]}\"\nrm \"${EXTRACTED_ARCHS[@]}\"\n\necho \"Replacing original executable with thinned version\"\nrm \"$FRAMEWORK_EXECUTABLE_PATH\"\nmv \"$FRAMEWORK_EXECUTABLE_PATH-merged\" \"$FRAMEWORK_EXECUTABLE_PATH\"\n#fi\ndone";
 		};
 		DD54AA7B1BB1A96D00AFFA68 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -544,6 +613,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyUserDefaults.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Gecco.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Mixpanel.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Tipout.framework",
 			);
 			outputPaths = (
 			);
@@ -568,7 +638,6 @@
 				DDDAE7461B6BDE0B008D2140 /* WorkerTableViewController.swift in Sources */,
 				DD6F0C381C1B98FC00A65CB0 /* Formatter.swift in Sources */,
 				DD1C58501B16981D00188B28 /* ViewController.swift in Sources */,
-				DD8672361CEBE9CF00ED1D29 /* main.swift in Sources */,
 				DD80142C1B16A15F007A673F /* RACSignal+Extensions.swift in Sources */,
 				DDB9FD671BF40C5500FB6803 /* JCPTextField.swift in Sources */,
 				DD1C586E1B16995000188B28 /* TipoutViewModel.swift in Sources */,
@@ -598,7 +667,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD19B6391C192DC9000FFACA /* testFormatter.swift in Sources */,
+				DD29085C1D1F130800E08799 /* ControllerTests.swift in Sources */,
 				DD54AA791BB1A77C00AFFA68 /* testWorkerViewModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DDC061AE1D11E3C1008081DB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DDC061B51D11E3C1008081DB /* TippyUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -609,6 +687,11 @@
 			isa = PBXTargetDependency;
 			target = DD1C58471B16981D00188B28 /* Tippy */;
 			targetProxy = DD1C585E1B16981E00188B28 /* PBXContainerItemProxy */;
+		};
+		DDC061B81D11E3C1008081DB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DD1C58471B16981D00188B28 /* Tippy */;
+			targetProxy = DDC061B71D11E3C1008081DB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -652,10 +735,9 @@
 			isa = PBXVariantGroup;
 			children = (
 				DD1C58521B16981D00188B28 /* Base */,
-				DD19B63A1C1A2D55000FFACA /* pt-PT */,
-				DD6F0C391C1BA11400A65CB0 /* tr */,
 				DDE86B8A1C24DF1A00DA7941 /* pt */,
 				DDE86BA01C24E7F400DA7941 /* es */,
+				DD24E6971D7532FA00B2FADF /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -672,13 +754,33 @@
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
+		DD24E69C1D75334300B2FADF /* SplitAmountView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DD24E69B1D75334300B2FADF /* Base */,
+				DD24E69E1D75334900B2FADF /* es */,
+				DD24E6A01D75334D00B2FADF /* pt */,
+				DD24E6A21D75334F00B2FADF /* en */,
+			);
+			name = SplitAmountView.xib;
+			sourceTree = "<group>";
+		};
+		DDBD129A1D75056B0028350A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DDBD12991D75056B0028350A /* pt */,
+				DD24E6941D752D2000B2FADF /* es */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		DDE86B961C24E79700DA7941 /* TipoutView.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				DDE86B951C24E79700DA7941 /* Base */,
-				DDE86B981C24E79C00DA7941 /* pt-PT */,
 				DDE86B9A1C24E79F00DA7941 /* pt */,
 				DDE86BA11C24E7F400DA7941 /* es */,
+				DD24E6991D75331700B2FADF /* en */,
 			);
 			name = TipoutView.xib;
 			sourceTree = "<group>";
@@ -689,6 +791,7 @@
 				DDE86B9C1C24E7B500DA7941 /* Base */,
 				DDE86B9F1C24E7BB00DA7941 /* en */,
 				DDE86BA61C24ECFC00DA7941 /* pt */,
+				DD24E6951D752D2100B2FADF /* es */,
 			);
 			name = TableViewCell.xib;
 			sourceTree = "<group>";
@@ -719,6 +822,7 @@
 				DEFINES_MODULE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = "${TARGET_BUILD_DIR}/**";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -766,6 +870,7 @@
 				DEFINES_MODULE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = "${TARGET_BUILD_DIR}/**";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -794,6 +899,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"${TARGET_BUILD_DIR}/**",
 				);
 				INFOPLIST_FILE = Tippy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
@@ -815,9 +921,11 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 19;
 				ENABLE_BITCODE = NO;
+				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"${TARGET_BUILD_DIR}/**",
 				);
 				INFOPLIST_FILE = Tippy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
@@ -871,6 +979,33 @@
 			};
 			name = Release;
 		};
+		DDC061B91D11E3C1008081DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = TippyUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.toastersocks.TippyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Tippy;
+			};
+			name = Debug;
+		};
+		DDC061BA1D11E3C1008081DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				INFOPLIST_FILE = TippyUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.toastersocks.TippyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Tippy;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -897,6 +1032,15 @@
 			buildConfigurations = (
 				DD1C586B1B16981E00188B28 /* Debug */,
 				DD1C586C1B16981E00188B28 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DDC061BB1D11E3C1008081DB /* Build configuration list for PBXNativeTarget "TippyUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DDC061B91D11E3C1008081DB /* Debug */,
+				DDC061BA1D11E3C1008081DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

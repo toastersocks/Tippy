@@ -1,7 +1,9 @@
-/* 
-  Localizable.strings
-  Tippy
+/* Amount of currency */
+"Amount" = "Cantidad";
 
-  Created by James Pamplona on 12/10/15.
-  Copyright © 2015 James Pamplona. All rights reserved.
-*/
+/* Percent of currency */
+"Percent" = "Porcentaje";
+
+/* Split an amount of currency */
+"Split" = "Dividir";
+

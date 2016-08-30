@@ -72,6 +72,8 @@ class WorkerTableViewController: UITableViewController, TipoutViewDelegate {
         guard let tableViewCell = cell as? TableViewCell else { fatalError("Expected a TableViewCell; got a \(cell.dynamicType) instead") }
         
         tableViewCell.viewModel = viewModel[indexPath.row]
+        tableViewCell.accessibilityLabel = "Worker \(indexPath.item) with name \(tableViewCell.workerView.nameField.text)"
+        tableViewCell.accessibilityIdentifier = "worker\(indexPath.item)"
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

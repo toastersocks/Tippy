@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -24,6 +25,7 @@
                 </view>
                 <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="250" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Hours" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="ZYw-qH-tIw" customClass="JCPTextField" customModule="Tippy" customModuleProvider="target">
                     <rect key="frame" x="122" y="16" width="59" height="30"/>
+                    <accessibility key="accessibilityConfiguration" identifier="hoursField" label="Hours"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="decimalPad"/>
                     <connections>
@@ -32,6 +34,7 @@
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Amount" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="xyf-xE-rf0" customClass="JCPTextField" customModule="Tippy" customModuleProvider="target">
                     <rect key="frame" x="383" y="15" width="71" height="30"/>
+                    <accessibility key="accessibilityConfiguration" identifier="amountField" label="Amount"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="decimalPad"/>
                     <connections>
@@ -40,6 +43,7 @@
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="2ro-lY-Lgc" customClass="JCPTextField" customModule="Tippy" customModuleProvider="target">
                     <rect key="frame" x="8" y="16" width="59" height="30"/>
+                    <accessibility key="accessibilityConfiguration" identifier="nameField" label="Name"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                     <connections>
@@ -52,6 +56,7 @@
                 </view>
                 <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Percentage" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="KYw-C6-HDU" customClass="JCPTextField" customModule="Tippy" customModuleProvider="target">
                     <rect key="frame" x="235" y="16" width="93" height="30"/>
+                    <accessibility key="accessibilityConfiguration" identifier="percentField" label="Percent"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="decimalPad"/>
                     <connections>
