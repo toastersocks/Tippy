@@ -3,7 +3,7 @@
 "3Um-hq-lka.headerTitle" = "Feedback";
 
 /* Class = "UIButton"; accessibilityIdentifier = "settings"; ObjectID = "4K1-RY-c0v"; */
-"4K1-RY-c0v.accessibilityIdentifier" = "settings";
+//"4K1-RY-c0v.accessibilityIdentifier" = "settings";
 
 /* Class = "UIButton"; accessibilityLabel = "Settings"; ObjectID = "4K1-RY-c0v"; */
 "4K1-RY-c0v.accessibilityLabel" = "Settings";
@@ -18,7 +18,7 @@
 "60P-I6-phS.accessibilityHint" = "Create a new tipout";
 
 /* Class = "UIButton"; accessibilityIdentifier = "new"; ObjectID = "60P-I6-phS"; */
-"60P-I6-phS.accessibilityIdentifier" = "new";
+//"60P-I6-phS.accessibilityIdentifier" = "new";
 
 /* Class = "UIButton"; accessibilityLabel = "New"; ObjectID = "60P-I6-phS"; */
 "60P-I6-phS.accessibilityLabel" = "New";
@@ -33,7 +33,7 @@
 "Clm-pj-aYP.accessibilityHint" = "Clear all tipouts";
 
 /* Class = "UIButton"; accessibilityIdentifier = "clearAll"; ObjectID = "Clm-pj-aYP"; */
-"Clm-pj-aYP.accessibilityIdentifier" = "clearAll";
+//"Clm-pj-aYP.accessibilityIdentifier" = "clearAll";
 
 /* Class = "UIButton"; accessibilityLabel = "Clear all"; ObjectID = "Clm-pj-aYP"; */
 "Clm-pj-aYP.accessibilityLabel" = "Clear all";
@@ -48,13 +48,13 @@
 "ESV-TY-5WW.text" = "Tap to add new workers (left-swipe a worker to delete)";
 
 /* Class = "UITextField"; accessibilityIdentifier = "total"; ObjectID = "LeT-AW-ZnX"; */
-"LeT-AW-ZnX.accessibilityIdentifier" = "total";
+//"LeT-AW-ZnX.accessibilityIdentifier" = "total";
 
 /* Class = "UITextField"; accessibilityLabel = "Total"; ObjectID = "LeT-AW-ZnX"; */
 "LeT-AW-ZnX.accessibilityLabel" = "Total";
 
 /* Class = "UITextField"; placeholder = "                       "; ObjectID = "LeT-AW-ZnX"; */
-"LeT-AW-ZnX.placeholder" = "                       ";
+"LeT-AW-ZnX.placeholder" = "";
 
 /* Class = "UILabel"; text = "Acknowledgements"; ObjectID = "MFl-H6-J8J"; */
 "MFl-H6-J8J.text" = "Acknowledgements";
@@ -69,7 +69,7 @@
 "Qgh-NW-lUk.accessibilityHint" = "Clear current tipout";
 
 /* Class = "UIButton"; accessibilityIdentifier = "clear"; ObjectID = "Qgh-NW-lUk"; */
-"Qgh-NW-lUk.accessibilityIdentifier" = "clear";
+//"Qgh-NW-lUk.accessibilityIdentifier" = "clear";
 
 /* Class = "UIButton"; accessibilityLabel = "Clear"; ObjectID = "Qgh-NW-lUk"; */
 "Qgh-NW-lUk.accessibilityLabel" = "Clear";
@@ -84,7 +84,7 @@
 "Vod-yr-7GK.text" = "Combine all your tipouts together";
 
 /* Class = "UIButton"; accessibilityIdentifier = "addWorker"; ObjectID = "WgE-Kv-GHU"; */
-"WgE-Kv-GHU.accessibilityIdentifier" = "addWorker";
+//"WgE-Kv-GHU.accessibilityIdentifier" = "addWorker";
 
 /* Class = "UIButton"; accessibilityLabel = "Add worker"; ObjectID = "WgE-Kv-GHU"; */
 "WgE-Kv-GHU.accessibilityLabel" = "Add worker";
@@ -111,7 +111,7 @@
 "j3G-1F-3RX.accessibilityHint" = "Split an amount from the total into another tipout";
 
 /* Class = "UIButton"; accessibilityIdentifier = "split"; ObjectID = "j3G-1F-3RX"; */
-"j3G-1F-3RX.accessibilityIdentifier" = "split";
+//"j3G-1F-3RX.accessibilityIdentifier" = "split";
 
 /* Class = "UIButton"; accessibilityLabel = "Split"; ObjectID = "j3G-1F-3RX"; */
 "j3G-1F-3RX.accessibilityLabel" = "Split";
@@ -129,7 +129,7 @@
 "qSR-OL-u54.accessibilityHint" = "Combine all tipouts";
 
 /* Class = "UIButton"; accessibilityIdentifier = "combine"; ObjectID = "qSR-OL-u54"; */
-"qSR-OL-u54.accessibilityIdentifier" = "combine";
+//"qSR-OL-u54.accessibilityIdentifier" = "combine";
 
 /* Class = "UIButton"; accessibilityLabel = "Combine"; ObjectID = "qSR-OL-u54"; */
 "qSR-OL-u54.accessibilityLabel" = "Combine";
@@ -144,7 +144,7 @@
 "ra2-AO-xaS.text" = "Clear all your tipouts";
 
 /* Class = "UILabel"; accessibilityIdentifier = "totalLabel"; ObjectID = "s2T-4J-pvx"; */
-"s2T-4J-pvx.accessibilityIdentifier" = "totalLabel";
+//"s2T-4J-pvx.accessibilityIdentifier" = "totalLabel";
 
 /* Class = "UILabel"; accessibilityLabel = "Total label"; ObjectID = "s2T-4J-pvx"; */
 "s2T-4J-pvx.accessibilityLabel" = "Total label";

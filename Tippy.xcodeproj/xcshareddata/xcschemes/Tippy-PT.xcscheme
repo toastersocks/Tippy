@@ -33,8 +33,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "DDC061B11D11E3C1008081DB"
-               BuildableName = "TippyUITests.xctest"
-               BlueprintName = "TippyUITests"
+               BuildableName = "Screenshots.xctest"
+               BlueprintName = "Screenshots"
                ReferencedContainer = "container:Tippy.xcodeproj">
             </BuildableReference>
          </TestableReference>

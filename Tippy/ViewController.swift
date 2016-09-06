@@ -11,6 +11,7 @@ import ReactiveCocoa
 import SwiftyUserDefaults
 import Gecco
 import Chameleon
+import PopupDialog
 
 
 class ViewController: UIViewController {
@@ -138,7 +139,7 @@ class ViewController: UIViewController {
     override func viewDidAppear(animated: Bool) {
         Defaults.rac_channelTerminalForKey(DefaultsKeys.showWalkthrough._key).subscribeNextAs {
             (showWalkthrough: Bool) -> () in
-            if showWalkthrough {
+            if showWalkthrough && !isUITest() {
                 self.showWalkthrough()
             }
         }

@@ -17,7 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        _ = Mixpanel.sharedInstanceWithToken("7d099edd7dcdb4e8fd8e8776a40361b9")
+//        _ = Mixpanel.sharedInstanceWithToken("7d099edd7dcdb4e8fd8e8776a40361b9")
+        if isTakingScreenshots() {
+            // Clean up status bar
+        }
         debug {
             StartupTimeProfiler.addEvent("App finished launching")
             print("Total startup time: \(StartupTimeProfiler.totalTime)")

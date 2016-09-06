@@ -34,6 +34,20 @@
                ReferencedContainer = "container:Tippy.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "NO"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "DDC061B11D11E3C1008081DB"
+               BuildableName = "Screenshots.xctest"
+               BlueprintName = "Screenshots"
+               ReferencedContainer = "container:Tippy.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -50,16 +64,6 @@
                BlueprintIdentifier = "DD1C585C1B16981E00188B28"
                BuildableName = "TippyTests.xctest"
                BlueprintName = "TippyTests"
-               ReferencedContainer = "container:Tippy.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DDC061B11D11E3C1008081DB"
-               BuildableName = "TippyUITests.xctest"
-               BlueprintName = "TippyUITests"
                ReferencedContainer = "container:Tippy.xcodeproj">
             </BuildableReference>
          </TestableReference>

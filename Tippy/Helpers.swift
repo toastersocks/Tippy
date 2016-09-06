@@ -73,8 +73,27 @@ extension Array {
     }
 }
 
+extension Dictionary {
+    public func hasKey(key: Key) -> Bool {
+        return self[key] != nil
+    }
+}
+
 func debug(block: () -> Void) {
     #if DEBUG
         block()
     #endif
+}
+
+func isUITest() -> Bool {
+    var isTest = false
+//    debug {
+        isTest = NSProcessInfo.processInfo().environment.hasKey("UITest")
+//    }
+    
+    return isTest
+}
+
+func isTakingScreenshots() -> Bool {
+    return NSProcessInfo.processInfo().environment.hasKey("TakingScreenshots")
 }

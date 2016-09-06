@@ -2,7 +2,7 @@
 "3Um-hq-lka.headerTitle" = "Comentarios";
 
 /* Class = "UIButton"; accessibilityIdentifier = "settings"; ObjectID = "4K1-RY-c0v"; */
-"4K1-RY-c0v.accessibilityIdentifier" = "";
+//"4K1-RY-c0v.accessibilityIdentifier" = "";
 
 /* Class = "UIButton"; accessibilityLabel = "Settings"; ObjectID = "4K1-RY-c0v"; */
 "4K1-RY-c0v.accessibilityLabel" = "Configurações";
