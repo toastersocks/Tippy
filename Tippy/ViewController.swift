@@ -29,8 +29,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var totalField: UITextField!
     @IBOutlet weak var splitButton: UIButton!
-//    @IBOutlet weak var clearButton: UIButton!
-//    @IBOutlet weak var clearAllButton: UIButton!
+    //    @IBOutlet weak var clearButton: UIButton!
+    //    @IBOutlet weak var clearAllButton: UIButton!
     
     @IBOutlet weak var settingsBarButton: UIButton!
     @IBOutlet weak var combineOrDoneButton: UIButton! {
@@ -77,7 +77,7 @@ class ViewController: UIViewController {
     // MARK: - Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
         controller.colorStack = colorDelegate
         controller.numberFormatter = numberFormatter
         
@@ -85,7 +85,7 @@ class ViewController: UIViewController {
         
         numberFormatter?.configureAmountTextfield(&totalField!)
         
-
+        
         let totalSignal = RACObserve(self, "controller.currentViewModel.totalText")
         
         totalField.rac_textSignal().subscribeNextAs({ (text: NSString) -> () in
@@ -105,17 +105,17 @@ class ViewController: UIViewController {
         // Color
         RACObserve(self, "controller.currentColor").subscribeNextAs {
             (color: UIColor) in
-//            Chameleon.setGlobalThemeUsingPrimaryColor(color, withContentStyle: .Contrast)
-//            self.containerView.backgroundColor = color.colorWithAlphaComponent(0.25)
+            //            Chameleon.setGlobalThemeUsingPrimaryColor(color, withContentStyle: .Contrast)
+            //            self.containerView.backgroundColor = color.colorWithAlphaComponent(0.25)
             let color = color
             
             self.workerTableViewController.view.backgroundColor = color.colorWithAlphaComponent(0.25)
             self.upperToolbar.barTintColor = color.colorWithAlphaComponent(0.25)
             self.bottomBar.backgroundColor = color.colorWithAlphaComponent(0.25)
-//            self.bottomBar.tintColor = UIColor(contrastingBlackOrWhiteColorOn: color.colorWithAlphaComponent(0.25), isFlat: true)
+            //            self.bottomBar.tintColor = UIColor(contrastingBlackOrWhiteColorOn: color.colorWithAlphaComponent(0.25), isFlat: true)
             self.upperToolbar.tintColor = UIColor(contrastingBlackOrWhiteColorOn: self.upperToolbar.barTintColor, isFlat: true)
-//            self.setThemeUsingPrimaryColor(color, withContentStyle: .Contrast)
-//            self.workerTableViewController.setThemeUsingPrimaryColor(color, withContentStyle: .Contrast)
+            //            self.setThemeUsingPrimaryColor(color, withContentStyle: .Contrast)
+            //            self.workerTableViewController.setThemeUsingPrimaryColor(color, withContentStyle: .Contrast)
         }
         
         // Workers
@@ -143,7 +143,7 @@ class ViewController: UIViewController {
                 self.showWalkthrough()
             }
         }
-
+        
     }
     
     func showWalkthrough() {
@@ -173,7 +173,7 @@ class ViewController: UIViewController {
         if controller.count == 1 {
             colorStackViewController.reload()
         } else {
-        colorStackViewController.removeItemAtIndex(index)
+            colorStackViewController.removeItemAtIndex(index)
         }
     }
     
@@ -193,24 +193,29 @@ class ViewController: UIViewController {
         viewController.combineOrDoneButton.removeTarget(viewController, action: .new, forControlEvents: .TouchUpInside)
         viewController.combineOrDoneButton.addTarget(viewController, action: .done, forControlEvents: .TouchUpInside)
         viewController.newButton.enabled = false
-
-//            debugPrint(combinedTipoutViewModel.totalText)
-    
+        
+        //            debugPrint(combinedTipoutViewModel.totalText)
+        
     }
     
     @IBAction func split() {
-        let bundle = NSBundle(identifier: "com.apple.UIKit")
-        let alertView = SwiftAlertView(nibName: "SplitAmountView", delegate: nil, cancelButtonTitle: bundle?.localizedStringForKey("Cancel", value: "", table: nil), otherButtonTitles: NSLocalizedString("Split", comment: "Split an amount of currency"))
-        (alertView.contentView as! SplitAmountView).formatter = numberFormatter
-        alertView.clickedOtherButtonAction = {
-            (buttonIndex: Int) in
-            switch buttonIndex {
-            case 0: // Cancel
-                break
-            case 1: // Split
-                guard let splitAmountView = alertView.contentView as? SplitAmountView else { return }
-                let splitMethod = splitAmountView.splitMethod
-
+        guard let bundle = NSBundle(identifier: "com.apple.UIKit") else { fatalError("Couln't access bundle") }
+        let splitController = SplitAmountViewController(nibName: "SplitAmountView", bundle: nil)
+        let cancelButton: CancelButton = {
+            $0.accessibilityIdentifier = "cancelButton"
+            $0.accessibilityLabel = NSLocalizedString("Cancel", comment: "Cancels the action")
+            return $0
+        }(CancelButton(title: bundle.localizedStringForKey("Cancel", value: "", table: nil), action: nil))
+        
+        let splitButton: DefaultButton = {
+            $0.accessibilityIdentifier = "splitButton"
+            $0.accessibilityLabel = NSLocalizedString("Split", comment: "Cancels the action")
+            return $0
+            }(DefaultButton(title: NSLocalizedString("Split", comment: "Split an amount of currency")) {
+                
+                
+                let splitMethod = splitController.splitMethod
+                
                 // If amount is zero, there's nothing to split
                 if case let .Amount(amount) = splitMethod where amount == 0.0 {
                     return
@@ -218,17 +223,16 @@ class ViewController: UIViewController {
                     return
                 }
                 
-                self.controller.split(by: splitAmountView.splitMethod)
-            default:
-                return
-            }
-            
-            self.colorStackViewController.insertItemAtIndex(self.controller.currentIndex + 1)
-            print("Button index is \(buttonIndex)")
-        }
+                self.controller.split(by: splitController.splitMethod)
+                self.colorStackViewController.insertItemAtIndex(self.controller.currentIndex + 1)
+                })
         
+        let alertView = PopupDialog(viewController: splitController, buttonAlignment: .Horizontal, transitionStyle: .BounceDown, gestureDismissal: true)
+        alertView.addButtons([cancelButton, splitButton])
         
-        alertView.show()
+        splitController.formatter = numberFormatter
+        
+        self.presentViewController(alertView, animated: true, completion: nil)
     }
     
     @IBAction func done() {
@@ -280,7 +284,7 @@ class ViewController: UIViewController {
     func keyboardWillHide(notification: NSNotification) {
         guard let info = notification.userInfo else { fatalError("Couldn't get info dictionary from notification") }
         guard let animationDuration = info[UIKeyboardAnimationDurationUserInfoKey]?.doubleValue else { fatalError("Couldn't get keyboard animation duration") }
-//        self.view.layoutIfNeeded()
+        //        self.view.layoutIfNeeded()
         self.bottomBarLayoutConstraint.constant = 0
         UIView.animateWithDuration(animationDuration) {
             self.bottomBar.layoutIfNeeded()

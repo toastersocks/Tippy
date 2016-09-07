@@ -2,20 +2,18 @@
 //  SplitAmountViewController.swift
 //  Tippy
 //
-//  Created by James Pamplona on 4/20/16.
 //  Copyright © 2016 James Pamplona. All rights reserved.
 //
 
 import UIKit
 import ReactiveCocoa
 
-
 public enum Split {
     case Amount(Double)
     case Percentage(Double)
 }
 
-class SplitAmountView: UIView {
+class SplitAmountViewController: UIViewController {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var splitMethodSegmentedControl: UISegmentedControl!
@@ -58,7 +56,14 @@ class SplitAmountView: UIView {
         }
     }
     
-    override func didMoveToSuperview() {
+    override func viewDidLoad() {
+        super.viewDidLoad()
         methodAmountField.becomeFirstResponder()
+        // Do any additional setup after loading the view.
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
 }

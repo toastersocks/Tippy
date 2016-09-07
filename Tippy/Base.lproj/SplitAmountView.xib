@@ -6,20 +6,27 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SplitAmountViewController" customModule="Tippy" customModuleProvider="target">
+            <connections>
+                <outlet property="methodAmountField" destination="nTD-il-x04" id="HFJ-LV-PbG"/>
+                <outlet property="splitMethodSegmentedControl" destination="Ust-gp-wXs" id="PgC-Kl-urN"/>
+                <outlet property="titleLabel" destination="e7M-nY-YFV" id="6ES-bI-LAo"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="1u4-55-jqw"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT" customClass="SplitAmountView" customModule="Tippy" customModuleProvider="target">
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="280" height="134"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="751" text="Split by..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e7M-nY-YFV">
-                    <rect key="frame" x="105" y="16" width="70" height="21"/>
+                    <rect key="frame" x="105" y="24" width="70" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Ust-gp-wXs">
-                    <rect key="frame" x="56" y="45" width="169" height="29"/>
+                    <rect key="frame" x="56" y="53" width="169" height="29"/>
                     <segments>
                         <segment title="Amount"/>
                         <segment title="Percentage"/>
@@ -43,7 +50,7 @@
                 <constraint firstItem="nTD-il-x04" firstAttribute="top" secondItem="Ust-gp-wXs" secondAttribute="bottom" constant="8" symbolic="YES" id="aJs-Ur-ZoC"/>
                 <constraint firstAttribute="bottom" secondItem="nTD-il-x04" secondAttribute="bottom" priority="250" constant="20" symbolic="YES" id="l5R-8f-cPQ"/>
                 <constraint firstItem="nTD-il-x04" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" symbolic="YES" id="mQh-bZ-pOS"/>
-                <constraint firstItem="e7M-nY-YFV" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="topMargin" constant="8" id="mwb-hq-qeo"/>
+                <constraint firstItem="e7M-nY-YFV" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="topMargin" constant="16" id="mwb-hq-qeo"/>
                 <constraint firstItem="e7M-nY-YFV" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="n9f-4r-UbC"/>
                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="e7M-nY-YFV" secondAttribute="trailing" constant="20" symbolic="YES" id="ptg-Mo-6iv"/>
                 <constraint firstItem="nTD-il-x04" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="sTE-Oq-N7o"/>
@@ -54,12 +61,7 @@
                     <exclude reference="Q8N-LD-9Oj"/>
                 </mask>
             </variation>
-            <connections>
-                <outlet property="methodAmountField" destination="nTD-il-x04" id="41j-XK-HPz"/>
-                <outlet property="splitMethodSegmentedControl" destination="Ust-gp-wXs" id="f7j-9g-QZr"/>
-                <outlet property="titleLabel" destination="e7M-nY-YFV" id="YGB-ac-KPw"/>
-            </connections>
-            <point key="canvasLocation" x="-113" y="297"/>
+            <point key="canvasLocation" x="553" y="120"/>
         </view>
     </objects>
 </document>
