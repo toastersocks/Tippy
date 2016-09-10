@@ -33,6 +33,10 @@ class Screenshots: XCTestCase {
     func testFirstScreen() {
         
         let app = XCUIApplication()
+        let newButton = app.buttons["new"]
+        newButton.tap()
+        newButton.tap()
+        newButton.tap()
         
         app.textFields["total"].tap()
         app.typeText("125")
@@ -42,7 +46,7 @@ class Screenshots: XCTestCase {
         let tablesQuery = app.tables
         
         tablesQuery.textFields["nameField"].tap()
-//        tablesQuery.textFields["nameField"]
+
         app.typeText("Joanna")
         
         let percentfieldTextField = tablesQuery.textFields["percentField"]
@@ -81,23 +85,23 @@ class Screenshots: XCTestCase {
         
         snapshot("0firstScreen")
         
+        let splitButton = app.buttons["split"]
+        splitButton.tap()
+        app.typeText("50")
+        
+        snapshot("1splitScreen")
+        
+        app.buttons["cancelButton"].tap()
+        app.buttons["settings"].tap()
+        
+        snapshot("2settingsScreen")
+        
         
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
     
     func testSplitScreen() {
         
-        let app = XCUIApplication()
-        app.textFields["total"].tap()
-        app.textFields["total"].typeText("427")
-        
-        let splitButton = app.buttons["split"]
-        splitButton.tap()
-        app.buttons["Cancelar"].tap()
-        splitButton.tap()
-        app.buttons["Percentagem"].tap()
-        app.textFields["Percentagem"]
-        app.tables["Lista vazia"].buttons["addWorker"].tap()
         
     }
 }
