@@ -8,8 +8,10 @@
 
 #ifndef tippy_bridgingHeader_h
 #define tippy_bridgingHeader_h
-
-
 #endif
 
+
+#ifndef DEBUG
 #import "Mixpanel/Mixpanel.h"
+#endif
+

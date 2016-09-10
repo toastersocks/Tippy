@@ -7,8 +7,10 @@
 //
 
 import UIKit
-import func AudioToolbox.AudioServicesPlayAlertSound
-
+import Mixpanel
+#if DEBUG
+    import func AudioToolbox.AudioServicesPlayAlertSound
+#endif
 @UIApplicationMain
 
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,7 +19,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-//        _ = Mixpanel.sharedInstanceWithToken("7d099edd7dcdb4e8fd8e8776a40361b9")
+        #if !DEBUG
+        _ = Mixpanel.sharedInstanceWithToken("7d099edd7dcdb4e8fd8e8776a40361b9")
+        #endif
+        
         if isTakingScreenshots() {
             // Clean up status bar
         }
@@ -56,7 +61,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidReceiveMemoryWarning(application: UIApplication) {
+        #if DEBUG
         AudioServicesPlayAlertSound(1103)
+        #else
+        Mixpanel.sharedInstance().track("Low memory")
+        #endif
     }
 }
 
