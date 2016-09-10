@@ -24,8 +24,8 @@
                                     <segue destination="FuP-NT-pDq" kind="embed" id="iLf-d4-vRL"/>
                                 </connections>
                             </containerView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xSJ-jd-U3j">
-                                <rect key="frame" x="525" y="27" width="55" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xSJ-jd-U3j">
+                                <rect key="frame" x="525" y="28" width="55" height="30"/>
                                 <state key="normal" title="Remove"/>
                                 <connections>
                                     <action selector="remove" destination="BYZ-38-t0r" eventType="touchUpInside" id="fGY-Av-lBg"/>

@@ -18,6 +18,8 @@ class WorkerTableViewController: UITableViewController, TipoutViewDelegate {
         }
     }
     
+    var emptyView: EmptyView = EmptyView()
+    var showEmptyViewWhenLessThan = 1
     var formatter: Formatter?
     
     @IBOutlet weak var addNewButton: UIButton!
@@ -27,6 +29,8 @@ class WorkerTableViewController: UITableViewController, TipoutViewDelegate {
         // over each other on iOS 8.1 & 8.2
         tableView.estimatedRowHeight = 44
         tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.backgroundView = emptyView
+        hideEmptyView()
         super.viewDidLoad()
     }
 
@@ -77,7 +81,13 @@ class WorkerTableViewController: UITableViewController, TipoutViewDelegate {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel?.count ?? 0
+        let rows = viewModel?.count ?? 0
+        if rows < showEmptyViewWhenLessThan  && emptyView.hidden == true {
+            showEmptyView()
+        } else if rows >= showEmptyViewWhenLessThan && emptyView.hidden == false {
+            hideEmptyView()
+        }
+        return rows
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -95,6 +105,18 @@ class WorkerTableViewController: UITableViewController, TipoutViewDelegate {
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
             tableView.endUpdates()
         }
+    }
+    
+    // MARK: Empty View
+    
+    func showEmptyView() {
+        emptyView.hidden = false
+        tableView.bringSubviewToFront(emptyView)
+    }
+    
+    func hideEmptyView() {
+        emptyView.hidden = true
+        tableView.sendSubviewToBack(emptyView)
     }
     
     // MARK: TipoutView

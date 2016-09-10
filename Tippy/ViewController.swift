@@ -116,6 +116,7 @@ class ViewController: UIViewController {
             self.upperToolbar.tintColor = UIColor(contrastingBlackOrWhiteColorOn: self.upperToolbar.barTintColor, isFlat: true)
             //            self.setThemeUsingPrimaryColor(color, withContentStyle: .Contrast)
             //            self.workerTableViewController.setThemeUsingPrimaryColor(color, withContentStyle: .Contrast)
+            self.workerTableViewController.emptyView.tintColor = color
         }
         
         // Workers

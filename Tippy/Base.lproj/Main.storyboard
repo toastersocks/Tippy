@@ -180,7 +180,7 @@
                                         </constraints>
                                     </view>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PYn-if-1iV" userLabel="Workers Container View">
-                                        <rect key="frame" x="0.0" y="113" width="375" height="490"/>
+                                        <rect key="frame" x="0.0" y="109" width="375" height="494"/>
                                         <connections>
                                             <segue destination="zgZ-8d-KW8" kind="embed" identifier="workersViewSegue" id="hNE-TL-9zN"/>
                                         </connections>
@@ -307,7 +307,7 @@
                                     <constraint firstItem="wAa-02-xiX" firstAttribute="width" secondItem="ki6-n8-chI" secondAttribute="width" id="Ck1-zl-RHa"/>
                                     <constraint firstItem="wAa-02-xiX" firstAttribute="bottom" secondItem="ki6-n8-chI" secondAttribute="bottom" id="G3H-ti-PyG"/>
                                     <constraint firstItem="q39-Kl-yPH" firstAttribute="height" secondItem="ki6-n8-chI" secondAttribute="height" multiplier="0.1" priority="750" id="Gcs-pv-5kg"/>
-                                    <constraint firstItem="PYn-if-1iV" firstAttribute="top" secondItem="QfZ-GG-Mgk" secondAttribute="bottom" constant="4" id="P15-k7-ZbT"/>
+                                    <constraint firstItem="PYn-if-1iV" firstAttribute="top" secondItem="QfZ-GG-Mgk" secondAttribute="bottom" id="P15-k7-ZbT"/>
                                     <constraint firstItem="wAa-02-xiX" firstAttribute="centerX" secondItem="ki6-n8-chI" secondAttribute="centerX" id="S2B-LF-1mL"/>
                                     <constraint firstItem="q39-Kl-yPH" firstAttribute="centerX" secondItem="ki6-n8-chI" secondAttribute="centerX" id="WFi-nV-3qD"/>
                                     <constraint firstItem="q39-Kl-yPH" firstAttribute="top" secondItem="ki6-n8-chI" secondAttribute="top" id="dh2-rZ-Cza"/>
@@ -325,9 +325,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ki6-n8-chI" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="9vo-Og-Vp6"/>
+                            <constraint firstItem="ki6-n8-chI" firstAttribute="bottom" secondItem="2fi-mo-0CV" secondAttribute="top" id="KI6-CM-Imv"/>
                             <constraint firstItem="ki6-n8-chI" firstAttribute="width" secondItem="kh9-bI-dsS" secondAttribute="width" id="TLw-Nb-fhK"/>
-                            <constraint firstItem="ki6-n8-chI" firstAttribute="bottom" secondItem="2fi-mo-0CV" secondAttribute="top" id="ZIp-Gj-qCs"/>
+                            <constraint firstItem="ki6-n8-chI" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="W5g-9g-OP4"/>
                             <constraint firstItem="ki6-n8-chI" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="m57-ab-1re"/>
                             <constraint firstItem="ki6-n8-chI" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="n3J-u8-xbj"/>
                         </constraints>
@@ -369,7 +369,7 @@
             <objects>
                 <tableViewController id="zgZ-8d-KW8" customClass="WorkerTableViewController" customModule="Tippy" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="9bE-R4-dx4">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="490"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="494"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="WgE-Kv-GHU">

@@ -65,6 +65,9 @@
 		DDC16F9A1BB0C29000AC9583 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD67BD6D1B697E2E000EADD5 /* TableViewCell.swift */; };
 		DDDAE7461B6BDE0B008D2140 /* WorkerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDAE7451B6BDE0B008D2140 /* WorkerTableViewController.swift */; };
 		DDE21BB61B4E15BE002D5859 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE21BB51B4E15BE002D5859 /* Controller.swift */; };
+		DDE7305C1D836165009CE851 /* EmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDE7305B1D836165009CE851 /* EmptyView.xib */; };
+		DDE7305E1D836B78009CE851 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE7305D1D836B78009CE851 /* EmptyView.swift */; };
+		DDE730601D83848C009CE851 /* ArrowShapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE7305F1D83848C009CE851 /* ArrowShapeView.swift */; };
 		DDE86B891C237E9C00DA7941 /* TotalFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE86B881C237E9C00DA7941 /* TotalFieldDelegate.swift */; };
 		DDE86B941C24E79700DA7941 /* TipoutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDE86B961C24E79700DA7941 /* TipoutView.xib */; };
 		DDE86B9B1C24E7B500DA7941 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDE86B9D1C24E7B500DA7941 /* TableViewCell.xib */; };
@@ -184,6 +187,9 @@
 		DDC061B61D11E3C1008081DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DDDAE7451B6BDE0B008D2140 /* WorkerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkerTableViewController.swift; sourceTree = "<group>"; };
 		DDE21BB51B4E15BE002D5859 /* Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
+		DDE7305B1D836165009CE851 /* EmptyView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmptyView.xib; sourceTree = "<group>"; };
+		DDE7305D1D836B78009CE851 /* EmptyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
+		DDE7305F1D83848C009CE851 /* ArrowShapeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrowShapeView.swift; sourceTree = "<group>"; };
 		DDE86B881C237E9C00DA7941 /* TotalFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TotalFieldDelegate.swift; sourceTree = "<group>"; };
 		DDE86B8A1C24DF1A00DA7941 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Main.strings; sourceTree = "<group>"; };
 		DDE86B8B1C24DF1A00DA7941 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -363,6 +369,9 @@
 				DD555A5A1D7F430D0081B7F8 /* SplitAmountViewController.swift */,
 				DD24E69C1D75334300B2FADF /* SplitAmountView.xib */,
 				DD8672331CE5430B00ED1D29 /* StackLayout.swift */,
+				DDE7305B1D836165009CE851 /* EmptyView.xib */,
+				DDE7305F1D83848C009CE851 /* ArrowShapeView.swift */,
+				DDE7305D1D836B78009CE851 /* EmptyView.swift */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -524,6 +533,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDE7305C1D836165009CE851 /* EmptyView.xib in Resources */,
 				DDB6BC591CDD337A00D8A9D1 /* ColorStack.storyboard in Resources */,
 				DD1C58531B16981D00188B28 /* Main.storyboard in Resources */,
 				DD24E69A1D75334300B2FADF /* SplitAmountView.xib in Resources */,
@@ -616,6 +626,7 @@
 				DDB6BC5A1CDD337A00D8A9D1 /* ColorStackViewController.swift in Sources */,
 				DD90A9961B605F0C00EE0BB6 /* TipoutView+RAC.swift in Sources */,
 				DD20813C1BD9524A00ED20CB /* WorkerViewModelType.swift in Sources */,
+				DDE730601D83848C009CE851 /* ArrowShapeView.swift in Sources */,
 				DDF375761C7A82BC006977F2 /* WalkthroughViewController.swift in Sources */,
 				DDDAE7461B6BDE0B008D2140 /* WorkerTableViewController.swift in Sources */,
 				DD6F0C381C1B98FC00A65CB0 /* Formatter.swift in Sources */,
@@ -638,6 +649,7 @@
 				DDE86B891C237E9C00DA7941 /* TotalFieldDelegate.swift in Sources */,
 				DDB6BC5C1CDD33DE00D8A9D1 /* ColorCell.swift in Sources */,
 				DDE21BB61B4E15BE002D5859 /* Controller.swift in Sources */,
+				DDE7305E1D836B78009CE851 /* EmptyView.swift in Sources */,
 				DD71106C1BE18B9300FA7006 /* SettingsTableViewController.swift in Sources */,
 				DD71106F1BE18F2C00FA7006 /* DefaultsKeys.swift in Sources */,
 			);
