@@ -82,9 +82,11 @@ class WorkerTableViewController: UITableViewController, TipoutViewDelegate {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let rows = viewModel?.count ?? 0
-        if rows < showEmptyViewWhenLessThan  && emptyView.hidden == true {
+        if rows < showEmptyViewWhenLessThan  /*&& emptyView.hidden == true*/ {
+            tableView.scrollEnabled = false
             showEmptyView()
-        } else if rows >= showEmptyViewWhenLessThan && emptyView.hidden == false {
+        } else if rows >= showEmptyViewWhenLessThan /*&& emptyView.hidden == false*/ {
+            tableView.scrollEnabled = true
             hideEmptyView()
         }
         return rows
