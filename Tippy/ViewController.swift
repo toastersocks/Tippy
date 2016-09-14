@@ -210,7 +210,7 @@ class ViewController: UIViewController {
         
         let splitButton: DefaultButton = {
             $0.accessibilityIdentifier = "splitButton"
-            $0.accessibilityLabel = NSLocalizedString("Split", comment: "Cancels the action")
+            $0.accessibilityLabel = NSLocalizedString("Split", comment: "Split an amount of currency")
             return $0
             }(DefaultButton(title: NSLocalizedString("Split", comment: "Split an amount of currency")) {
                 

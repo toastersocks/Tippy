@@ -58,16 +58,6 @@
       codeCoverageEnabled = "YES">
       <Testables>
          <TestableReference
-            skipped = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DD1C585C1B16981E00188B28"
-               BuildableName = "TippyTests.xctest"
-               BlueprintName = "TippyTests"
-               ReferencedContainer = "container:Tippy.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"

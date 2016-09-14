@@ -36,7 +36,7 @@
                     <rect key="frame" x="104" y="89" width="72" height="30"/>
                     <accessibility key="accessibilityConfiguration" identifier="amountField"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                    <textInputTraits key="textInputTraits" keyboardType="decimalPad" enablesReturnKeyAutomatically="YES"/>
                 </textField>
             </subviews>
             <constraints>

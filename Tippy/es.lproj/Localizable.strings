@@ -1,6 +1,9 @@
 /* Amount of currency */
 "Amount" = "Cantidad";
 
+/* Cancels the action */
+"Cancel" = "Cancelar";
+
 /* Percent of currency */
 "Percent" = "Porcentaje";
 

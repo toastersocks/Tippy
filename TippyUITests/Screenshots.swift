@@ -88,6 +88,7 @@ class Screenshots: XCTestCase {
         let splitButton = app.buttons["split"]
         splitButton.tap()
         app.typeText("50")
+        app.typeText("\n")
         
         snapshot("1splitScreen")
         
@@ -100,8 +101,10 @@ class Screenshots: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
     
-    func testSplitScreen() {
-        
-        
+    func testReturn() {
+        let app = XCUIApplication()
+        app.buttons["split"].tap()
+        app.typeText("50")
+        app.typeText("\n")
     }
 }

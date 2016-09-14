@@ -1,6 +1,9 @@
 /* Amount of currency */
 "Amount" = "Quantia";
 
+/* Cancels the action */
+"Cancel" = "Cancele";
+
 /* Percent of currency */
 "Percent" = "Percentagem";
 
