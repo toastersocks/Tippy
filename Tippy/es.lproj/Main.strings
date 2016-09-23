@@ -1,9 +1,6 @@
 /* Class = "UITableViewSection"; headerTitle = "Feedback"; ObjectID = "3Um-hq-lka"; */
 "3Um-hq-lka.headerTitle" = "Retroalimentación";
 
-/* Class = "UIButton"; accessibilityIdentifier = "settings"; ObjectID = "4K1-RY-c0v"; */
-//"4K1-RY-c0v.accessibilityIdentifier" = "configuración";
-
 /* Class = "UIButton"; accessibilityLabel = "Settings"; ObjectID = "4K1-RY-c0v"; */
 "4K1-RY-c0v.accessibilityLabel" = "Configuración";
 
@@ -39,9 +36,6 @@
 
 /* Class = "UILabel"; text = "Tap to add new workers (left-swipe a worker to delete)"; ObjectID = "ESV-TY-5WW"; */
 "ESV-TY-5WW.text" = "Pulse para crear empleados nuevas (deslizar izquierdo para borrar)";
-
-/* Class = "UITextField"; accessibilityIdentifier = "total"; ObjectID = "LeT-AW-ZnX"; */
-//"LeT-AW-ZnX.accessibilityIdentifier" = "";
 
 /* Class = "UITextField"; accessibilityLabel = "Total"; ObjectID = "LeT-AW-ZnX"; */
 "LeT-AW-ZnX.accessibilityLabel" = "Total";
@@ -91,11 +85,11 @@
 /* Class = "UILabel"; text = "Tap the colored tabs to switch between tipouts"; ObjectID = "hvU-X7-2cN"; */
 "hvU-X7-2cN.text" = "Pulse en las fichas de colores para cambiar entre las propinas";
 
+/* Class = "UILabel"; text = "Tell us what you think!"; ObjectID = "iqF-6u-Bum"; */
+"iqF-6u-Bum.text" = "¡Danos tu opinión!";
+
 /* Class = "UIButton"; accessibilityHint = "Split an amount from the total into another tipout"; ObjectID = "j3G-1F-3RX"; */
 "j3G-1F-3RX.accessibilityHint" = "Dividir una cantidad del total en otro propina";
-
-/* Class = "UIButton"; accessibilityIdentifier = "split"; ObjectID = "j3G-1F-3RX"; */
-//"j3G-1F-3RX.accessibilityIdentifier" = "";
 
 /* Class = "UIButton"; accessibilityLabel = "Split"; ObjectID = "j3G-1F-3RX"; */
 "j3G-1F-3RX.accessibilityLabel" = "Dividir";
@@ -111,9 +105,6 @@
 
 /* Class = "UIButton"; accessibilityHint = "Combine all tipouts"; ObjectID = "qSR-OL-u54"; */
 "qSR-OL-u54.accessibilityHint" = "Combina todas propinas";
-
-/* Class = "UIButton"; accessibilityIdentifier = "combine"; ObjectID = "qSR-OL-u54"; */
-//"qSR-OL-u54.accessibilityIdentifier" = "";
 
 /* Class = "UIButton"; accessibilityLabel = "Combine"; ObjectID = "qSR-OL-u54"; */
 "qSR-OL-u54.accessibilityLabel" = "Combina";

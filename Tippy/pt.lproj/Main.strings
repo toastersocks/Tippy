@@ -1,9 +1,6 @@
 /* Class = "UITableViewSection"; headerTitle = "Feedback"; ObjectID = "3Um-hq-lka"; */
 "3Um-hq-lka.headerTitle" = "Comentarios";
 
-/* Class = "UIButton"; accessibilityIdentifier = "settings"; ObjectID = "4K1-RY-c0v"; */
-//"4K1-RY-c0v.accessibilityIdentifier" = "";
-
 /* Class = "UIButton"; accessibilityLabel = "Settings"; ObjectID = "4K1-RY-c0v"; */
 "4K1-RY-c0v.accessibilityLabel" = "Configurações";
 
@@ -87,6 +84,9 @@
 
 /* Class = "UILabel"; text = "Tap the colored tabs to switch between tipouts"; ObjectID = "hvU-X7-2cN"; */
 "hvU-X7-2cN.text" = "Toque nas abas coloridas para alternar entre gorjetas";
+
+/* Class = "UILabel"; text = "Tell us what you think!"; ObjectID = "iqF-6u-Bum"; */
+"iqF-6u-Bum.text" = "Dê-nos a sua opinião!";
 
 /* Class = "UIButton"; accessibilityHint = "Split an amount from the total into another tipout"; ObjectID = "j3G-1F-3RX"; */
 "j3G-1F-3RX.accessibilityHint" = "Separe um quantia do total para calcular separadamente";
