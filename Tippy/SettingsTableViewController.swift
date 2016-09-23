@@ -9,9 +9,17 @@
 import UIKit
 import ReactiveCocoa
 import SwiftyUserDefaults
+import LicensesViewController
+import MessageUI
 
-class SettingsTableViewController: UITableViewController {
-
+class SettingsTableViewController: UITableViewController, MFMailComposeViewControllerDelegate {
+    private let feedbackEmail = "tippyApp@toastersocks.com"
+    private let acknowledgementsSegueID = "acknowledgements"
+    private let feedbackSegueID = "feedback"
+    private let feedbackEmailSubject = "Feedback on Tippy"
+    
+    static var feedbackVC = MFMailComposeViewController()
+    
     @IBOutlet weak var percentageSegmentedControl: UISegmentedControl!
     @IBOutlet weak var percentageExampleLabel: UITextField! {
         didSet {
@@ -31,6 +39,7 @@ class SettingsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Load
         percentageSegmentedControl.selectedSegmentIndex = Defaults[.percentageFormat] ?? 0
         roundToNearest.text = "\(Defaults[.roundToNearest])"
@@ -119,14 +128,54 @@ class SettingsTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        guard let segueID = segue.identifier else { fatalError("No segue id found") }
+        switch segueID {
+        case acknowledgementsSegueID:
+            guard let licencesVC = segue.destinationViewController as? LicensesViewController else { fatalError("Couldn't get view controller") }
+            licencesVC.loadPlist(NSBundle.mainBundle(), resourceName: "Licences")
+        case feedbackSegueID:
+            if MFMailComposeViewController.canSendMail() {
+            guard let feedbackVC = segue.destinationViewController as? MFMailComposeViewController else { fatalError("Couldn't get view controller") }
+                feedbackVC.mailComposeDelegate = self
+                feedbackVC.setToRecipients([feedbackEmail])
+                feedbackVC.setSubject(feedbackEmailSubject)
+            } else {
+                //TODO: Compose a mailto: url to open with another email app
+                print("Composing a mailto: url... send to app!")
+            }
+        default:
+            fatalError("Unknown segue ID")
+        }
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.section == 1 && indexPath.row == 0 {
 
+            if MFMailComposeViewController.canSendMail() {
+//                guard let feedbackVC = segue.destinationViewController as? MFMailComposeViewController else { fatalError("Couldn't get view controller") }
+                let feedbackVC = SettingsTableViewController.feedbackVC
+                feedbackVC.mailComposeDelegate = self
+                feedbackVC.setToRecipients([feedbackEmail])
+                feedbackVC.setSubject(feedbackEmailSubject)
+                presentViewController(feedbackVC, animated: true, completion: nil)
+            } else {
+                //TODO: Compose a mailto: url to open with another email app
+                print("Composing a mailto: url... send to app!")
+            }
+        }
+    }
+    
+    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
+        controller.dismissViewControllerAnimated(true, completion: nil)
+        SettingsTableViewController.feedbackVC = MFMailComposeViewController()
+    }
+
+    
 }

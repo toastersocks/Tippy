@@ -31,6 +31,13 @@
 		DD54AA7E1BB1AA1200AFFA68 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD54AA7C1BB1AA1200AFFA68 /* Nimble.framework */; };
 		DD54AA7F1BB1AA1200AFFA68 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD54AA7D1BB1AA1200AFFA68 /* Quick.framework */; };
 		DD555A5B1D7F430D0081B7F8 /* SplitAmountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD555A5A1D7F430D0081B7F8 /* SplitAmountViewController.swift */; };
+		DD654BF51D89FB5A008B1748 /* LicensesViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD654BF41D89FB5A008B1748 /* LicensesViewController.framework */; };
+		DD654BF71D89FB79008B1748 /* LicensesViewController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DD654BF41D89FB5A008B1748 /* LicensesViewController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DD654BF91D8B4693008B1748 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DD654BF81D8B4693008B1748 /* InfoPlist.strings */; };
+		DD654BFB1D8B4723008B1748 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DD654BFA1D8B4723008B1748 /* InfoPlist.strings */; };
+		DD654BFD1D8B477E008B1748 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DD654BFC1D8B477E008B1748 /* InfoPlist.strings */; };
+		DD654BFF1D8B47E3008B1748 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DD654BFE1D8B47E3008B1748 /* InfoPlist.strings */; };
+		DD654C011D8B4978008B1748 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DD654C001D8B4978008B1748 /* InfoPlist.strings */; };
 		DD67BD6C1B6861E4000EADD5 /* WorkerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD67BD6B1B6861E4000EADD5 /* WorkerViewModel.swift */; };
 		DD6CB2F71B5C45040097BB76 /* TipoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6CB2F61B5C45040097BB76 /* TipoutView.swift */; };
 		DD6F0C381C1B98FC00A65CB0 /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6F0C371C1B98FC00A65CB0 /* Formatter.swift */; };
@@ -67,12 +74,12 @@
 		DDE7305E1D836B78009CE851 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE7305D1D836B78009CE851 /* EmptyView.swift */; };
 		DDE730601D83848C009CE851 /* ArrowShapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE7305F1D83848C009CE851 /* ArrowShapeView.swift */; };
 		DDE730611D84AD73009CE851 /* EmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDE730631D84AD73009CE851 /* EmptyView.xib */; };
-		DDE730701D84BAA3009CE851 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DDE730721D84BAA3009CE851 /* InfoPlist.strings */; };
 		DDE86B891C237E9C00DA7941 /* TotalFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE86B881C237E9C00DA7941 /* TotalFieldDelegate.swift */; };
 		DDE86B941C24E79700DA7941 /* TipoutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDE86B961C24E79700DA7941 /* TipoutView.xib */; };
 		DDE86B9B1C24E7B500DA7941 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDE86B9D1C24E7B500DA7941 /* TableViewCell.xib */; };
 		DDECA8EF1BA614D400D45446 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDECA8EE1BA614D400D45446 /* Helpers.swift */; };
 		DDF375761C7A82BC006977F2 /* WalkthroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF375751C7A82BC006977F2 /* WalkthroughViewController.swift */; };
+		DDF4F3311D89FA8C0031F702 /* Licences.plist in Resources */ = {isa = PBXBuildFile; fileRef = DDF4F3301D89FA8C0031F702 /* Licences.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +109,7 @@
 				DD2908591D1F02ED00E08799 /* Tipout.framework in Embed Frameworks */,
 				DDA07EC21BC5F54D008B1081 /* TZStackView.framework in Embed Frameworks */,
 				DDBFF7CF1C78F8A800D43C77 /* Gecco.framework in Embed Frameworks */,
+				DD654BF71D89FB79008B1748 /* LicensesViewController.framework in Embed Frameworks */,
 				DD7CBA321B598DC8003B718D /* ReactiveCocoa.framework in Embed Frameworks */,
 				DD71106A1BE189EF00FA7006 /* SwiftyUserDefaults.framework in Embed Frameworks */,
 				DD7DB03C1D7E7DE300060D55 /* PopupDialog.framework in Embed Frameworks */,
@@ -118,17 +126,15 @@
 		DD19B6381C192DC9000FFACA /* testFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = testFormatter.swift; sourceTree = "<group>"; };
 		DD19B6411C1A337D000FFACA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DD19B6421C1A337F000FFACA /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
-		DD1A48031B28FE7D003FA9DB /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		DD1A48041B29D456003FA9DB /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		DD1A48031B28FE7D003FA9DB /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = Cartfile; path = ../Cartfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		DD1A48041B29D456003FA9DB /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		DD1C58481B16981D00188B28 /* Tippy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tippy.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		DD1C584C1B16981D00188B28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD1C584D1B16981D00188B28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD1C584F1B16981D00188B28 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DD1C58521B16981D00188B28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DD1C58541B16981D00188B28 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		DD1C58571B16981D00188B28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		DD1C585D1B16981E00188B28 /* TippyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TippyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DD1C58621B16981E00188B28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD1C586D1B16995000188B28 /* TipoutViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipoutViewModel.swift; sourceTree = "<group>"; };
 		DD2081391BD94ACB00ED20CB /* TipoutViewModelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipoutViewModelType.swift; sourceTree = "<group>"; };
 		DD20813B1BD9524A00ED20CB /* WorkerViewModelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkerViewModelType.swift; sourceTree = "<group>"; };
@@ -142,17 +148,23 @@
 		DD2908581D1F02ED00E08799 /* Tipout.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Tipout.framework; path = Carthage/Build/iOS/Tipout.framework; sourceTree = "<group>"; };
 		DD309D221B5F081C000EE80B /* Scratchpad.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Scratchpad.playground; sourceTree = "<group>"; };
 		DD30CCB11D767ED600C10EA2 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
-		DD36481A1CBEF479002CA8A5 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		DD36481A1CBEF479002CA8A5 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = .gitignore; path = ../.gitignore; sourceTree = "<group>"; };
 		DD3648221CD17099002CA8A5 /* Formatter+UILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Formatter+UILabel.swift"; sourceTree = "<group>"; };
 		DD45FB811C64199E00DE5D7A /* TZStackView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TZStackView.framework; path = Carthage/Build/iOS/TZStackView.framework; sourceTree = "<group>"; };
 		DD54AA761BB0DB3300AFFA68 /* ViewModelable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelable.swift; sourceTree = "<group>"; };
 		DD54AA781BB1A77C00AFFA68 /* testWorkerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = testWorkerViewModel.swift; sourceTree = "<group>"; };
-		DD54AA7A1BB1A82400AFFA68 /* Cartfile.private */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile.private; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		DD54AA7A1BB1A82400AFFA68 /* Cartfile.private */ = {isa = PBXFileReference; lastKnownFileType = text; name = Cartfile.private; path = ../Cartfile.private; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		DD54AA7C1BB1AA1200AFFA68 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		DD54AA7D1BB1AA1200AFFA68 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		DD54AABE1BB30FF700AFFA68 /* ColorStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorStackView.swift; sourceTree = "<group>"; };
 		DD555A5A1D7F430D0081B7F8 /* SplitAmountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitAmountViewController.swift; sourceTree = "<group>"; };
-		DD5B095B1C8B788C00A7A32E /* Tippy copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Tippy copy-Info.plist"; path = "/Users/jambes/Desktop/Projects/Tippy/Tippy copy-Info.plist"; sourceTree = "<absolute>"; };
+		DD654BF41D89FB5A008B1748 /* LicensesViewController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LicensesViewController.framework; path = Carthage/Build/iOS/LicensesViewController.framework; sourceTree = "<group>"; };
+		DD654BF81D8B4693008B1748 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
+		DD654BFA1D8B4723008B1748 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
+		DD654BFC1D8B477E008B1748 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
+		DD654BFE1D8B47E3008B1748 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
+		DD654C001D8B4978008B1748 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
+		DD654C041D8B4D55008B1748 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD67BD6B1B6861E4000EADD5 /* WorkerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkerViewModel.swift; sourceTree = "<group>"; };
 		DD67BD6D1B697E2E000EADD5 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		DD6CB2F61B5C45040097BB76 /* TipoutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipoutView.swift; sourceTree = "<group>"; };
@@ -168,7 +180,7 @@
 		DD8014271B16A15F007A673F /* RACObserve.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RACObserve.swift; sourceTree = "<group>"; };
 		DD8014281B16A15F007A673F /* RACSignal+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RACSignal+Extensions.swift"; sourceTree = "<group>"; };
 		DD8014291B16A15F007A673F /* TableViewBindingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewBindingHelper.swift; sourceTree = "<group>"; };
-		DD80142E1B16A1F3007A673F /* bridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bridgingHeader.h; sourceTree = "<group>"; };
+		DD80142E1B16A1F3007A673F /* bridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = bridgingHeader.h; path = ../bridgingHeader.h; sourceTree = "<group>"; };
 		DD8672331CE5430B00ED1D29 /* StackLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackLayout.swift; sourceTree = "<group>"; };
 		DD8672351CEBE9CE00ED1D29 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		DD90A9951B605F0C00EE0BB6 /* TipoutView+RAC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TipoutView+RAC.swift"; sourceTree = "<group>"; };
@@ -183,7 +195,6 @@
 		DDBFF7CD1C78F8A800D43C77 /* Gecco.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Gecco.framework; path = Carthage/Build/iOS/Gecco.framework; sourceTree = "<group>"; };
 		DDC061B21D11E3C1008081DB /* Screenshots.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Screenshots.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDC061B41D11E3C1008081DB /* Screenshots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screenshots.swift; sourceTree = "<group>"; usesTabs = 0; };
-		DDC061B61D11E3C1008081DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DDDAE7451B6BDE0B008D2140 /* WorkerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkerTableViewController.swift; sourceTree = "<group>"; };
 		DDE21BB51B4E15BE002D5859 /* Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
 		DDE7305D1D836B78009CE851 /* EmptyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
@@ -191,8 +202,6 @@
 		DDE730621D84AD73009CE851 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/EmptyView.xib; sourceTree = "<group>"; };
 		DDE730651D84AD7A009CE851 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/EmptyView.strings; sourceTree = "<group>"; };
 		DDE730671D84AD7D009CE851 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/EmptyView.strings; sourceTree = "<group>"; };
-		DDE730711D84BAA3009CE851 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		DDE730771D84BC70009CE851 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		DDE86B881C237E9C00DA7941 /* TotalFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TotalFieldDelegate.swift; sourceTree = "<group>"; };
 		DDE86B8A1C24DF1A00DA7941 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Main.strings; sourceTree = "<group>"; };
 		DDE86B8B1C24DF1A00DA7941 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -208,6 +217,7 @@
 		DDE86BA61C24ECFC00DA7941 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/TableViewCell.strings; sourceTree = "<group>"; };
 		DDECA8EE1BA614D400D45446 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		DDF375751C7A82BC006977F2 /* WalkthroughViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkthroughViewController.swift; sourceTree = "<group>"; };
+		DDF4F3301D89FA8C0031F702 /* Licences.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Licences.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,6 +228,7 @@
 				DD29085A1D1F031D00E08799 /* Tipout.framework in Frameworks */,
 				DD7CBA351B598DDE003B718D /* ReactiveCocoa.framework in Frameworks */,
 				DDBFF7CE1C78F8A800D43C77 /* Gecco.framework in Frameworks */,
+				DD654BF51D89FB5A008B1748 /* LicensesViewController.framework in Frameworks */,
 				DD45FB821C64199E00DE5D7A /* TZStackView.framework in Frameworks */,
 				DD7110691BE189EF00FA7006 /* SwiftyUserDefaults.framework in Frameworks */,
 				DD7DB03B1D7E7DE300060D55 /* PopupDialog.framework in Frameworks */,
@@ -248,6 +259,7 @@
 		37DFF81F10D79D1C2B13583D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DD654BF41D89FB5A008B1748 /* LicensesViewController.framework */,
 				DD7DB03A1D7E7DE300060D55 /* PopupDialog.framework */,
 				DD2908581D1F02ED00E08799 /* Tipout.framework */,
 				DD08EA4B1CED42510032DCC8 /* Mixpanel.framework */,
@@ -267,18 +279,12 @@
 		DD1C583F1B16981D00188B28 = {
 			isa = PBXGroup;
 			children = (
-				DD36481A1CBEF479002CA8A5 /* .gitignore */,
 				DD309D221B5F081C000EE80B /* Scratchpad.playground */,
-				DD1A48031B28FE7D003FA9DB /* Cartfile */,
-				DD54AA7A1BB1A82400AFFA68 /* Cartfile.private */,
-				DD1A48041B29D456003FA9DB /* Podfile */,
-				DD80142E1B16A1F3007A673F /* bridgingHeader.h */,
 				DD1C584A1B16981D00188B28 /* Tippy */,
 				DD1C58601B16981E00188B28 /* TippyTests */,
 				DDC061B31D11E3C1008081DB /* TippyUITests */,
 				DD1C58491B16981D00188B28 /* Products */,
 				37DFF81F10D79D1C2B13583D /* Frameworks */,
-				DD5B095B1C8B788C00A7A32E /* Tippy copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -313,8 +319,13 @@
 		DD1C584B1B16981D00188B28 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				DDE730721D84BAA3009CE851 /* InfoPlist.strings */,
-				DD1C584C1B16981D00188B28 /* Info.plist */,
+				DD36481A1CBEF479002CA8A5 /* .gitignore */,
+				DD1A48031B28FE7D003FA9DB /* Cartfile */,
+				DD54AA7A1BB1A82400AFFA68 /* Cartfile.private */,
+				DD1A48041B29D456003FA9DB /* Podfile */,
+				DD80142E1B16A1F3007A673F /* bridgingHeader.h */,
+				DD654C041D8B4D55008B1748 /* Info.plist */,
+				DDF4F3301D89FA8C0031F702 /* Licences.plist */,
 				DD19B6401C1A3375000FFACA /* Localizable.strings */,
 				DD7B06E31C2EFBCF00880CBD /* DefaultPreferences.plist */,
 			);
@@ -334,7 +345,6 @@
 		DD1C58611B16981E00188B28 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				DD1C58621B16981E00188B28 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -393,9 +403,13 @@
 		DDC061B31D11E3C1008081DB /* TippyUITests */ = {
 			isa = PBXGroup;
 			children = (
+				DD654C001D8B4978008B1748 /* InfoPlist.strings */,
+				DD654BFE1D8B47E3008B1748 /* InfoPlist.strings */,
+				DD654BFC1D8B477E008B1748 /* InfoPlist.strings */,
+				DD654BFA1D8B4723008B1748 /* InfoPlist.strings */,
+				DD654BF81D8B4693008B1748 /* InfoPlist.strings */,
 				DD30CCB11D767ED600C10EA2 /* SnapshotHelper.swift */,
 				DDC061B41D11E3C1008081DB /* Screenshots.swift */,
-				DDC061B61D11E3C1008081DB /* Info.plist */,
 			);
 			path = TippyUITests;
 			sourceTree = "<group>";
@@ -538,11 +552,11 @@
 			files = (
 				DDE730611D84AD73009CE851 /* EmptyView.xib in Resources */,
 				DDB6BC591CDD337A00D8A9D1 /* ColorStack.storyboard in Resources */,
-				DDE730701D84BAA3009CE851 /* InfoPlist.strings in Resources */,
 				DD1C58531B16981D00188B28 /* Main.storyboard in Resources */,
 				DD24E69A1D75334300B2FADF /* SplitAmountView.xib in Resources */,
 				DD7B06E41C2EFBCF00880CBD /* DefaultPreferences.plist in Resources */,
 				DD19B63E1C1A3375000FFACA /* Localizable.strings in Resources */,
+				DDF4F3311D89FA8C0031F702 /* Licences.plist in Resources */,
 				DDE86B9B1C24E7B500DA7941 /* TableViewCell.xib in Resources */,
 				DD1C58581B16981D00188B28 /* LaunchScreen.xib in Resources */,
 				DD1C58551B16981D00188B28 /* Images.xcassets in Resources */,
@@ -562,6 +576,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD654BF91D8B4693008B1748 /* InfoPlist.strings in Resources */,
+				DD654BFF1D8B47E3008B1748 /* InfoPlist.strings in Resources */,
+				DD654BFD1D8B477E008B1748 /* InfoPlist.strings in Resources */,
+				DD654BFB1D8B4723008B1748 /* InfoPlist.strings in Resources */,
+				DD654C011D8B4978008B1748 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -610,6 +629,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Mixpanel.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Tipout.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/PopupDialog.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/LicensesViewController.framework",
 			);
 			outputPaths = (
 			);
@@ -746,15 +766,6 @@
 			name = EmptyView.xib;
 			sourceTree = "<group>";
 		};
-		DDE730721D84BAA3009CE851 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DDE730711D84BAA3009CE851 /* es */,
-				DDE730771D84BC70009CE851 /* pt */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
 		DDE86B961C24E79700DA7941 /* TipoutView.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -875,7 +886,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 20;
+				CURRENT_PROJECT_VERSION = 23;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -900,7 +911,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 20;
+				CURRENT_PROJECT_VERSION = 23;
 				ENABLE_BITCODE = NO;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
