@@ -18,7 +18,14 @@ class Controller: NSObject, ColorStackViewDelegate {
     private var tipoutModels = [TipoutModel]()
     
     dynamic var currentViewModel: TipoutViewModelType {
-        return TipoutViewModel(tipoutModel: tipoutModels[currentIndex], formatter: numberFormatter)
+        return tipoutViewModels[currentIndex]
+//        return TipoutViewModel(tipoutModel: tipoutModels[currentIndex], formatter: numberFormatter)
+    }
+    
+    dynamic var tipoutViewModels: [TipoutViewModelType] {
+        return tipoutModels.lazy.map {
+            return TipoutViewModel(tipoutModel: $0, formatter: numberFormatter)
+        }
     }
     
     dynamic var count: Int { return tipoutModels.count }
@@ -42,6 +49,10 @@ class Controller: NSObject, ColorStackViewDelegate {
     
     // MARK: Methods
     
+    func viewModel(forIndex index: Int) -> TipoutViewModelType {
+        return TipoutViewModel(tipoutModel: tipoutModels[index], formatter: numberFormatter)
+    }
+    
     func removeCurrent() {
         tipoutModels.removeAtIndex(currentIndex)
         colorStack?.removeColorAtIndex(currentIndex)
@@ -56,6 +67,21 @@ class Controller: NSObject, ColorStackViewDelegate {
         } else if count == 0 {
             appendTipout(TipoutModel(roundToNearest: roundToNearest))
             currentIndex = 0
+        }
+    }
+    
+    func remove(atIndex index: Int) {
+        tipoutModels.removeAtIndex(currentIndex)
+        colorStack?.removeColorAtIndex(currentIndex)
+        if count > 0 {
+            if currentIndex > count - 1 {
+                currentIndex -= 1
+            } else if currentIndex == 0 {
+                willChangeValueForKey("currentIndex")
+                didChangeValueForKey("currentIndex")
+            }
+        } else if count == 0 {
+            // do nothing?
         }
     }
     
@@ -114,6 +140,7 @@ class Controller: NSObject, ColorStackViewDelegate {
         return TipoutViewModel(tipoutModel: tipoutModel, formatter: numberFormatter)
     }
     
+
     // MARK: - Initializers
     
     func setup() {
@@ -152,9 +179,16 @@ class Controller: NSObject, ColorStackViewDelegate {
         self.init(tipoutModel: tipoutViewModel.tipoutModel, numberFormatter: formatter)
     }
     
-    // MARK: - ColorStackViewDelegate
+    // MARK: KVO
+    class func keyPathsForValuesAffectingCurrentViewModel() -> Set<NSObject> {
+        return Set(["currentIndex", "tipoutModels"])
+    }
     
+}
 
+// MARK: - ColorStackViewDelegate
+extension Controller {
+    
     func colorStackViewController(colorStackViewController: ColorStackViewController, didSelectIndex index: Int) {
         currentIndex = index
     }
@@ -172,11 +206,7 @@ class Controller: NSObject, ColorStackViewDelegate {
         return currentIndex
     }
     
-    // MARK: - KVO
-    
-    class func keyPathsForValuesAffectingCurrentViewModel() -> Set<NSObject> {
-        return Set(["currentIndex", "tipoutModels"])
-    }
+    // MARK: KVO
     
     class func keyPathsForValuesAffectingCurrentColor() -> Set<NSObject> {
         return Set(["currentIndex", "tipoutModels", "colorStack"])

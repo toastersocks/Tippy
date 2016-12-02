@@ -41,7 +41,7 @@ platform :ios do
   lane :beta do
     sigh
     gym(scheme: "Tippy") # Build your app - more options available
-    pilot
+    pilot(skip_waiting_for_build_processing: true)
 
     # sh "your_script.sh"
     # You can also use other beta testing services here

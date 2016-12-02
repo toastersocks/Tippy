@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TipoutView" customModule="Tippy" customModuleProvider="target">
+            <connections>
+                <outlet property="amountField" destination="xyf-xE-rf0" id="VL1-d9-6Vt"/>
+                <outlet property="hoursField" destination="ZYw-qH-tIw" id="iFg-ym-YyR"/>
+                <outlet property="nameField" destination="2ro-lY-Lgc" id="o6t-hz-Nzf"/>
+                <outlet property="percentageField" destination="KYw-C6-HDU" id="QrQ-qO-jK9"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view tag="4" contentMode="scaleToFill" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" id="yLi-8f-WMA" userLabel="Editable Tipout View">
+            <rect key="frame" x="0.0" y="0.0" width="462" height="61"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="100" translatesAutoresizingMaskIntoConstraints="NO" id="Apx-f4-n4V" userLabel="Name/Hours Spacer">
+                    <rect key="frame" x="67" y="0.0" width="55" height="61"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </view>
+                <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="250" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Hours" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="ZYw-qH-tIw" customClass="JCPTextField" customModule="Tippy" customModuleProvider="target">
+                    <rect key="frame" x="122" y="16" width="59" height="30"/>
+                    <accessibility key="accessibilityConfiguration" identifier="hoursField" label="Hours"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="decimalPad"/>
+                    <connections>
+                        <action selector="textDidChange:" destination="-1" eventType="editingChanged" id="UyN-CB-nax"/>
+                    </connections>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Amount" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="xyf-xE-rf0" customClass="JCPTextField" customModule="Tippy" customModuleProvider="target">
+                    <rect key="frame" x="383" y="15" width="71" height="30"/>
+                    <accessibility key="accessibilityConfiguration" identifier="amountField" label="Amount"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="decimalPad"/>
+                    <connections>
+                        <action selector="textDidChange:" destination="-1" eventType="editingChanged" id="E48-Ol-tNu"/>
+                    </connections>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="2ro-lY-Lgc" customClass="JCPTextField" customModule="Tippy" customModuleProvider="target">
+                    <rect key="frame" x="8" y="16" width="59" height="30"/>
+                    <accessibility key="accessibilityConfiguration" identifier="nameField" label="Name"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                    <connections>
+                        <action selector="textDidChange:" destination="-1" eventType="editingChanged" id="jbt-Sc-eS5"/>
+                    </connections>
+                </textField>
+                <view contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="100" translatesAutoresizingMaskIntoConstraints="NO" id="dAR-0R-UAb" userLabel="Hours/Percentage Spacer">
+                    <rect key="frame" x="181" y="0.0" width="54" height="61"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </view>
+                <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Percentage" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="KYw-C6-HDU" customClass="JCPTextField" customModule="Tippy" customModuleProvider="target">
+                    <rect key="frame" x="235" y="16" width="93" height="30"/>
+                    <accessibility key="accessibilityConfiguration" identifier="percentField" label="Percent"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="decimalPad"/>
+                    <connections>
+                        <action selector="textDidChange:" destination="-1" eventType="editingChanged" id="Ns4-8p-nnm"/>
+                    </connections>
+                </textField>
+                <view contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="100" translatesAutoresizingMaskIntoConstraints="NO" id="DsZ-WI-xEf" userLabel="Percentage/Amount Spacer">
+                    <rect key="frame" x="328" y="0.0" width="55" height="61"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="ZYw-qH-tIw" firstAttribute="leading" secondItem="Apx-f4-n4V" secondAttribute="trailing" id="01l-KO-L8Q"/>
+                <constraint firstItem="xyf-xE-rf0" firstAttribute="leading" secondItem="DsZ-WI-xEf" secondAttribute="trailing" id="1d0-fR-6M3"/>
+                <constraint firstItem="xyf-xE-rf0" firstAttribute="trailing" secondItem="yLi-8f-WMA" secondAttribute="trailingMargin" id="8Zn-2L-58y"/>
+                <constraint firstItem="KYw-C6-HDU" firstAttribute="centerY" secondItem="yLi-8f-WMA" secondAttribute="centerY" id="EMR-jQ-4XF"/>
+                <constraint firstItem="Apx-f4-n4V" firstAttribute="width" secondItem="dAR-0R-UAb" secondAttribute="width" id="Fng-Me-WNd"/>
+                <constraint firstItem="Apx-f4-n4V" firstAttribute="height" secondItem="yLi-8f-WMA" secondAttribute="height" id="IGy-uw-CUV"/>
+                <constraint firstItem="dAR-0R-UAb" firstAttribute="centerY" secondItem="yLi-8f-WMA" secondAttribute="centerY" id="K9o-Rh-kLf"/>
+                <constraint firstItem="xyf-xE-rf0" firstAttribute="centerY" secondItem="yLi-8f-WMA" secondAttribute="centerY" id="SzD-q8-FD8"/>
+                <constraint firstItem="DsZ-WI-xEf" firstAttribute="centerY" secondItem="yLi-8f-WMA" secondAttribute="centerY" id="d9B-KE-xxi"/>
+                <constraint firstItem="dAR-0R-UAb" firstAttribute="height" secondItem="yLi-8f-WMA" secondAttribute="height" id="e87-Ee-jJ4"/>
+                <constraint firstItem="ZYw-qH-tIw" firstAttribute="centerY" secondItem="yLi-8f-WMA" secondAttribute="centerY" id="f90-do-hyz"/>
+                <constraint firstItem="2ro-lY-Lgc" firstAttribute="centerY" secondItem="yLi-8f-WMA" secondAttribute="centerY" id="gdo-nG-XCd"/>
+                <constraint firstItem="Apx-f4-n4V" firstAttribute="leading" secondItem="2ro-lY-Lgc" secondAttribute="trailing" id="h6l-A8-xXZ"/>
+                <constraint firstItem="Apx-f4-n4V" firstAttribute="centerY" secondItem="yLi-8f-WMA" secondAttribute="centerY" id="hB0-Ta-jqe"/>
+                <constraint firstItem="2ro-lY-Lgc" firstAttribute="leading" secondItem="yLi-8f-WMA" secondAttribute="leadingMargin" id="nMr-f7-Yaw"/>
+                <constraint firstItem="DsZ-WI-xEf" firstAttribute="leading" secondItem="KYw-C6-HDU" secondAttribute="trailing" id="obQ-Qz-BWV"/>
+                <constraint firstItem="dAR-0R-UAb" firstAttribute="leading" secondItem="ZYw-qH-tIw" secondAttribute="trailing" id="tHm-L9-Lhy"/>
+                <constraint firstItem="dAR-0R-UAb" firstAttribute="width" secondItem="DsZ-WI-xEf" secondAttribute="width" id="uqi-p3-6D1"/>
+                <constraint firstItem="DsZ-WI-xEf" firstAttribute="height" secondItem="yLi-8f-WMA" secondAttribute="height" id="uxN-iS-gup"/>
+                <constraint firstItem="KYw-C6-HDU" firstAttribute="leading" secondItem="dAR-0R-UAb" secondAttribute="trailing" id="zJU-Be-41S"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-72" y="-254.5"/>
+        </view>
+    </objects>
+</document>

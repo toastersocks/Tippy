@@ -18,7 +18,7 @@ class TotalFieldDelegate: NSObject, UITextFieldDelegate {
     
     func textFieldDidEndEditing(textField: UITextField) {
         guard let text = textField.text else { return }
-        if let formattedText = try? formatter.formatCurrencyString(text) {
+        if let formattedText = try? formatter.formatCurrencyString(text, stripSymbol: true) {
             textField.text = formattedText
         }
         textField.invalidateIntrinsicContentSize()

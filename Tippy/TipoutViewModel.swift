@@ -22,7 +22,7 @@ final class TipoutViewModel: NSObject, TipoutViewModelType {
     dynamic var totalText: String {
         get {
             if let formatter = formatter,
-                currencyText = try? formatter.currencyStringFromNumber(tipoutModel.total) {
+                currencyText = try? formatter.currencyStringFromNumber(tipoutModel.total, stripSymbol: true) {
                     return currencyText
             } else { return String(format: "%f", tipoutModel.total) }
         }
@@ -39,10 +39,10 @@ final class TipoutViewModel: NSObject, TipoutViewModelType {
 
     // MARK: - Methods
     
-    func addWorkerWithName(name: String, method: TipoutView.TipoutViewField, value: String, atIndex index: Int) {
+    func addWorkerWithName(name: String, method: TipoutViewField, value: String, atIndex index: Int) {
         guard let formatter = formatter else { return }
         let tipoutMethod: TipoutMethod
-        // TODO: Make these magic strings into enums
+        
         if !value.isEmpty {
             switch method {
             case .Hours:

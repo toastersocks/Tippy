@@ -16,16 +16,19 @@ import PopupDialog
 
 class ViewController: UIViewController {
     // MARK: - Properties
-    private static let workersViewSegueID = "workersViewSegue"
+    private static let editableWorkersViewSegueID = "editableWorkersViewSegue"
+    private static let staticWorkersViewSegueID = "staticWorkersViewSegue"
     private static let colorStackSegueID = "colorStackSegue"
     private static let settingsViewControllerID = "settingsSegue"
     
     weak var workerTableViewController: WorkerTableViewController!
     
-    @IBOutlet weak var colorStackViewController: ColorStackViewController!
+//    @IBOutlet weak var colorStackContainerView: UIView!
+    
+//    @IBOutlet weak var colorStackViewController: ColorStackViewController!
     
     @IBOutlet weak var upperToolbar: UIToolbar!
-    var colorDelegate: ColorDelegate? = ColorDelegate()
+//    var colorDelegate: ColorDelegate? = ColorDelegate()
     
     @IBOutlet weak var totalField: UITextField!
     @IBOutlet weak var splitButton: UIButton!
@@ -33,11 +36,7 @@ class ViewController: UIViewController {
     //    @IBOutlet weak var clearAllButton: UIButton!
     
     @IBOutlet weak var settingsBarButton: UIButton!
-    @IBOutlet weak var combineOrDoneButton: UIButton! {
-        didSet {
-            combineOrDoneButton.addTarget(self, action: .combine, forControlEvents: .TouchUpInside)
-        }
-    }
+    
     @IBOutlet weak var newButton: UIButton! {
         didSet {
             newButton.addTarget(self, action: .new, forControlEvents: .TouchUpInside)
@@ -49,15 +48,15 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var clearAllButton: UIButton! {
+    /*@IBOutlet weak var clearAllButton: UIButton! {
         didSet {
             clearAllButton.addTarget(self, action: .clearAll, forControlEvents: .TouchUpInside)
         }
-    }
+    }*/
     
     @IBOutlet weak var bottomBarLayoutConstraint: NSLayoutConstraint!
     @IBOutlet weak var bottomBar: UIView!
-    @IBOutlet weak var iPhone4SColorStackViewHeightConstraint: NSLayoutConstraint!
+    
     @IBOutlet weak var containerView: UIView!
     
     @IBOutlet var numberFormatter: Formatter? {
@@ -68,6 +67,17 @@ class ViewController: UIViewController {
             }
         }
     }
+    
+    
+    
+    /*dynamic var viewModel: TipoutViewModelType? {
+        didSet {
+            totalField?.text = viewModel?.totalText
+            workerTableViewController.viewModel = viewModel
+        }
+    }*/
+    
+    dynamic var color = UIColor.clearColor()
     dynamic var controller: Controller = Controller()
     
     required init?(coder aDecoder: NSCoder) {
@@ -78,7 +88,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        controller.colorStack = colorDelegate
+//        controller.colorStack = colorDelegate
         controller.numberFormatter = numberFormatter
         
         // Total Field
@@ -88,7 +98,7 @@ class ViewController: UIViewController {
         
         let totalSignal = RACObserve(self, "controller.currentViewModel.totalText")
         
-        totalField.rac_textSignal().subscribeNextAs({ (text: NSString) -> () in
+        totalField.rac_textSignal().skip(1).subscribeNextAs({ (text: NSString) -> () in
             self.controller.currentViewModel.totalText = text as String
             self.workerTableViewController.tableView.reloadData()
         })
@@ -149,7 +159,7 @@ class ViewController: UIViewController {
     
     func showWalkthrough() {
         let walkthroughController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Walkthrough") as! WalkthroughViewController
-        walkthroughController.views = [newButton, combineOrDoneButton, settingsBarButton, splitButton, clearButton, clearAllButton, colorStackViewController.view, workerTableViewController.addNewButton]
+        walkthroughController.views = [newButton, /*combineOrDoneButton,*/ settingsBarButton, splitButton, clearButton, /*clearAllButton,*/ /*workerTableViewController.addNewButton*/]
         walkthroughController.alpha = 0.5
         self.presentViewController(walkthroughController, animated: true) {
             Defaults[.showWalkthrough] = false
@@ -165,31 +175,35 @@ class ViewController: UIViewController {
     
     @IBAction func new() {
         controller.new()
-        colorStackViewController.increment()
+//        colorStackViewController.increment()
     }
     
     @IBAction func clear(sender: UIButton) {
-        let index = controller.currentIndex
-        controller.removeCurrent()
-        if controller.count == 1 {
-            colorStackViewController.reload()
+//        let index = controller.currentIndex
+//        controller.removeCurrent()
+        workerTableViewController.removeAll()
+        
+        /*if controller.count == 1 {
+//            colorStackViewController.reload()
         } else {
-            colorStackViewController.removeItemAtIndex(index)
-        }
+//            colorStackViewController.removeItemAtIndex(index)
+        }*/
     }
     
-    @IBAction func clearAll(sender: UIButton) {
+    /*@IBAction func clearAll(sender: UIButton) {
         controller.removeAll()
-        colorStackViewController.reload()
-    }
+//        colorStackViewController.reload()
+    }*/
     
-    @IBAction func combine() {
+    /*@IBAction func combine() {
         guard let viewController = storyboard?.instantiateViewControllerWithIdentifier("tipoutvc") as? ViewController else { fatalError("Unable to instantiate ViewController") }
         let bundle = NSBundle(identifier: "com.apple.UIKit")
         presentViewController(viewController, animated: true, completion: nil)
         let combinedTipoutViewModel = controller.combinedTipoutsViewModel()
-        viewController.controller = Controller(tipoutViewModel: combinedTipoutViewModel, numberFormatter: numberFormatter)
-        controller.colorStack = colorDelegate
+        let newController = Controller(tipoutViewModel: combinedTipoutViewModel, numberFormatter: numberFormatter)
+        
+        viewController.controller = newController
+//        viewController.colorStack = controller.colorStack
         viewController.combineOrDoneButton.setTitle(bundle?.localizedStringForKey("Done", value: "", table: nil), forState: .Normal)
         viewController.combineOrDoneButton.removeTarget(viewController, action: .new, forControlEvents: .TouchUpInside)
         viewController.combineOrDoneButton.addTarget(viewController, action: .done, forControlEvents: .TouchUpInside)
@@ -197,7 +211,7 @@ class ViewController: UIViewController {
         
         //            debugPrint(combinedTipoutViewModel.totalText)
         
-    }
+    }*/
     
     @IBAction func split() {
         guard let bundle = NSBundle(identifier: "com.apple.UIKit") else { fatalError("Couln't access bundle") }
@@ -225,10 +239,14 @@ class ViewController: UIViewController {
                 }
                 
                 self.controller.split(by: splitController.splitMethod)
-                self.colorStackViewController.insertItemAtIndex(self.controller.currentIndex + 1)
+                self.controller.selectViewModel(self.controller.currentIndex + 1)
                 })
         
-        let alertView = PopupDialog(viewController: splitController, buttonAlignment: .Horizontal, transitionStyle: .BounceDown, gestureDismissal: true)
+        let alertView = PopupDialog(viewController: splitController,
+                                    buttonAlignment: .Horizontal,
+                                    transitionStyle: .BounceDown,
+                                    gestureDismissal: true)
+        
         alertView.addButtons([cancelButton, splitButton])
         
         splitController.formatter = numberFormatter
@@ -241,25 +259,34 @@ class ViewController: UIViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == ViewController.workersViewSegueID {
-            guard let workerTVC = segue.destinationViewController as? WorkerTableViewController else { fatalError("Couldn't worker table view controller") }
+        switch segue.identifier {
+        case ViewController.editableWorkersViewSegueID?:
+            guard let workerTVC = segue.destinationViewController as? EditableWorkerTableViewController else { fatalError("Couldn't access editable worker table view controller") }
             
-            let tableViewCellNib = UINib(nibName: "TableViewCell", bundle: NSBundle.mainBundle())
-            workerTVC.tableView.registerNib(tableViewCellNib, forCellReuseIdentifier: WorkerTableViewController.workerCellID)
+            let tableViewCellNib = UINib(nibName: "EditableTableViewCell", bundle: NSBundle.mainBundle())
+            workerTVC.tableView.registerNib(tableViewCellNib, forCellReuseIdentifier: EditableWorkerTableViewController.workerCellID)
             workerTableViewController = workerTVC
             workerTableViewController.tableView.panGestureRecognizer.delaysTouchesBegan = true
             workerTableViewController.formatter = numberFormatter
-        } else if segue.identifier == ViewController.colorStackSegueID {
-            guard let colorStackVC = segue.destinationViewController as? ColorStackViewController else { fatalError("Couldn't access color stack view controller") }
-            controller.colorStack = colorDelegate
-            colorStackViewController = colorStackVC
-            colorStackViewController.colorDelegate = colorDelegate
-            colorStackViewController.delegate = controller
-            colorStackViewController.reload()
-        } else if segue.identifier == ViewController.settingsViewControllerID {
+            
+        case ViewController.staticWorkersViewSegueID?:
+            
+            guard let workerTVC = segue.destinationViewController as? StaticWorkerTVC else { fatalError("Couldn't access worker table view controller") }
+            
+            let tableViewCellNib = UINib(nibName: "StaticTableViewCell", bundle: NSBundle.mainBundle())
+            workerTVC.tableView.registerNib(tableViewCellNib, forCellReuseIdentifier: StaticWorkerTVC.workerCellID)
+            workerTableViewController = workerTVC
+            workerTableViewController.tableView.panGestureRecognizer.delaysTouchesBegan = true
+            workerTableViewController.formatter = numberFormatter
+
+        
+        case ViewController.settingsViewControllerID?:
             guard let navVC = segue.destinationViewController as? UINavigationController,
                 settingsVC = navVC.topViewController as? SettingsTableViewController else { fatalError("Couldn't access settings table view controller") }
             settingsVC.formatter = numberFormatter
+
+        default:
+            fatalError("Unknown destination view controller")
         }
         
     }
@@ -293,12 +320,13 @@ class ViewController: UIViewController {
     }
 }
 
+// MARK: -
 private extension Selector {
-    static let combine = #selector(ViewController.combine)
+//    static let combine = #selector(ViewController.combine)
     static let new = #selector(ViewController.new)
     static let done = #selector(ViewController.done)
     static let clear = #selector(ViewController.clear(_:))
-    static let clearAll = #selector(ViewController.clearAll(_:))
+//    static let clearAll = #selector(ViewController.clearAll(_:))
     static let keyboardWillShow = #selector(ViewController.keyboardWillShow(_:))
     static let keyboardWillHide = #selector(ViewController.keyboardWillHide(_:))
     

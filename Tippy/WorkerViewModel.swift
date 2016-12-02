@@ -21,6 +21,10 @@ import SwiftyUserDefaults
     case Other
 }
 
+@objc enum Method: Int {
+    case Hour, Percent, Amount
+}
+
 final class WorkerViewModel: NSObject, WorkerViewModelType {
     
     // MARK: - Properties
@@ -73,7 +77,7 @@ final class WorkerViewModel: NSObject, WorkerViewModelType {
     dynamic var amount: String {
         get {
             if let formatter = formatter,
-                currencyString = try? formatter.currencyStringFromNumber(worker.tipout) {
+                currencyString = try? formatter.currencyStringFromNumber(worker.tipout, stripSymbol: true) {
                 return currencyString
             } else { return "" }
         }
@@ -106,14 +110,14 @@ final class WorkerViewModel: NSObject, WorkerViewModelType {
                 
             case (.Percentage(let percentage), _):
                 
-                let percentageString = (try? formatter?.percentageStringFromNumber(percentage)).flatMap { $0 } ?? "\(percentage)"
+                let percentageString = (try? formatter?.percentageStringFromNumber(percentage, stripSymbol: true)).flatMap { $0 } ?? "\(percentage)"
                 attributedString = NSAttributedString(string: percentageString,
                                                       attributes: [NSForegroundColorAttributeName : UIColor.blackColor()])
                 
             case (_, let totalTipouts?):
                 
                 let percentage = (worker.tipout / totalTipouts)
-                let percentageString = (try? formatter?.percentageStringFromNumber(percentage)).flatMap { $0 } ?? "error"
+                let percentageString = (try? formatter?.percentageStringFromNumber(percentage, stripSymbol: true)).flatMap { $0 } ?? "error"
                 attributedString = NSAttributedString(string:
                     isnan(percentage) || percentageString == "(0)" ? "" : "(\(percentageString))",
                                                       attributes: [NSForegroundColorAttributeName : UIColor.grayColor()])
@@ -133,22 +137,30 @@ final class WorkerViewModel: NSObject, WorkerViewModelType {
         }
     }
     
-    var method: (method: String, value: String) {
-        get {
-            switch worker.method {
-            case .Amount(let amount):
-                return (method: "amount", value: "\(amount)")
-            case .Hourly(let hours):
-                return (method: "hourly", value: "\(hours)")
-            case .Percentage(let percentage):
-                return (method: "percentage", value: "\(percentage)")
-            default:
-                return (method:"", value: "")
-            }
+    var method: Method {
+        
+        switch worker.method {
+        case .Amount:
+            return .Amount
+        case .Hourly:
+            return .Hour
+        case .Percentage:
+            return .Percent
+        case .Function:
+            fatalError("Function method not supported")
         }
-        set {
-            guard let tipoutMethod = TipoutMethod(method: newValue.method, value: newValue.value) else { return }// WorkerViewModel.tipoutMethodFrom(newValue)
-            worker = Worker(method: tipoutMethod, id: worker.id)
+    }
+    
+    var value: String {
+        switch worker.method {
+        case .Amount:
+            return amount
+        case .Hourly:
+            return hours
+        case .Percentage:
+            return percentage.string
+        case .Function:
+            return ""
         }
     }
     

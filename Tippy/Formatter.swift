@@ -107,9 +107,9 @@ public class Formatter: NSObject {
         }
     }
 
-    public func percentageStringFromNumber(number: NSNumber) throws -> String {
-        guard let string = percentFormatter.stringFromNumber(number) else { throw FormatterError.ConvertError }
-            return string.stringByReplacingOccurrencesOfString(percentSymbol, withString: "")
+    public func percentageStringFromNumber(number: NSNumber, stripSymbol: Bool) throws -> String {
+        guard let stringWithSymbol = percentFormatter.stringFromNumber(number) else { throw FormatterError.ConvertError }
+        return stripSymbol ? stringWithSymbol.stringByReplacingOccurrencesOfString(percentSymbol, withString: "") : stringWithSymbol
     }
     
     public func percentageFromString(string: String) throws ->  NSNumber {
@@ -134,10 +134,14 @@ public class Formatter: NSObject {
         return num
     }
     
-    public func currencyStringFromNumber(number: NSNumber) throws -> String {
+    public func currencyStringFromNumber(number: NSNumber, stripSymbol: Bool) throws -> String {
         guard let string = currencyFormatter.stringFromNumber(number) else { throw FormatterError.ConvertError }
-            return string.stringByReplacingOccurrencesOfString("\(currencyFormatter.currencyDecimalSeparator)00", withString: "")
-            .stringByReplacingOccurrencesOfString(currencySymbol, withString: "")
+        let trailingZerosStripped = string.stringByReplacingOccurrencesOfString("\(currencyFormatter.currencyDecimalSeparator)00", withString: "")
+        if stripSymbol {
+            return trailingZerosStripped.stringByReplacingOccurrencesOfString(currencySymbol, withString: "")
+        } else {
+            return trailingZerosStripped
+        }
     }
     
     public func currencyFromString(string: String) throws -> NSNumber {
@@ -162,21 +166,21 @@ public class Formatter: NSObject {
         return num
     }
     
-    public func formatCurrencyString(string: String) throws -> String {
+    public func formatCurrencyString(string: String, stripSymbol: Bool) throws -> String {
         let num = try currencyFromString(string)
-        let string = try currencyStringFromNumber(num)
+        let string = try currencyStringFromNumber(num, stripSymbol: stripSymbol)
         return string
     }
     
-    public func formatPercentageString(string: String) throws -> String {
+    public func formatPercentageString(string: String, stripSymbol: Bool) throws -> String {
         let num = try percentageFromString(string)
-        let string = try percentageStringFromNumber(num)
+        let string = try percentageStringFromNumber(num, stripSymbol: stripSymbol)
         return string
     }
     
     public func formatNumberString(string: String) throws -> String {
         let num = try currencyFromString(string)
-        let string = try currencyStringFromNumber(num)
+        let string = try currencyStringFromNumber(num, stripSymbol: true)
         return string
     }
     

@@ -15,6 +15,8 @@ import ReactiveCocoa
     var amount: String { get set }
     var hours: String { get set }
     var percentage: NSAttributedString { get set }
+    var method: Method { get }
+    var value: String { get }
     var currencySymbolPosition: SymbolPosition { get }
     var percentSymbolPosition: SymbolPosition { get }
     var percentSymbol: String { get }

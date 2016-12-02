@@ -9,7 +9,7 @@
 import Foundation
 import ReactiveCocoa
 
-extension TipoutView {
+extension EditableTipoutView {
     
     // MARK: - Channels
 

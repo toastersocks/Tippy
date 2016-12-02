@@ -51,7 +51,7 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
         }
         Defaults.rac_channelTerminalForKey("percentageFormat").subscribeNextAs {
             (option: Int) -> () in
-            self.percentageExampleLabel.text = try? self.formatter?.percentageStringFromNumber(0.3) ?? "0.3"
+            self.percentageExampleLabel.text = try? self.formatter?.percentageStringFromNumber(0.3, stripSymbol: true) ?? "0.3"
         }
         roundToNearest.rac_newTextChannel().mapAs {
             (text: NSString) -> AnyObject in

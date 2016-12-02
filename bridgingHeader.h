@@ -12,6 +12,6 @@
 
 
 #ifndef DEBUG
-#import "Mixpanel/Mixpanel.h"
+//#import "Mixpanel/Mixpanel.h"
 #endif
 

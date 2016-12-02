@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Mixpanel
+//import Mixpanel
 #if DEBUG
     import func AudioToolbox.AudioServicesPlayAlertSound
 #endif
@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         #if !DEBUG
-        _ = Mixpanel.sharedInstanceWithToken("7d099edd7dcdb4e8fd8e8776a40361b9")
+//        _ = Mixpanel.sharedInstanceWithToken("7d099edd7dcdb4e8fd8e8776a40361b9")
         #endif
         
         if isTakingScreenshots() {
@@ -64,7 +64,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         #if DEBUG
         AudioServicesPlayAlertSound(1103)
         #else
-        Mixpanel.sharedInstance().track("Low memory")
+//        Mixpanel.sharedInstance().track("Low memory")
         #endif
     }
 }
