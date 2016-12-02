@@ -12,6 +12,6 @@ class ColorCell: UICollectionViewCell {
     
     @IBOutlet weak var button: UIButton!
     
-    @IBInspectable var color: UIColor = UIColor.clearColor()
+    @IBInspectable var color: UIColor = UIColor.clear
     
 }

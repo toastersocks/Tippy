@@ -9,33 +9,33 @@
 import Foundation
 
 
-public class Formatter: NSObject {
+open class Formatter: NSObject {
     
-    public enum FormatterError: ErrorType {
-        case ConvertError
+    public enum FormatterError: Error {
+        case convertError
     }
     
     public enum PercentFormat {
-        case WholeNumber
-        case Decimal
+        case wholeNumber
+        case decimal
     }
     
     public enum SymbolPosition {
-        case Beginning, End
+        case beginning, end
     }
     
-    public var percentFormat: PercentFormat = .WholeNumber {
+    open var percentFormat: PercentFormat = .wholeNumber {
         didSet {
             switch percentFormat {
-            case .WholeNumber:
+            case .wholeNumber:
                 percentFormatter.multiplier = 100
-            case .Decimal:
+            case .decimal:
                 percentFormatter.multiplier = 1
             }
         }
     }
 
-    public var locale: NSLocale {
+    open var locale: Locale {
         get {
             return currencyFormatter.locale
         }
@@ -45,13 +45,13 @@ public class Formatter: NSObject {
         }
     }
     
-    public var decimalSeparator: String {
+    open var decimalSeparator: String {
         return currencyFormatter.decimalSeparator
     }
     
-    private lazy var percentFormatter: NSNumberFormatter = {
-        let formatter = NSNumberFormatter()
-        formatter.numberStyle = .PercentStyle
+    fileprivate lazy var percentFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .percent
 //        formatter.percentSymbol = ""
         formatter.minimumFractionDigits = 0
         formatter.maximumFractionDigits = 2
@@ -61,58 +61,58 @@ public class Formatter: NSObject {
         return formatter
     }()
     
-    private lazy var currencyFormatter: NSNumberFormatter = {
-        let formatter = NSNumberFormatter()
+    fileprivate lazy var currencyFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
         formatter.currencySymbol = ""
-        formatter.numberStyle = .CurrencyStyle
+        formatter.numberStyle = .currency
         formatter.maximumFractionDigits = 2
 //        formatter.usesSignificantDigits = true
         formatter.usesGroupingSeparator = false
         return formatter
     }()
     
-    public var currencySymbol: String {
-        guard let symbol = NSLocale.autoupdatingCurrentLocale().objectForKey(NSLocaleCurrencySymbol) as? String else { fatalError() }
+    open var currencySymbol: String {
+        guard let symbol = (Locale.autoupdatingCurrent as NSLocale).object(forKey: NSLocale.Key.currencySymbol) as? String else { fatalError() }
         return symbol
 //        return currencyFormatter.currencySymbol
     }
     
-    public var percentSymbol: String {
+    open var percentSymbol: String {
         return percentFormatter.percentSymbol
     }
     
-    public var currencySymbolPosition: SymbolPosition {
+    open var currencySymbolPosition: SymbolPosition {
         currencyFormatter.currencySymbol = currencySymbol
-        guard let string = currencyFormatter.stringFromNumber(1) else { fatalError() }
+        guard let string = currencyFormatter.string(from: 1) else { fatalError() }
         if string.hasPrefix(currencySymbol) {
             currencyFormatter.currencySymbol = ""
-            return .Beginning
+            return .beginning
         } else if string.hasSuffix(currencySymbol) {
             currencyFormatter.currencySymbol = ""
-            return .End
+            return .end
         } else {
             fatalError()
         }
     }
 
-    public var percentSymbolPosition: SymbolPosition {
-        guard let string = percentFormatter.stringFromNumber(0.1) else { fatalError() }
+    open var percentSymbolPosition: SymbolPosition {
+        guard let string = percentFormatter.string(from: 0.1) else { fatalError() }
         
         if string.hasPrefix(percentSymbol) {
-            return .Beginning
+            return .beginning
         } else if string.hasSuffix(percentSymbol) {
-            return .End
+            return .end
         } else {
             fatalError()
         }
     }
 
-    public func percentageStringFromNumber(number: NSNumber, stripSymbol: Bool) throws -> String {
-        guard let stringWithSymbol = percentFormatter.stringFromNumber(number) else { throw FormatterError.ConvertError }
-        return stripSymbol ? stringWithSymbol.stringByReplacingOccurrencesOfString(percentSymbol, withString: "") : stringWithSymbol
+    open func percentageStringFromNumber(_ number: NSNumber, stripSymbol: Bool) throws -> String {
+        guard let stringWithSymbol = percentFormatter.string(from: number) else { throw FormatterError.convertError }
+        return stripSymbol ? stringWithSymbol.replacingOccurrences(of: percentSymbol, with: "") : stringWithSymbol
     }
     
-    public func percentageFromString(string: String) throws ->  NSNumber {
+    open func percentageFromString(_ string: String) throws ->  NSNumber {
         var checkedString = string
         
         if string.hasPrefix("\(decimalSeparator)") {
@@ -120,31 +120,31 @@ public class Formatter: NSObject {
         }
 
         let percentString: String
-        if !string.containsString(percentSymbol) {
+        if !string.contains(percentSymbol) {
             switch percentSymbolPosition {
-            case .End:
-                percentString = checkedString.stringByAppendingString(percentSymbol)
-            case .Beginning:
-                percentString = percentSymbol.stringByAppendingString(checkedString)
+            case .end:
+                percentString = checkedString + percentSymbol
+            case .beginning:
+                percentString = percentSymbol + checkedString
             }
             
         } else { percentString = checkedString }
 
-        guard let num = percentFormatter.numberFromString(percentString) else { throw FormatterError.ConvertError }
+        guard let num = percentFormatter.number(from: percentString) else { throw FormatterError.convertError }
         return num
     }
     
-    public func currencyStringFromNumber(number: NSNumber, stripSymbol: Bool) throws -> String {
-        guard let string = currencyFormatter.stringFromNumber(number) else { throw FormatterError.ConvertError }
-        let trailingZerosStripped = string.stringByReplacingOccurrencesOfString("\(currencyFormatter.currencyDecimalSeparator)00", withString: "")
+    open func currencyStringFromNumber(_ number: NSNumber, stripSymbol: Bool) throws -> String {
+        guard let string = currencyFormatter.string(from: number) else { throw FormatterError.convertError }
+        let trailingZerosStripped = string.replacingOccurrences(of: "\(currencyFormatter.currencyDecimalSeparator)00", with: "")
         if stripSymbol {
-            return trailingZerosStripped.stringByReplacingOccurrencesOfString(currencySymbol, withString: "")
+            return trailingZerosStripped.replacingOccurrences(of: currencySymbol, with: "")
         } else {
             return trailingZerosStripped
         }
     }
     
-    public func currencyFromString(string: String) throws -> NSNumber {
+    open func currencyFromString(_ string: String) throws -> NSNumber {
         
         /*let amountString: String
         if !string.containsString(currencySymbol) {
@@ -161,24 +161,24 @@ public class Formatter: NSObject {
                 checkedString = "0" + checkedString
         }
         
-        guard let num = currencyFormatter.numberFromString(checkedString) else { throw FormatterError.ConvertError }
+        guard let num = currencyFormatter.number(from: checkedString) else { throw FormatterError.convertError }
         
         return num
     }
     
-    public func formatCurrencyString(string: String, stripSymbol: Bool) throws -> String {
+    open func formatCurrencyString(_ string: String, stripSymbol: Bool) throws -> String {
         let num = try currencyFromString(string)
         let string = try currencyStringFromNumber(num, stripSymbol: stripSymbol)
         return string
     }
     
-    public func formatPercentageString(string: String, stripSymbol: Bool) throws -> String {
+    open func formatPercentageString(_ string: String, stripSymbol: Bool) throws -> String {
         let num = try percentageFromString(string)
         let string = try percentageStringFromNumber(num, stripSymbol: stripSymbol)
         return string
     }
     
-    public func formatNumberString(string: String) throws -> String {
+    open func formatNumberString(_ string: String) throws -> String {
         let num = try currencyFromString(string)
         let string = try currencyStringFromNumber(num, stripSymbol: true)
         return string

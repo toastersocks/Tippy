@@ -13,18 +13,18 @@ import LicensesViewController
 import MessageUI
 
 class SettingsTableViewController: UITableViewController, MFMailComposeViewControllerDelegate {
-    private let feedbackEmail = "tippyApp@toastersocks.com"
-    private let acknowledgementsSegueID = "acknowledgements"
-    private let feedbackSegueID = "feedback"
-    private let feedbackEmailSubject = "Feedback on Tippy"
+    fileprivate let feedbackEmail = "tippyApp@toastersocks.com"
+    fileprivate let acknowledgementsSegueID = "acknowledgements"
+    fileprivate let feedbackSegueID = "feedback"
+    fileprivate let feedbackEmailSubject = "Feedback on Tippy"
     
     static var feedbackVC = MFMailComposeViewController()
     
     @IBOutlet weak var percentageSegmentedControl: UISegmentedControl!
     @IBOutlet weak var percentageExampleLabel: UITextField! {
         didSet {
-            percentageExampleLabel.userInteractionEnabled = false
-            percentageExampleLabel.enabled = false
+            percentageExampleLabel.isUserInteractionEnabled = false
+            percentageExampleLabel.isEnabled = false
             formatter?.configurePercentTextfield(&percentageExampleLabel!)
         }
     }
@@ -44,12 +44,12 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
         percentageSegmentedControl.selectedSegmentIndex = Defaults[.percentageFormat] ?? 0
         roundToNearest.text = "\(Defaults[.roundToNearest])"
         // Subscribe to new values
-        percentageSegmentedControl.rac_newSelectedSegmentIndexChannelWithNilValue(0).subscribeNextAs {
+        percentageSegmentedControl.rac_newSelectedSegmentIndexChannel(withNilValue: 0).subscribeNextAs {
             (option: Int) -> () in
             Defaults[.percentageFormat] = option
             //TODO: update the example label
         }
-        Defaults.rac_channelTerminalForKey("percentageFormat").subscribeNextAs {
+        Defaults.rac_channelTerminal(forKey: "percentageFormat").subscribeNextAs {
             (option: Int) -> () in
             self.percentageExampleLabel.text = try? self.formatter?.percentageStringFromNumber(0.3, stripSymbol: true) ?? "0.3"
         }
@@ -63,8 +63,8 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
         
     }
 
-    @IBAction func dismiss(sender: UIBarButtonItem) {
-        dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func dismiss(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -132,15 +132,15 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let segueID = segue.identifier else { fatalError("No segue id found") }
         switch segueID {
         case acknowledgementsSegueID:
-            guard let licencesVC = segue.destinationViewController as? LicensesViewController else { fatalError("Couldn't get view controller") }
-            licencesVC.loadPlist(NSBundle.mainBundle(), resourceName: "Licences")
+            guard let licencesVC = segue.destination as? LicensesViewController else { fatalError("Couldn't get view controller") }
+            licencesVC.loadPlist(Bundle.main, resourceName: "Licences")
         case feedbackSegueID:
             if MFMailComposeViewController.canSendMail() {
-            guard let feedbackVC = segue.destinationViewController as? MFMailComposeViewController else { fatalError("Couldn't get view controller") }
+            guard let feedbackVC = segue.destination as? MFMailComposeViewController else { fatalError("Couldn't get view controller") }
                 feedbackVC.mailComposeDelegate = self
                 feedbackVC.setToRecipients([feedbackEmail])
                 feedbackVC.setSubject(feedbackEmailSubject)
@@ -155,7 +155,7 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
         // Pass the selected object to the new view controller.
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 1 && indexPath.row == 0 {
 
             if MFMailComposeViewController.canSendMail() {
@@ -164,7 +164,7 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
                 feedbackVC.mailComposeDelegate = self
                 feedbackVC.setToRecipients([feedbackEmail])
                 feedbackVC.setSubject(feedbackEmailSubject)
-                presentViewController(feedbackVC, animated: true, completion: nil)
+                present(feedbackVC, animated: true, completion: nil)
             } else {
                 //TODO: Compose a mailto: url to open with another email app
                 print("Composing a mailto: url... send to app!")
@@ -172,8 +172,8 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
         }
     }
     
-    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
-        controller.dismissViewControllerAnimated(true, completion: nil)
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
         SettingsTableViewController.feedbackVC = MFMailComposeViewController()
     }
 

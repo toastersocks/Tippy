@@ -18,18 +18,18 @@ class JCPTextField: UITextField {
     }
     */
     
-    override func intrinsicContentSize() -> CGSize {
+    override var intrinsicContentSize : CGSize {
         
-        if let text = self.text where !text.isEmpty {
-            let textSize = (text as NSString).sizeWithAttributes(typingAttributes)
+        if let text = self.text, !text.isEmpty {
+            let textSize = (text as NSString).size(attributes: typingAttributes)
             let width = textSize.width +
                 (rightView?.bounds.size.width ?? 0) +
                 (leftView?.bounds.size.width ?? 0) +
                 25 //!!!: where does this extra needed space come from?
-            let size = CGSize(width: width, height: super.intrinsicContentSize().height)
+            let size = CGSize(width: width, height: super.intrinsicContentSize.height)
             return size
         } else {
-            return super.intrinsicContentSize()
+            return super.intrinsicContentSize
         }
     }
     

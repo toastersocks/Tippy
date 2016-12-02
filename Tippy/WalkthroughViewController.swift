@@ -29,20 +29,20 @@ class WalkthroughViewController: SpotlightViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func next(animated animated: Bool) {
-        guard stepIndex < views.count else { dismissViewControllerAnimated(true, completion: nil); return }
+    func next(animated: Bool) {
+        guard stepIndex < views.count else { dismiss(animated: true, completion: nil); return }
         updateAnnotations(animated: animated)
             spotlightView.appear(Spotlight.RoundedRect(view: views[stepIndex], margin: 5, cornerRadius: 20))
     
         stepIndex += 1
     }
 
-    func updateAnnotations(animated animated: Bool) {
-        annotations.enumerate().forEach {
+    func updateAnnotations(animated: Bool) {
+        annotations.enumerated().forEach {
             (index, view) -> () in
-            UIView.animateWithDuration(animated ? 0.25 : 0) {
+            UIView.animate(withDuration: animated ? 0.25 : 0, animations: {
             view.alpha = index == self.stepIndex ? 1 : 0
-            }
+            }) 
         }
     }
     /*
@@ -59,15 +59,15 @@ class WalkthroughViewController: SpotlightViewController {
 
 
 extension WalkthroughViewController: SpotlightViewControllerDelegate {
-    func spotlightViewControllerWillPresent(viewController: SpotlightViewController, animated: Bool) {
+    func spotlightViewControllerWillPresent(_ viewController: SpotlightViewController, animated: Bool) {
         next(animated: false)
     }
     
-    func spotlightViewControllerTapped(viewController: SpotlightViewController, isInsideSpotlight: Bool) {
+    func spotlightViewControllerTapped(_ viewController: SpotlightViewController, isInsideSpotlight: Bool) {
         next(animated: true)
     }
     
-    func spotlightViewControllerWillDismiss(viewController: SpotlightViewController, animated: Bool) {
+    func spotlightViewControllerWillDismiss(_ viewController: SpotlightViewController, animated: Bool) {
         spotlightView.disappear()
     }
 }

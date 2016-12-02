@@ -26,10 +26,10 @@ class testWorkerViewModel: QuickSpec {
         }
     }
     
-    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         switch keyPath {
         case "percentage"?:
-            if let percentageString = change?[NSKeyValueChangeNewKey] as? NSAttributedString {
+            if let percentageString = change?[NSKeyValueChangeKey.newKey] as? NSAttributedString {
                 debugPrint(percentageString)
                 wasObserved = true
             } else { XCTFail("Unexpected type or change") }

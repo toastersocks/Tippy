@@ -23,25 +23,25 @@ class EditableTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         RAC(workerView, "nameField.text") <~ RACObserve(self, "viewModel.name").filter { _ in
-            return !self.workerView.nameField.isFirstResponder()
+            return !self.workerView.nameField.isFirstResponder
         }
         
         RAC(workerView, "amountField.text") <~ RACObserve(self, "viewModel.amount").filter { _ in
-            return !self.workerView.amountField.isFirstResponder()
+            return !self.workerView.amountField.isFirstResponder
         }
         
         RAC(workerView, "hoursField.text") <~ RACObserve(self, "viewModel.hours").filter { _ in
-            return !self.workerView.hoursField.isFirstResponder()
+            return !self.workerView.hoursField.isFirstResponder
         }
         
         RAC(workerView, "percentageField.attributedText") <~ RACObserve(self, "viewModel.percentage")
             .doNext { _ in
-                if self.workerView.percentageField.isFirstResponder() {
-                    self.workerView.percentageField.textColor = .blackColor()
+                if self.workerView.percentageField.isFirstResponder {
+                    self.workerView.percentageField.textColor = .black
                 }
             }
             .filter { _ in
-                return !self.workerView.percentageField.isFirstResponder()
+                return !self.workerView.percentageField.isFirstResponder
         }
     }
 }

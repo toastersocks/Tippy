@@ -33,49 +33,49 @@ class WorkerTableViewController: UITableViewController {
     }
 
     func hideEmptyView() {
-        emptyView.hidden = true
-        tableView.sendSubviewToBack(emptyView)
+        emptyView.isHidden = true
+        tableView.sendSubview(toBack: emptyView)
     }
     
     func showEmptyView() {
-        emptyView.hidden = false
-        tableView.bringSubviewToFront(emptyView)
+        emptyView.isHidden = false
+        tableView.bringSubview(toFront: emptyView)
     }
     
     func removeAll() {
-        (0..<viewModel.count).reverse().forEach {
+        (0..<viewModel.count).reversed().forEach {
             viewModel.removeWorkerAtIndex($0)
         }
         tableView.beginUpdates()
-        tableView.deleteSections(NSIndexSet(index: 0), withRowAnimation: .Automatic)
-        tableView.insertSections(NSIndexSet(index: 0), withRowAnimation: .Automatic)
+        tableView.deleteSections(IndexSet(integer: 0), with: .automatic)
+        tableView.insertSections(IndexSet(integer: 0), with: .automatic)
         tableView.endUpdates()
         //        tableView.reloadData()
     }
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let rows = viewModel?.count ?? 0
         if rows < showEmptyViewWhenLessThan  /*&& emptyView.hidden == true*/ {
-            tableView.scrollEnabled = false
+            tableView.isScrollEnabled = false
             showEmptyView()
         } else if rows >= showEmptyViewWhenLessThan /*&& emptyView.hidden == false*/ {
-            tableView.scrollEnabled = true
+            tableView.isScrollEnabled = true
             hideEmptyView()
         }
         return rows
     }
     
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
             tableView.beginUpdates()
             viewModel.removeWorkerAtIndex(indexPath.row)
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
             tableView.endUpdates()
         }
     }

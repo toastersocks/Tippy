@@ -36,27 +36,27 @@ class EditableWorkerTableViewController: WorkerTableViewController, TipoutViewDe
         super.viewDidLoad()
     }*/
 
-    func resetPropertiesOfTipoutView(view: EditableTipoutView) {
+    func resetPropertiesOfTipoutView(_ view: EditableTipoutView) {
         view.delegate = nil
         view.activeTextField = nil
     }
     
     @IBAction func editWorker(atIndex index: Int) {
         let editWorkerVC = EditWorkerViewController(nibName: "EditWorkerViewController", bundle: nil)
-        guard let bundle = NSBundle(identifier: "com.apple.UIKit") else { fatalError("Coudn't access bundle") }
+        guard let bundle = Bundle(identifier: "com.apple.UIKit") else { fatalError("Coudn't access bundle") }
         
-        let cancelButton = CancelButton(title: bundle.localizedStringForKey("Cancel", value: "", table: nil), action: nil)
+        let cancelButton = CancelButton(title: bundle.localizedString(forKey: "Cancel", value: "", table: nil), action: nil)
         cancelButton.accessibilityIdentifier = "cancelButton"
-        cancelButton.accessibilityLabel = bundle.localizedStringForKey("Cancel", value: "", table: nil)
-        let doneButton = DefaultButton(title: bundle.localizedStringForKey("Done", value: "", table: nil)) {
+        cancelButton.accessibilityLabel = bundle.localizedString(forKey: "Cancel", value: "", table: nil)
+        let doneButton = DefaultButton(title: bundle.localizedString(forKey: "Done", value: "", table: nil)) {
             let method: TipoutViewField = {
                 switch editWorkerVC.currentMethodIndex {
                 case 0: // Hourly
-                    return TipoutViewField.Hours
+                    return TipoutViewField.hours
                 case 1: // Percent
-                    return TipoutViewField.Percentage
+                    return TipoutViewField.percentage
                 case 2: // Amount
-                    return TipoutViewField.Amount
+                    return TipoutViewField.amount
                 default:
                     fatalError("Unknown value for tipout method")
                 }
@@ -70,13 +70,13 @@ class EditableWorkerTableViewController: WorkerTableViewController, TipoutViewDe
             self.viewModel.addWorkerWithName(name, method: method, value: value, atIndex: viewModelCount)
             
             self.tableView.beginUpdates()
-            self.tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: viewModelCount, inSection: 0)], withRowAnimation: .Automatic)
+            self.tableView.insertRows(at: [IndexPath(row: viewModelCount, section: 0)], with: .automatic)
             self.tableView.endUpdates()
         }
         
         let editWorkerPopup = PopupDialog(viewController: editWorkerVC,
-                                          buttonAlignment: .Horizontal,
-                                          transitionStyle: .ZoomIn,
+                                          buttonAlignment: .horizontal,
+                                          transitionStyle: .zoomIn,
                                           gestureDismissal: true)
         editWorkerPopup.addButtons([cancelButton, doneButton])
         editWorkerVC.formatter = formatter
@@ -85,7 +85,7 @@ class EditableWorkerTableViewController: WorkerTableViewController, TipoutViewDe
         editWorkerVC.viewModel = viewModel.workerViewModels[index]
         }
         
-        presentViewController(editWorkerPopup, animated: true, completion: nil)
+        present(editWorkerPopup, animated: true, completion: nil)
         
         //        navigationController?.pushViewController(editWorkerVC, animated: true)
         /*guard let workerView = (tableView.cellForRowAtIndexPath(
@@ -113,19 +113,19 @@ class EditableWorkerTableViewController: WorkerTableViewController, TipoutViewDe
     
     // MARK: TableViewDelegate/DataSource
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell = tableView.dequeueReusableCellWithIdentifier(EditableWorkerTableViewController.workerCellID) as? EditableTableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: EditableWorkerTableViewController.workerCellID) as? EditableTableViewCell
             else { fatalError("Expected a EditableTableViewCell") }
         resetPropertiesOfTipoutView(cell.workerView)
         cell.workerView.delegate = self
-        cell.backgroundColor = UIColor.clearColor()
+        cell.backgroundColor = UIColor.clear
         
         return cell
     }
     
-    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        guard let tableViewCell = cell as? EditableTableViewCell else { fatalError("Expected a EditableTableViewCell; got a \(cell.dynamicType) instead") }
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard let tableViewCell = cell as? EditableTableViewCell else { fatalError("Expected a EditableTableViewCell; got a \(type(of: cell)) instead") }
         
         tableViewCell.viewModel = viewModel[indexPath.row]
         tableViewCell.accessibilityLabel = "Worker \(indexPath.item) with name \(tableViewCell.workerView.nameField.text)"
@@ -148,7 +148,7 @@ class EditableWorkerTableViewController: WorkerTableViewController, TipoutViewDe
         return 1
     }*/
     
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
     
@@ -179,7 +179,7 @@ class EditableWorkerTableViewController: WorkerTableViewController, TipoutViewDe
     
     // MARK: TipoutView
     
-    func tableViewCellForTipoutView(tipoutView: EditableTipoutView) -> EditableTableViewCell? {
+    func tableViewCellForTipoutView(_ tipoutView: EditableTipoutView) -> EditableTableViewCell? {
         var aView: UIView = tipoutView
         
         while !(aView is UITableViewCell) {
@@ -191,13 +191,13 @@ class EditableWorkerTableViewController: WorkerTableViewController, TipoutViewDe
         return cell
     }
     
-    func handleInputForTipoutView(tipoutView: EditableTipoutView, activeText: String?) {
+    func handleInputForTipoutView(_ tipoutView: EditableTipoutView, activeText: String?) {
         guard let cell = tableViewCellForTipoutView(tipoutView) else { fatalError("Couldn't get tableViewCell") }
         guard let
-            indexPath = tableView.indexPathForCell(cell),
-            activeText = tipoutView.activeTextField?.text ?? .Some("0"),
-            tag = tipoutView.activeTextField?.tag ?? .Some(3), // Amount tag
-            textFieldTag = TipoutViewField(rawValue: tag)
+            indexPath = tableView.indexPath(for: cell),
+            let activeText = tipoutView.activeTextField?.text ?? .some("0"),
+            let tag = tipoutView.activeTextField?.tag ?? .some(3), // Amount tag
+            let textFieldTag = TipoutViewField(rawValue: tag)
         else { return }
         
         viewModel.addWorkerWithName(
@@ -209,42 +209,42 @@ class EditableWorkerTableViewController: WorkerTableViewController, TipoutViewDe
         cell.viewModel = viewModel[indexPath.row]
     }
     
-    func tipoutViewDidBeginEditing(tipoutView: EditableTipoutView, textField: UITextField) {
+    func tipoutViewDidBeginEditing(_ tipoutView: EditableTipoutView, textField: UITextField) {
         guard let
             cell = tableViewCellForTipoutView(tipoutView),
-            indexPath = tableView.indexPathForCell(cell)
+            let indexPath = tableView.indexPath(for: cell)
             else { fatalError("Couldn't get tableViewCell or index") }
         
-        tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: .None, animated: true)
+        tableView.scrollToRow(at: indexPath, at: .none, animated: true)
     }
     
-    func tipoutViewDidEndEditing(tipoutView: EditableTipoutView) {
+    func tipoutViewDidEndEditing(_ tipoutView: EditableTipoutView) {
         guard let activeField = tipoutView.activeTextField,
-            text = activeField.text,
-        formatter = formatter else { return }
+            let text = activeField.text,
+        let formatter = formatter else { return }
         switch TipoutViewField(rawValue: activeField.tag) {
-        case .Amount?: activeField.text = try? formatter.formatNumberString(text)
-        case .Percentage?: activeField.text = try? formatter.formatPercentageString(text, stripSymbol: true)
-        case .Hours?: activeField.text = try? formatter.formatNumberString(text)
-        case .Name?: break
+        case .amount?: activeField.text = try? formatter.formatNumberString(text)
+        case .percentage?: activeField.text = try? formatter.formatPercentageString(text, stripSymbol: true)
+        case .hours?: activeField.text = try? formatter.formatNumberString(text)
+        case .name?: break
         case nil: break
             }
     }
     
-    func tipoutView(tipoutView: EditableTipoutView, textField: UITextField, textDidChange text: String) {
+    func tipoutView(_ tipoutView: EditableTipoutView, textField: UITextField, textDidChange text: String) {
         handleInputForTipoutView(tipoutView, activeText: text)
     }
     
-    func tipoutView(tipoutView: EditableTipoutView, textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-        let oldString: NSString = textField.text ?? ""
-        let newString = oldString.stringByReplacingCharactersInRange(range, withString: string)
+    func tipoutView(_ tipoutView: EditableTipoutView, textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        let oldString: NSString = textField.text as NSString? ?? ""
+        let newString = oldString.replacingCharacters(in: range, with: string)
         if !newString.isEmpty {
             do {
                 switch TipoutViewField(rawValue: textField.tag) {
-                case .Amount?: try formatter?.currencyFromString(newString)
-                case .Percentage?: try formatter?.percentageFromString(newString)
-                case .Hours?: try formatter?.formatNumberString(newString)
-                case .Name?: break
+                case .amount?: try formatter?.currencyFromString(newString)
+                case .percentage?: try formatter?.percentageFromString(newString)
+                case .hours?: try formatter?.formatNumberString(newString)
+                case .name?: break
                 case nil: break
                 }
             } catch {

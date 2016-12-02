@@ -10,11 +10,11 @@ import UIKit
 
 class StackLayout: UICollectionViewFlowLayout {
 
-    override func initialLayoutAttributesForAppearingItemAtIndexPath(itemIndexPath: NSIndexPath) -> UICollectionViewLayoutAttributes? {
-        guard let attributes = layoutAttributesForItemAtIndexPath(itemIndexPath) else { fatalError("Couldn't retrieve layout attributes for item at index path \(itemIndexPath)") }
+    override func initialLayoutAttributesForAppearingItem(at itemIndexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+        guard let attributes = layoutAttributesForItem(at: itemIndexPath) else { fatalError("Couldn't retrieve layout attributes for item at index path \(itemIndexPath)") }
         guard let collectionView = collectionView else { fatalError("Can't access collection View") }
         
-        let numberOfItems = collectionView.numberOfItemsInSection(0)
+        let numberOfItems = collectionView.numberOfItems(inSection: 0)
         attributes.size.width = 0
         attributes.size.height = collectionView.bounds.height - 10
         let width = collectionView.bounds.width / CGFloat(numberOfItems)
@@ -24,17 +24,17 @@ class StackLayout: UICollectionViewFlowLayout {
     }
     
     
-    override func finalLayoutAttributesForDisappearingItemAtIndexPath(itemIndexPath: NSIndexPath) -> UICollectionViewLayoutAttributes? {
-        guard let attributes = layoutAttributesForItemAtIndexPath(itemIndexPath) else { fatalError("Couldn't retrieve layout attributes for item at index path \(itemIndexPath)") }
+    override func finalLayoutAttributesForDisappearingItem(at itemIndexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+        guard let attributes = layoutAttributesForItem(at: itemIndexPath) else { fatalError("Couldn't retrieve layout attributes for item at index path \(itemIndexPath)") }
         attributes.size.width = 0
         
         return attributes
     }
     
-    override func layoutAttributesForItemAtIndexPath(indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes? {
+    override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
         guard let collectionView = collectionView else { fatalError("Can't access collection View") }
         let attributes = UICollectionViewLayoutAttributes()
-        let numberOfItems = collectionView.numberOfItemsInSection(0)
+        let numberOfItems = collectionView.numberOfItems(inSection: 0)
         let width = collectionView.bounds.width / CGFloat(numberOfItems)
         let xOrigin = width * CGFloat(indexPath.item)
         attributes.frame = CGRect(origin: CGPoint(x: xOrigin, y: 0),

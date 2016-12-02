@@ -12,7 +12,7 @@ import ReactiveCocoa
 // a collection of extension methods that allows for strongly typed closures
 extension RACSignal {
     
-    func subscribeNextAs<T>(nextClosure:(T) -> ()) -> () {
+    func subscribeNextAs<T>(_ nextClosure:@escaping (T) -> ()) -> () {
         self.subscribeNext {
             (next: AnyObject!) -> () in
             let nextAsT = next! as! T
@@ -20,7 +20,7 @@ extension RACSignal {
         }
     }
     
-    func mapAs<T: AnyObject, U: AnyObject>(mapClosure:(T) -> U) -> RACSignal {
+    func mapAs<T: AnyObject, U: AnyObject>(_ mapClosure:@escaping (T) -> U) -> RACSignal {
         return self.map {
             (next: AnyObject!) -> AnyObject! in
             let nextAsT = next as! T
@@ -28,7 +28,7 @@ extension RACSignal {
         }
     }
     
-    func filterAs<T: AnyObject>(filterClosure:(T) -> Bool) -> RACSignal {
+    func filterAs<T: AnyObject>(_ filterClosure:@escaping (T) -> Bool) -> RACSignal {
         return self.filter {
             (next: AnyObject!) -> Bool in
             let nextAsT = next as! T
@@ -36,7 +36,7 @@ extension RACSignal {
         }
     }
     
-    func doNextAs<T: AnyObject>(nextClosure:(T) -> ()) -> RACSignal {
+    func doNextAs<T: AnyObject>(_ nextClosure:@escaping (T) -> ()) -> RACSignal {
         return self.doNext {
             (next: AnyObject!) -> () in
             let nextAsT = next as! T
@@ -46,8 +46,8 @@ extension RACSignal {
 }
 
 class RACSignalEx {
-    class func combineLatestAs<T, U, R: AnyObject>(signals:[RACSignal], reduce:(T,U) -> R) -> RACSignal {
-        return RACSignal.combineLatest(signals).mapAs {
+    class func combineLatestAs<T, U, R: AnyObject>(_ signals:[RACSignal], reduce:@escaping (T,U) -> R) -> RACSignal {
+        return RACSignal.combineLatest(signals as NSFastEnumeration!).mapAs {
             (tuple: RACTuple) -> R in
             return reduce(tuple.first as! T, tuple.second as! U)
         }

@@ -13,19 +13,19 @@ private let footerReuseIdentifier = "footerView"
 
 public protocol ColorStackViewDelegate {
     
-    func colorStackViewController(colorStackViewController: ColorStackViewController, didSelectIndex index: Int)
-    func colorStackViewController(colorStackViewController: ColorStackViewController, shouldSelectIndex index: Int) -> Bool
-    func numberOfItemsInColorStackView(colorStackViewController: ColorStackViewController) -> Int
-    func currentIndexOfColorStackView(colorStackViewController: ColorStackViewController) -> Int
+    func colorStackViewController(_ colorStackViewController: ColorStackViewController, didSelectIndex index: Int)
+    func colorStackViewController(_ colorStackViewController: ColorStackViewController, shouldSelectIndex index: Int) -> Bool
+    func numberOfItemsInColorStackView(_ colorStackViewController: ColorStackViewController) -> Int
+    func currentIndexOfColorStackView(_ colorStackViewController: ColorStackViewController) -> Int
 }
 
 @objc public protocol ColorStackViewColorDelegate {
-    func colorForIndex(index:Int) -> UIColor
+    func colorForIndex(_ index:Int) -> UIColor
 }
 
-public class ColorStackViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+open class ColorStackViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
-    public var colors: [UIColor] = [.greenColor(), .redColor(), .blueColor(), .orangeColor()]
+    open var colors: [UIColor] = [.green, .red, .blue, .orange]
     var delegate: ColorStackViewDelegate? {
         didSet {
             collectionView?.reloadData()
@@ -41,18 +41,18 @@ public class ColorStackViewController: UICollectionViewController, UICollectionV
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     weak var footerView: UICollectionReusableView!
     
-    override public func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
         
         // Register cell classes
-        collectionView!.registerClass(ColorCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-        collectionView!.registerClass(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, withReuseIdentifier: footerReuseIdentifier)
+        collectionView!.register(ColorCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        collectionView!.register(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, withReuseIdentifier: footerReuseIdentifier)
         flowLayout.footerReferenceSize = CGSize(width: collectionView!.bounds.width, height: 10)
 
         
     }
     
-    override public func didReceiveMemoryWarning() {
+    override open func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
@@ -61,20 +61,20 @@ public class ColorStackViewController: UICollectionViewController, UICollectionV
         super.init(coder: aDecoder)
     }
     
-    func removeItemAtIndex(index: Int) {
+    func removeItemAtIndex(_ index: Int) {
         
-        collectionView?.deleteItemsAtIndexPaths([NSIndexPath(forItem: index, inSection: 0)])
+        collectionView?.deleteItems(at: [IndexPath(item: index, section: 0)])
         guard let delegate = delegate else { return }
         collectionView?.backgroundColor = colorDelegate?.colorForIndex(delegate.currentIndexOfColorStackView(self))
     }
     
     func decrement() {
         guard let delegate = delegate else { return }
-        collectionView?.deleteItemsAtIndexPaths([NSIndexPath(forItem: (delegate.numberOfItemsInColorStackView(self)) - 1, inSection: 0)])
+        collectionView?.deleteItems(at: [IndexPath(item: (delegate.numberOfItemsInColorStackView(self)) - 1, section: 0)])
     }
     
-    func insertItemAtIndex(index: Int) {
-        collectionView?.insertItemsAtIndexPaths([NSIndexPath(forItem: index, inSection: 0)])
+    func insertItemAtIndex(_ index: Int) {
+        collectionView?.insertItems(at: [IndexPath(item: index, section: 0)])
     }
     
     func increment() {
@@ -82,8 +82,8 @@ public class ColorStackViewController: UICollectionViewController, UICollectionV
         let lastIndex = delegate.numberOfItemsInColorStackView(self) - 1
         insertItemAtIndex(lastIndex)
         guard let collectionView = collectionView else { fatalError("Can't access collectionView") }
-        collectionView.selectItemAtIndexPath(NSIndexPath(forItem: lastIndex, inSection: 0), animated: true, scrollPosition: .None)
-        self.collectionView(collectionView, didSelectItemAtIndexPath: NSIndexPath(forItem: lastIndex, inSection: 0))
+        collectionView.selectItem(at: IndexPath(item: lastIndex, section: 0), animated: true, scrollPosition: UICollectionViewScrollPosition())
+        self.collectionView(collectionView, didSelectItemAt: IndexPath(item: lastIndex, section: 0))
     }
     
     func reload() {
@@ -104,19 +104,19 @@ public class ColorStackViewController: UICollectionViewController, UICollectionV
     
     // MARK: UICollectionViewDataSource
     
-    override public func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    override open func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
     
-    override public func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    override open func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         guard let delegate = delegate else { return 0 }
         return delegate.numberOfItemsInColorStackView(self)
     }
     
-    override public func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! ColorCell
+    override open func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ColorCell
         
         cell.contentView.backgroundColor = colorDelegate?.colorForIndex(indexPath.item) ?? colors[indexPath.item % colors.count]
         cell.isAccessibilityElement = true
@@ -124,17 +124,17 @@ public class ColorStackViewController: UICollectionViewController, UICollectionV
     }
     
     
-    override public func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
-        let footer = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: footerReuseIdentifier, forIndexPath: indexPath)
+    override open func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: footerReuseIdentifier, for: indexPath)
         footerView = footer
         return footer
     }
     
     // MARK: UICollectionViewDelegate
     
-    public override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    open override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        guard let delegate = delegate where delegate.colorStackViewController(self, shouldSelectIndex: indexPath.item) == true else { return }
+        guard let delegate = delegate, delegate.colorStackViewController(self, shouldSelectIndex: indexPath.item) == true else { return }
         delegate.colorStackViewController(self, didSelectIndex: indexPath.item)
         collectionView.backgroundColor = colorDelegate?.colorForIndex(indexPath.item)
         /*let cell = collectionView.cellForItemAtIndexPath(indexPath)
@@ -150,12 +150,12 @@ public class ColorStackViewController: UICollectionViewController, UICollectionV
         
     }
     
-    public override func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
+    open override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         cell.accessibilityLabel = "Tipout \(indexPath.item)"
         cell.accessibilityIdentifier = "tipout\(indexPath.item)"
     }
     
-    public override func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
+    open override func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
 //        let cell = collectionView.cellForItemAtIndexPath(indexPath)
 //        cell?.clipsToBounds = true
 //        cell?.layer.masksToBounds = true
@@ -163,33 +163,33 @@ public class ColorStackViewController: UICollectionViewController, UICollectionV
 
     }
     
-    public func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
+    open func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
     
-    public func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+    open func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         let inset = UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 0)
         return inset
     }
     
-    public func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        guard let delegate = delegate else { return CGSizeZero}
+    open func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        guard let delegate = delegate else { return CGSize.zero}
         let size = CGSize(width: (collectionView.bounds.size.width) / CGFloat(delegate.numberOfItemsInColorStackView(self)),
             height: collectionView.bounds.size.height - 10)
         return size
     }
     
-    public func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
+    open func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
     
-    public func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+    open func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
         let size = CGSize(width: 10, height: 10)
         return size
     }
     
-    public func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSizeZero
+    open func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize.zero
     }
     
 

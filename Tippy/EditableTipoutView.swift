@@ -20,7 +20,7 @@ public protocol TipoutViewDelegate {
     - parameter tipoutView: The `TipoutView` that was edited
 
     */
-    func tipoutViewDidEndEditing(tipoutView: EditableTipoutView)
+    func tipoutViewDidEndEditing(_ tipoutView: EditableTipoutView)
     
     /**
     Asks the delegate if the specified text should be changed
@@ -35,41 +35,41 @@ public protocol TipoutViewDelegate {
     - note: This basically forwards the respective `UITextFieldDelegate` calls
     - seeAlso: `UITextFieldDelegate`
     */
-    func tipoutView(tipoutView: EditableTipoutView, textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool
+    func tipoutView(_ tipoutView: EditableTipoutView, textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool
     
-    func tipoutViewDidBeginEditing(tipoutView: EditableTipoutView, textField: UITextField)
-    func tipoutView(tipoutView: EditableTipoutView, textField: UITextField, textDidChange text: String)
+    func tipoutViewDidBeginEditing(_ tipoutView: EditableTipoutView, textField: UITextField)
+    func tipoutView(_ tipoutView: EditableTipoutView, textField: UITextField, textDidChange text: String)
 }
 
 @objc public enum TipoutViewField: Int {
-    case Name = 0
-    case Hours = 1
-    case Percentage
-    case Amount
+    case name = 0
+    case hours = 1
+    case percentage
+    case amount
 }
 
 /// A view for displaying text and receiving input concerning the tips of a worker.
-@IBDesignable public class EditableTipoutView: UIControl, UITextFieldDelegate {
+@IBDesignable open class EditableTipoutView: UIControl, UITextFieldDelegate {
     
-    private var view: UIView!
+    fileprivate var view: UIView!
     
-    public var delegate: TipoutViewDelegate?
+    open var delegate: TipoutViewDelegate?
     
-    @IBOutlet weak public var amountField: UITextField!
-    @IBOutlet weak public var percentageField: UITextField!
-    @IBOutlet weak public var hoursField: UITextField!
+    @IBOutlet weak open var amountField: UITextField!
+    @IBOutlet weak open var percentageField: UITextField!
+    @IBOutlet weak open var hoursField: UITextField!
     
-    @IBOutlet weak public var nameField: UITextField!
+    @IBOutlet weak open var nameField: UITextField!
     
     /// The text field which was last edited. (Either the `amountField`, `percentageField`, or `hoursField`). Excludes `nameField`.
-    public var activeTextField: UITextField? {
+    open var activeTextField: UITextField? {
         didSet {
             colorFields()
         }
     }
     
      /// The text fields which have not been last edited (excluding `nameField`)
-    private var inactiveFields: Set<UITextField> {
+    fileprivate var inactiveFields: Set<UITextField> {
         let activeSet: Set<UITextField>
         var inactiveFields: Set<UITextField> = []
         
@@ -78,9 +78,9 @@ public protocol TipoutViewDelegate {
         } else {
             activeSet = []
         }
-        if let amount = amountField, percentage = percentageField, hours = hoursField {
+        if let amount = amountField, let percentage = percentageField, let hours = hoursField {
             inactiveFields = Set([amount, percentage, hours])
-                .subtract(activeSet)
+                .subtracting(activeSet)
         }
         return inactiveFields
     }
@@ -92,29 +92,29 @@ public protocol TipoutViewDelegate {
     @IBInspectable var clearsInactiveFields: Bool = false
     
     /// The background color of the active field.
-    @IBInspectable var activeColor: UIColor = .whiteColor() {
+    @IBInspectable var activeColor: UIColor = .white {
         didSet{
             activeTextField?.backgroundColor = activeColor
         }
     }
     
     /// The background color of the inactive text fields.
-    @IBInspectable var inactiveColor: UIColor = .whiteColor() {
+    @IBInspectable var inactiveColor: UIColor = .white {
         didSet {
             colorFields()
         }
     }
     
-    private func handleInputEvent(textField tag: TipoutViewField, text: String) {
+    fileprivate func handleInputEvent(textField tag: TipoutViewField, text: String) {
         
             switch tag {
-            case .Amount:
+            case .amount:
                 activeTextField = amountField
-            case .Percentage:
+            case .percentage:
                 activeTextField = percentageField
-            case .Hours:
+            case .hours:
                 activeTextField = hoursField
-            case .Name: return
+            case .name: return
         }
             if clearsInactiveFields {
                 clearInactiveFields()
@@ -136,18 +136,18 @@ public protocol TipoutViewDelegate {
     }
     
     
-    @IBAction func textDidChange(sender: UITextField) {
-        if let isEmpty = sender.text?.isEmpty where  isEmpty == true {
-            sender.setContentCompressionResistancePriority(UILayoutPriorityDefaultLow, forAxis: .Horizontal)
+    @IBAction func textDidChange(_ sender: UITextField) {
+        if let isEmpty = sender.text?.isEmpty,  isEmpty == true {
+            sender.setContentCompressionResistancePriority(UILayoutPriorityDefaultLow, for: .horizontal)
         } else if sender.text == nil {
-            sender.setContentCompressionResistancePriority(UILayoutPriorityDefaultLow, forAxis: .Horizontal)
+            sender.setContentCompressionResistancePriority(UILayoutPriorityDefaultLow, for: .horizontal)
         } else {
-            sender.self.setContentCompressionResistancePriority(UILayoutPriorityDefaultHigh, forAxis: .Horizontal)
+            sender.self.setContentCompressionResistancePriority(UILayoutPriorityDefaultHigh, for: .horizontal)
             
         }
         sender.invalidateIntrinsicContentSize()
         if activeOnChange {
-            guard let tag = TipoutViewField(rawValue: sender.tag), text = sender.text else { return }
+            guard let tag = TipoutViewField(rawValue: sender.tag), let text = sender.text else { return }
             handleInputEvent(textField: tag, text: text)
             delegate?.tipoutView(self, textField: sender, textDidChange: text)
         }
@@ -155,7 +155,7 @@ public protocol TipoutViewDelegate {
     
     // MARK: Delegate
     
-    public func textFieldDidEndEditing(textField: UITextField) {
+    open func textFieldDidEndEditing(_ textField: UITextField) {
         if !activeOnChange {
             guard let tag = TipoutViewField(rawValue: textField.tag) else { return }
             handleInputEvent(textField: tag, text: textField.text ?? "")
@@ -163,17 +163,17 @@ public protocol TipoutViewDelegate {
         delegate?.tipoutViewDidEndEditing(self)
     }
     
-    public func textFieldDidBeginEditing(textField: UITextField) {
+    open func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.selectAll(nil)
         delegate?.tipoutViewDidBeginEditing(self, textField: textField)
     }
     
-    public func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+    open func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
            return delegate?.tipoutView(self, textField: textField, shouldChangeCharactersInRange: range, replacementString: string) ?? true
         
     }
     
-    public func textFieldShouldReturn(textField: UITextField) -> Bool {
+    open func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
@@ -208,18 +208,18 @@ public protocol TipoutViewDelegate {
     }
     
     
-    func xibSetup(viewTag viewTag: Int) {
+    func xibSetup(viewTag: Int) {
         view = loadViewFromXib(viewTag: viewTag)
         view.frame = bounds
-        view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         addSubview(view)
     }
     
-    func loadViewFromXib(viewTag viewTag: Int) -> UIView {
-        let bundle = NSBundle(forClass: self.dynamicType)
+    func loadViewFromXib(viewTag: Int) -> UIView {
+        let bundle = Bundle(for: type(of: self))
         let xib = UINib(nibName: "EditableTipoutView", bundle: bundle)
         // make sure we load correct view by tag in case there's multiple objects in the xib
-        guard let view = (xib.instantiateWithOwner(self, options: nil) as? [UIView])?
+        guard let view = (xib.instantiate(withOwner: self, options: nil) as? [UIView])?
             .filter({
             return $0.tag == viewTag ? true : false
                 
@@ -231,7 +231,7 @@ public protocol TipoutViewDelegate {
     
     // MARK: - UIView
     
-    override public func didMoveToSuperview() {
+    override open func didMoveToSuperview() {
         
         colorFields()
     }

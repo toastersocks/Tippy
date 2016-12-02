@@ -9,38 +9,38 @@
 import Foundation
 import UIKit
 
-public class StartupTimeProfiler {
+open class StartupTimeProfiler {
     public struct Event {
         let message: String
-        let time: NSTimeInterval
+        let time: TimeInterval
     }
     
-    static public var totalTime: NSTimeInterval {
-        guard let first = events.first, last = events.last else { return 0.0 }
+    static open var totalTime: TimeInterval {
+        guard let first = events.first, let last = events.last else { return 0.0 }
         return last.time - first.time
     }
     
-    static public var events = [Event]()
+    static open var events = [Event]()
     
-    static public func addEvent(message: String) {
+    static open func addEvent(_ message: String) {
         events.append(Event(message: message, time: CACurrentMediaTime()))
     }
     
-    static public func timeBetween(event: Event, event2: Event) -> NSTimeInterval {
+    static open func timeBetween(_ event: Event, event2: Event) -> TimeInterval {
         return event.time - event2.time
     }
 }
 
-extension CollectionType where Generator.Element == SubSequence.Generator.Element {
-    func reduce(@noescape combine: (Generator.Element, Generator.Element) -> Generator.Element) -> Generator.Element? {
+extension Collection where Iterator.Element == SubSequence.Iterator.Element {
+    func reduce(_ combine: (Iterator.Element, Iterator.Element) -> Iterator.Element) -> Iterator.Element? {
         return first.map {
-            dropFirst().reduce($0, combine: combine)
+            dropFirst().reduce($0, combine)
         }
     }
 }
 
 func isiPhone4S() -> Bool {
-    if UIScreen.mainScreen().bounds.size.height == 480 {
+    if UIScreen.main.bounds.size.height == 480 {
         return true
     } else {
         return false
@@ -49,21 +49,21 @@ func isiPhone4S() -> Bool {
 
 extension Set { // TODO: make this an extension for CollectionType
     func randomElement() -> Element {
-        let index = self.startIndex.advancedBy(Int(arc4random_uniform(UInt32(self.count))))
+        let index = self.index(self.startIndex, offsetBy: Int(arc4random_uniform(UInt32(self.count))))
         return self[index]
 
     }
 }
 
 extension Array {
-    func removeAtIndices<ExcludeIndices: SequenceType
-        where ExcludeIndices.Generator.Element == Index>
-        (indices: ExcludeIndices) -> Array {
+    func removeAtIndices<ExcludeIndices: Sequence>
+        (_ indices: ExcludeIndices) -> Array
+        where ExcludeIndices.Iterator.Element == Index {
         // NOTE: PermutationGenerator is deprecated
-        let orderedIndices = indices.sort().reverse()
+        let orderedIndices = indices.sorted().reversed()
         var selfToReturn = self
         for index in orderedIndices {
-            selfToReturn.removeAtIndex(index)
+            selfToReturn.remove(at: index)
         }
         return selfToReturn
             /*
@@ -74,12 +74,12 @@ extension Array {
 }
 
 extension Dictionary {
-    public func hasKey(key: Key) -> Bool {
+    public func hasKey(_ key: Key) -> Bool {
         return self[key] != nil
     }
 }
 
-func debug(block: () -> Void) {
+func debug(_ block: () -> Void) {
     #if DEBUG
         block()
     #endif
@@ -88,12 +88,12 @@ func debug(block: () -> Void) {
 func isUITest() -> Bool {
     var isTest = false
 //    debug {
-        isTest = NSProcessInfo.processInfo().environment.hasKey("UITest")
+        isTest = ProcessInfo.processInfo.environment.hasKey("UITest")
 //    }
     
     return isTest
 }
 
 func isTakingScreenshots() -> Bool {
-    return NSProcessInfo.processInfo().environment.hasKey("TakingScreenshots")
+    return ProcessInfo.processInfo.environment.hasKey("TakingScreenshots")
 }

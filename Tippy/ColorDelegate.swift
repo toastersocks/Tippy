@@ -32,8 +32,8 @@ class ColorDelegate: NSObject, ColorStackViewColorDelegate {
             color -> [UIColor] in
             
             guard let scheme = NSArray(
-                ofColorsWithColorScheme: .Triadic,
-                usingColor: color,
+                ofColorsWith: .triadic,
+                using: color,
                 withFlatScheme: false)
                 as? Array<UIColor> else { fatalError("Couldn't convert array") }
             
@@ -43,7 +43,7 @@ class ColorDelegate: NSObject, ColorStackViewColorDelegate {
         return Set(startingColors)
     }()
     
-    func colorForIndex(index: Int) -> UIColor {
+    func colorForIndex(_ index: Int) -> UIColor {
         
         return colors[index]
     }
@@ -57,15 +57,15 @@ class ColorDelegate: NSObject, ColorStackViewColorDelegate {
        insertColorAtIndex(colors.count)
     }
     
-    func removeColorAtIndex(index: Int) {
+    func removeColorAtIndex(_ index: Int) {
         precondition(index < colors.count, "Index outside bounds of color array")
-        colors.removeAtIndex(index)
+        colors.remove(at: index)
     }
     
-    func insertColorAtIndex(index: Int) {
+    func insertColorAtIndex(_ index: Int) {
         precondition(index <= colors.count, "Index outside bounds of color array")
         
-        let unusedColors = colorPool.subtract(colors)
+        let unusedColors = colorPool.subtracting(colors)
         var newColor: UIColor
         
         if !unusedColors.isEmpty {
@@ -78,7 +78,7 @@ class ColorDelegate: NSObject, ColorStackViewColorDelegate {
                 newColor = colorPool.randomElement() //colors[newColorIndex]
             }
         }
-        colors.insert(newColor, atIndex: index)
+        colors.insert(newColor, at: index)
 
 //        colors.insert(getRandomColor(), atIndex: index)
     }

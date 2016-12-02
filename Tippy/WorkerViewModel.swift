@@ -16,13 +16,13 @@ import SwiftyUserDefaults
  case Other
  }*/
 @objc enum SymbolPosition: Int {
-    case Beginning
-    case End
-    case Other
+    case beginning
+    case end
+    case other
 }
 
 @objc enum Method: Int {
-    case Hour, Percent, Amount
+    case hour, percent, amount
 }
 
 final class WorkerViewModel: NSObject, WorkerViewModelType {
@@ -30,24 +30,24 @@ final class WorkerViewModel: NSObject, WorkerViewModelType {
     // MARK: - Properties
     
     var currencySymbolPosition: SymbolPosition {
-        guard let formatter = formatter else { return .Other }
+        guard let formatter = formatter else { return .other }
         
         switch formatter.currencySymbolPosition {
-        case .Beginning:
-            return .Beginning
-        case .End:
-            return .End
+        case .beginning:
+            return .beginning
+        case .end:
+            return .end
         }
     }
     
     var percentSymbolPosition: SymbolPosition {
-        guard let formatter = formatter else { return .Other }
+        guard let formatter = formatter else { return .other }
         
         switch formatter.percentSymbolPosition {
-        case .Beginning:
-            return .Beginning
-        case .End:
-            return .End
+        case .beginning:
+            return .beginning
+        case .end:
+            return .end
         }
     }
     
@@ -63,7 +63,7 @@ final class WorkerViewModel: NSObject, WorkerViewModelType {
     let formatter: Formatter?
     
     /// - note: This is used to optionally calculate the percentage of the Worker tipout from the total tipouts
-    private var totalTipouts: Double?
+    fileprivate var totalTipouts: Double?
     
     dynamic var name: String {
         get {
@@ -77,7 +77,7 @@ final class WorkerViewModel: NSObject, WorkerViewModelType {
     dynamic var amount: String {
         get {
             if let formatter = formatter,
-                currencyString = try? formatter.currencyStringFromNumber(worker.tipout, stripSymbol: true) {
+                let currencyString = try? formatter.currencyStringFromNumber(worker.tipout, stripSymbol: true) {
                 return currencyString
             } else { return "" }
         }
@@ -141,11 +141,11 @@ final class WorkerViewModel: NSObject, WorkerViewModelType {
         
         switch worker.method {
         case .Amount:
-            return .Amount
+            return .amount
         case .Hourly:
-            return .Hour
+            return .hour
         case .Percentage:
-            return .Percent
+            return .percent
         case .Function:
             fatalError("Function method not supported")
         }
@@ -164,7 +164,7 @@ final class WorkerViewModel: NSObject, WorkerViewModelType {
         }
     }
     
-    class internal func tipoutMethodFrom(method method: String, value: String) -> TipoutMethod {
+    class internal func tipoutMethodFrom(method: String, value: String) -> TipoutMethod {
         let tipoutMethod: TipoutMethod
         let value = (value as NSString).doubleValue
         // TODO: Make these magic strings into enums
@@ -202,19 +202,19 @@ final class WorkerViewModel: NSObject, WorkerViewModelType {
     // MARK: = KVO
     
     class func keyPathsForValuesAffectingName() -> Set<NSObject> {
-        return Set(["worker", "worker.id"])
+        return Set(["worker", "worker.id"]) as Set<NSObject>
     }
     
     class func keyPathsForValuesAffectingAmount() -> Set<NSObject> {
-        return Set(["worker", "worker.tipout"])
+        return Set(["worker", "worker.tipout"]) as Set<NSObject>
     }
     
     class func keyPathsForValuesAffectingHours() -> Set<NSObject> {
-        return Set(["worker", "worker.method"])
+        return Set(["worker", "worker.method"]) as Set<NSObject>
     }
     
     class func keyPathsForValuesAffectingPercentage() -> Set<NSObject> {
-        return Set(["worker", "worker.tipout", "worker.method", "totalTipouts"])
+        return Set(["worker", "worker.tipout", "worker.method", "totalTipouts"]) as Set<NSObject>
     }
 }
 
@@ -238,11 +238,11 @@ extension WorkerViewModel {
         return hashValue
     }
     
-    func isEqualToWorkerViewModel(object: AnyObject?) -> Bool {
+    func isEqualToWorkerViewModel(_ object: AnyObject?) -> Bool {
         return isEqual(object)
     }
     
-    override func isEqual(object: AnyObject?) -> Bool {
+    override func isEqual(_ object: Any?) -> Bool {
         guard let workerViewModel = object as? WorkerViewModel else { return false }
         return self.worker == workerViewModel.worker
     }

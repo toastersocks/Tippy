@@ -9,34 +9,34 @@
 import UIKit
 
 extension Formatter {
-    func configureAmountTextfield(inout textfield: UITextField) {
+    func configureAmountTextfield(_ textfield: inout UITextField) {
         let currencyLabel = UILabel()
         currencyLabel.text = currencySymbol
         switch currencySymbolPosition {
-        case .Beginning:
+        case .beginning:
             textfield.leftView = currencyLabel
-            textfield.leftViewMode = .Always
-            textfield.rightViewMode = .Never
-        case .End:
+            textfield.leftViewMode = .always
+            textfield.rightViewMode = .never
+        case .end:
             textfield.rightView = currencyLabel
-            textfield.rightViewMode = .Always
-            textfield.leftViewMode = .Never
+            textfield.rightViewMode = .always
+            textfield.leftViewMode = .never
         }
         currencyLabel.sizeToFit()
     }
     
-    func configurePercentTextfield(inout textfield: UITextField) {
+    func configurePercentTextfield(_ textfield: inout UITextField) {
         let percentLabel = UILabel()
         percentLabel.text = percentSymbol
         switch percentSymbolPosition {
-        case .Beginning:
+        case .beginning:
             textfield.leftView = percentLabel
-            textfield.leftViewMode = .Always
-            textfield.rightViewMode = .Never
-        case .End:
+            textfield.leftViewMode = .always
+            textfield.rightViewMode = .never
+        case .end:
             textfield.rightView = percentLabel
-            textfield.rightViewMode = .Always
-            textfield.leftViewMode = .Never
+            textfield.rightViewMode = .always
+            textfield.leftViewMode = .never
         }
         percentLabel.sizeToFit()
 

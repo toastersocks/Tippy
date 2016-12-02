@@ -42,20 +42,20 @@ class StaticWorkerTVC: WorkerTableViewController {
 
     @IBAction func editWorker(atIndex index: Int) {
         let editWorkerVC = EditWorkerViewController(nibName: "EditWorkerViewController", bundle: nil)
-        guard let bundle = NSBundle(identifier: "com.apple.UIKit") else { fatalError("Coudn't access bundle") }
+        guard let bundle = Bundle(identifier: "com.apple.UIKit") else { fatalError("Coudn't access bundle") }
         
-        let cancelButton = CancelButton(title: bundle.localizedStringForKey("Cancel", value: "", table: nil), action: nil)
+        let cancelButton = CancelButton(title: bundle.localizedString(forKey: "Cancel", value: "", table: nil), action: nil)
         cancelButton.accessibilityIdentifier = "cancelButton"
-        cancelButton.accessibilityLabel = bundle.localizedStringForKey("Cancel", value: "", table: nil)
-        let doneButton = DefaultButton(title: bundle.localizedStringForKey("Done", value: "", table: nil)) {
+        cancelButton.accessibilityLabel = bundle.localizedString(forKey: "Cancel", value: "", table: nil)
+        let doneButton = DefaultButton(title: bundle.localizedString(forKey: "Done", value: "", table: nil)) {
             let method: TipoutViewField = {
                 switch editWorkerVC.currentMethodIndex {
                 case 0: // Hourly
-                    return TipoutViewField.Hours
+                    return TipoutViewField.hours
                 case 1: // Percent
-                    return TipoutViewField.Percentage
+                    return TipoutViewField.percentage
                 case 2: // Amount
-                    return TipoutViewField.Amount
+                    return TipoutViewField.amount
                 default:
                     fatalError("Unknown value for tipout method")
                 }
@@ -69,13 +69,13 @@ class StaticWorkerTVC: WorkerTableViewController {
             self.viewModel.addWorkerWithName(name, method: method, value: value, atIndex: viewModelCount)
             
             self.tableView.beginUpdates()
-            self.tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: viewModelCount, inSection: 0)], withRowAnimation: .Automatic)
+            self.tableView.insertRows(at: [IndexPath(row: viewModelCount, section: 0)], with: .automatic)
             self.tableView.endUpdates()
         }
         
         let editWorkerPopup = PopupDialog(viewController: editWorkerVC,
-                                          buttonAlignment: .Horizontal,
-                                          transitionStyle: .ZoomIn,
+                                          buttonAlignment: .horizontal,
+                                          transitionStyle: .zoomIn,
                                           gestureDismissal: true)
         editWorkerPopup.addButtons([cancelButton, doneButton])
         editWorkerVC.formatter = formatter
@@ -84,7 +84,7 @@ class StaticWorkerTVC: WorkerTableViewController {
             editWorkerVC.viewModel = viewModel.workerViewModels[index]
         }
         
-        presentViewController(editWorkerPopup, animated: true, completion: nil)
+        present(editWorkerPopup, animated: true, completion: nil)
         
         //        navigationController?.pushViewController(editWorkerVC, animated: true)
         /*guard let workerView = (tableView.cellForRowAtIndexPath(
@@ -112,32 +112,32 @@ class StaticWorkerTVC: WorkerTableViewController {
 
     // MARK: - Table view data source
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell = tableView.dequeueReusableCellWithIdentifier(StaticWorkerTVC.workerCellID) as? StaticTableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: StaticWorkerTVC.workerCellID) as? StaticTableViewCell
             else { fatalError("Expected a StaticTableViewCell") }
 //        resetPropertiesOfTipoutView(cell.workerView)
 //        cell.workerView.delegate = self
-        cell.backgroundColor = UIColor.clearColor()
+        cell.backgroundColor = UIColor.clear
         
         return cell
     }
     
-    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        guard let tableViewCell = cell as? StaticTableViewCell else { fatalError("Expected a StaticTableViewCell; got a \(cell.dynamicType) instead") }
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard let tableViewCell = cell as? StaticTableViewCell else { fatalError("Expected a StaticTableViewCell; got a \(type(of: cell)) instead") }
         
         tableViewCell.viewModel = viewModel[indexPath.row]
         tableViewCell.accessibilityLabel = "Worker \(indexPath.item) with name \(tableViewCell.workerView.nameLabel.text)"
         tableViewCell.accessibilityIdentifier = "worker\(indexPath.item)"
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         editWorker(atIndex: indexPath.row)
     }
     
     // MARK: = TipoutView
     
-    func tableViewCellForTipoutView(tipoutView: StaticTipoutView) -> StaticTableViewCell? {
+    func tableViewCellForTipoutView(_ tipoutView: StaticTipoutView) -> StaticTableViewCell? {
         var aView: UIView = tipoutView
         
         while !(aView is UITableViewCell) {

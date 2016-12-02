@@ -12,11 +12,11 @@ class TotalFieldDelegate: NSObject, UITextFieldDelegate {
     
     @IBOutlet weak var formatter: Formatter!
     
-    func textFieldDidBeginEditing(textField: UITextField) {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.selectAll(nil)
     }
     
-    func textFieldDidEndEditing(textField: UITextField) {
+    func textFieldDidEndEditing(_ textField: UITextField) {
         guard let text = textField.text else { return }
         if let formattedText = try? formatter.formatCurrencyString(text, stripSymbol: true) {
             textField.text = formattedText
@@ -24,9 +24,9 @@ class TotalFieldDelegate: NSObject, UITextFieldDelegate {
         textField.invalidateIntrinsicContentSize()
     }
     
-    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-        let oldString: NSString = textField.text ?? ""
-        let newString = oldString.stringByReplacingCharactersInRange(range, withString: string)
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let oldString: NSString = textField.text as NSString? ?? ""
+        let newString = oldString.replacingCharacters(in: range, with: string)
         if !newString.isEmpty {
             do {
                 try formatter?.currencyFromString(newString)
@@ -37,7 +37,7 @@ class TotalFieldDelegate: NSObject, UITextFieldDelegate {
         return true
     }
     
-    @IBAction func editingChanged(sender: UITextField) {
+    @IBAction func editingChanged(_ sender: UITextField) {
         sender.invalidateIntrinsicContentSize()
     }
     /*init(formatter: Formatter) {

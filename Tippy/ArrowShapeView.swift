@@ -12,7 +12,7 @@ import UIKit
 
     override var tintColor: UIColor! {
         didSet {
-            arrowLayer.strokeColor = tintColor.CGColor
+            arrowLayer.strokeColor = tintColor.cgColor
 //            arrowLayer.fillColor = tintColor.CGColor
         }
     }
@@ -38,30 +38,30 @@ import UIKit
         
         let path = UIBezierPath()
         
-        path.moveToPoint(leftHeadPoint)
-        path.addLineToPoint(arrowHeadTipPoint)
-        path.addLineToPoint(rightHeadPoint)
-        path.addLineToPoint(rightHeadBaseIntersectPoint)
-        path.addLineToPoint(rightBasePoint)
-        path.addLineToPoint(leftBasePoint)
-        path.addLineToPoint(leftHeadBaseIntersectPoint)
-        path.closePath()
+        path.move(to: leftHeadPoint)
+        path.addLine(to: arrowHeadTipPoint)
+        path.addLine(to: rightHeadPoint)
+        path.addLine(to: rightHeadBaseIntersectPoint)
+        path.addLine(to: rightBasePoint)
+        path.addLine(to: leftBasePoint)
+        path.addLine(to: leftHeadBaseIntersectPoint)
+        path.close()
         
         return path
     }
     
     func setupView() {
         
-        arrowLayer.path = arrowPath(inRect: layer.bounds).CGPath
-        arrowLayer.strokeColor = tintColor.CGColor
-        arrowLayer.fillColor = UIColor.clearColor().CGColor
+        arrowLayer.path = arrowPath(inRect: layer.bounds).cgPath
+        arrowLayer.strokeColor = tintColor.cgColor
+        arrowLayer.fillColor = UIColor.clear.cgColor
         layer.addSublayer(arrowLayer)
 
     }
     
-    override func layoutSublayersOfLayer(layer: CALayer) {
+    override func layoutSublayersOfLayer(_ layer: CALayer) {
         if layer == self.layer {
-            arrowLayer.path = arrowPath(inRect: self.layer.bounds).CGPath
+            arrowLayer.path = arrowPath(inRect: self.layer.bounds).cgPath
         }
     }
 

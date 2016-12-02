@@ -8,7 +8,7 @@
 
 import UIKit
 
-@IBDesignable public class StaticTipoutView: UIControl {
+@IBDesignable open class StaticTipoutView: UIControl {
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var hoursLabel: UILabel!
@@ -33,18 +33,18 @@ import UIKit
         print("I'm \"settting up\"")
     }
     
-    func xibSetup(viewTag viewTag: Int) {
+    func xibSetup(viewTag: Int) {
         view = loadViewFromXib(viewTag: viewTag)
         view.frame = bounds
-        view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         addSubview(view)
     }
     
-    func loadViewFromXib(viewTag viewTag: Int) -> UIView {
-        let bundle = NSBundle(forClass: self.dynamicType)
+    func loadViewFromXib(viewTag: Int) -> UIView {
+        let bundle = Bundle(for: type(of: self))
         let xib = UINib(nibName: "StaticTipoutView", bundle: bundle)
         // make sure we load correct view by tag in case there's multiple objects in the xib
-        guard let view = (xib.instantiateWithOwner(self, options: nil) as? [UIView])?
+        guard let view = (xib.instantiate(withOwner: self, options: nil) as? [UIView])?
             .filter({
                 return $0.tag == viewTag ? true : false
                 

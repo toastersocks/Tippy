@@ -9,8 +9,8 @@ import UIKit
 import ReactiveCocoa
 
 public enum Split {
-    case Amount(Double)
-    case Percentage(Double)
+    case amount(Double)
+    case percentage(Double)
 }
 
 class SplitAmountViewController: UIViewController {
@@ -20,13 +20,13 @@ class SplitAmountViewController: UIViewController {
     @IBOutlet weak var methodAmountField: UITextField!
     
     var splitMethod: Split {
-        guard let text = methodAmountField.text else { return .Amount(0.0) }
+        guard let text = methodAmountField.text else { return .amount(0.0) }
         
         switch splitMethodSegmentedControl.selectedSegmentIndex {
         case 0: // Amount
-            return .Amount((try? formatter?.currencyFromString(text))??.doubleValue ?? Double(text) ?? 0.0)
+            return .amount((try? formatter?.currencyFromString(text))??.doubleValue ?? Double(text) ?? 0.0)
         case 1: // Percentage
-            return .Percentage((try? formatter?.percentageFromString(text))??.doubleValue ?? 0.0)
+            return .percentage((try? formatter?.percentageFromString(text))??.doubleValue ?? 0.0)
         default:
             fatalError("Unimplemented option")
         }
@@ -34,9 +34,9 @@ class SplitAmountViewController: UIViewController {
     
     var formatter: Formatter? {
         didSet {
-            splitMethodSegmentedControl.rac_newSelectedSegmentIndexChannelWithNilValue(0).startWith(0).subscribeNextAs {
+            splitMethodSegmentedControl.rac_newSelectedSegmentIndexChannel(withNilValue: 0).start(with: 0).subscribeNextAs {
                 (index: Int) in
-                UIView.animateWithDuration(0.05) {
+                UIView.animate(withDuration: 0.05, animations: {
                     switch index {
                         
                     case 0: // Amount
@@ -51,7 +51,7 @@ class SplitAmountViewController: UIViewController {
                     default:
                         fatalError("Unimplemented option")
                     }
-                }
+                }) 
             }
         }
     }

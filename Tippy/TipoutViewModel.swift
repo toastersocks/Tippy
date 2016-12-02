@@ -14,7 +14,7 @@ final class TipoutViewModel: NSObject, TipoutViewModelType {
     // MARK: - Properties
     
     var tipoutModel = TipoutModel(roundToNearest: Defaults[.roundToNearest])
-    private let formatter: Formatter?
+    fileprivate let formatter: Formatter?
     dynamic var count: Int {
         return tipoutModel.tipouts.count
     }
@@ -22,7 +22,7 @@ final class TipoutViewModel: NSObject, TipoutViewModelType {
     dynamic var totalText: String {
         get {
             if let formatter = formatter,
-                currencyText = try? formatter.currencyStringFromNumber(tipoutModel.total, stripSymbol: true) {
+                let currencyText = try? formatter.currencyStringFromNumber(tipoutModel.total, stripSymbol: true) {
                     return currencyText
             } else { return String(format: "%f", tipoutModel.total) }
         }
@@ -39,22 +39,22 @@ final class TipoutViewModel: NSObject, TipoutViewModelType {
 
     // MARK: - Methods
     
-    func addWorkerWithName(name: String, method: TipoutViewField, value: String, atIndex index: Int) {
+    func addWorkerWithName(_ name: String, method: TipoutViewField, value: String, atIndex index: Int) {
         guard let formatter = formatter else { return }
         let tipoutMethod: TipoutMethod
         
         if !value.isEmpty {
             switch method {
-            case .Hours:
+            case .hours:
                 let hours = (value as NSString).doubleValue
                 tipoutMethod = .Hourly(hours)
-            case .Percentage:
+            case .percentage:
                 let percentage = try! formatter.percentageFromString(value)
                 tipoutMethod = .Percentage(percentage.doubleValue)
-            case .Amount:
+            case .amount:
                 let currencyValue = try! formatter.currencyFromString(value)
                 tipoutMethod = .Amount(currencyValue.doubleValue)
-            case .Name:
+            case .name:
                 fatalError("\(method) is not a valid tipout method")
             }
         } else { tipoutMethod = .Amount(0.0) }
@@ -68,7 +68,7 @@ final class TipoutViewModel: NSObject, TipoutViewModelType {
         }
     }
     
-    func removeWorkerAtIndex(index: Int) {
+    func removeWorkerAtIndex(_ index: Int) {
         tipoutModel.workers.removeAtIndex(index)
     }
     
@@ -82,19 +82,19 @@ final class TipoutViewModel: NSObject, TipoutViewModelType {
     // MARK: - KVO
     
     class func keyPathsForValuesAffectingTotalText() -> Set<NSObject> {
-        return Set(["tipoutModel.total"])
+        return Set(["tipoutModel.total"]) as Set<NSObject>
     }
     class func keyPathsForValuesAffectingCount() -> Set<NSObject> {
-        return Set(["tipoutModel.tipouts.count"])
+        return Set(["tipoutModel.tipouts.count"]) as Set<NSObject>
     }
     class func keyPathsForValuesAffectingWorkerViewModels() -> Set<NSObject> {
-        return Set(["tipoutModel.workers"])
+        return Set(["tipoutModel.workers"]) as Set<NSObject>
     }
 }
 
 extension TipoutViewModel {
     
-    func viewModelForWorkerAtIndex(index: Int) -> WorkerViewModelType {
+    func viewModelForWorkerAtIndex(_ index: Int) -> WorkerViewModelType {
         let worker = tipoutModel.workers[index]
         return WorkerViewModel(worker: worker, formatter: formatter, totalTipouts: tipoutModel.total)
     }

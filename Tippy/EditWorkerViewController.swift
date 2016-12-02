@@ -46,7 +46,7 @@ class EditWorkerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        methodPicker.addTarget(self, action: #selector(EditWorkerViewController.methodSelected(_:)), forControlEvents: .ValueChanged)
+        methodPicker.addTarget(self, action: #selector(EditWorkerViewController.methodSelected(_:)), for: .valueChanged)
         nameField.text = viewModel?.name
         methodPicker.selectedSegmentIndex = viewModel?.method.rawValue ?? UISegmentedControlNoSegment
         tipoutField.text = viewModel?.value
@@ -77,18 +77,18 @@ class EditWorkerViewController: UIViewController {
 }
 
 extension EditWorkerViewController: UIPickerViewDelegate, UIPickerViewDataSource {
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return tipoutMethods.count
     }
     
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return tipoutMethods[row]
     }
     
-    func methodSelected(sender: UISegmentedControl) {
+    func methodSelected(_ sender: UISegmentedControl) {
         let index = sender.selectedSegmentIndex
         
         switch index {
@@ -104,7 +104,7 @@ extension EditWorkerViewController: UIPickerViewDelegate, UIPickerViewDataSource
         
     }
     
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         switch row {
         case 0: // Hourly
             break

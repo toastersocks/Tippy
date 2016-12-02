@@ -11,7 +11,7 @@ import UIKit
 extension TipoutsTVC {
     
     @IBAction func combine() {
-        guard let viewController = storyboard?.instantiateViewControllerWithIdentifier("tipoutvc") as? ViewController else { fatalError("Unable to instantiate ViewController") }
+        guard let viewController = storyboard?.instantiateViewController(withIdentifier: "tipoutvc") as? ViewController else { fatalError("Unable to instantiate ViewController") }
         
         navigationController?.pushViewController(viewController, animated: true)
         
@@ -24,8 +24,8 @@ extension TipoutsTVC {
     @IBAction func clearAll() {
         controller.removeAll()
         tableView.beginUpdates()
-        tableView.deleteSections(NSIndexSet(index: 0), withRowAnimation: .Left)
-        tableView.insertSections(NSIndexSet(index: 0), withRowAnimation: .Right)
+        tableView.deleteSections(IndexSet(integer: 0), with: .left)
+        tableView.insertSections(IndexSet(integer: 0), with: .right)
         tableView.endUpdates()
     }
 }

@@ -39,12 +39,12 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var newButton: UIButton! {
         didSet {
-            newButton.addTarget(self, action: .new, forControlEvents: .TouchUpInside)
+            newButton.addTarget(self, action: .new, for: .touchUpInside)
         }
     }
     @IBOutlet weak var clearButton: UIButton! {
         didSet {
-            clearButton.addTarget(self, action: .clear, forControlEvents: .TouchUpInside)
+            clearButton.addTarget(self, action: .clear, for: .touchUpInside)
         }
     }
     
@@ -61,9 +61,9 @@ class ViewController: UIViewController {
     
     @IBOutlet var numberFormatter: Formatter? {
         didSet {
-            Defaults.rac_channelTerminalForKey(DefaultsKeys.percentageFormat._key).subscribeNextAs {
+            Defaults.rac_channelTerminal(forKey: DefaultsKeys.percentageFormat._key).subscribeNextAs {
                 (option: Int) -> () in
-                self.numberFormatter?.percentFormat = option == 0 ? .Decimal : .WholeNumber
+                self.numberFormatter?.percentFormat = option == 0 ? .decimal : .wholeNumber
             }
         }
     }
@@ -77,7 +77,7 @@ class ViewController: UIViewController {
         }
     }*/
     
-    dynamic var color = UIColor.clearColor()
+    dynamic var color = UIColor.clear
     dynamic var controller: Controller = Controller()
     
     required init?(coder aDecoder: NSCoder) {
@@ -119,9 +119,9 @@ class ViewController: UIViewController {
             //            self.containerView.backgroundColor = color.colorWithAlphaComponent(0.25)
             let color = color
             
-            self.workerTableViewController.view.backgroundColor = color.colorWithAlphaComponent(0.25)
-            self.upperToolbar.barTintColor = color.colorWithAlphaComponent(0.25)
-            self.bottomBar.backgroundColor = color.colorWithAlphaComponent(0.25)
+            self.workerTableViewController.view.backgroundColor = color.withAlphaComponent(0.25)
+            self.upperToolbar.barTintColor = color.withAlphaComponent(0.25)
+            self.bottomBar.backgroundColor = color.withAlphaComponent(0.25)
             //            self.bottomBar.tintColor = UIColor(contrastingBlackOrWhiteColorOn: color.colorWithAlphaComponent(0.25), isFlat: true)
             self.upperToolbar.tintColor = UIColor(contrastingBlackOrWhiteColorOn: self.upperToolbar.barTintColor, isFlat: true)
             //            self.setThemeUsingPrimaryColor(color, withContentStyle: .Contrast)
@@ -137,18 +137,18 @@ class ViewController: UIViewController {
         
         // Settings
         
-        Defaults.rac_channelTerminalForKey(DefaultsKeys.percentageFormat._key).subscribeNext {
+        Defaults.rac_channelTerminal(forKey: DefaultsKeys.percentageFormat._key).subscribeNext {
             (_: AnyObject!) -> Void in
             self.workerTableViewController.tableView.reloadData()
         }
         
         // Keyboard
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: .keyboardWillShow, name: UIKeyboardWillShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: .keyboardWillHide, name: UIKeyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: .keyboardWillShow, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: .keyboardWillHide, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
-    override func viewDidAppear(animated: Bool) {
-        Defaults.rac_channelTerminalForKey(DefaultsKeys.showWalkthrough._key).subscribeNextAs {
+    override func viewDidAppear(_ animated: Bool) {
+        Defaults.rac_channelTerminal(forKey: DefaultsKeys.showWalkthrough._key).subscribeNextAs {
             (showWalkthrough: Bool) -> () in
             if showWalkthrough && !isUITest() {
                 self.showWalkthrough()
@@ -158,10 +158,10 @@ class ViewController: UIViewController {
     }
     
     func showWalkthrough() {
-        let walkthroughController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Walkthrough") as! WalkthroughViewController
+        let walkthroughController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Walkthrough") as! WalkthroughViewController
         walkthroughController.views = [newButton, /*combineOrDoneButton,*/ settingsBarButton, splitButton, clearButton, /*clearAllButton,*/ /*workerTableViewController.addNewButton*/]
         walkthroughController.alpha = 0.5
-        self.presentViewController(walkthroughController, animated: true) {
+        self.present(walkthroughController, animated: true) {
             Defaults[.showWalkthrough] = false
         }
         
@@ -178,7 +178,7 @@ class ViewController: UIViewController {
 //        colorStackViewController.increment()
     }
     
-    @IBAction func clear(sender: UIButton) {
+    @IBAction func clear(_ sender: UIButton) {
 //        let index = controller.currentIndex
 //        controller.removeCurrent()
         workerTableViewController.removeAll()
@@ -214,13 +214,13 @@ class ViewController: UIViewController {
     }*/
     
     @IBAction func split() {
-        guard let bundle = NSBundle(identifier: "com.apple.UIKit") else { fatalError("Couln't access bundle") }
+        guard let bundle = Bundle(identifier: "com.apple.UIKit") else { fatalError("Couln't access bundle") }
         let splitController = SplitAmountViewController(nibName: "SplitAmountView", bundle: nil)
         let cancelButton: CancelButton = {
             $0.accessibilityIdentifier = "cancelButton"
             $0.accessibilityLabel = NSLocalizedString("Cancel", comment: "Cancels the action")
             return $0
-        }(CancelButton(title: bundle.localizedStringForKey("Cancel", value: "", table: nil), action: nil))
+        }(CancelButton(title: bundle.localizedString(forKey: "Cancel", value: "", table: nil), action: nil))
         
         let splitButton: DefaultButton = {
             $0.accessibilityIdentifier = "splitButton"
@@ -232,9 +232,9 @@ class ViewController: UIViewController {
                 let splitMethod = splitController.splitMethod
                 
                 // If amount is zero, there's nothing to split
-                if case let .Amount(amount) = splitMethod where amount == 0.0 {
+                if case let .amount(amount) = splitMethod, amount == 0.0 {
                     return
-                } else if case let .Percentage(amount) = splitMethod where amount == 0.0 {
+                } else if case let .percentage(amount) = splitMethod, amount == 0.0 {
                     return
                 }
                 
@@ -243,46 +243,46 @@ class ViewController: UIViewController {
                 })
         
         let alertView = PopupDialog(viewController: splitController,
-                                    buttonAlignment: .Horizontal,
-                                    transitionStyle: .BounceDown,
+                                    buttonAlignment: .horizontal,
+                                    transitionStyle: .bounceDown,
                                     gestureDismissal: true)
         
         alertView.addButtons([cancelButton, splitButton])
         
         splitController.formatter = numberFormatter
         
-        self.presentViewController(alertView, animated: true, completion: nil)
+        self.present(alertView, animated: true, completion: nil)
     }
     
     @IBAction func done() {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case ViewController.editableWorkersViewSegueID?:
-            guard let workerTVC = segue.destinationViewController as? EditableWorkerTableViewController else { fatalError("Couldn't access editable worker table view controller") }
+            guard let workerTVC = segue.destination as? EditableWorkerTableViewController else { fatalError("Couldn't access editable worker table view controller") }
             
-            let tableViewCellNib = UINib(nibName: "EditableTableViewCell", bundle: NSBundle.mainBundle())
-            workerTVC.tableView.registerNib(tableViewCellNib, forCellReuseIdentifier: EditableWorkerTableViewController.workerCellID)
+            let tableViewCellNib = UINib(nibName: "EditableTableViewCell", bundle: Bundle.main)
+            workerTVC.tableView.register(tableViewCellNib, forCellReuseIdentifier: EditableWorkerTableViewController.workerCellID)
             workerTableViewController = workerTVC
             workerTableViewController.tableView.panGestureRecognizer.delaysTouchesBegan = true
             workerTableViewController.formatter = numberFormatter
             
         case ViewController.staticWorkersViewSegueID?:
             
-            guard let workerTVC = segue.destinationViewController as? StaticWorkerTVC else { fatalError("Couldn't access worker table view controller") }
+            guard let workerTVC = segue.destination as? StaticWorkerTVC else { fatalError("Couldn't access worker table view controller") }
             
-            let tableViewCellNib = UINib(nibName: "StaticTableViewCell", bundle: NSBundle.mainBundle())
-            workerTVC.tableView.registerNib(tableViewCellNib, forCellReuseIdentifier: StaticWorkerTVC.workerCellID)
+            let tableViewCellNib = UINib(nibName: "StaticTableViewCell", bundle: Bundle.main)
+            workerTVC.tableView.register(tableViewCellNib, forCellReuseIdentifier: StaticWorkerTVC.workerCellID)
             workerTableViewController = workerTVC
             workerTableViewController.tableView.panGestureRecognizer.delaysTouchesBegan = true
             workerTableViewController.formatter = numberFormatter
 
         
         case ViewController.settingsViewControllerID?:
-            guard let navVC = segue.destinationViewController as? UINavigationController,
-                settingsVC = navVC.topViewController as? SettingsTableViewController else { fatalError("Couldn't access settings table view controller") }
+            guard let navVC = segue.destination as? UINavigationController,
+                let settingsVC = navVC.topViewController as? SettingsTableViewController else { fatalError("Couldn't access settings table view controller") }
             settingsVC.formatter = numberFormatter
 
         default:
@@ -291,32 +291,32 @@ class ViewController: UIViewController {
         
     }
     
-    override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?) {
-        if motion == .MotionShake {
+    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+        if motion == .motionShake {
             showWalkthrough()
         }
     }
     
     // MARK: - Keyboard Observers
     
-    func keyboardWillShow(notification: NSNotification) {
+    func keyboardWillShow(_ notification: Notification) {
         guard let info = notification.userInfo else { fatalError("Couldn't get info dictionary from notification") }
-        guard let kbSize = info[UIKeyboardFrameEndUserInfoKey]?.CGRectValue.size else { fatalError("Couldn't get keyboard size") }
-        guard let animationDuration = info[UIKeyboardAnimationDurationUserInfoKey]?.doubleValue else { fatalError("Couldn't get keyboard animation duration") }
+        guard let kbSize = (info[UIKeyboardFrameEndUserInfoKey] as AnyObject).cgRectValue.size else { fatalError("Couldn't get keyboard size") }
+        guard let animationDuration = (info[UIKeyboardAnimationDurationUserInfoKey] as AnyObject).doubleValue else { fatalError("Couldn't get keyboard animation duration") }
         bottomBarLayoutConstraint.constant = -kbSize.height
-        UIView.animateWithDuration(animationDuration) {
+        UIView.animate(withDuration: animationDuration, animations: {
             self.bottomBar.layoutIfNeeded()
-        }
+        }) 
     }
     
-    func keyboardWillHide(notification: NSNotification) {
+    func keyboardWillHide(_ notification: Notification) {
         guard let info = notification.userInfo else { fatalError("Couldn't get info dictionary from notification") }
-        guard let animationDuration = info[UIKeyboardAnimationDurationUserInfoKey]?.doubleValue else { fatalError("Couldn't get keyboard animation duration") }
+        guard let animationDuration = (info[UIKeyboardAnimationDurationUserInfoKey] as AnyObject).doubleValue else { fatalError("Couldn't get keyboard animation duration") }
         //        self.view.layoutIfNeeded()
         self.bottomBarLayoutConstraint.constant = 0
-        UIView.animateWithDuration(animationDuration) {
+        UIView.animate(withDuration: animationDuration, animations: {
             self.bottomBar.layoutIfNeeded()
-        }
+        }) 
     }
 }
 

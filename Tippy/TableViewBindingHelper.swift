@@ -12,7 +12,7 @@ import ReactiveCocoa
 
 
 @objc protocol ReactiveView {
-  func bindViewModel(viewModel: AnyObject)
+  func bindViewModel(_ viewModel: AnyObject)
 }
 
 // a helper that makes it easier to bind to UITableView instances
@@ -23,10 +23,10 @@ class TableViewBindingHelper: NSObject, UITableViewDataSource, UITableViewDelega
   
   var delegate: UITableViewDelegate?
   
-  private let tableView: UITableView
-  private let templateCell: UITableViewCell
-  private let selectionCommand: RACCommand?
-  private var data: [AnyObject]
+  fileprivate let tableView: UITableView
+  fileprivate let templateCell: UITableViewCell
+  fileprivate let selectionCommand: RACCommand?
+  fileprivate var data: [AnyObject]
 
   //MARK: Public API
   
@@ -38,8 +38,8 @@ class TableViewBindingHelper: NSObject, UITableViewDataSource, UITableViewDelega
     let nib = UINib(nibName: nibName, bundle: nil)
 
     // create an instance of the template cell and register with the table view
-    templateCell = nib.instantiateWithOwner(nil, options: nil)[0] as! UITableViewCell
-    tableView.registerNib(nib, forCellReuseIdentifier: templateCell.reuseIdentifier!)
+    templateCell = nib.instantiate(withOwner: nil, options: nil)[0] as! UITableViewCell
+    tableView.register(nib, forCellReuseIdentifier: templateCell.reuseIdentifier!)
     
     super.init()
     
@@ -55,13 +55,13 @@ class TableViewBindingHelper: NSObject, UITableViewDataSource, UITableViewDelega
   
   //MARK: Private
   
-  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return data.count
   }
 
-  func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let item: AnyObject = data[indexPath.row]
-    guard let cell = tableView.dequeueReusableCellWithIdentifier(templateCell.reuseIdentifier!) else {
+    guard let cell = tableView.dequeueReusableCell(withIdentifier: templateCell.reuseIdentifier!) else {
         fatalError()
     }
     
@@ -71,18 +71,18 @@ class TableViewBindingHelper: NSObject, UITableViewDataSource, UITableViewDelega
     return cell
   }
   
-  func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return templateCell.frame.size.height
   }
   
-  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     if selectionCommand != nil {
       selectionCommand?.execute(data[indexPath.row])
     }
   }
   
-  func scrollViewDidScroll(scrollView: UIScrollView) {
-    if self.delegate?.respondsToSelector(.scrollViewDidScroll) == true {
+  func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    if self.delegate?.responds(to: .scrollViewDidScroll) == true {
       self.delegate?.scrollViewDidScroll?(scrollView);
     }
   }
