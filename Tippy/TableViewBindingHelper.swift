@@ -12,7 +12,7 @@ import ReactiveCocoa
 
 
 @objc protocol ReactiveView {
-  func bindViewModel(_ viewModel: AnyObject)
+  func bindViewModel(_ viewModel: Any)
 }
 
 // a helper that makes it easier to bind to UITableView instances
@@ -26,7 +26,7 @@ class TableViewBindingHelper: NSObject, UITableViewDataSource, UITableViewDelega
   fileprivate let tableView: UITableView
   fileprivate let templateCell: UITableViewCell
   fileprivate let selectionCommand: RACCommand?
-  fileprivate var data: [AnyObject]
+  fileprivate var data: [Any]
 
   //MARK: Public API
   
@@ -44,8 +44,8 @@ class TableViewBindingHelper: NSObject, UITableViewDataSource, UITableViewDelega
     super.init()
     
     sourceSignal.subscribeNext {
-      (d:AnyObject!) -> () in
-      self.data = d as! [AnyObject]
+      (d:Any!) -> () in
+      self.data = d as! [Any]
       self.tableView.reloadData()
     }
     
@@ -60,7 +60,7 @@ class TableViewBindingHelper: NSObject, UITableViewDataSource, UITableViewDelega
   }
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let item: AnyObject = data[indexPath.row]
+    let item: Any = data[indexPath.row]
     guard let cell = tableView.dequeueReusableCell(withIdentifier: templateCell.reuseIdentifier!) else {
         fatalError()
     }

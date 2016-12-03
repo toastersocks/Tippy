@@ -181,7 +181,7 @@ class Controller: NSObject, ColorStackViewDelegate {
     
     // MARK: KVO
     class func keyPathsForValuesAffectingCurrentViewModel() -> Set<NSObject> {
-        return Set(["currentIndex", "tipoutModels"]) as Set<NSObject>
+        return Set(["currentIndex" as NSObject, "tipoutModels" as NSObject])
     }
     
 }
@@ -209,6 +209,6 @@ extension Controller {
     // MARK: KVO
     
     class func keyPathsForValuesAffectingCurrentColor() -> Set<NSObject> {
-        return Set(["currentIndex", "tipoutModels", "colorStack"]) as Set<NSObject>
+        return Set(["currentIndex" as NSObject, "tipoutModels" as NSObject, "colorStack" as NSObject])
     }
 }

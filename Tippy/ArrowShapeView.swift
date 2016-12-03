@@ -59,7 +59,7 @@ import UIKit
 
     }
     
-    override func layoutSublayersOfLayer(_ layer: CALayer) {
+    override func layoutSublayers(of layer: CALayer) {
         if layer == self.layer {
             arrowLayer.path = arrowPath(inRect: self.layer.bounds).cgPath
         }

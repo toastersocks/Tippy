@@ -55,7 +55,7 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
         }
         roundToNearest.rac_newTextChannel().mapAs {
             (text: NSString) -> AnyObject in
-            return text.doubleValue
+            return text.doubleValue as AnyObject
         }.subscribeNextAs {
             (nearest: Double) -> () in
             Defaults[.roundToNearest] = nearest

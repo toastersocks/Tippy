@@ -22,7 +22,7 @@ final class TipoutViewModel: NSObject, TipoutViewModelType {
     dynamic var totalText: String {
         get {
             if let formatter = formatter,
-                let currencyText = try? formatter.currencyStringFromNumber(tipoutModel.total, stripSymbol: true) {
+                let currencyText = try? formatter.currencyStringFromNumber(NSNumber(value: tipoutModel.total), stripSymbol: true) {
                     return currencyText
             } else { return String(format: "%f", tipoutModel.total) }
         }
@@ -47,17 +47,17 @@ final class TipoutViewModel: NSObject, TipoutViewModelType {
             switch method {
             case .hours:
                 let hours = (value as NSString).doubleValue
-                tipoutMethod = .Hourly(hours)
+                tipoutMethod = .hourly(hours)
             case .percentage:
                 let percentage = try! formatter.percentageFromString(value)
-                tipoutMethod = .Percentage(percentage.doubleValue)
+                tipoutMethod = .percentage(percentage.doubleValue)
             case .amount:
                 let currencyValue = try! formatter.currencyFromString(value)
-                tipoutMethod = .Amount(currencyValue.doubleValue)
+                tipoutMethod = .amount(currencyValue.doubleValue)
             case .name:
                 fatalError("\(method) is not a valid tipout method")
             }
-        } else { tipoutMethod = .Amount(0.0) }
+        } else { tipoutMethod = .amount(0.0) }
         
         let worker = Worker(method: tipoutMethod, id: name)
         
@@ -69,7 +69,7 @@ final class TipoutViewModel: NSObject, TipoutViewModelType {
     }
     
     func removeWorkerAtIndex(_ index: Int) {
-        tipoutModel.workers.removeAtIndex(index)
+        tipoutModel.workers.remove(at: index)
     }
     
     // MARK: - Initializers
@@ -82,13 +82,13 @@ final class TipoutViewModel: NSObject, TipoutViewModelType {
     // MARK: - KVO
     
     class func keyPathsForValuesAffectingTotalText() -> Set<NSObject> {
-        return Set(["tipoutModel.total"]) as Set<NSObject>
+        return Set(["tipoutModel.total" as NSObject])
     }
     class func keyPathsForValuesAffectingCount() -> Set<NSObject> {
-        return Set(["tipoutModel.tipouts.count"]) as Set<NSObject>
+        return Set(["tipoutModel.tipouts.count" as NSObject])
     }
     class func keyPathsForValuesAffectingWorkerViewModels() -> Set<NSObject> {
-        return Set(["tipoutModel.workers"]) as Set<NSObject>
+        return Set(["tipoutModel.workers" as NSObject])
     }
 }
 

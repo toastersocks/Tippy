@@ -44,7 +44,7 @@ class TipoutsTVC: UITableViewController {
     
     @IBAction func new(_ sender: AnyObject) {
         controller.new()
-        tableView.insertRowsAtIndexPaths([IndexPath(forRow: controller.currentIndex, inSection: 0)], withRowAnimation: .Left)
+        tableView.insertRows(at: [IndexPath(row: controller.currentIndex, section: 0)], with: .left)
         
         
     }

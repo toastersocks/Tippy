@@ -138,7 +138,7 @@ class ViewController: UIViewController {
         // Settings
         
         Defaults.rac_channelTerminal(forKey: DefaultsKeys.percentageFormat._key).subscribeNext {
-            (_: AnyObject!) -> Void in
+            (_: Any!) -> Void in
             self.workerTableViewController.tableView.reloadData()
         }
         
@@ -158,12 +158,12 @@ class ViewController: UIViewController {
     }
     
     func showWalkthrough() {
-        let walkthroughController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Walkthrough") as! WalkthroughViewController
-        walkthroughController.views = [newButton, /*combineOrDoneButton,*/ settingsBarButton, splitButton, clearButton, /*clearAllButton,*/ /*workerTableViewController.addNewButton*/]
-        walkthroughController.alpha = 0.5
-        self.present(walkthroughController, animated: true) {
-            Defaults[.showWalkthrough] = false
-        }
+//        let walkthroughController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Walkthrough") as! WalkthroughViewController
+//        walkthroughController.views = [newButton, /*combineOrDoneButton,*/ settingsBarButton, splitButton, clearButton, /*clearAllButton,*/ /*workerTableViewController.addNewButton*/]
+//        walkthroughController.alpha = 0.5
+//        self.present(walkthroughController, animated: true) {
+//            Defaults[.showWalkthrough] = false
+//        }
         
     }
     
@@ -301,7 +301,7 @@ class ViewController: UIViewController {
     
     func keyboardWillShow(_ notification: Notification) {
         guard let info = notification.userInfo else { fatalError("Couldn't get info dictionary from notification") }
-        guard let kbSize = (info[UIKeyboardFrameEndUserInfoKey] as AnyObject).cgRectValue.size else { fatalError("Couldn't get keyboard size") }
+        guard let kbSize = (info[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.size else { fatalError("Couldn't get keyboard size") }
         guard let animationDuration = (info[UIKeyboardAnimationDurationUserInfoKey] as AnyObject).doubleValue else { fatalError("Couldn't get keyboard animation duration") }
         bottomBarLayoutConstraint.constant = -kbSize.height
         UIView.animate(withDuration: animationDuration, animations: {

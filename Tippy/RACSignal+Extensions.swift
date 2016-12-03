@@ -14,7 +14,7 @@ extension RACSignal {
     
     func subscribeNextAs<T>(_ nextClosure:@escaping (T) -> ()) -> () {
         self.subscribeNext {
-            (next: AnyObject!) -> () in
+            (next: Any!) -> () in
             let nextAsT = next! as! T
             nextClosure(nextAsT)
         }
@@ -22,7 +22,7 @@ extension RACSignal {
     
     func mapAs<T: AnyObject, U: AnyObject>(_ mapClosure:@escaping (T) -> U) -> RACSignal {
         return self.map {
-            (next: AnyObject!) -> AnyObject! in
+            (next: Any!) -> AnyObject! in
             let nextAsT = next as! T
             return mapClosure(nextAsT)
         }
@@ -30,7 +30,7 @@ extension RACSignal {
     
     func filterAs<T: AnyObject>(_ filterClosure:@escaping (T) -> Bool) -> RACSignal {
         return self.filter {
-            (next: AnyObject!) -> Bool in
+            (next: Any!) -> Bool in
             let nextAsT = next as! T
             return filterClosure(nextAsT)
         }
@@ -38,7 +38,7 @@ extension RACSignal {
     
     func doNextAs<T: AnyObject>(_ nextClosure:@escaping (T) -> ()) -> RACSignal {
         return self.doNext {
-            (next: AnyObject!) -> () in
+            (next: Any!) -> () in
             let nextAsT = next as! T
             nextClosure(nextAsT)
         }
