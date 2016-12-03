@@ -1,15 +1,20 @@
-github "ReactiveCocoa/ReactiveCocoa" "v2.5"
+#github "ReactiveCocoa/ReactiveCocoa" "v2.5"
 
-git "https://bitbucket.org/toastersocks/tipout"
+#git "https://bitbucket.org/toastersocks/tipout" ~> 3.0
 
-github "ViccAlexander/Chameleon"
+#github "ViccAlexander/Chameleon"
 
-github "tomvanzummeren/TZStackView"
+#github "tomvanzummeren/TZStackView"
 
-github "radex/SwiftyUserDefaults"
+#github "radex/SwiftyUserDefaults"
 
-github "toastersocks/Gecco" "carthage"
+##github "toastersocks/Gecco" "carthage"
+#github "yukiasai/Gecco" "1.0.0"
 
-github "mixpanel/mixpanel-iphone" "v3.0.2"
+##github "mixpanel/mixpanel-iphone" "v3.0.2"
+#github "mixpanel/mixpanel-swift" "v2.1.1"
 
-github "Orderella/PopupDialog" ~> 0.4
+##github "Orderella/PopupDialog" ~> 0.4
+#github "Orderella/PopupDialog" ~> 0.5
+
+github "carloe/LicenseGenerator-iOS" ~> 0.6

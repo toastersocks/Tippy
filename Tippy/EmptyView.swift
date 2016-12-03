@@ -24,7 +24,7 @@ class EmptyView: UIView {
     
    
     func setupView() {
-        contentView = Bundle.main.loadNibNamed(String(describing: EmptyView), owner: self, options: nil)?[0] as! UIView
+        contentView = Bundle.main.loadNibNamed(String(describing: EmptyView.self), owner: self, options: nil)?[0] as! UIView
         contentView.frame = self.frame
         addSubview(contentView)
         arrowShapeView.tintColor = tintColor

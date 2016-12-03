@@ -77,18 +77,18 @@ final class WorkerViewModel: NSObject, WorkerViewModelType {
     dynamic var amount: String {
         get {
             if let formatter = formatter,
-                let currencyString = try? formatter.currencyStringFromNumber(worker.tipout, stripSymbol: true) {
+                let currencyString = try? formatter.currencyStringFromNumber(NSNumber(value: worker.tipout), stripSymbol: true) {
                 return currencyString
             } else { return "" }
         }
         set {
-            worker = Worker(method: .Amount((newValue as NSString).doubleValue), id: worker.id)
+            worker = Worker(method: .amount((newValue as NSString).doubleValue), id: worker.id)
         }
     }
     
     dynamic var hours: String {
         get {
-            if case .Hourly(let hours) = worker.method {
+            if case .hourly(let hours) = worker.method {
                 return String(format:"%g", hours)
                 
             } else {
@@ -97,7 +97,7 @@ final class WorkerViewModel: NSObject, WorkerViewModelType {
         }
         set {
             if !(newValue.hasSuffix(".")) && !(newValue.isEmpty) {
-                worker = Worker(method: .Hourly((newValue as NSString).doubleValue), id: worker.id)
+                worker = Worker(method: .hourly((newValue as NSString).doubleValue), id: worker.id)
             }
         }
     }
@@ -108,19 +108,19 @@ final class WorkerViewModel: NSObject, WorkerViewModelType {
             
             switch (worker.method, totalTipouts) {
                 
-            case (.Percentage(let percentage), _):
+            case (.percentage(let percentage), _):
                 
-                let percentageString = (try? formatter?.percentageStringFromNumber(percentage, stripSymbol: true)).flatMap { $0 } ?? "\(percentage)"
+                let percentageString = (try? formatter?.percentageStringFromNumber(NSNumber(value: percentage), stripSymbol: true)).flatMap { $0 } ?? "\(percentage)"
                 attributedString = NSAttributedString(string: percentageString,
-                                                      attributes: [NSForegroundColorAttributeName : UIColor.blackColor()])
+                                                      attributes: [NSForegroundColorAttributeName : UIColor.black])
                 
             case (_, let totalTipouts?):
                 
                 let percentage = (worker.tipout / totalTipouts)
-                let percentageString = (try? formatter?.percentageStringFromNumber(percentage, stripSymbol: true)).flatMap { $0 } ?? "error"
+                let percentageString = (try? formatter?.percentageStringFromNumber(NSNumber(value: percentage), stripSymbol: true)).flatMap { $0 } ?? "error"
                 attributedString = NSAttributedString(string:
-                    isnan(percentage) || percentageString == "(0)" ? "" : "(\(percentageString))",
-                                                      attributes: [NSForegroundColorAttributeName : UIColor.grayColor()])
+                    percentage.isNaN || percentageString == "(0)" ? "" : "(\(percentageString))",
+                                                      attributes: [NSForegroundColorAttributeName : UIColor.gray])
             default:
                 
                  attributedString = NSAttributedString(string: "")
@@ -130,7 +130,7 @@ final class WorkerViewModel: NSObject, WorkerViewModelType {
         }
         
         set {
-            worker = Worker(method: .Percentage(
+            worker = Worker(method: .percentage(
                 try! formatter?.percentageFromString(newValue.string).doubleValue ?? (newValue.string as NSString).doubleValue),
                             id: worker.id
             )
@@ -140,26 +140,26 @@ final class WorkerViewModel: NSObject, WorkerViewModelType {
     var method: Method {
         
         switch worker.method {
-        case .Amount:
+        case .amount:
             return .amount
-        case .Hourly:
+        case .hourly:
             return .hour
-        case .Percentage:
+        case .percentage:
             return .percent
-        case .Function:
+        case .function:
             fatalError("Function method not supported")
         }
     }
     
     var value: String {
         switch worker.method {
-        case .Amount:
+        case .amount:
             return amount
-        case .Hourly:
+        case .hourly:
             return hours
-        case .Percentage:
+        case .percentage:
             return percentage.string
-        case .Function:
+        case .function:
             return ""
         }
     }
@@ -170,11 +170,11 @@ final class WorkerViewModel: NSObject, WorkerViewModelType {
         // TODO: Make these magic strings into enums
         switch method {
         case "hours", "Hours", "hourly", "Hourly":
-            tipoutMethod = .Hourly(value)
+            tipoutMethod = .hourly(value)
         case "percentage", "Percentage":
-            tipoutMethod = .Percentage(value)
+            tipoutMethod = .percentage(value)
         case "amount", "Amount":
-            tipoutMethod = .Amount(value)
+            tipoutMethod = .amount(value)
         default:
             fatalError("\(method) is not a valid method string")
         }
@@ -202,24 +202,24 @@ final class WorkerViewModel: NSObject, WorkerViewModelType {
     // MARK: = KVO
     
     class func keyPathsForValuesAffectingName() -> Set<NSObject> {
-        return Set(["worker", "worker.id"]) as Set<NSObject>
+        return Set(["worker" as NSObject, "worker.id" as NSObject])
     }
     
     class func keyPathsForValuesAffectingAmount() -> Set<NSObject> {
-        return Set(["worker", "worker.tipout"]) as Set<NSObject>
+        return Set(["worker" as NSObject, "worker.tipout" as NSObject])
     }
     
     class func keyPathsForValuesAffectingHours() -> Set<NSObject> {
-        return Set(["worker", "worker.method"]) as Set<NSObject>
+        return Set(["worker" as NSObject, "worker.method" as NSObject])
     }
     
     class func keyPathsForValuesAffectingPercentage() -> Set<NSObject> {
-        return Set(["worker", "worker.tipout", "worker.method", "totalTipouts"]) as Set<NSObject>
+        return Set(["worker" as NSObject, "worker.tipout" as NSObject, "worker.method" as NSObject, "totalTipouts" as NSObject])
     }
 }
 
 extension WorkerViewModel: CustomReflectable {
-    func customMirror() -> Mirror {
+    var customMirror: Mirror {
         return Mirror(self, children: [
             "name"      : "\(name)",
             "method"    : "\(method)",
