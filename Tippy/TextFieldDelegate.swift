@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TotalFieldDelegate: NSObject, UITextFieldDelegate {
+class TextFieldDelegate: NSObject, UITextFieldDelegate {
     
     @IBOutlet weak var formatter: Formatter!
     
@@ -29,7 +29,7 @@ class TotalFieldDelegate: NSObject, UITextFieldDelegate {
         let newString = oldString.replacingCharacters(in: range, with: string)
         if !newString.isEmpty {
             do {
-                try formatter?.currencyFromString(newString)
+                try _ = formatter?.currencyFromString(newString)
             } catch {
                 return false
             }
@@ -37,11 +37,17 @@ class TotalFieldDelegate: NSObject, UITextFieldDelegate {
         return true
     }
     
-    @IBAction func editingChanged(_ sender: UITextField) {
+   /* @IBAction func editingChanged(_ sender: UITextField) {
         sender.invalidateIntrinsicContentSize()
     }
-    /*init(formatter: Formatter) {
-    self.formatter = formatter
-    super.init()
-    }*/
+ */
+    
+    init(formatter: Formatter) {
+        self.formatter = formatter
+        super.init()
+    }
+    
+    override init() {
+        super.init()
+    }
 }

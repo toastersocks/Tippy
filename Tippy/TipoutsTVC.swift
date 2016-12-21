@@ -69,7 +69,11 @@ class TipoutsTVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: TipoutsTVC.tipoutCellID, for: indexPath) as? TipoutCell else { fatalError("Coudn't get cell") }
-        cell.totalLabel.text = controller.tipoutViewModels[indexPath.row].totalText
+        guard let total = try? formatter.currencyFromString(controller.tipoutViewModels[indexPath.row].totalText),
+              let totalWithSymbol = try? formatter.currencyStringFromNumber(total, stripSymbol: false)
+        else { fatalError("Could not format total") }
+        
+        cell.totalLabel.text = totalWithSymbol
         cell.tipoutIcon.backgroundColor = controller.colorStack?.colorForIndex(indexPath.row)
         
         return cell

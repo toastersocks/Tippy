@@ -77,7 +77,7 @@ final class WorkerViewModel: NSObject, WorkerViewModelType {
     dynamic var amount: String {
         get {
             if let formatter = formatter,
-                let currencyString = try? formatter.currencyStringFromNumber(NSNumber(value: worker.tipout), stripSymbol: true) {
+                let currencyString = try? formatter.currencyStringFromNumber(NSNumber(value: worker.tipout), stripSymbol: false) {
                 return currencyString
             } else { return "" }
         }
@@ -110,14 +110,14 @@ final class WorkerViewModel: NSObject, WorkerViewModelType {
                 
             case (.percentage(let percentage), _):
                 
-                let percentageString = (try? formatter?.percentageStringFromNumber(NSNumber(value: percentage), stripSymbol: true)).flatMap { $0 } ?? "\(percentage)"
+                let percentageString = (try? formatter?.percentageStringFromNumber(NSNumber(value: percentage), stripSymbol: false)).flatMap { $0 } ?? "\(percentage)"
                 attributedString = NSAttributedString(string: percentageString,
                                                       attributes: [NSForegroundColorAttributeName : UIColor.black])
                 
             case (_, let totalTipouts?):
                 
                 let percentage = (worker.tipout / totalTipouts)
-                let percentageString = (try? formatter?.percentageStringFromNumber(NSNumber(value: percentage), stripSymbol: true)).flatMap { $0 } ?? "error"
+                let percentageString = (try? formatter?.percentageStringFromNumber(NSNumber(value: percentage), stripSymbol: false)).flatMap { $0 } ?? "error"
                 attributedString = NSAttributedString(string:
                     percentage.isNaN || percentageString == "(0)" ? "" : "(\(percentageString))",
                                                       attributes: [NSForegroundColorAttributeName : UIColor.gray])

@@ -7,11 +7,11 @@
 //
 
 import UIKit
-//import Mixpanel
+import Mixpanel
 #if DEBUG
     import func AudioToolbox.AudioServicesPlayAlertSound
 #endif
-@UIApplicationMain
+//@UIApplicationMain
 
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -20,16 +20,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         #if !DEBUG
-//        _ = Mixpanel.sharedInstanceWithToken("7d099edd7dcdb4e8fd8e8776a40361b9")
+            _ = Mixpanel.initialize(token: "7d099edd7dcdb4e8fd8e8776a40361b9")
         #endif
         
         if isTakingScreenshots() {
             // Clean up status bar
         }
-        debug {
+//        debug {
             StartupTimeProfiler.addEvent("App finished launching")
             print("Total startup time: \(StartupTimeProfiler.totalTime)")
-        }
+//        }
         // Override point for customization after application launch.
         return true
     }
@@ -49,10 +49,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
-        debug {
+//        debug {
             StartupTimeProfiler.addEvent("App did finish loading")
             print("Total time to active: \(StartupTimeProfiler.totalTime)")
-        }
+//        }
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     }
 
@@ -64,7 +64,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         #if DEBUG
         AudioServicesPlayAlertSound(1103)
         #else
-//        Mixpanel.sharedInstance().track("Low memory")
+            Mixpanel.mainInstance().track(event: "Low memory")
         #endif
     }
 }

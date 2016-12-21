@@ -20,17 +20,11 @@ import UIKit
     override init(frame: CGRect) {
         super.init(frame: frame)
         xibSetup(viewTag: 0)
-        setup()
     }
     
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         xibSetup(viewTag: 0)
-        setup()
-    }
-    
-    func setup() {
-        print("I'm \"settting up\"")
     }
     
     func xibSetup(viewTag: Int) {
@@ -53,27 +47,4 @@ import UIKit
         
         return view
     }
-
-    /*override func xibSetup(viewTag viewTag: Int) {
-        view = loadViewFromXib()
-        view.frame = bounds
-        view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
-        addSubview(view)
-    }*/
-    
-    /*override func loadViewFromXib() -> UIView {
-        let bundle = NSBundle(forClass: self.dynamicType)
-        let xib = UINib(nibName: "TipoutView", bundle: bundle)
-        // make sure we load correct view by tag in case there's multiple objects in the xib
-        guard let view = (xib.instantiateWithOwner(self, options: nil) as? [UIView])?
-            .filter({
-                return $0.tag == 0 ? true : false
-                
-            })
-            .last else { fatalError("Cannot load view from Xib") }
-        
-        return view
-    }*/
-
-
 }

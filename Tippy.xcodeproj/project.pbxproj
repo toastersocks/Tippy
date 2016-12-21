@@ -27,6 +27,9 @@
 		DD30CCB21D767ED600C10EA2 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD30CCB11D767ED600C10EA2 /* SnapshotHelper.swift */; };
 		DD36481B1CBEF479002CA8A5 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = DD36481A1CBEF479002CA8A5 /* .gitignore */; };
 		DD3648231CD17099002CA8A5 /* Formatter+UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3648221CD17099002CA8A5 /* Formatter+UILabel.swift */; };
+		DD38EA081E046CDF00D68157 /* CurrencyFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD38EA071E046CDF00D68157 /* CurrencyFieldDelegate.swift */; };
+		DD38EA0A1E046D0100D68157 /* PercentFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD38EA091E046D0100D68157 /* PercentFieldDelegate.swift */; };
+		DD38EA0C1E046D2900D68157 /* HourFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD38EA0B1E046D2900D68157 /* HourFieldDelegate.swift */; };
 		DD45FB821C64199E00DE5D7A /* TZStackView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD45FB811C64199E00DE5D7A /* TZStackView.framework */; };
 		DD4FD8A61DDD3032008771A1 /* StaticTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD4FD8A41DDD3032008771A1 /* StaticTableViewCell.xib */; };
 		DD4FD8A81DDD39DE008771A1 /* WorkerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4FD8A71DDD39DE008771A1 /* WorkerTableViewController.swift */; };
@@ -54,6 +57,7 @@
 		DD7B06E41C2EFBCF00880CBD /* DefaultPreferences.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD7B06E31C2EFBCF00880CBD /* DefaultPreferences.plist */; };
 		DD7CBA321B598DC8003B718D /* ReactiveCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DD7CBA2D1B598C5F003B718D /* ReactiveCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DD7CBA351B598DDE003B718D /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD7CBA2D1B598C5F003B718D /* ReactiveCocoa.framework */; };
+		DD7DAE0D1DF4B6E100EBA5B9 /* testTextValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7DAE0C1DF4B6E100EBA5B9 /* testTextValidator.swift */; };
 		DD7DB03B1D7E7DE300060D55 /* PopupDialog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD7DB03A1D7E7DE300060D55 /* PopupDialog.framework */; };
 		DD7DB03C1D7E7DE300060D55 /* PopupDialog.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DD7DB03A1D7E7DE300060D55 /* PopupDialog.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DD80142A1B16A15F007A673F /* RAC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8014261B16A15F007A673F /* RAC.swift */; };
@@ -70,17 +74,17 @@
 		DDB6BC591CDD337A00D8A9D1 /* ColorStack.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDB6BC571CDD337A00D8A9D1 /* ColorStack.storyboard */; };
 		DDB6BC5A1CDD337A00D8A9D1 /* ColorStackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB6BC581CDD337A00D8A9D1 /* ColorStackViewController.swift */; };
 		DDB6BC5C1CDD33DE00D8A9D1 /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB6BC5B1CDD33DE00D8A9D1 /* ColorCell.swift */; };
-		DDB9FD671BF40C5500FB6803 /* JCPTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB9FD661BF40C5500FB6803 /* JCPTextField.swift */; };
 		DDBFF7CE1C78F8A800D43C77 /* Gecco.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDBFF7CD1C78F8A800D43C77 /* Gecco.framework */; };
 		DDBFF7CF1C78F8A800D43C77 /* Gecco.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DDBFF7CD1C78F8A800D43C77 /* Gecco.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DDC061B51D11E3C1008081DB /* Screenshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC061B41D11E3C1008081DB /* Screenshots.swift */; };
 		DDC16F9A1BB0C29000AC9583 /* EditableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD67BD6D1B697E2E000EADD5 /* EditableTableViewCell.swift */; };
+		DDCF7DE11DF3570E002C010B /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8672351CEBE9CE00ED1D29 /* main.swift */; };
 		DDDAE7461B6BDE0B008D2140 /* EditableWorkerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDAE7451B6BDE0B008D2140 /* EditableWorkerTableViewController.swift */; };
 		DDE21BB61B4E15BE002D5859 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE21BB51B4E15BE002D5859 /* Controller.swift */; };
 		DDE7305E1D836B78009CE851 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE7305D1D836B78009CE851 /* EmptyView.swift */; };
 		DDE730601D83848C009CE851 /* ArrowShapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE7305F1D83848C009CE851 /* ArrowShapeView.swift */; };
 		DDE730611D84AD73009CE851 /* EmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDE730631D84AD73009CE851 /* EmptyView.xib */; };
-		DDE86B891C237E9C00DA7941 /* TotalFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE86B881C237E9C00DA7941 /* TotalFieldDelegate.swift */; };
+		DDE86B891C237E9C00DA7941 /* TextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE86B881C237E9C00DA7941 /* TextFieldDelegate.swift */; };
 		DDE86B941C24E79700DA7941 /* EditableTipoutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDE86B961C24E79700DA7941 /* EditableTipoutView.xib */; };
 		DDE86B9B1C24E7B500DA7941 /* EditableTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDE86B9D1C24E7B500DA7941 /* EditableTableViewCell.xib */; };
 		DDEC19FF1DE769D500D0A0F1 /* StaticWorkerTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD4FD89E1DDBB64E008771A1 /* StaticWorkerTVC.xib */; };
@@ -138,7 +142,7 @@
 		DD19B6381C192DC9000FFACA /* testFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = testFormatter.swift; sourceTree = "<group>"; };
 		DD19B6411C1A337D000FFACA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DD19B6421C1A337F000FFACA /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
-		DD1A48031B28FE7D003FA9DB /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = Cartfile; path = ../Cartfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		DD1A48031B28FE7D003FA9DB /* Cartfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; name = Cartfile; path = ../Cartfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		DD1A48041B29D456003FA9DB /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		DD1C58481B16981D00188B28 /* Tippy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tippy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD1C584D1B16981D00188B28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -161,10 +165,13 @@
 		DD2908581D1F02ED00E08799 /* Tipout.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Tipout.framework; path = Carthage/Build/iOS/Tipout.framework; sourceTree = "<group>"; };
 		DD2C8DCE1D95E90400AE106F /* TipoutsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipoutsTVC.swift; sourceTree = "<group>"; };
 		DD2C8DD01D95EB5100AE106F /* TipoutCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipoutCell.swift; sourceTree = "<group>"; };
-		DD309D221B5F081C000EE80B /* Scratchpad.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Scratchpad.playground; sourceTree = "<group>"; };
 		DD30CCB11D767ED600C10EA2 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 		DD36481A1CBEF479002CA8A5 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = .gitignore; path = ../.gitignore; sourceTree = "<group>"; };
 		DD3648221CD17099002CA8A5 /* Formatter+UILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Formatter+UILabel.swift"; sourceTree = "<group>"; };
+		DD38EA051E01D97A00D68157 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD38EA071E046CDF00D68157 /* CurrencyFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyFieldDelegate.swift; sourceTree = "<group>"; };
+		DD38EA091E046D0100D68157 /* PercentFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PercentFieldDelegate.swift; sourceTree = "<group>"; };
+		DD38EA0B1E046D2900D68157 /* HourFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HourFieldDelegate.swift; sourceTree = "<group>"; };
 		DD45FB811C64199E00DE5D7A /* TZStackView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TZStackView.framework; path = Carthage/Build/iOS/TZStackView.framework; sourceTree = "<group>"; };
 		DD4FD89D1DDBB64E008771A1 /* StaticWorkerTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaticWorkerTVC.swift; sourceTree = "<group>"; };
 		DD4FD89E1DDBB64E008771A1 /* StaticWorkerTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StaticWorkerTVC.xib; sourceTree = "<group>"; };
@@ -174,7 +181,7 @@
 		DD4FD8A71DDD39DE008771A1 /* WorkerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkerTableViewController.swift; sourceTree = "<group>"; };
 		DD54AA761BB0DB3300AFFA68 /* ViewModelable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelable.swift; sourceTree = "<group>"; };
 		DD54AA781BB1A77C00AFFA68 /* testWorkerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = testWorkerViewModel.swift; sourceTree = "<group>"; };
-		DD54AA7A1BB1A82400AFFA68 /* Cartfile.private */ = {isa = PBXFileReference; lastKnownFileType = text; name = Cartfile.private; path = ../Cartfile.private; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		DD54AA7A1BB1A82400AFFA68 /* Cartfile.private */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; name = Cartfile.private; path = ../Cartfile.private; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		DD54AA7C1BB1AA1200AFFA68 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		DD54AA7D1BB1AA1200AFFA68 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		DD54AABE1BB30FF700AFFA68 /* ColorStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorStackView.swift; sourceTree = "<group>"; };
@@ -196,6 +203,7 @@
 		DD73DFBF1BC1BC9B0005636C /* Chameleon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Chameleon.framework; path = Carthage/Build/iOS/Chameleon.framework; sourceTree = "<group>"; };
 		DD7B06E31C2EFBCF00880CBD /* DefaultPreferences.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DefaultPreferences.plist; sourceTree = "<group>"; };
 		DD7CBA2D1B598C5F003B718D /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/iOS/ReactiveCocoa.framework; sourceTree = "<group>"; };
+		DD7DAE0C1DF4B6E100EBA5B9 /* testTextValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = testTextValidator.swift; sourceTree = "<group>"; };
 		DD7DB03A1D7E7DE300060D55 /* PopupDialog.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PopupDialog.framework; path = Carthage/Build/iOS/PopupDialog.framework; sourceTree = "<group>"; };
 		DD8014261B16A15F007A673F /* RAC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAC.swift; sourceTree = "<group>"; };
 		DD8014271B16A15F007A673F /* RACObserve.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RACObserve.swift; sourceTree = "<group>"; };
@@ -225,7 +233,7 @@
 		DDE730621D84AD73009CE851 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/EmptyView.xib; sourceTree = "<group>"; };
 		DDE730651D84AD7A009CE851 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/EmptyView.strings; sourceTree = "<group>"; };
 		DDE730671D84AD7D009CE851 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/EmptyView.strings; sourceTree = "<group>"; };
-		DDE86B881C237E9C00DA7941 /* TotalFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TotalFieldDelegate.swift; sourceTree = "<group>"; };
+		DDE86B881C237E9C00DA7941 /* TextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldDelegate.swift; sourceTree = "<group>"; };
 		DDE86B8A1C24DF1A00DA7941 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Main.strings; sourceTree = "<group>"; };
 		DDE86B8B1C24DF1A00DA7941 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		DDE86B8D1C24DF1A00DA7941 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -304,7 +312,6 @@
 		DD1C583F1B16981D00188B28 = {
 			isa = PBXGroup;
 			children = (
-				DD309D221B5F081C000EE80B /* Scratchpad.playground */,
 				DD1C584A1B16981D00188B28 /* Tippy */,
 				DD1C58601B16981E00188B28 /* TippyTests */,
 				DDC061B31D11E3C1008081DB /* TippyUITests */,
@@ -361,6 +368,7 @@
 			isa = PBXGroup;
 			children = (
 				DD1C58611B16981E00188B28 /* Supporting Files */,
+				DD7DAE0C1DF4B6E100EBA5B9 /* testTextValidator.swift */,
 				DD54AA781BB1A77C00AFFA68 /* testWorkerViewModel.swift */,
 				DD19B6381C192DC9000FFACA /* testFormatter.swift */,
 			);
@@ -370,6 +378,7 @@
 		DD1C58611B16981E00188B28 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				DD38EA051E01D97A00D68157 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -378,7 +387,10 @@
 			isa = PBXGroup;
 			children = (
 				DDB9FD661BF40C5500FB6803 /* JCPTextField.swift */,
-				DDE86B881C237E9C00DA7941 /* TotalFieldDelegate.swift */,
+				DDE86B881C237E9C00DA7941 /* TextFieldDelegate.swift */,
+				DD38EA071E046CDF00D68157 /* CurrencyFieldDelegate.swift */,
+				DD38EA091E046D0100D68157 /* PercentFieldDelegate.swift */,
+				DD38EA0B1E046D2900D68157 /* HourFieldDelegate.swift */,
 				DD71106D1BE18EA300FA7006 /* UI */,
 				DDF375751C7A82BC006977F2 /* WalkthroughViewController.swift */,
 				DD2C8DCE1D95E90400AE106F /* TipoutsTVC.swift */,
@@ -696,15 +708,17 @@
 				DD90A9961B605F0C00EE0BB6 /* TipoutView+RAC.swift in Sources */,
 				DD20813C1BD9524A00ED20CB /* WorkerViewModelType.swift in Sources */,
 				DDEC1A021DE76BC100D0A0F1 /* StaticWorkerTVC.swift in Sources */,
+				DD38EA081E046CDF00D68157 /* CurrencyFieldDelegate.swift in Sources */,
 				DD2C8DD11D95EB5100AE106F /* TipoutCell.swift in Sources */,
 				DDE730601D83848C009CE851 /* ArrowShapeView.swift in Sources */,
 				DDF375761C7A82BC006977F2 /* WalkthroughViewController.swift in Sources */,
+				DD38EA0C1E046D2900D68157 /* HourFieldDelegate.swift in Sources */,
 				DDDAE7461B6BDE0B008D2140 /* EditableWorkerTableViewController.swift in Sources */,
 				DD2C8DCF1D95E90400AE106F /* TipoutsTVC.swift in Sources */,
 				DD6F0C381C1B98FC00A65CB0 /* Formatter.swift in Sources */,
 				DD1C58501B16981D00188B28 /* ViewController.swift in Sources */,
 				DD80142C1B16A15F007A673F /* RACSignal+Extensions.swift in Sources */,
-				DDB9FD671BF40C5500FB6803 /* JCPTextField.swift in Sources */,
+				DDCF7DE11DF3570E002C010B /* main.swift in Sources */,
 				DD1C586E1B16995000188B28 /* TipoutViewModel.swift in Sources */,
 				DD4FD8A81DDD39DE008771A1 /* WorkerTableViewController.swift in Sources */,
 				DD20813A1BD94ACB00ED20CB /* TipoutViewModelType.swift in Sources */,
@@ -712,6 +726,7 @@
 				DDEC1A011DE76BA700D0A0F1 /* StaticTipoutView.swift in Sources */,
 				DD67BD6C1B6861E4000EADD5 /* WorkerViewModel.swift in Sources */,
 				DD80142A1B16A15F007A673F /* RAC.swift in Sources */,
+				DD38EA0A1E046D0100D68157 /* PercentFieldDelegate.swift in Sources */,
 				DDECA0541D96DFAA00EB6F2C /* Actions.swift in Sources */,
 				DD555A5B1D7F430D0081B7F8 /* SplitAmountViewController.swift in Sources */,
 				DD80142D1B16A15F007A673F /* TableViewBindingHelper.swift in Sources */,
@@ -721,7 +736,7 @@
 				DD1C584E1B16981D00188B28 /* AppDelegate.swift in Sources */,
 				DD54AA771BB0DB3300AFFA68 /* ViewModelable.swift in Sources */,
 				DDECA8EF1BA614D400D45446 /* Helpers.swift in Sources */,
-				DDE86B891C237E9C00DA7941 /* TotalFieldDelegate.swift in Sources */,
+				DDE86B891C237E9C00DA7941 /* TextFieldDelegate.swift in Sources */,
 				DDB6BC5C1CDD33DE00D8A9D1 /* ColorCell.swift in Sources */,
 				DDE21BB61B4E15BE002D5859 /* Controller.swift in Sources */,
 				DDEC1A031DE76BDA00D0A0F1 /* StaticTableViewCell.swift in Sources */,
@@ -735,6 +750,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD7DAE0D1DF4B6E100EBA5B9 /* testTextValidator.swift in Sources */,
 				DD19B6391C192DC9000FFACA /* testFormatter.swift in Sources */,
 				DD54AA791BB1A77C00AFFA68 /* testWorkerViewModel.swift in Sources */,
 			);
@@ -891,6 +907,7 @@
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -934,6 +951,7 @@
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -961,7 +979,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.toastersocks.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = bridgingHeader.h;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
@@ -974,7 +992,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 23;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_BITCODE = NO;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -989,6 +1007,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.toastersocks.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = bridgingHeader.h;
 				SWIFT_VERSION = 3.0;
 			};
@@ -1047,6 +1066,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.toastersocks.TippyUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0.1;
 				TEST_TARGET_NAME = Tippy;
 			};
 			name = Debug;
@@ -1060,6 +1080,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.toastersocks.TippyUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0.1;
 				TEST_TARGET_NAME = Tippy;
 			};
 			name = Release;

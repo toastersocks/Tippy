@@ -16,6 +16,8 @@ class EditWorkerViewController: UIViewController {
     @IBOutlet weak var methodPicker: UISegmentedControl!
     @IBOutlet weak var titleLabel: UILabel!
     
+    var tipoutFieldDelegate: TextFieldDelegate?
+    
     var viewModel: WorkerViewModelType? {
         didSet {
             if viewModel != nil {
@@ -55,6 +57,7 @@ class EditWorkerViewController: UIViewController {
             title = NSLocalizedString("Edit Worker", comment: "Edit a worker in the table view")
         } else {
             title = NSLocalizedString("New Worker", comment: "Create a new worker in the table view")
+            tipoutField.isUserInteractionEnabled = false
         }
     }
     
@@ -90,18 +93,23 @@ extension EditWorkerViewController: UIPickerViewDelegate, UIPickerViewDataSource
     
     func methodSelected(_ sender: UISegmentedControl) {
         let index = sender.selectedSegmentIndex
-        
+        guard let formatter = formatter else { fatalError("formatter should not be nil") }
+        if !tipoutField.isUserInteractionEnabled { tipoutField.isUserInteractionEnabled = true }
         switch index {
         case 0: // Hourly
-            break
+            formatter.configureHoursTextField(&tipoutField!)
+            tipoutFieldDelegate = HourFieldDelegate(formatter: formatter)
         case 1: // Percent
-            formatter?.configurePercentTextfield(&tipoutField!)
+            formatter.configurePercentTextfield(&tipoutField!)
+            tipoutFieldDelegate = PercentFieldDelegate(formatter: formatter)
         case 2: // Amount
-            formatter?.configureAmountTextfield(&tipoutField!)
+            formatter.configureAmountTextfield(&tipoutField!)
+            tipoutFieldDelegate = CurrencyFieldDelegate(formatter: formatter)
         default:
             fatalError("Unknown value for tipout method")
         }
         
+        tipoutField.delegate = tipoutFieldDelegate
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {

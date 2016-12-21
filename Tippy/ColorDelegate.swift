@@ -22,10 +22,10 @@ class ColorDelegate: NSObject, ColorStackViewColorDelegate {
     lazy var colorPool: Set<UIColor> = {
         
         let seedColors:[UIColor] = [
-            UIColor(hexString: "E35F55"),
-            UIColor(hexString: "E39955"),
-            UIColor(hexString: "36818B"),
-            UIColor(hexString: "41AE54")
+            UIColor(hexString: "E35F55", withAlpha: 1),
+            UIColor(hexString: "E39955", withAlpha: 1),
+            UIColor(hexString: "36818B", withAlpha: 1),
+            UIColor(hexString: "41AE54", withAlpha: 1)
         ]
         
         let startingColors = seedColors.flatMap {

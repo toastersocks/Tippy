@@ -8,11 +8,18 @@
 
 import Foundation
 
+protocol Validator {
+    func isCurrencyTextValid(text: String) -> Bool
+    func isPercentageTextValid(text: String) -> Bool
+    func isHoursTextValid(text: String) -> Bool
+}
+
 
 open class Formatter: NSObject {
     
     public enum FormatterError: Error {
         case convertError
+        case localeConfigurationError
     }
     
     public enum PercentFormat {
@@ -63,7 +70,7 @@ open class Formatter: NSObject {
     
     fileprivate lazy var currencyFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
-        formatter.currencySymbol = ""
+//        formatter.currencySymbol = ""
         formatter.numberStyle = .currency
         formatter.maximumFractionDigits = 2
 //        formatter.usesSignificantDigits = true
@@ -85,10 +92,10 @@ open class Formatter: NSObject {
         currencyFormatter.currencySymbol = currencySymbol
         guard let string = currencyFormatter.string(from: 1) else { fatalError() }
         if string.hasPrefix(currencySymbol) {
-            currencyFormatter.currencySymbol = ""
+//            currencyFormatter.currencySymbol = ""
             return .beginning
         } else if string.hasSuffix(currencySymbol) {
-            currencyFormatter.currencySymbol = ""
+//            currencyFormatter.currencySymbol = ""
             return .end
         } else {
             fatalError()
@@ -136,7 +143,8 @@ open class Formatter: NSObject {
     
     open func currencyStringFromNumber(_ number: NSNumber, stripSymbol: Bool) throws -> String {
         guard let string = currencyFormatter.string(from: number) else { throw FormatterError.convertError }
-        let trailingZerosStripped = string.replacingOccurrences(of: "\(currencyFormatter.currencyDecimalSeparator)00", with: "")
+        guard let currencyDecimalSeparator = currencyFormatter.currencyDecimalSeparator else { throw FormatterError.localeConfigurationError }
+        let trailingZerosStripped = string.replacingOccurrences(of: "\(currencyDecimalSeparator)00", with: "")
         if stripSymbol {
             return trailingZerosStripped.replacingOccurrences(of: currencySymbol, with: "")
         } else {
@@ -161,7 +169,9 @@ open class Formatter: NSObject {
                 checkedString = "0" + checkedString
         }
         
+        currencyFormatter.currencySymbol = ""
         guard let num = currencyFormatter.number(from: checkedString) else { throw FormatterError.convertError }
+        currencyFormatter.currencySymbol = currencySymbol
         
         return num
     }
@@ -183,7 +193,20 @@ open class Formatter: NSObject {
         let string = try currencyStringFromNumber(num, stripSymbol: true)
         return string
     }
-    
-//    public override init() { }
+}
 
+// MARK: Validator
+
+extension Formatter: Validator {
+    func isCurrencyTextValid(text: String) -> Bool {
+        return (try? currencyFromString(text)) != nil ? true : false
+    }
+    
+    func isPercentageTextValid(text: String) -> Bool {
+        return (try? percentageFromString(text)) != nil ? true : false
+    }
+    
+    func isHoursTextValid(text: String) -> Bool {
+        return (try? currencyFromString(text)) != nil ? true : false
+    }
 }

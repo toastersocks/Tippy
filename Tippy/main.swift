@@ -10,9 +10,13 @@ import UIKit
 
 
 autoreleasepool {
-    debug {
+//    debug {
         StartupTimeProfiler.addEvent("App start")
-    }
-    
-    UIApplicationMain(Process.argc, Process.unsafeArgv, NSStringFromClass(UIApplication), NSStringFromClass(AppDelegate))
+//    }
+    UIApplicationMain(CommandLine.argc,
+                      UnsafeMutableRawPointer(CommandLine.unsafeArgv)
+                        .bindMemory(to: UnsafeMutablePointer<Int8>.self,
+                                    capacity: Int(CommandLine.argc)),
+                      NSStringFromClass(UIApplication.self),
+                      NSStringFromClass(AppDelegate.self))
 }

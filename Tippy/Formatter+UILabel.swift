@@ -41,4 +41,9 @@ extension Formatter {
         percentLabel.sizeToFit()
 
     }
+    
+    func configureHoursTextField(_ textfield: inout UITextField) {
+        textfield.rightViewMode = .never
+        textfield.leftViewMode = .never
+    }
 }
