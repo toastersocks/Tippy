@@ -87,7 +87,6 @@
 		DDE86B891C237E9C00DA7941 /* TextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE86B881C237E9C00DA7941 /* TextFieldDelegate.swift */; };
 		DDE86B941C24E79700DA7941 /* EditableTipoutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDE86B961C24E79700DA7941 /* EditableTipoutView.xib */; };
 		DDE86B9B1C24E7B500DA7941 /* EditableTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDE86B9D1C24E7B500DA7941 /* EditableTableViewCell.xib */; };
-		DDEC19FF1DE769D500D0A0F1 /* StaticWorkerTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD4FD89E1DDBB64E008771A1 /* StaticWorkerTVC.xib */; };
 		DDEC1A011DE76BA700D0A0F1 /* StaticTipoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD28FD1A1DB9820E0044B5FE /* StaticTipoutView.swift */; };
 		DDEC1A021DE76BC100D0A0F1 /* StaticWorkerTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4FD89D1DDBB64E008771A1 /* StaticWorkerTVC.swift */; };
 		DDEC1A031DE76BDA00D0A0F1 /* StaticTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4FD8A31DDD3032008771A1 /* StaticTableViewCell.swift */; };
@@ -174,7 +173,6 @@
 		DD38EA0B1E046D2900D68157 /* HourFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HourFieldDelegate.swift; sourceTree = "<group>"; };
 		DD45FB811C64199E00DE5D7A /* TZStackView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TZStackView.framework; path = Carthage/Build/iOS/TZStackView.framework; sourceTree = "<group>"; };
 		DD4FD89D1DDBB64E008771A1 /* StaticWorkerTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaticWorkerTVC.swift; sourceTree = "<group>"; };
-		DD4FD89E1DDBB64E008771A1 /* StaticWorkerTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StaticWorkerTVC.xib; sourceTree = "<group>"; };
 		DD4FD8A11DDBBB55008771A1 /* TipoutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipoutView.swift; sourceTree = "<group>"; };
 		DD4FD8A31DDD3032008771A1 /* StaticTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaticTableViewCell.swift; sourceTree = "<group>"; };
 		DD4FD8A41DDD3032008771A1 /* StaticTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StaticTableViewCell.xib; sourceTree = "<group>"; };
@@ -399,7 +397,6 @@
 				DDDAE7451B6BDE0B008D2140 /* EditableWorkerTableViewController.swift */,
 				DD4FD8A71DDD39DE008771A1 /* WorkerTableViewController.swift */,
 				DD4FD89D1DDBB64E008771A1 /* StaticWorkerTVC.swift */,
-				DD4FD89E1DDBB64E008771A1 /* StaticWorkerTVC.xib */,
 				DD1C584F1B16981D00188B28 /* ViewController.swift */,
 				DDA07EBE1BC5F2DF008B1081 /* ColorDelegate.swift */,
 				DD90A9951B605F0C00EE0BB6 /* TipoutView+RAC.swift */,
@@ -608,7 +605,6 @@
 				DD24E69A1D75334300B2FADF /* SplitAmountView.xib in Resources */,
 				DD7B06E41C2EFBCF00880CBD /* DefaultPreferences.plist in Resources */,
 				DD19B63E1C1A3375000FFACA /* Localizable.strings in Resources */,
-				DDEC19FF1DE769D500D0A0F1 /* StaticWorkerTVC.xib in Resources */,
 				DDF4F3311D89FA8C0031F702 /* Licences.plist in Resources */,
 				DDE86B9B1C24E7B500DA7941 /* EditableTableViewCell.xib in Resources */,
 				DD1C58581B16981D00188B28 /* LaunchScreen.xib in Resources */,

@@ -94,7 +94,9 @@ extension EditWorkerViewController: UIPickerViewDelegate, UIPickerViewDataSource
     func methodSelected(_ sender: UISegmentedControl) {
         let index = sender.selectedSegmentIndex
         guard let formatter = formatter else { fatalError("formatter should not be nil") }
-        if !tipoutField.isUserInteractionEnabled { tipoutField.isUserInteractionEnabled = true }
+        
+        if !tipoutField.isUserInteractionEnabled { tipoutField.isUserInteractionEnabled = true }
+        
         switch index {
         case 0: // Hourly
             formatter.configureHoursTextField(&tipoutField!)

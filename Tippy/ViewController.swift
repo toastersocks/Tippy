@@ -276,7 +276,7 @@ class ViewController: UIViewController {
             let tableViewCellNib = UINib(nibName: "StaticTableViewCell", bundle: Bundle.main)
             workerTVC.tableView.register(tableViewCellNib, forCellReuseIdentifier: StaticWorkerTVC.workerCellID)
             workerTableViewController = workerTVC
-            workerTableViewController.tableView.panGestureRecognizer.delaysTouchesBegan = true
+//            workerTableViewController.tableView.panGestureRecognizer.delaysTouchesBegan = true
             workerTableViewController.formatter = numberFormatter
 
         

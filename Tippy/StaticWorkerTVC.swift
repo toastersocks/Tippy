@@ -47,7 +47,9 @@ class StaticWorkerTVC: WorkerTableViewController {
         let cancelButton = CancelButton(title: bundle.localizedString(forKey: "Cancel", value: "", table: nil), action: nil)
         cancelButton.accessibilityIdentifier = "cancelButton"
         cancelButton.accessibilityLabel = bundle.localizedString(forKey: "Cancel", value: "", table: nil)
-        let doneButton = DefaultButton(title: bundle.localizedString(forKey: "Done", value: "", table: nil)) {
+        
+        let addWorkerOnCompletionBlock = {
+            
             let method: TipoutViewField = {
                 switch editWorkerVC.currentMethodIndex {
                 case 0: // Hourly
@@ -72,18 +74,22 @@ class StaticWorkerTVC: WorkerTableViewController {
             self.tableView.insertRows(at: [IndexPath(row: viewModelCount, section: 0)], with: .automatic)
             self.tableView.endUpdates()
         }
+
         
+        let doneButton = DefaultButton(title: bundle.localizedString(forKey: "Done", value: "", table: nil), action: addWorkerOnCompletionBlock)
         let editWorkerPopup = PopupDialog(viewController: editWorkerVC,
                                           buttonAlignment: .horizontal,
                                           transitionStyle: .zoomIn,
-                                          gestureDismissal: true)
+                                          gestureDismissal: false)
         editWorkerPopup.addButtons([cancelButton, doneButton])
         editWorkerVC.formatter = formatter
         
         if index < viewModel.count {
             editWorkerVC.viewModel = viewModel.workerViewModels[index]
         }
+//        navigationController?.pushViewController(editWorkerVC, animated: true)
         
+//        present(editWorkerVC, animated: true, completion: nil)
         present(editWorkerPopup, animated: true, completion: nil)
         
         //        navigationController?.pushViewController(editWorkerVC, animated: true)
@@ -131,11 +137,19 @@ class StaticWorkerTVC: WorkerTableViewController {
         tableViewCell.accessibilityIdentifier = "worker\(indexPath.item)"
     }
     
+    /*override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        editWorker(atIndex: indexPath.row)
+    }*/
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         editWorker(atIndex: indexPath.row)
     }
     
-    // MARK: = TipoutView
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        return indexPath
+    }
+    
+    // MARK: TipoutView
     
     func tableViewCellForTipoutView(_ tipoutView: StaticTipoutView) -> StaticTableViewCell? {
         var aView: UIView = tipoutView
@@ -167,17 +181,24 @@ class StaticWorkerTVC: WorkerTableViewController {
     }
     */
 
-    /*
+    
     // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        tableView.beginUpdates()
+        viewModel.removeWorkerAtIndex(indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .automatic)
+        tableView.endUpdates()
+    }
+    
+    /*override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             // Delete the row from the data source
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
-    }
-    */
+    }*/
+    
 
     /*
     // Override to support rearranging the table view.
@@ -194,7 +215,7 @@ class StaticWorkerTVC: WorkerTableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -202,6 +223,6 @@ class StaticWorkerTVC: WorkerTableViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
+    
     
 }

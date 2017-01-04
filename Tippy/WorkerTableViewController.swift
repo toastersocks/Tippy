@@ -25,6 +25,7 @@ class WorkerTableViewController: UITableViewController {
     override func viewDidLoad() {
         // These two lines are nessesary so table view cells don't overlap
         // over each other on iOS 8.1 & 8.2
+        tableView.allowsSelection = true
         tableView.estimatedRowHeight = 44
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.backgroundView = emptyView
@@ -71,14 +72,14 @@ class WorkerTableViewController: UITableViewController {
         return rows
     }
     
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    /*override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             tableView.beginUpdates()
             viewModel.removeWorkerAtIndex(indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .automatic)
             tableView.endUpdates()
         }
-    }
+    }*/
 
 
     /*
