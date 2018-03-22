@@ -3,7 +3,7 @@ git "https://bitbucket.org/toastersocks/tipout" ~> 3.0
 github "ViccAlexander/Chameleon"
 github "tomvanzummeren/TZStackView"
 github "radex/SwiftyUserDefaults"
-github "yukiasai/Gecco" "1.0.0"
-github "mixpanel/mixpanel-swift" "v2.1.1"
+github "yukiasai/Gecco" "master"
+#github "mixpanel/mixpanel-swift" "v2.1.1"
 github "Orderella/PopupDialog" ~> 0.5
 github "carloe/LicenseGenerator-iOS" ~> 0.6

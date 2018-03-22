@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Mixpanel
+//import Mixpanel
 #if DEBUG
     import func AudioToolbox.AudioServicesPlayAlertSound
 #endif
@@ -19,9 +19,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        /*
         #if !DEBUG
             _ = Mixpanel.initialize(token: "7d099edd7dcdb4e8fd8e8776a40361b9")
         #endif
+        */
         
         if isTakingScreenshots() {
             // Clean up status bar
