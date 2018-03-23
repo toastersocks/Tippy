@@ -17,21 +17,21 @@ class Controller: NSObject, ColorStackViewDelegate {
     
     fileprivate var tipoutModels = [TipoutModel]()
     
-    dynamic var currentViewModel: TipoutViewModelType {
+    @objc dynamic var currentViewModel: TipoutViewModelType {
         return tipoutViewModels[currentIndex]
 //        return TipoutViewModel(tipoutModel: tipoutModels[currentIndex], formatter: numberFormatter)
     }
     
-    dynamic var tipoutViewModels: [TipoutViewModelType] {
+    @objc dynamic var tipoutViewModels: [TipoutViewModelType] {
         return tipoutModels.lazy.map {
             return TipoutViewModel(tipoutModel: $0, formatter: numberFormatter)
         }
     }
     
-    dynamic var count: Int { return tipoutModels.count }
-    fileprivate(set) dynamic var currentIndex = 0
-    dynamic var numberFormatter: Formatter?
-    dynamic var colorStack: ColorDelegate? {
+    @objc dynamic var count: Int { return tipoutModels.count }
+    @objc fileprivate(set) dynamic var currentIndex = 0
+    @objc dynamic var numberFormatter: Formatter?
+    @objc dynamic var colorStack: ColorDelegate? {
         didSet {
             tipoutModels.forEach { _ in
                 colorStack?.addColor()
@@ -43,7 +43,7 @@ class Controller: NSObject, ColorStackViewDelegate {
         return Defaults[.roundToNearest]
     }
     
-    dynamic var currentColor: UIColor {
+    @objc dynamic var currentColor: UIColor {
         return colorStack?.colorForIndex(currentIndex) ?? UIColor.clear
     }
     
@@ -94,7 +94,7 @@ class Controller: NSObject, ColorStackViewDelegate {
             newTipoutTotal = amount
         case .percentage(let percentage):
             let unroundedSplit = tipoutModels[currentIndex].total * percentage
-            let roundedSplit = round(unroundedSplit, toNearest: roundToNearest)
+            let roundedSplit = unroundedSplit.round(toNearest: roundToNearest)
             newTipoutTotal = roundedSplit
         }
         

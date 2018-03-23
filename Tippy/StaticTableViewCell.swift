@@ -12,7 +12,7 @@ class StaticTableViewCell: UITableViewCell {
     
     @IBOutlet weak var workerView: StaticTipoutView!
     
-    dynamic var viewModel: WorkerViewModelType! {
+    @objc dynamic var viewModel: WorkerViewModelType! {
         didSet {
 //            viewModel.formatter?.configureAmountTextfield(&workerView.amountField!)
 //            viewModel.formatter?.configurePercentTextfield(&workerView.percentageField!)

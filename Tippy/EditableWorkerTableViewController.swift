@@ -128,7 +128,7 @@ class EditableWorkerTableViewController: WorkerTableViewController, TipoutViewDe
         guard let tableViewCell = cell as? EditableTableViewCell else { fatalError("Expected a EditableTableViewCell; got a \(type(of: cell)) instead") }
         
         tableViewCell.viewModel = viewModel[indexPath.row]
-        tableViewCell.accessibilityLabel = "Worker \(indexPath.item) with name \(tableViewCell.workerView.nameField.text)"
+        tableViewCell.accessibilityLabel = "Worker \(indexPath.item) with name \(tableViewCell.workerView.nameField.text ?? "Blank")"
         tableViewCell.accessibilityIdentifier = "worker\(indexPath.item)"
     }
     
@@ -241,9 +241,9 @@ class EditableWorkerTableViewController: WorkerTableViewController, TipoutViewDe
         if !newString.isEmpty {
             do {
                 switch TipoutViewField(rawValue: textField.tag) {
-                case .amount?: try formatter?.currencyFromString(newString)
-                case .percentage?: try formatter?.percentageFromString(newString)
-                case .hours?: try formatter?.formatNumberString(newString)
+                case .amount?: try _ = formatter?.currencyFromString(newString)
+                case .percentage?: _ = try formatter?.percentageFromString(newString)
+                case .hours?: try _ = formatter?.formatNumberString(newString)
                 case .name?: break
                 case nil: break
                 }

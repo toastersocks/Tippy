@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import TZStackView
-
 
 /**
 *  Used to notify delegates of events such as text being edited.
@@ -138,11 +136,11 @@ public protocol TipoutViewDelegate {
     
     @IBAction func textDidChange(_ sender: UITextField) {
         if let isEmpty = sender.text?.isEmpty,  isEmpty == true {
-            sender.setContentCompressionResistancePriority(UILayoutPriorityDefaultLow, for: .horizontal)
+            sender.setContentCompressionResistancePriority(UILayoutPriority.defaultLow, for: .horizontal)
         } else if sender.text == nil {
-            sender.setContentCompressionResistancePriority(UILayoutPriorityDefaultLow, for: .horizontal)
+            sender.setContentCompressionResistancePriority(UILayoutPriority.defaultLow, for: .horizontal)
         } else {
-            sender.self.setContentCompressionResistancePriority(UILayoutPriorityDefaultHigh, for: .horizontal)
+            sender.self.setContentCompressionResistancePriority(UILayoutPriority.defaultHigh, for: .horizontal)
             
         }
         sender.invalidateIntrinsicContentSize()

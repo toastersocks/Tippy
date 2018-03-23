@@ -13,7 +13,7 @@ class EditableTableViewCell: UITableViewCell {
     
     @IBOutlet weak var workerView: EditableTipoutView!
     
-    dynamic var viewModel: WorkerViewModelType! {
+    @objc dynamic var viewModel: WorkerViewModelType! {
         didSet {
             viewModel.formatter?.configureAmountTextfield(&workerView.amountField!)
             viewModel.formatter?.configurePercentTextfield(&workerView.percentageField!)

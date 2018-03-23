@@ -91,7 +91,7 @@ extension EditWorkerViewController: UIPickerViewDelegate, UIPickerViewDataSource
         return tipoutMethods[row]
     }
     
-    func methodSelected(_ sender: UISegmentedControl) {
+    @objc func methodSelected(_ sender: UISegmentedControl) {
         let index = sender.selectedSegmentIndex
         guard let formatter = formatter else { fatalError("formatter should not be nil") }
         

@@ -1,6 +1,6 @@
 import Quick
 import Nimble
-@ testable import Tippy
+@testable import Tippy
 
 class testTextValidator: QuickSpec {
     override func spec() {

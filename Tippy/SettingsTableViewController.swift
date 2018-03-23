@@ -41,7 +41,7 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
         super.viewDidLoad()
         
         // Load
-        percentageSegmentedControl.selectedSegmentIndex = Defaults[.percentageFormat] ?? 0
+        percentageSegmentedControl.selectedSegmentIndex = Defaults[.percentageFormat] //?? 0
         roundToNearest.text = "\(Defaults[.roundToNearest])"
         // Subscribe to new values
         percentageSegmentedControl.rac_newSelectedSegmentIndexChannel(withNilValue: 0).subscribeNextAs {

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import TZStackView
 
 /*public protocol ColorStackViewDelegate {
 
@@ -35,7 +34,6 @@ import TZStackView
         }
     }
     
-//    public var stackView = TZStackView()
     private var stack = [UIButton]()
     lazy public var stackViewController = UIStoryboard(name: "ColorStack", bundle: nil).instantiateInitialViewController() as! ColorStackViewController
     public var stackView: UICollectionView {

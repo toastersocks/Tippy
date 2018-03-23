@@ -59,7 +59,7 @@ final class WorkerViewModel: NSObject, WorkerViewModelType {
         return formatter?.currencySymbol ?? ""
     }
     
-    dynamic var worker: Worker
+    @objc dynamic var worker: Worker
     let formatter: Formatter?
     
     /// - note: This is used to optionally calculate the percentage of the Worker tipout from the total tipouts
@@ -112,7 +112,7 @@ final class WorkerViewModel: NSObject, WorkerViewModelType {
                 
                 let percentageString = (try? formatter?.percentageStringFromNumber(NSNumber(value: percentage), stripSymbol: false)).flatMap { $0 } ?? "\(percentage)"
                 attributedString = NSAttributedString(string: percentageString,
-                                                      attributes: [NSForegroundColorAttributeName : UIColor.black])
+                                                      attributes: [NSAttributedStringKey.foregroundColor : UIColor.black])
                 
             case (_, let totalTipouts?):
                 
@@ -120,7 +120,7 @@ final class WorkerViewModel: NSObject, WorkerViewModelType {
                 let percentageString = (try? formatter?.percentageStringFromNumber(NSNumber(value: percentage), stripSymbol: false)).flatMap { $0 } ?? "error"
                 attributedString = NSAttributedString(string:
                     percentage.isNaN || percentageString == "(0)" ? "" : "(\(percentageString))",
-                                                      attributes: [NSForegroundColorAttributeName : UIColor.gray])
+                                                      attributes: [NSAttributedStringKey.foregroundColor : UIColor.gray])
             default:
                 
                  attributedString = NSAttributedString(string: "")

@@ -31,7 +31,7 @@ open class StartupTimeProfiler {
     }
 }
 
-extension Collection where Iterator.Element == SubSequence.Iterator.Element {
+extension Collection {
     func reduce(_ combine: (Iterator.Element, Iterator.Element) -> Iterator.Element) -> Iterator.Element? {
         return first.map {
             dropFirst().reduce($0, combine)

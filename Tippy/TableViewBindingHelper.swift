@@ -77,7 +77,7 @@ class TableViewBindingHelper: NSObject, UITableViewDataSource, UITableViewDelega
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     if selectionCommand != nil {
-      selectionCommand?.execute(data[indexPath.row])
+      _ = selectionCommand?.execute(data[indexPath.row])
     }
   }
   

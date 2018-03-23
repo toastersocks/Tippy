@@ -133,7 +133,7 @@ class StaticWorkerTVC: WorkerTableViewController {
         guard let tableViewCell = cell as? StaticTableViewCell else { fatalError("Expected a StaticTableViewCell; got a \(type(of: cell)) instead") }
         
         tableViewCell.viewModel = viewModel[indexPath.row]
-        tableViewCell.accessibilityLabel = "Worker \(indexPath.item) with name \(tableViewCell.workerView.nameLabel.text)"
+        tableViewCell.accessibilityLabel = "Worker \(indexPath.item) with name \(tableViewCell.workerView.nameLabel.text ?? "Blank")"
         tableViewCell.accessibilityIdentifier = "worker\(indexPath.item)"
     }
     

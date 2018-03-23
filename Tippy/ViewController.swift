@@ -77,8 +77,8 @@ class ViewController: UIViewController {
         }
     }*/
     
-    dynamic var color = UIColor.clear
-    dynamic var controller: Controller = Controller()
+    @objc dynamic var color = UIColor.clear
+    @objc dynamic var controller: Controller = Controller()
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -299,7 +299,7 @@ class ViewController: UIViewController {
     
     // MARK: - Keyboard Observers
     
-    func keyboardWillShow(_ notification: Notification) {
+    @objc func keyboardWillShow(_ notification: Notification) {
         guard let info = notification.userInfo else { fatalError("Couldn't get info dictionary from notification") }
         guard let kbSize = (info[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.size else { fatalError("Couldn't get keyboard size") }
         guard let animationDuration = (info[UIKeyboardAnimationDurationUserInfoKey] as AnyObject).doubleValue else { fatalError("Couldn't get keyboard animation duration") }
@@ -309,7 +309,7 @@ class ViewController: UIViewController {
         }) 
     }
     
-    func keyboardWillHide(_ notification: Notification) {
+    @objc func keyboardWillHide(_ notification: Notification) {
         guard let info = notification.userInfo else { fatalError("Couldn't get info dictionary from notification") }
         guard let animationDuration = (info[UIKeyboardAnimationDurationUserInfoKey] as AnyObject).doubleValue else { fatalError("Couldn't get keyboard animation duration") }
         //        self.view.layoutIfNeeded()
