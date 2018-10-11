@@ -1,8 +1,44 @@
 /* Class = "UITableViewSection"; headerTitle = "Feedback"; ObjectID = "3Um-hq-lka"; */
 "3Um-hq-lka.headerTitle" = "Comentarios";
 
-/* Class = "UIBarButtonItem"; title = "Done"; ObjectID = "7g5-Jg-BzS"; */
-"7g5-Jg-BzS.title" = "Descarta";
+/* Class = "UIButton"; accessibilityLabel = "Settings"; ObjectID = "4K1-RY-c0v"; */
+"4K1-RY-c0v.accessibilityLabel" = "Configurações";
+
+/* Class = "UIButton"; normalTitle = "Settings"; ObjectID = "4K1-RY-c0v"; */
+"4K1-RY-c0v.normalTitle" = "Configurações";
+
+/* Class = "UILabel"; text = "Split an amount or percentage from the total tipouts to work on seperately"; ObjectID = "5f4-NX-0OI"; */
+"5f4-NX-0OI.text" = "Dividir uma quantia ou percentagem do total para calcular separadamente";
+
+/* Class = "UIButton"; accessibilityHint = "Create a new tipout"; ObjectID = "60P-I6-phS"; */
+"60P-I6-phS.accessibilityHint" = "Crear uma gorjeta nova";
+
+/* Class = "UIButton"; accessibilityLabel = "New"; ObjectID = "60P-I6-phS"; */
+"60P-I6-phS.accessibilityLabel" = "Nova";
+
+/* Class = "UIButton"; normalTitle = "New"; ObjectID = "60P-I6-phS"; */
+"60P-I6-phS.normalTitle" = "Nova";
+
+/* Class = "UILabel"; text = "Clear the current tipout"; ObjectID = "72s-a6-bdR"; */
+"72s-a6-bdR.text" = "Apagar gorjeta atual";
+
+/* Class = "UIButton"; accessibilityHint = "Clear all tipouts"; ObjectID = "Clm-pj-aYP"; */
+"Clm-pj-aYP.accessibilityHint" = "Apagar gorjetas todas";
+
+/* Class = "UIButton"; accessibilityLabel = "Clear all"; ObjectID = "Clm-pj-aYP"; */
+"Clm-pj-aYP.accessibilityLabel" = "Apagar tudo";
+
+/* Class = "UIButton"; normalTitle = "Clear All"; ObjectID = "Clm-pj-aYP"; */
+"Clm-pj-aYP.normalTitle" = "Apagar tudo";
+
+/* Class = "UILabel"; text = "Change settings for rounding and percentage input"; ObjectID = "Dba-8d-l9R"; */
+"Dba-8d-l9R.text" = "Ajustes para arredondamento e entrada de porcentagem";
+
+/* Class = "UILabel"; text = "Tap to add new workers (left-swipe a worker to delete)"; ObjectID = "ESV-TY-5WW"; */
+"ESV-TY-5WW.text" = "Toque para adicionar novos trabalhadores (deslizar-los para a esquerda para excluir)";
+
+/* Class = "UITextField"; accessibilityLabel = "Total"; ObjectID = "LeT-AW-ZnX"; */
+"LeT-AW-ZnX.accessibilityLabel" = "Total";
 
 /* Class = "UILabel"; text = "Acknowledgements"; ObjectID = "MFl-H6-J8J"; */
 "MFl-H6-J8J.text" = "Reconhecimentos";
@@ -13,11 +49,26 @@
 /* Class = "UISegmentedControl"; PqG-9W-4b1.segmentTitles[1] = "Whole"; ObjectID = "PqG-9W-4b1"; */
 "PqG-9W-4b1.segmentTitles[1]" = "Inteiro";
 
-/* Class = "UIButton"; normalTitle = "Change me"; ObjectID = "WgE-Kv-GHU"; */
-"WgE-Kv-GHU.normalTitle" = "Muda-me";
+/* Class = "UIButton"; accessibilityHint = "Clear current tipout"; ObjectID = "Qgh-NW-lUk"; */
+"Qgh-NW-lUk.accessibilityHint" = "Apagar gorjeta atual";
 
-/* Class = "UIBarButtonItem"; title = "Settings"; ObjectID = "Xej-H8-aQK"; */
-"Xej-H8-aQK.title" = "Configurações";
+/* Class = "UIButton"; accessibilityLabel = "Clear"; ObjectID = "Qgh-NW-lUk"; */
+"Qgh-NW-lUk.accessibilityLabel" = "Apagar";
+
+/* Class = "UIButton"; normalTitle = "Clear"; ObjectID = "Qgh-NW-lUk"; */
+"Qgh-NW-lUk.normalTitle" = "Apagar";
+
+/* Class = "UILabel"; text = "Create new tipouts here (your current tipout will be saved)"; ObjectID = "R4I-Fe-UmZ"; */
+"R4I-Fe-UmZ.text" = "Criar novas gorjetas aqui (a gorjeta atual será guarda)";
+
+/* Class = "UILabel"; text = "Combine all your tipouts together"; ObjectID = "Vod-yr-7GK"; */
+"Vod-yr-7GK.text" = "Combinar todas as suas gorjetas";
+
+/* Class = "UIButton"; accessibilityLabel = "Add worker"; ObjectID = "WgE-Kv-GHU"; */
+"WgE-Kv-GHU.accessibilityLabel" = "Adicionar empregado";
+
+/* Class = "UIButton"; normalTitle = "Add Worker"; ObjectID = "WgE-Kv-GHU"; */
+"WgE-Kv-GHU.normalTitle" = "Adicionar empregado";
 
 /* Class = "UILabel"; text = "Percentage Input"; ObjectID = "Y2C-Ko-NpJ"; */
 "Y2C-Ko-NpJ.text" = "Entrada Percentual";
@@ -25,27 +76,48 @@
 /* Class = "UITableViewSection"; headerTitle = "Settings"; ObjectID = "YaZ-9k-BQr"; */
 "YaZ-9k-BQr.headerTitle" = "Configurações";
 
-/* Class = "UILabel"; text = "0.3%"; ObjectID = "cUw-eG-GS8"; */
-"cUw-eG-GS8.text" = "0.3%";
-
 /* Class = "UINavigationItem"; title = "Settings"; ObjectID = "fkW-b6-RAE"; */
 "fkW-b6-RAE.title" = "Configurações";
 
 /* Class = "UILabel"; text = "Round to nearest..."; ObjectID = "hg0-4d-DaM"; */
 "hg0-4d-DaM.text" = "Arredonda para o mais próximo...";
 
-/* Class = "UIButton"; normalTitle = "Combine"; ObjectID = "n3W-G2-Wpg"; */
-"n3W-G2-Wpg.normalTitle" = "Combina";
+/* Class = "UILabel"; text = "Tap the colored tabs to switch between tipouts"; ObjectID = "hvU-X7-2cN"; */
+"hvU-X7-2cN.text" = "Toque nas abas coloridas para alternar entre gorjetas";
+
+/* Class = "UILabel"; text = "Tell us what you think!"; ObjectID = "iqF-6u-Bum"; */
+"iqF-6u-Bum.text" = "Dê-nos a sua opinião!";
+
+/* Class = "UIButton"; accessibilityHint = "Split an amount from the total into another tipout"; ObjectID = "j3G-1F-3RX"; */
+"j3G-1F-3RX.accessibilityHint" = "Separe um quantia do total para calcular separadamente";
+
+/* Class = "UIButton"; accessibilityLabel = "Split"; ObjectID = "j3G-1F-3RX"; */
+"j3G-1F-3RX.accessibilityLabel" = "Separe";
+
+/* Class = "UIButton"; normalTitle = "Split..."; ObjectID = "j3G-1F-3RX"; */
+"j3G-1F-3RX.normalTitle" = "Separe...";
+
+/* Class = "UIBarButtonItem"; title = "Done"; ObjectID = "nEO-a7-nmn"; */
+"nEO-a7-nmn.title" = "OK";
 
 /* Class = "UITableViewSection"; headerTitle = "Acknowledgements"; ObjectID = "o4X-LY-uYi"; */
 "o4X-LY-uYi.headerTitle" = "Reconhecimentos";
 
-/* Class = "UIButton"; normalTitle = "Store"; ObjectID = "r19-kZ-h0U"; */
-"r19-kZ-h0U.normalTitle" = "Guarda";
+/* Class = "UIButton"; accessibilityHint = "Combine all tipouts"; ObjectID = "qSR-OL-u54"; */
+"qSR-OL-u54.accessibilityHint" = "Combina as gorjetas todas";
+
+/* Class = "UIButton"; accessibilityLabel = "Combine"; ObjectID = "qSR-OL-u54"; */
+"qSR-OL-u54.accessibilityLabel" = "Combina";
+
+/* Class = "UIButton"; normalTitle = "Combine"; ObjectID = "qSR-OL-u54"; */
+"qSR-OL-u54.normalTitle" = "Combina";
 
 /* Class = "UITableViewController"; title = "Settings"; ObjectID = "rFC-Sg-CH6"; */
 "rFC-Sg-CH6.title" = "Configurações";
 
-/* Class = "UILabel"; text = "Total: $"; ObjectID = "s2T-4J-pvx"; */
+/* Class = "UILabel"; text = "Clear all your tipouts"; ObjectID = "ra2-AO-xaS"; */
+"ra2-AO-xaS.text" = "Apaga as gorjetas todas";
+
+/* Class = "UILabel"; text = "Total:"; ObjectID = "s2T-4J-pvx"; */
 "s2T-4J-pvx.text" = "Total:";
 

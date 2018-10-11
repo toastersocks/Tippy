@@ -15,10 +15,13 @@ import ReactiveCocoa
     var amount: String { get set }
     var hours: String { get set }
     var percentage: NSAttributedString { get set }
+    var method: Method { get }
+    var value: String { get }
     var currencySymbolPosition: SymbolPosition { get }
     var percentSymbolPosition: SymbolPosition { get }
     var percentSymbol: String { get }
     var currencySymbol: String { get }
+    var formatter: Formatter? { get }
     //var method: (method: String, value: String) { get set }
 //    init(name: String, method: String, value: String)
 

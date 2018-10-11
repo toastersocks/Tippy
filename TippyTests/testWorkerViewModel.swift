@@ -12,24 +12,24 @@ class testWorkerViewModel: QuickSpec {
             var workerViewModel: WorkerViewModel!
             
             beforeEach {
-                let worker = Worker(method: .Hourly(2.0), id: "0", function: { 70.0 })
+                let worker = Worker(method: .hourly(2.0), id: "0", function: { 70.0 })
                 workerViewModel = WorkerViewModel(worker: worker, totalTipouts: 100)
                 
                 self.wasObserved = false
             }
             describe("it's percentage property") {
                 it("should be observable") {
-                    workerViewModel.addObserver(self, forKeyPath: "percentage", options: [.Initial, .New], context: nil)
+                    workerViewModel.addObserver(self, forKeyPath: "percentage", options: [.initial, .new], context: nil)
                     expect(self.wasObserved).to(beTrue())
                 }
             }
         }
     }
     
-    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         switch keyPath {
         case "percentage"?:
-            if let percentageString = change?[NSKeyValueChangeNewKey] as? NSAttributedString {
+            if let percentageString = change?[NSKeyValueChangeKey.newKey] as? NSAttributedString {
                 debugPrint(percentageString)
                 wasObserved = true
             } else { XCTFail("Unexpected type or change") }

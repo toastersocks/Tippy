@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 http://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd">
+    <file original="Tippy/Base.lproj/EmptyView.xib" source-language="en" datatype="plaintext" target-language="es">
+        <header>
+            <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.3.1" build-num="7D1014"></tool>
+        </header>
+        <body>
+            <trans-unit id="Jyf-ba-bsN.text">
+                <source>Add some workers!</source>
+                <target>¡Crear algunos empleados!</target>
+                <note>Class = "UILabel"; text = "Add some workers!"; ObjectID = "Jyf-ba-bsN";</note>
+            </trans-unit>
+        </body>
+    </file>
+    <file original="Tippy/Base.lproj/LaunchScreen.xib" source-language="en" datatype="plaintext" target-language="es">
+        <header>
+            <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.3.1" build-num="7D1014"></tool>
+        </header>
+        <body>
+            <trans-unit id="8ie-xW-0ye.text">
+                <source>  Copyright (c) 2015 James Pamplona. All rights reserved.</source>
+                <target>  Copyright (c) 2015 James Pamplona. All rights reserved.</target>
+                <note>Class = "UILabel"; text = "  Copyright (c) 2015 James Pamplona. All rights reserved."; ObjectID = "8ie-xW-0ye";</note>
+            </trans-unit>
+            <trans-unit id="kId-c2-rCX.text">
+                <source>Tippy</source>
+                <target>Tippy</target>
+                <note>Class = "UILabel"; text = "Tippy"; ObjectID = "kId-c2-rCX";</note>
+            </trans-unit>
+        </body>
+    </file>
+    <file original="Tippy/Base.lproj/Main.storyboard" source-language="en" datatype="plaintext" target-language="es">
+        <header>
+            <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.3.1" build-num="7D1014"></tool>
+        </header>
+        <body>
+            <trans-unit id="3Um-hq-lka.headerTitle">
+                <source>Feedback</source>
+                <target>Retroalimentación</target>
+                <note>Class = "UITableViewSection"; headerTitle = "Feedback"; ObjectID = "3Um-hq-lka";</note>
+            </trans-unit>
+            <trans-unit id="4K1-RY-c0v.accessibilityIdentifier">
+                <source>settings</source>
+                <note>Class = "UIButton"; accessibilityIdentifier = "settings"; ObjectID = "4K1-RY-c0v";</note>
+            </trans-unit>
+            <trans-unit id="4K1-RY-c0v.accessibilityLabel">
+                <source>Settings</source>
+                <target>Configuración</target>
+                <note>Class = "UIButton"; accessibilityLabel = "Settings"; ObjectID = "4K1-RY-c0v";</note>
+            </trans-unit>
+            <trans-unit id="4K1-RY-c0v.normalTitle">
+                <source>Settings</source>
+                <target>Configuración</target>
+                <note>Class = "UIButton"; normalTitle = "Settings"; ObjectID = "4K1-RY-c0v";</note>
+            </trans-unit>
+            <trans-unit id="5f4-NX-0OI.text">
+                <source>Split an amount or percentage from the total tipouts to work on seperately</source>
+                <target>Dividir una cantidad o porcentaje de las propinas totales para calcular por separado</target>
+                <note>Class = "UILabel"; text = "Split an amount or percentage from the total tipouts to work on seperately"; ObjectID = "5f4-NX-0OI";</note>
+            </trans-unit>
+            <trans-unit id="60P-I6-phS.accessibilityHint">
+                <source>Create a new tipout</source>
+                <target>Cree una nueva propina</target>
+                <note>Class = "UIButton"; accessibilityHint = "Create a new tipout"; ObjectID = "60P-I6-phS";</note>
+            </trans-unit>
+            <trans-unit id="60P-I6-phS.accessibilityIdentifier">
+                <source>new</source>
+                <note>Class = "UIButton"; accessibilityIdentifier = "new"; ObjectID = "60P-I6-phS";</note>
+            </trans-unit>
+            <trans-unit id="60P-I6-phS.accessibilityLabel">
+                <source>New</source>
+                <target>Nueva</target>
+                <note>Class = "UIButton"; accessibilityLabel = "New"; ObjectID = "60P-I6-phS";</note>
+            </trans-unit>
+            <trans-unit id="60P-I6-phS.normalTitle">
+                <source>New</source>
+                <target>Nueva</target>
+                <note>Class = "UIButton"; normalTitle = "New"; ObjectID = "60P-I6-phS";</note>
+            </trans-unit>
+            <trans-unit id="72s-a6-bdR.text">
+                <source>Clear the current tipout</source>
+                <target>Borrar la propina actual</target>
+                <note>Class = "UILabel"; text = "Clear the current tipout"; ObjectID = "72s-a6-bdR";</note>
+            </trans-unit>
+            <trans-unit id="Clm-pj-aYP.accessibilityHint">
+                <source>Clear all tipouts</source>
+                <target>Borrar todas las propinas</target>
+                <note>Class = "UIButton"; accessibilityHint = "Clear all tipouts"; ObjectID = "Clm-pj-aYP";</note>
+            </trans-unit>
+            <trans-unit id="Clm-pj-aYP.accessibilityIdentifier">
+                <source>clearAll</source>
+                <note>Class = "UIButton"; accessibilityIdentifier = "clearAll"; ObjectID = "Clm-pj-aYP";</note>
+            </trans-unit>
+            <trans-unit id="Clm-pj-aYP.accessibilityLabel">
+                <source>Clear all</source>
+                <target>Borrar Todas</target>
+                <note>Class = "UIButton"; accessibilityLabel = "Clear all"; ObjectID = "Clm-pj-aYP";</note>
+            </trans-unit>
+            <trans-unit id="Clm-pj-aYP.normalTitle">
+                <source>Clear All</source>
+                <target>Borrar Todas</target>
+                <note>Class = "UIButton"; normalTitle = "Clear All"; ObjectID = "Clm-pj-aYP";</note>
+            </trans-unit>
+            <trans-unit id="Dba-8d-l9R.text">
+                <source>Change settings for rounding and percentage input</source>
+                <target>Cambiar la configuración de redondeo y la entrada de porcentaje</target>
+                <note>Class = "UILabel"; text = "Change settings for rounding and percentage input"; ObjectID = "Dba-8d-l9R";</note>
+            </trans-unit>
+            <trans-unit id="ESV-TY-5WW.text">
+                <source>Tap to add new workers (left-swipe a worker to delete)</source>
+                <target>Pulse para crear empleados nuevas (deslizar izquierdo para borrar)</target>
+                <note>Class = "UILabel"; text = "Tap to add new workers (left-swipe a worker to delete)"; ObjectID = "ESV-TY-5WW";</note>
+            </trans-unit>
+            <trans-unit id="LeT-AW-ZnX.accessibilityIdentifier">
+                <source>total</source>
+                <note>Class = "UITextField"; accessibilityIdentifier = "total"; ObjectID = "LeT-AW-ZnX";</note>
+            </trans-unit>
+            <trans-unit id="LeT-AW-ZnX.accessibilityLabel">
+                <source>Total</source>
+                <target>Total</target>
+                <note>Class = "UITextField"; accessibilityLabel = "Total"; ObjectID = "LeT-AW-ZnX";</note>
+            </trans-unit>
+            <trans-unit id="LeT-AW-ZnX.placeholder">
+                <source></source>
+                <note>Class = "UITextField"; placeholder = "                       "; ObjectID = "LeT-AW-ZnX";</note>
+            </trans-unit>
+            <trans-unit id="MFl-H6-J8J.text">
+                <source>Acknowledgements</source>
+                <target>Licencias</target>
+                <note>Class = "UILabel"; text = "Acknowledgements"; ObjectID = "MFl-H6-J8J";</note>
+            </trans-unit>
+            <trans-unit id="PqG-9W-4b1.segmentTitles[0]">
+                <source>Decimal</source>
+                <target>Decimal</target>
+                <note>Class = "UISegmentedControl"; PqG-9W-4b1.segmentTitles[0] = "Decimal"; ObjectID = "PqG-9W-4b1";</note>
+            </trans-unit>
+            <trans-unit id="PqG-9W-4b1.segmentTitles[1]">
+                <source>Whole</source>
+                <target>Entero</target>
+                <note>Class = "UISegmentedControl"; PqG-9W-4b1.segmentTitles[1] = "Whole"; ObjectID = "PqG-9W-4b1";</note>
+            </trans-unit>
+            <trans-unit id="Qgh-NW-lUk.accessibilityHint">
+                <source>Clear current tipout</source>
+                <target>Borrar la propina actual</target>
+                <note>Class = "UIButton"; accessibilityHint = "Clear current tipout"; ObjectID = "Qgh-NW-lUk";</note>
+            </trans-unit>
+            <trans-unit id="Qgh-NW-lUk.accessibilityIdentifier">
+                <source>clear</source>
+                <note>Class = "UIButton"; accessibilityIdentifier = "clear"; ObjectID = "Qgh-NW-lUk";</note>
+            </trans-unit>
+            <trans-unit id="Qgh-NW-lUk.accessibilityLabel">
+                <source>Clear</source>
+                <target>Borrar</target>
+                <note>Class = "UIButton"; accessibilityLabel = "Clear"; ObjectID = "Qgh-NW-lUk";</note>
+            </trans-unit>
+            <trans-unit id="Qgh-NW-lUk.normalTitle">
+                <source>Clear</source>
+                <target>Borrar</target>
+                <note>Class = "UIButton"; normalTitle = "Clear"; ObjectID = "Qgh-NW-lUk";</note>
+            </trans-unit>
+            <trans-unit id="R4I-Fe-UmZ.text">
+                <source>Create new tipouts here (your current tipout will be saved)</source>
+                <target>Crear nuevos propinas aquí (la propina actual se guarda)</target>
+                <note>Class = "UILabel"; text = "Create new tipouts here (your current tipout will be saved)"; ObjectID = "R4I-Fe-UmZ";</note>
+            </trans-unit>
+            <trans-unit id="Vod-yr-7GK.text">
+                <source>Combine all your tipouts together</source>
+                <target>Combina todas sus propinas juntas</target>
+                <note>Class = "UILabel"; text = "Combine all your tipouts together"; ObjectID = "Vod-yr-7GK";</note>
+            </trans-unit>
+            <trans-unit id="WgE-Kv-GHU.accessibilityIdentifier">
+                <source>addWorker</source>
+                <note>Class = "UIButton"; accessibilityIdentifier = "addWorker"; ObjectID = "WgE-Kv-GHU";</note>
+            </trans-unit>
+            <trans-unit id="WgE-Kv-GHU.accessibilityLabel">
+                <source>Add worker</source>
+                <target>Cree empleado</target>
+                <note>Class = "UIButton"; accessibilityLabel = "Add worker"; ObjectID = "WgE-Kv-GHU";</note>
+            </trans-unit>
+            <trans-unit id="WgE-Kv-GHU.normalTitle">
+                <source>Add Worker</source>
+                <target>Cree empleado</target>
+                <note>Class = "UIButton"; normalTitle = "Add Worker"; ObjectID = "WgE-Kv-GHU";</note>
+            </trans-unit>
+            <trans-unit id="Y2C-Ko-NpJ.text">
+                <source>Percentage Input</source>
+                <target>Entradas porcentuales</target>
+                <note>Class = "UILabel"; text = "Percentage Input"; ObjectID = "Y2C-Ko-NpJ";</note>
+            </trans-unit>
+            <trans-unit id="YaZ-9k-BQr.headerTitle">
+                <source>Settings</source>
+                <target>Configuración</target>
+                <note>Class = "UITableViewSection"; headerTitle = "Settings"; ObjectID = "YaZ-9k-BQr";</note>
+            </trans-unit>
+            <trans-unit id="fkW-b6-RAE.title">
+                <source>Settings</source>
+                <target>Configuración</target>
+                <note>Class = "UINavigationItem"; title = "Settings"; ObjectID = "fkW-b6-RAE";</note>
+            </trans-unit>
+            <trans-unit id="hg0-4d-DaM.text">
+                <source>Round to nearest...</source>
+                <target>Redondear al más cercano</target>
+                <note>Class = "UILabel"; text = "Round to nearest..."; ObjectID = "hg0-4d-DaM";</note>
+            </trans-unit>
+            <trans-unit id="hvU-X7-2cN.text">
+                <source>Tap the colored tabs to switch between tipouts</source>
+                <target>Pulse en las fichas de colores para cambiar entre las propinas</target>
+                <note>Class = "UILabel"; text = "Tap the colored tabs to switch between tipouts"; ObjectID = "hvU-X7-2cN";</note>
+            </trans-unit>
+            <trans-unit id="iqF-6u-Bum.text">
+                <source>Tell us what you think!</source>
+                <note>Class = "UILabel"; text = "Tell us what you think!"; ObjectID = "iqF-6u-Bum";</note>
+                <target>¡Danos tu opinión!</target>
+            </trans-unit>
+            <trans-unit id="j3G-1F-3RX.accessibilityHint">
+                <source>Split an amount from the total into another tipout</source>
+                <target>Dividir una cantidad del total en otro propina</target>
+                <note>Class = "UIButton"; accessibilityHint = "Split an amount from the total into another tipout"; ObjectID = "j3G-1F-3RX";</note>
+            </trans-unit>
+            <trans-unit id="j3G-1F-3RX.accessibilityIdentifier">
+                <source>split</source>
+                <note>Class = "UIButton"; accessibilityIdentifier = "split"; ObjectID = "j3G-1F-3RX";</note>
+            </trans-unit>
+            <trans-unit id="j3G-1F-3RX.accessibilityLabel">
+                <source>Split</source>
+                <target>Dividir</target>
+                <note>Class = "UIButton"; accessibilityLabel = "Split"; ObjectID = "j3G-1F-3RX";</note>
+            </trans-unit>
+            <trans-unit id="j3G-1F-3RX.normalTitle">
+                <source>Split...</source>
+                <target>Dividir...</target>
+                <note>Class = "UIButton"; normalTitle = "Split..."; ObjectID = "j3G-1F-3RX";</note>
+            </trans-unit>
+            <trans-unit id="nEO-a7-nmn.title">
+                <source>Done</source>
+                <target>OK</target>
+                <note>Class = "UIBarButtonItem"; title = "Done"; ObjectID = "nEO-a7-nmn";</note>
+            </trans-unit>
+            <trans-unit id="o4X-LY-uYi.headerTitle">
+                <source>Acknowledgements</source>
+                <target>Licencias</target>
+                <note>Class = "UITableViewSection"; headerTitle = "Acknowledgements"; ObjectID = "o4X-LY-uYi";</note>
+            </trans-unit>
+            <trans-unit id="qSR-OL-u54.accessibilityHint">
+                <source>Combine all tipouts</source>
+                <target>Combina todas propinas</target>
+                <note>Class = "UIButton"; accessibilityHint = "Combine all tipouts"; ObjectID = "qSR-OL-u54";</note>
+            </trans-unit>
+            <trans-unit id="qSR-OL-u54.accessibilityIdentifier">
+                <source>combine</source>
+                <note>Class = "UIButton"; accessibilityIdentifier = "combine"; ObjectID = "qSR-OL-u54";</note>
+            </trans-unit>
+            <trans-unit id="qSR-OL-u54.accessibilityLabel">
+                <source>Combine</source>
+                <target>Combina</target>
+                <note>Class = "UIButton"; accessibilityLabel = "Combine"; ObjectID = "qSR-OL-u54";</note>
+            </trans-unit>
+            <trans-unit id="qSR-OL-u54.normalTitle">
+                <source>Combine</source>
+                <target>Combina</target>
+                <note>Class = "UIButton"; normalTitle = "Combine"; ObjectID = "qSR-OL-u54";</note>
+            </trans-unit>
+            <trans-unit id="rFC-Sg-CH6.title">
+                <source>Settings</source>
+                <target>Configuración</target>
+                <note>Class = "UITableViewController"; title = "Settings"; ObjectID = "rFC-Sg-CH6";</note>
+            </trans-unit>
+            <trans-unit id="ra2-AO-xaS.text">
+                <source>Clear all your tipouts</source>
+                <target>Borrar todas las propinas</target>
+                <note>Class = "UILabel"; text = "Clear all your tipouts"; ObjectID = "ra2-AO-xaS";</note>
+            </trans-unit>
+            <trans-unit id="s2T-4J-pvx.accessibilityLabel">
+                <source>Total label</source>
+                <note>Class = "UILabel"; accessibilityLabel = "Total label"; ObjectID = "s2T-4J-pvx";</note>
+            </trans-unit>
+            <trans-unit id="s2T-4J-pvx.text">
+                <source>Total:</source>
+                <target>Total:</target>
+                <note>Class = "UILabel"; text = "Total:"; ObjectID = "s2T-4J-pvx";</note>
+            </trans-unit>
+        </body>
+    </file>
+    <file original="Tippy/Base.lproj/SplitAmountView.xib" source-language="en" datatype="plaintext" target-language="es">
+        <header>
+            <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.3.1" build-num="7D1014"></tool>
+        </header>
+        <body>
+            <trans-unit id="Ust-gp-wXs.segmentTitles[0]">
+                <source>Amount</source>
+                <target>Cantidad</target>
+                <note>Class = "UISegmentedControl"; Ust-gp-wXs.segmentTitles[0] = "Amount"; ObjectID = "Ust-gp-wXs";</note>
+            </trans-unit>
+            <trans-unit id="Ust-gp-wXs.segmentTitles[1]">
+                <source>Percentage</source>
+                <target>Porcentaje</target>
+                <note>Class = "UISegmentedControl"; Ust-gp-wXs.segmentTitles[1] = "Percentage"; ObjectID = "Ust-gp-wXs";</note>
+            </trans-unit>
+            <trans-unit id="e7M-nY-YFV.text">
+                <source>Split by...</source>
+                <target>Dividir por...</target>
+                <note>Class = "UILabel"; text = "Split by..."; ObjectID = "e7M-nY-YFV";</note>
+            </trans-unit>
+            <trans-unit id="nTD-il-x04.accessibilityIdentifier">
+                <source>amountField</source>
+                <note>Class = "UITextField"; accessibilityIdentifier = "amountField"; ObjectID = "nTD-il-x04";</note>
+            </trans-unit>
+            <trans-unit id="nTD-il-x04.placeholder">
+                <source>Amount</source>
+                <target>Cantidad</target>
+                <note>Class = "UITextField"; placeholder = "Amount"; ObjectID = "nTD-il-x04";</note>
+            </trans-unit>
+        </body>
+    </file>
+    <file original="Tippy/Base.lproj/TableViewCell.xib" source-language="en" datatype="plaintext" target-language="es">
+        <header>
+            <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.3.1" build-num="7D1014"></tool>
+        </header>
+        <body></body>
+    </file>
+    <file original="Tippy/Base.lproj/TipoutView.xib" source-language="en" datatype="plaintext" target-language="es">
+        <header>
+            <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.3.1" build-num="7D1014"></tool>
+        </header>
+        <body>
+            <trans-unit id="2ro-lY-Lgc.accessibilityIdentifier">
+                <source>nameField</source>
+                <note>Class = "UITextField"; accessibilityIdentifier = "nameField"; ObjectID = "2ro-lY-Lgc";</note>
+            </trans-unit>
+            <trans-unit id="2ro-lY-Lgc.accessibilityLabel">
+                <source>Name</source>
+                <target>Nombre</target>
+                <note>Class = "UITextField"; accessibilityLabel = "Name"; ObjectID = "2ro-lY-Lgc";</note>
+            </trans-unit>
+            <trans-unit id="2ro-lY-Lgc.placeholder">
+                <source>Name</source>
+                <target>Nombre</target>
+                <note>Class = "UITextField"; placeholder = "Name"; ObjectID = "2ro-lY-Lgc";</note>
+            </trans-unit>
+            <trans-unit id="KYw-C6-HDU.accessibilityIdentifier">
+                <source>percentField</source>
+                <note>Class = "UITextField"; accessibilityIdentifier = "percentField"; ObjectID = "KYw-C6-HDU";</note>
+            </trans-unit>
+            <trans-unit id="KYw-C6-HDU.accessibilityLabel">
+                <source>Percent</source>
+                <target>Porcentaje</target>
+                <note>Class = "UITextField"; accessibilityLabel = "Percent"; ObjectID = "KYw-C6-HDU";</note>
+            </trans-unit>
+            <trans-unit id="KYw-C6-HDU.placeholder">
+                <source>Percentage</source>
+                <target>Porcentaje</target>
+                <note>Class = "UITextField"; placeholder = "Percentage"; ObjectID = "KYw-C6-HDU";</note>
+            </trans-unit>
+            <trans-unit id="ZYw-qH-tIw.accessibilityIdentifier">
+                <source>hoursField</source>
+                <note>Class = "UITextField"; accessibilityIdentifier = "hoursField"; ObjectID = "ZYw-qH-tIw";</note>
+            </trans-unit>
+            <trans-unit id="ZYw-qH-tIw.accessibilityLabel">
+                <source>Hours</source>
+                <target>Horas</target>
+                <note>Class = "UITextField"; accessibilityLabel = "Hours"; ObjectID = "ZYw-qH-tIw";</note>
+            </trans-unit>
+            <trans-unit id="ZYw-qH-tIw.placeholder">
+                <source>Hours</source>
+                <target>Horas</target>
+                <note>Class = "UITextField"; placeholder = "Hours"; ObjectID = "ZYw-qH-tIw";</note>
+            </trans-unit>
+            <trans-unit id="xyf-xE-rf0.accessibilityIdentifier">
+                <source>amountField</source>
+                <note>Class = "UITextField"; accessibilityIdentifier = "amountField"; ObjectID = "xyf-xE-rf0";</note>
+            </trans-unit>
+            <trans-unit id="xyf-xE-rf0.accessibilityLabel">
+                <source>Amount</source>
+                <target>Cantidad</target>
+                <note>Class = "UITextField"; accessibilityLabel = "Amount"; ObjectID = "xyf-xE-rf0";</note>
+            </trans-unit>
+            <trans-unit id="xyf-xE-rf0.placeholder">
+                <source>Amount</source>
+                <target>Cantidad</target>
+                <note>Class = "UITextField"; placeholder = "Amount"; ObjectID = "xyf-xE-rf0";</note>
+            </trans-unit>
+        </body>
+    </file>
+    <file original="Tippy/en.lproj/Localizable.strings" source-language="en" datatype="plaintext" target-language="es">
+        <header>
+            <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.3.1" build-num="7D1014"></tool>
+        </header>
+        <body>
+            <trans-unit id="Amount">
+                <source>Amount</source>
+                <target>Cantidad</target>
+                <note>Amount of currency</note>
+            </trans-unit>
+            <trans-unit id="Cancel">
+                <source>Cancel</source>
+                <target>Cancelar</target>
+                <note>Cancels the action</note>
+            </trans-unit>
+            <trans-unit id="Percent">
+                <source>Percent</source>
+                <target>Porcentaje</target>
+                <note>Percent of currency</note>
+            </trans-unit>
+            <trans-unit id="Split">
+                <source>Split</source>
+                <target>Dividir</target>
+                <note>Split an amount of currency</note>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

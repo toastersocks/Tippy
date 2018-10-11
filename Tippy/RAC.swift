@@ -22,19 +22,19 @@ struct RAC  {
     }
     
     
-    func assignSignal(signal : RACSignal) {
-        signal.setKeyPath(self.keyPath, onObject: self.target, nilValue: self.nilValue)
+    func assignSignal(_ signal : RACSignal) {
+        signal.setKeyPath(self.keyPath, on: self.target, nilValue: self.nilValue)
     }
 }
 
-infix operator <~ {}
+infix operator <~
 
 func <~ (rac: RAC, signal: RACSignal) {
     rac.assignSignal(signal)
 }
 
 
-infix operator ~> {}
+infix operator ~>
 
 func ~> (signal: RACSignal, rac: RAC) {
     rac.assignSignal(signal)

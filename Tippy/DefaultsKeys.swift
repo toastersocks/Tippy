@@ -10,17 +10,18 @@ import Foundation
 import SwiftyUserDefaults
 
 @objc enum PercentageFormat: Int {
-    case Decimal = 0
-    case WholeNumber = 1
+    case decimal = 0
+    case wholeNumber = 1
 }
 
 extension DefaultsKeys {
     
     static let percentageFormat = DefaultsKey<Int>("percentageFormat")
     static let roundToNearest = DefaultsKey<Double>("roundToNearest")
+    static let showWalkthrough = DefaultsKey<Bool>("showWalkthrough")
 }
 
-extension NSUserDefaults {
+extension UserDefaults {
     subscript(key: DefaultsKey<Int?>) -> Int? {
         get {
             guard let value = unarchive(key) else { return nil }

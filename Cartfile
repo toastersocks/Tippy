@@ -1,9 +1,9 @@
 github "ReactiveCocoa/ReactiveCocoa" "v2.5"
-
-git "https://bitbucket.org/toastersocks/tipout"
-
+git "https://bitbucket.org/toastersocks/tipout" ~> 4.0
 github "ViccAlexander/Chameleon"
-
-github "tomvanzummeren/TZStackView"
-
+#github "tomvanzummeren/TZStackView"
 github "radex/SwiftyUserDefaults"
+github "yukiasai/Gecco" "master"
+#github "mixpanel/mixpanel-swift" "v2.1.1"
+github "Orderella/PopupDialog" ~> 0.5
+github "carloe/LicenseGenerator-iOS" ~> 0.6

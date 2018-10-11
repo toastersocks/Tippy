@@ -1,0 +1,12 @@
+
+/* Class = "UISegmentedControl"; Ust-gp-wXs.segmentTitles[0] = "Amount"; ObjectID = "Ust-gp-wXs"; */
+"Ust-gp-wXs.segmentTitles[0]" = "Amount";
+
+/* Class = "UISegmentedControl"; Ust-gp-wXs.segmentTitles[1] = "Percentage"; ObjectID = "Ust-gp-wXs"; */
+"Ust-gp-wXs.segmentTitles[1]" = "Percentage";
+
+/* Class = "UILabel"; text = "Split by..."; ObjectID = "e7M-nY-YFV"; */
+"e7M-nY-YFV.text" = "Split by...";
+
+/* Class = "UITextField"; placeholder = "Amount"; ObjectID = "nTD-il-x04"; */
+"nTD-il-x04.placeholder" = "Amount";

@@ -15,9 +15,9 @@ import ReactiveCocoa
     var workerViewModels: [WorkerViewModelType] { get }
     
 //    func addWorkerWithName(name: String, method: String, value: String, atIndex index: Int)
-    func addWorkerWithName(name: String, method: TipoutView.TipoutViewField, value: String, atIndex index: Int)
-    func removeWorkerAtIndex(index: Int)
-    func viewModelForWorkerAtIndex(index: Int) -> WorkerViewModelType
+    func addWorkerWithName(_ name: String, method: TipoutViewField, value: String, atIndex index: Int)
+    func removeWorkerAtIndex(_ index: Int)
+    func viewModelForWorkerAtIndex(_ index: Int) -> WorkerViewModelType
     subscript(index: Int) -> WorkerViewModelType { get }
     
     func rac_totalTextSignal() -> RACSignal!
